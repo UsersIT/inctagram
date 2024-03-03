@@ -7,7 +7,6 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "format": "prettier --write src",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
@@ -16,14 +15,15 @@
     "@radix-ui/primitive": "^1.0.1",
     "@reduxjs/toolkit": "^2.2.1",
     "axios": "^1.6.7",
-    "next": "14.1.0",
     "react": "^18",
     "react-dom": "^18",
+    "next": "14.1.1",
     "react-hook-form": "^7.50.1",
     "react-redux": "^9.1.0",
     "zod": "^3.22.4"
   },
   "devDependencies": {
+    "typescript": "^5",
     "@it-incubator/eslint-config": "^1.0.2",
     "@it-incubator/prettier-config": "^0.1.2",
     "@it-incubator/stylelint-config": "^1.0.3",
@@ -39,12 +39,11 @@
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "^8",
-    "eslint-config-next": "14.1.0",
+    "eslint-config-next": "14.1.1",
     "eslint-plugin-storybook": "^0.8.0",
     "prettier": "^3.2.5",
     "sass": "^1.71.1",
     "storybook": "^7.6.17",
-    "stylelint": "^16.1.0",
-    "typescript": "^5"
+    "stylelint": "^16.1.0"
   }
 }

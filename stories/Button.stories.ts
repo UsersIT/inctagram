@@ -1,13 +1,10 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react';
 
-import { Button } from './Button'
+import { Button } from './Button';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  // More on argTypes: https://storybook.js.org/docs/api/argtypes
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
+  title: 'Example/Button',
   component: Button,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
@@ -15,36 +12,39 @@ const meta = {
   },
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ['autodocs'],
-  title: 'Example/Button',
-} satisfies Meta<typeof Button>
+  // More on argTypes: https://storybook.js.org/docs/api/argtypes
+  argTypes: {
+    backgroundColor: { control: 'color' },
+  },
+} satisfies Meta<typeof Button>;
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
-export const Primary: { args: { label: string; primary: boolean } } = {
+export const Primary: Story = {
   args: {
-    label: 'Button',
     primary: true,
+    label: 'Button',
   },
-}
+};
 
-export const Secondary: { args: { label: string } } = {
+export const Secondary: Story = {
   args: {
     label: 'Button',
   },
-}
+};
 
-export const Large: { args: { label: string; size: string } } = {
+export const Large: Story = {
   args: {
-    label: 'Button',
     size: 'large',
-  },
-}
-
-export const Small: { args: { label: string; size: string } } = {
-  args: {
     label: 'Button',
-    size: 'small',
   },
-}
+};
+
+export const Small: Story = {
+  args: {
+    size: 'small',
+    label: 'Button',
+  },
+};
