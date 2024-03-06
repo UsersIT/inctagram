@@ -6,7 +6,7 @@ RUN npm ci
 FROM node:18.17 as builder
 WORKDIR /app
 COPY . .
-COPY --from=dependencies /inctagram/node_modules ./node_modules
+COPY --from=dependencies /app/node_modules ./node_modules
 RUN npm run build
 
 FROM node:18.17 as runner
