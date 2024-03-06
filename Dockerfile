@@ -1,15 +1,15 @@
-FROM node:18.15 as dependencies
+FROM node:18.17 as dependencies
 WORKDIR /inctagram
 COPY package*.json ./
 RUN npm ci
 
-FROM node:18.15 as builder
+FROM node:18.17 as builder
 WORKDIR /inctagram
 COPY . .
 COPY --from=dependencies /inctagram/node_modules ./node_modules
 RUN npm run build
 
-FROM node:18.15 as runner
+FROM node:18.17 as runner
 WORKDIR /inctagram
 ENV NODE_ENV production
 # If you are using a custom next.config.js file, uncomment this line.
