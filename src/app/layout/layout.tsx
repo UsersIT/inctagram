@@ -4,7 +4,11 @@ import Link from 'next/link'
 
 import styles from './layout.module.scss'
 
-const Layout = ({ children }) => {
+type Props = {
+  children: React.ReactNode
+}
+
+const Layout = ({ children }: Props) => {
   return (
     <div className={styles.flex}>
       <nav>
