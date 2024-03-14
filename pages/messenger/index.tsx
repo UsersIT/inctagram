@@ -1,7 +1,14 @@
-import React from 'react'
+import type { NextPageWithLayout } from '../_app'
 
-const Index = () => {
+import type { ReactElement } from 'react'
+
+import Layout from '@/src/app/layout/layout'
+const Page: NextPageWithLayout = () => {
   return <h1>Messenger</h1>
 }
 
-export default Index
+Page.getLayout = function getLayout(page: ReactElement) {
+  return <Layout>{page}</Layout>
+}
+
+export default Page
