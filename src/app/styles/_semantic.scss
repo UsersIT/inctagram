@@ -1,0 +1,14 @@
+:root {
+  /* text */
+  --color-text-primary: var(--color-light-100);
+  --color-text-secondary: var(--color-light-900);
+  --color-text-error: var(--color-danger-500);
+  --color-text-link: var(--color-accent-300);
+  --color-text-disabled: var(--color-dark-100);
+
+  /* borders */
+  --color-outline-focus: var(--color-accent-700);
+
+  /* backgrounds */
+  --color-bg-primary: var(--color-dark-700);
+}

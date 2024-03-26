@@ -10,6 +10,8 @@ html {
 *::before,
 *::after {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 input,
@@ -29,13 +31,17 @@ a:visited {
   color: inherit;
 }
 
+ul {
+  list-style: none;
+}
+
 body {
+  min-width: 360px;
   margin: 0;
   padding: 0;
 
-  font-family: var(--font-family-primary), sans-serif;
   line-height: var(--line-height-m);
-  color: var(--color-light-100);
+  color: var(--color-text-primary);
 
-  background-color: var(--color-dark-900);
+  background-color: var(--color-bg-primary);
 }

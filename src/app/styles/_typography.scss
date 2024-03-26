@@ -1,0 +1,60 @@
+:root {
+  /* line heights */
+  --line-height-s: 16px;
+  --line-height-m: 24px;
+  --line-height-l: 36px;
+
+  /* font sizes */
+  --font-size-xs: 0.75rem; /* 12px */
+  --font-size-s: 0.875rem; /* 14px */
+  --font-size-m: 1rem; /* 16px */
+  --font-size-l: 1.125rem; /* 18px */
+  --font-size-xl: 1.25rem; /* 20px */
+  --font-size-xxl: 1.625rem; /* 26px */
+
+  /* font weights */
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semi-bold: 600;
+  --font-weight-bold: 700;
+}
+
+@mixin typography($fontSize, $lineHeight, $fontWeight) {
+  margin: 0;
+
+  font-size: $fontSize;
+  font-weight: $fontWeight;
+  line-height: $lineHeight;
+  color: var(--color-text-primary);
+}
+
+/* Large */
+.typography-logo {
+  @include typography(var(--font-size-xxl), var(--line-height-l), var(--font-weight-semi-bold));
+}
+
+/* H1 */
+.typography-h1 {
+  @include typography(var(--font-size-xl), var(--line-height-l), var(--font-weight-bold));
+}
+
+/* H2 */
+.typography-h2 {
+  @include typography(var(--font-size-l), var(--line-height-m), var(--font-weight-bold));
+}
+
+/* H3 */
+.typography-h3 {
+  @include typography(var(--font-size-m), var(--line-height-m), var(--font-weight-semi-bold));
+}
+
+/* regular_text 16 */
+.typography-body1 {
+  @include typography(var(--font-size-m), var(--line-height-m), var(--font-weight-regular));
+}
+
+/* regular_text 14 */
+.typography-body2 {
+  @include typography(var(--font-size-s), var(--line-height-m), var(--font-weight-regular));
+}
