@@ -28,33 +28,3 @@
   line-height: $lineHeight;
   color: var(--color-text-primary);
 }
-
-/* Large */
-.typography-logo {
-  @include typography(var(--font-size-xxl), var(--line-height-l), var(--font-weight-semi-bold));
-}
-
-/* H1 */
-.typography-h1 {
-  @include typography(var(--font-size-xl), var(--line-height-l), var(--font-weight-bold));
-}
-
-/* H2 */
-.typography-h2 {
-  @include typography(var(--font-size-l), var(--line-height-m), var(--font-weight-bold));
-}
-
-/* H3 */
-.typography-h3 {
-  @include typography(var(--font-size-m), var(--line-height-m), var(--font-weight-semi-bold));
-}
-
-/* regular_text 16 */
-.typography-body1 {
-  @include typography(var(--font-size-m), var(--line-height-m), var(--font-weight-regular));
-}
-
-/* regular_text 14 */
-.typography-body2 {
-  @include typography(var(--font-size-s), var(--line-height-m), var(--font-weight-regular));
-}
