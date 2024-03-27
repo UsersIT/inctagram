@@ -11,7 +11,7 @@ import cn from 'clsx'
 
 import s from './typography.module.scss'
 
-import { TypographyVariant } from './typographyVariant.enum'
+import { TypographyVariants } from './typographyVariants'
 
 type TextAlign = 'center' | 'inherit' | 'left' | 'right'
 
@@ -19,7 +19,7 @@ type Props<T extends ElementType = 'p'> = {
   as?: T
   className?: string
   textAlign?: TextAlign
-  variant?: TypographyVariant
+  variant?: (typeof TypographyVariants)[keyof typeof TypographyVariants]
 } & ComponentPropsWithoutRef<T>
 
 type TypographyComponent = <T extends ElementType = 'p'>(
@@ -33,7 +33,7 @@ export const Typography: React.FC<TypographyComponent> = forwardRef(
       children,
       className,
       textAlign = 'left',
-      variant = TypographyVariant.RegularText14,
+      variant = TypographyVariants.RegularText14,
       ...rest
     }: Props<T>,
     ref: ElementRef<T>

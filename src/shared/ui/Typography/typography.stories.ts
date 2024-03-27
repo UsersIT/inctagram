@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
 import { Typography } from './index'
-import { TypographyVariant } from './typographyVariant.enum'
+import { TypographyVariants } from './typographyVariants'
 
 const meta = {
   argTypes: {
@@ -18,21 +18,7 @@ const meta = {
     variant: {
       control: 'select',
       description: 'Typography display style',
-      options: {
-        BoldText14: 'bold-text-14',
-        BoldText16: 'bold-text-16',
-        H1: 'h1',
-        H2: 'h2',
-        H3: 'h3',
-        Large: 'large',
-        MediumText14: 'medium-text-14',
-        RegularLink: 'regular-link',
-        RegularText14: 'regular-text-14',
-        RegularText16: 'regular-text-16',
-        SemiBoldSmallText: 'semi-bold-small-text',
-        SmallLink: 'small-link',
-        SmallText: 'small-text',
-      },
+      options: TypographyVariants,
     },
   },
   component: Typography,
@@ -49,89 +35,89 @@ const demoText = 'Carosserie Test Zürich\nStauffacherstrasse 31\n8004 Zürich, 
 export const Large: Story = {
   args: {
     children: `Large:\n${demoText}`,
-    variant: TypographyVariant.Large,
+    variant: TypographyVariants.Large,
   },
 }
 export const Heading1: Story = {
   args: {
     children: `H1:\n${demoText}`,
-    variant: TypographyVariant.H1,
+    variant: TypographyVariants.H1,
   },
 }
 
 export const Heading2: Story = {
   args: {
     children: `H2:\n${demoText}`,
-    variant: TypographyVariant.H2,
+    variant: TypographyVariants.H2,
   },
 }
 
 export const Heading3: Story = {
   args: {
     children: `H3:\n${demoText}`,
-    variant: TypographyVariant.H3,
+    variant: TypographyVariants.H3,
   },
 }
 
 export const RegularText16: Story = {
   args: {
     children: `Regular Text 16:\n${demoText}`,
-    variant: TypographyVariant.RegularText16,
+    variant: TypographyVariants.RegularText16,
   },
 }
 
 export const BoldText16: Story = {
   args: {
     children: `Bold Text 16:\n${demoText}`,
-    variant: TypographyVariant.BoldText16,
+    variant: TypographyVariants.BoldText16,
   },
 }
 
 export const RegularText14: Story = {
   args: {
     children: `Regular Text 14:\n${demoText}`,
-    variant: TypographyVariant.RegularText14,
+    variant: TypographyVariants.RegularText14,
   },
 }
 
 export const MediumText14: Story = {
   args: {
     children: `Medium Text 14:\n${demoText}`,
-    variant: TypographyVariant.MediumText14,
+    variant: TypographyVariants.MediumText14,
   },
 }
 
 export const BoldText14: Story = {
   args: {
     children: `Bold Text 14:\n${demoText}`,
-    variant: TypographyVariant.BoldText14,
+    variant: TypographyVariants.BoldText14,
   },
 }
 
 export const SmallText: Story = {
   args: {
     children: `Small Text:\n${demoText}`,
-    variant: TypographyVariant.SmallText,
+    variant: TypographyVariants.SmallText,
   },
 }
 
 export const SemiBoldSmallText: Story = {
   args: {
     children: `Semi Bold Small Text:\n${demoText}`,
-    variant: TypographyVariant.SemiBoldSmallText,
+    variant: TypographyVariants.SemiBoldSmallText,
   },
 }
 
 export const RegularLink: Story = {
   args: {
     children: `Regular Link:\n${demoText}`,
-    variant: TypographyVariant.RegularLink,
+    variant: TypographyVariants.RegularLink,
   },
 }
 
 export const SmallLink: Story = {
   args: {
     children: `Small Link:\n${demoText}`,
-    variant: TypographyVariant.SmallLink,
+    variant: TypographyVariants.SmallLink,
   },
 }
