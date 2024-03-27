@@ -1,6 +1,6 @@
 import { Ref, SVGProps, forwardRef, memo } from 'react'
 
-const BellOutline = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>) => (
+const SvgComponent = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>) => (
   <svg
     fill={'none'}
     height={'24'}
@@ -20,6 +20,4 @@ const BellOutline = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>) =>
   </svg>
 )
 
-const ForwardRef = forwardRef(BellOutline)
-
-export default memo(ForwardRef)
+export const BellOutline = memo(forwardRef(SvgComponent))

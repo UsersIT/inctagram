@@ -1,6 +1,6 @@
 import { Ref, SVGProps, forwardRef, memo } from 'react'
 
-const RussiaFlag = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>) => (
+const SvgComponent = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>) => (
   <svg
     fill={'none'}
     height={'24'}
@@ -28,6 +28,4 @@ const RussiaFlag = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>) => 
   </svg>
 )
 
-const ForwardRef = forwardRef(RussiaFlag)
-
-export default memo(ForwardRef)
+export const RussiaFlag = memo(forwardRef(SvgComponent))

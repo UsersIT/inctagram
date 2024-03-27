@@ -1,6 +1,6 @@
 import { Ref, SVGProps, forwardRef, memo } from 'react'
 
-const BellFilled = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>) => (
+const SvgComponent = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>) => (
   <svg
     fill={'none'}
     height={24}
@@ -43,6 +43,4 @@ const BellFilled = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>) => 
   </svg>
 )
 
-const ForwardRef = forwardRef(BellFilled)
-
-export default memo(ForwardRef)
+export const BellFilled = memo(forwardRef(SvgComponent))

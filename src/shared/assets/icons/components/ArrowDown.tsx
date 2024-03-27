@@ -1,6 +1,6 @@
 import { Ref, SVGProps, forwardRef, memo } from 'react'
 
-const ArrowDown = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>) => (
+const SvgComponent = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>) => (
   <svg
     fill={'none'}
     height={24}
@@ -26,6 +26,4 @@ const ArrowDown = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>) => (
   </svg>
 )
 
-const ForwardRef = forwardRef(ArrowDown)
-
-export default memo(ForwardRef)
+export const ArrowDown = memo(forwardRef(SvgComponent))

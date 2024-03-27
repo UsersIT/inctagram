@@ -1,7 +1,7 @@
 /* eslint-disable max-lines */
 import { Ref, SVGProps, forwardRef, memo } from 'react'
 
-const SignUpTimeManagement = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>) => (
+const SvgComponent = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>) => (
   <svg
     fill={'none'}
     height={353}
@@ -327,6 +327,4 @@ const SignUpTimeManagement = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGEle
   </svg>
 )
 
-const ForwardRef = forwardRef(SignUpTimeManagement)
-
-export default memo(ForwardRef)
+export const SignUpTimeManagement = memo(forwardRef(SvgComponent))

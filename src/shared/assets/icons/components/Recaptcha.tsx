@@ -1,6 +1,6 @@
 import { Ref, SVGProps, forwardRef, memo } from 'react'
 
-const Recaptcha = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>) => (
+const SvgComponent = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>) => (
   <svg
     fill={'none'}
     height={24}
@@ -36,6 +36,4 @@ const Recaptcha = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>) => (
   </svg>
 )
 
-const ForwardRef = forwardRef(Recaptcha)
-
-export default memo(ForwardRef)
+export const Recaptcha = memo(forwardRef(SvgComponent))

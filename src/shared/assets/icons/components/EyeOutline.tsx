@@ -1,6 +1,6 @@
 import { Ref, SVGProps, forwardRef, memo } from 'react'
 
-const EyeOutline = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>) => (
+const SvgComponent = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>) => (
   <svg
     fill={'none'}
     height={24}
@@ -27,6 +27,4 @@ const EyeOutline = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>) => 
   </svg>
 )
 
-const ForwardRef = forwardRef(EyeOutline)
-
-export default memo(ForwardRef)
+export const EyeOutline = memo(forwardRef(SvgComponent))

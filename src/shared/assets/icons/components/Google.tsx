@@ -1,6 +1,6 @@
 import { Ref, SVGProps, forwardRef, memo } from 'react'
 
-const Google = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>) => (
+const SvgComponent = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>) => (
   <svg
     fill={'none'}
     height={24}
@@ -43,6 +43,4 @@ const Google = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>) => (
   </svg>
 )
 
-const ForwardRef = forwardRef(Google)
-
-export default memo(ForwardRef)
+export const Google = memo(forwardRef(SvgComponent))
