@@ -14,17 +14,18 @@
   "dependencies": {
     "@fontsource/roboto": "^5.0.8",
     "@radix-ui/primitive": "^1.0.1",
+    "@radix-ui/react-label": "^2.0.2",
     "@reduxjs/toolkit": "^2.2.1",
     "axios": "^1.6.7",
+    "clsx": "^2.1.0",
+    "next": "14.1.1",
     "react": "^18",
     "react-dom": "^18",
-    "next": "14.1.1",
     "react-hook-form": "^7.50.1",
     "react-redux": "^9.1.0",
     "zod": "^3.22.4"
   },
   "devDependencies": {
-    "typescript": "^5",
     "@it-incubator/eslint-config": "^1.0.2",
     "@it-incubator/prettier-config": "^0.1.2",
     "@it-incubator/stylelint-config": "^1.0.3",
@@ -45,6 +46,7 @@
     "prettier": "^3.2.5",
     "sass": "^1.71.1",
     "storybook": "^7.6.17",
-    "stylelint": "^16.1.0"
+    "stylelint": "^16.1.0",
+    "typescript": "^5"
   }
 }
