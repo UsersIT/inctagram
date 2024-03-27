@@ -1,0 +1,1 @@
+export { Trans } from './Trans'
