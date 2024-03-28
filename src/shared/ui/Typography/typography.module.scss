@@ -1,0 +1,61 @@
+@import 'src/app/styles/typography';
+
+.large {
+  @include typography(var(--font-size-xxl), var(--line-height-l), var(--font-weight-semi-bold));
+}
+
+.h1 {
+  @include typography(var(--font-size-xl), var(--line-height-l), var(--font-weight-bold));
+}
+
+.h2 {
+  @include typography(var(--font-size-l), var(--line-height-m), var(--font-weight-bold));
+}
+
+.h3 {
+  @include typography(var(--font-size-m), var(--line-height-m), var(--font-weight-semi-bold));
+}
+
+.regular-text-16 {
+  @include typography(var(--font-size-m), var(--line-height-m), var(--font-weight-regular));
+}
+
+.bold-text-16 {
+  @include typography(var(--font-size-m), var(--line-height-m), var(--font-weight-bold));
+}
+
+.regular-text-14 {
+  @include typography(var(--font-size-s), var(--line-height-m), var(--font-weight-regular));
+}
+
+.medium-text-14 {
+  @include typography(var(--font-size-s), var(--line-height-m), var(--font-weight-medium));
+}
+
+.bold-text-14 {
+  @include typography(var(--font-size-s), var(--line-height-m), var(--font-weight-bold));
+}
+
+.small-text {
+  @include typography(var(--font-size-xs), var(--line-height-s), var(--font-weight-regular));
+}
+
+.semi-bold-small-text {
+  @include typography(var(--font-size-xs), var(--line-height-s), var(--font-weight-semi-bold));
+}
+
+.regular-link {
+  @include typography(var(--font-size-s), var(--line-height-m), var(--font-weight-regular));
+
+  cursor: pointer;
+  color: var(--color-accent-500);
+  text-decoration-line: underline;
+}
+
+.small-link {
+  @include typography(var(--font-size-xs), var(--line-height-d), var(--font-weight-regular));
+
+  cursor: pointer;
+  color: var(--color-accent-500);
+  text-decoration-line: underline;
+}
