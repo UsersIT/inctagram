@@ -112,7 +112,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
           )}
           {type === 'password' && (
             <div
-              className={`${s.eyesIcon} ${isInputFocused ? s.iconFocused : ''}`}
+              className={`${s.input__eyesIcon} ${isInputFocused ? s.input__iconFocused : ''}`}
               onClick={() => setIsPassword(!isPassword)}
             >
               {isPassword ? <Eye /> : <EyeOff />}
