@@ -4,13 +4,43 @@ import { Button } from '.'
 
 const meta = {
   argTypes: {
+    as: {
+      control: {
+        type: 'text',
+      },
+      description:
+        'The component used for the root node. Either a string to use an HTML element or a component.',
+      table: {
+        defaultValue: { summary: '"button"' },
+      },
+    },
+    fullWidth: {
+      control: { type: 'boolean' },
+      description: 'Sets the width of the element to 100% of the parent node',
+      options: ['true', 'false'],
+      table: {
+        defaultValue: { summary: '"false"' },
+      },
+    },
     onClick: { action: 'clicked' },
     variant: {
       control: { type: 'radio' },
       options: ['primary', 'secondary', 'outlined', 'text'],
+      table: {
+        defaultValue: { summary: '"primary"' },
+        type: { summary: "'primary', 'secondary', 'outlined', 'text'" },
+      },
     },
   },
+
   component: Button,
+  parameters: {
+    docs: {
+      description: {
+        component: 'Accepts all props of the native button element.',
+      },
+    },
+  },
   tags: ['autodocs'],
   title: 'components/Button',
 } satisfies Meta<typeof Button>
