@@ -1,0 +1,88 @@
+.container {
+  display: flex;
+  align-items: center;
+}
+
+.label {
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+
+  font-size: var(--font-size-s);
+  line-height: var(--line-height-m);
+  color: var(--color-text-primary);
+
+  &.disabled {
+    cursor: default;
+    color: var(--color-light-900);
+  }
+}
+
+.root {
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 18px;
+  height: 18px;
+
+  background-color: var(--color-bg-primary);
+  border: 2px solid var(--color-light-100);
+  border-radius: 2px;
+
+  &[data-state='checked'] {
+    background-color: var(--color-light-100);
+  }
+
+  &.disabled {
+    cursor: default;
+    background-color: var(--color-bg-primary);
+    border: 1px solid var(--color-dark-100);
+  }
+
+  &[data-state='checked']:disabled {
+    background-color: var(--color-dark-100);
+    border: 1px solid var(--color-dark-100);
+  }
+
+  &:active:not(.disabled) {
+    background-color: var(--color-light-100);
+  }
+}
+
+.buttonWrapper {
+  cursor: pointer;
+
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+
+  width: 36px;
+  height: 36px;
+
+  background-color: rgb(255 255 255 / 0%);
+  border-radius: 50%;
+
+  &.disabled {
+    cursor: initial;
+  }
+
+  &:focus-within,
+  &:hover:not(.disabled),
+  &:hover .root:not([data-state='checked']) {
+    background-color: var(--color-dark-300);
+  }
+
+  &:active:not(.disabled) {
+    background-color: var(--color-dark-100);
+  }
+}
+
+.indicator {
+  width: 24px;
+  height: 24px;
+}
