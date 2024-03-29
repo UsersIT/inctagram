@@ -2,7 +2,7 @@ import { useState } from 'react'
 
 import { Meta } from '@storybook/react'
 
-import { CheckBox } from './'
+import { CheckBox, CheckboxProps } from './'
 
 export default {
   component: CheckBox,
@@ -15,7 +15,7 @@ export const Default = {
     label: 'Click here',
   },
 
-  render: args => {
+  render: (args: CheckboxProps) => {
     const [checked, setChecked] = useState(true)
 
     return <CheckBox {...args} checked={checked} onChange={setChecked} />
