@@ -21,4 +21,4 @@ const SvgComponent = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>) =
   </svg>
 )
 
-export const CheckBoxSelected = memo(forwardRef(SvgComponent))
+export const CheckBoxSelectedIcon = memo(forwardRef(SvgComponent))

@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, ReactNode } from 'react'
 
 import * as CheckboxRadix from '@radix-ui/react-checkbox'
 import * as LabelRadix from '@radix-ui/react-label'
@@ -7,14 +7,14 @@ import { AnimatePresence, motion } from 'framer-motion'
 
 import s from './checkbox.module.scss'
 
-import { CheckBoxSelected } from './CheckBoxSelected'
+import { CheckBoxSelectedIcon } from './checkBoxSelectedIcon'
 
 export type CheckboxProps = {
   checked: boolean
   className?: string
   disabled?: boolean
   id?: string
-  label?: string
+  label?: ReactNode
   onChange: (checked: boolean) => void
   required?: boolean
 }
@@ -73,7 +73,7 @@ export const CheckBox: FC<CheckboxProps> = ({
                         },
                       }}
                     >
-                      <CheckBoxSelected
+                      <CheckBoxSelectedIcon
                         color={disabled ? 'var(--color-light-100)' : 'var(--color-dark-900)'}
                       />
                     </motion.div>
