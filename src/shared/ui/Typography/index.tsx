@@ -1,12 +1,5 @@
-import React, {
-  ComponentPropsWithoutRef,
-  ElementRef,
-  ElementType,
-  ReactNode,
-  forwardRef,
-} from 'react'
+import React, { ComponentPropsWithoutRef, ElementRef, ElementType, forwardRef } from 'react'
 
-import { PolymorphRef } from '@/src/shared/types/polymorphRef.type'
 import cn from 'clsx'
 
 import s from './typography.module.scss'
@@ -17,16 +10,13 @@ type TextAlign = 'center' | 'inherit' | 'left' | 'right'
 
 type Props<T extends ElementType = 'p'> = {
   as?: T
+  children: string
   className?: string
   textAlign?: TextAlign
   variant?: (typeof TypographyVariants)[keyof typeof TypographyVariants]
 } & ComponentPropsWithoutRef<T>
 
-type TypographyComponent = <T extends ElementType = 'p'>(
-  props: Props<T> & PolymorphRef<T>
-) => ReactNode
-
-export const Typography: React.FC<TypographyComponent> = forwardRef(
+export const Typography = forwardRef(
   <T extends ElementType = 'p'>(
     {
       as,
