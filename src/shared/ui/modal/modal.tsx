@@ -53,19 +53,21 @@ const dropIn = {
   },
 }
 
-export const Modal: FC<ModalProps> = ({
-  children,
-  className,
-  handleNextButton,
-  handlePreviousButton,
-  onClose,
-  open = false,
-  showCloseButton = false,
-  showNextButton = false,
-  showPreviousButton = false,
-  size = 'md',
-  title,
-}) => {
+export const Modal: FC<ModalProps> = props => {
+  const {
+    children,
+    className,
+    handleNextButton,
+    handlePreviousButton,
+    onClose,
+    open = false,
+    showCloseButton = false,
+    showNextButton = false,
+    showPreviousButton = false,
+    size = 'md',
+    title,
+  } = props
+
   function handleModalClosed() {
     onClose?.()
   }
