@@ -19,9 +19,9 @@ import { Button } from '../button'
 export type ModalSize = 'lg' | 'md' | 'sm'
 
 export type ModalProps = {
-  handleNextButton?: () => void
-  handlePreviousButton?: () => void
   onClose?: () => void
+  onNextButton?: () => void
+  onPreviousButton?: () => void
   open: boolean
   showCloseButton?: boolean
   showNextButton?: boolean
@@ -57,10 +57,10 @@ export const Modal: FC<ModalProps> = props => {
   const {
     children,
     className,
-    handleNextButton,
-    handlePreviousButton,
     onClose,
-    open = false,
+    onNextButton,
+    onPreviousButton,
+    open,
     showCloseButton = false,
     showNextButton = false,
     showPreviousButton = false,
@@ -100,7 +100,7 @@ export const Modal: FC<ModalProps> = props => {
                   {showPreviousButton && (
                     <Button
                       className={s.previousButton}
-                      onClick={handlePreviousButton}
+                      onClick={onPreviousButton}
                       variant={'text'}
                     >
                       <ArrowIosBack style={{ color: 'red' }} />
@@ -117,7 +117,7 @@ export const Modal: FC<ModalProps> = props => {
                     </DialogClose>
                   )}
                   {showNextButton && (
-                    <Button className={s.nextButton} onClick={handleNextButton} variant={'text'}>
+                    <Button className={s.nextButton} onClick={onNextButton} variant={'text'}>
                       Next
                     </Button>
                   )}
