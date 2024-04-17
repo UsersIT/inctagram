@@ -5,18 +5,31 @@ import { Button } from '.'
 const meta = {
   argTypes: {
     as: {
-      control: {
-        type: 'text',
-      },
+      control: { type: 'radio' },
       description:
         'The component used for the root node. Either a string to use an HTML element or a component.',
+      options: ['button', 'a'],
       table: {
         defaultValue: { summary: '"button"' },
       },
     },
+    className: { control: 'text' },
+    disabled: { control: 'boolean', if: { arg: 'as', eq: 'button' } },
     fullWidth: {
       control: { type: 'boolean' },
       description: 'Sets the width of the element to 100% of the parent node',
+      options: ['true', 'false'],
+      table: {
+        defaultValue: { summary: '"false"' },
+      },
+    },
+    href: {
+      control: 'text',
+      if: { arg: 'as', eq: 'a' },
+    },
+    isLoading: {
+      control: { type: 'boolean' },
+      description: 'Renders Spinner component if option is true',
       options: ['true', 'false'],
       table: {
         defaultValue: { summary: '"false"' },
@@ -31,6 +44,10 @@ const meta = {
         type: { summary: "'primary', 'secondary', 'outlined', 'text'" },
       },
     },
+  },
+  args: {
+    fullWidth: false,
+    href: 'https://google.com',
   },
 
   component: Button,
@@ -50,6 +67,7 @@ type Story = StoryObj<typeof meta>
 
 export const Primary: Story = {
   args: {
+    as: 'button',
     children: 'Primary Button',
     disabled: false,
     variant: 'primary',
@@ -58,6 +76,7 @@ export const Primary: Story = {
 
 export const Secondary: Story = {
   args: {
+    as: 'button',
     children: 'Secondary Button',
     disabled: false,
     variant: 'secondary',
@@ -65,6 +84,7 @@ export const Secondary: Story = {
 }
 export const Outlined: Story = {
   args: {
+    as: 'button',
     children: 'Outlined Button',
     disabled: false,
     variant: 'outlined',
@@ -72,6 +92,7 @@ export const Outlined: Story = {
 }
 export const Text: Story = {
   args: {
+    as: 'button',
     children: 'Button that looks like a link',
     disabled: false,
     variant: 'text',
@@ -80,6 +101,7 @@ export const Text: Story = {
 
 export const FullWidth: Story = {
   args: {
+    as: 'button',
     children: 'Full Width Button',
     disabled: false,
     fullWidth: true,
@@ -95,6 +117,15 @@ export const AsLink: Story = {
     href: 'https://google.com',
     rel: 'noopener noreferrer',
     target: '_blank',
+    variant: 'primary',
+  },
+}
+export const LoadingButton: Story = {
+  args: {
+    as: 'button',
+    children: 'Sign In',
+    disabled: false,
+    isLoading: true,
     variant: 'primary',
   },
 }
