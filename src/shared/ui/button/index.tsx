@@ -1,11 +1,7 @@
 /* eslint-disable react/display-name */
-import {
-  ComponentPropsWithRef,
-  ComponentPropsWithoutRef,
-  ElementType,
-  ReactNode,
-  forwardRef,
-} from 'react'
+import type { PolymorphPropsWithRef, PolymorphRef } from '../../types/polymorph'
+
+import { ElementType, ReactNode, forwardRef } from 'react'
 
 import { clsx } from 'clsx'
 
@@ -15,29 +11,11 @@ import { Spinner } from '../spinner'
 
 type ButtonVariant = 'outlined' | 'primary' | 'secondary' | 'text'
 
-type AsPolymorphProp<T extends ElementType> = {
-  as?: T
-}
-
 type ElementProps = {
   fullWidth?: boolean
   isLoading?: boolean
   variant?: ButtonVariant
 }
-
-type PolymorphProps<T extends ElementType, ElementProps = {}> = AsPolymorphProp<T> &
-  ElementProps &
-  Omit<ComponentPropsWithoutRef<T>, keyof (ElementProps & AsPolymorphProp<T>)>
-
-type PolymorphRef<T extends ElementType> = ComponentPropsWithRef<T>['ref']
-
-type PolymorphPropRef<T extends ElementType> = { ref?: PolymorphRef<T> }
-
-type PolymorphPropsWithRef<T extends ElementType, ElementProps = {}> = PolymorphProps<
-  T,
-  ElementProps
-> &
-  PolymorphPropRef<T>
 
 type TagComponent = <T extends ElementType = 'button'>(
   props: PolymorphPropsWithRef<T, ElementProps>
