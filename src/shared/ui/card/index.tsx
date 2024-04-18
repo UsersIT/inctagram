@@ -1,5 +1,7 @@
 import { ComponentProps, FC, ReactNode } from 'react'
 
+import clsx from 'clsx'
+
 import s from './card.module.scss'
 
 type CardProps = {
@@ -8,7 +10,7 @@ type CardProps = {
 
 export const Card: FC<CardProps> = ({ children, className, ...rest }: CardProps) => {
   return (
-    <div className={s.box} {...rest}>
+    <div className={clsx(s.box, className)} {...rest}>
       {children}
     </div>
   )
