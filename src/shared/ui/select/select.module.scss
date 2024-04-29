@@ -115,6 +115,7 @@
 }
 
 .itemContent {
+  position: relative;
   display: flex;
   gap: 12px;
   align-items: center;
@@ -122,6 +123,7 @@
 
 .itemLabel {
   overflow: hidden;
+  display: inline-block;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -188,7 +190,9 @@
 
   .itemLabel {
     &.language {
-      display: none;
+      position: absolute;
+      width: 0;
+      height: 0;
     }
   }
 }
