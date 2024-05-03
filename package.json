@@ -16,6 +16,8 @@
     "@radix-ui/primitive": "^1.0.1",
     "@radix-ui/react-checkbox": "^1.0.4",
     "@radix-ui/react-label": "^2.0.2",
+    "@radix-ui/react-scroll-area": "^1.0.5",
+    "@radix-ui/react-select": "^2.0.0",
     "@reduxjs/toolkit": "^2.2.1",
     "axios": "^1.6.7",
     "clsx": "^2.1.0",
