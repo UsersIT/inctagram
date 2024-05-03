@@ -81,7 +81,7 @@ export const DefaultModal: Story = {
       <>
         <Button onClick={() => setOpen(true)}>Open Modal</Button>
         <Modal {...args} onClose={handleModalOpen} open={open}>
-          Modal content here
+          <div style={{ padding: ' 23px 24px 23px' }}> Modal content here </div>
         </Modal>
       </>
     )
