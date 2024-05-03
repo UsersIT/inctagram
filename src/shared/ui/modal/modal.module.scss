@@ -62,8 +62,8 @@ $color-bg-element: var(--color-dark-300);
 .title {
   margin: 0;
   font-size: var(--font-size-xl);
-  font-weight: 700;
-  line-height: var(--line-height-m);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-l);
 }
 
 .contentBox {
