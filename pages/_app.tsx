@@ -3,6 +3,7 @@ import type { AppProps } from 'next/app'
 
 import type { ReactElement, ReactNode } from 'react'
 
+import { ToastProvider } from '@/src/app/providers/toasts'
 import { Inter } from 'next/font/google'
 
 import '../src/app/styles/index.scss'
@@ -29,6 +30,7 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
         }
       `}</style>
       <Component {...pageProps} />
+      <ToastProvider />
     </>
   )
 }
