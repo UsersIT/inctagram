@@ -33,7 +33,7 @@ const TypographyPolymorph: TagComponent = forwardRef(
     } = props
 
     return (
-      <Tag className={cn(s[variant], className)} ref={ref} style={{ textAlign }} {...rest}>
+      <Tag className={cn(s[variant], s[`align-${textAlign}`], className)} ref={ref} {...rest}>
         {children}
       </Tag>
     )
