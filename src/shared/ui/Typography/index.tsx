@@ -1,12 +1,7 @@
-import React, {
-  ComponentPropsWithoutRef,
-  ElementRef,
-  ElementType,
-  ReactNode,
-  forwardRef,
-} from 'react'
+/* eslint-disable react/display-name */
+import React, { ElementType, ReactNode, forwardRef } from 'react'
 
-import { PolymorphRef } from '@/src/shared/types/polymorphRef.type'
+import { PolymorphPropsWithRef, PolymorphRef } from '@/src/shared/types/polymorph'
 import cn from 'clsx'
 
 import s from './typography.module.scss'
@@ -15,37 +10,34 @@ import { TypographyVariants } from './typographyVariants'
 
 type TextAlign = 'center' | 'inherit' | 'left' | 'right'
 
-type Props<T extends ElementType = 'p'> = {
-  as?: T
+type ElementProps = {
+  children: string
   className?: string
   textAlign?: TextAlign
   variant?: (typeof TypographyVariants)[keyof typeof TypographyVariants]
-} & ComponentPropsWithoutRef<T>
+}
 
-type TypographyComponent = <T extends ElementType = 'p'>(
-  props: Props<T> & PolymorphRef<T>
+type TagComponent = <T extends ElementType = 'p'>(
+  props: PolymorphPropsWithRef<T, ElementProps>
 ) => ReactNode
 
-export const Typography: React.FC<TypographyComponent> = forwardRef(
-  <T extends ElementType = 'p'>(
-    {
-      as,
+const TypographyPolymorph: TagComponent = forwardRef(
+  <T extends ElementType = 'button'>(props: PolymorphPropsWithRef<T>, ref?: PolymorphRef<T>) => {
+    const {
+      as: Tag = 'p',
       children,
       className,
       textAlign = 'left',
       variant = TypographyVariants.RegularText14,
       ...rest
-    }: Props<T>,
-    ref: ElementRef<T>
-  ) => {
-    const Component: ElementType = as || 'p'
+    } = props
 
     return (
-      <Component className={cn(s[variant], className)} ref={ref} style={{ textAlign }} {...rest}>
+      <Tag className={cn(s[variant], s[`align-${textAlign}`], className)} ref={ref} {...rest}>
         {children}
-      </Component>
+      </Tag>
     )
   }
 )
 
-Typography.displayName = 'Typography'
+export const Typography = TypographyPolymorph
