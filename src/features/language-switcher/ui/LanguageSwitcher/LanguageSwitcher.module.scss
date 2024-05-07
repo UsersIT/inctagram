@@ -1,0 +1,9 @@
+.wrapper {
+  width: 163px;
+}
+
+@media screen and (width <= 576px) {
+  .wrapper {
+    width: unset;
+  }
+}
