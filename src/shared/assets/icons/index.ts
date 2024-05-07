@@ -1,6 +1,7 @@
 export { ArrowBack } from './components/ArrowBack'
 export { ArrowDown } from './components/ArrowDown'
 export { ArrowForward } from './components/ArrowForward'
+export { ArrowIosBack } from './components/ArrowIosBack'
 export { ArrowUp } from './components/ArrowUp'
 export { BellFilled } from './components/BellFilled'
 export { BellOutline } from './components/BellOutline'
