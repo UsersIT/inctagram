@@ -1,5 +1,6 @@
 export const ru = {
   buttons: {
+    backToSignUp: 'Вернуться к регистрации',
     languageSelection: 'Выбор языка',
   },
   profile: 'Профиль',
