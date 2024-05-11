@@ -30,4 +30,4 @@ export const API = {
       usersCount: '/api/v1/public-user',
     },
   },
-}
+} as const
