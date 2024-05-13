@@ -3,6 +3,7 @@ import type { AppProps } from 'next/app'
 
 import type { ReactElement, ReactNode } from 'react'
 
+import { StoreProvider } from '@/src/app/providers/store'
 import { ToastProvider } from '@/src/app/providers/toasts'
 import { Inter } from 'next/font/google'
 
@@ -29,7 +30,9 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
           font-family: ${inter.style.fontFamily};
         }
       `}</style>
-      <Component {...pageProps} />
+      <StoreProvider>
+        <Component {...pageProps} />
+      </StoreProvider>
       <ToastProvider />
     </>
   )

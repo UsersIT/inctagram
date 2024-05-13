@@ -20,6 +20,7 @@
     "@radix-ui/react-scroll-area": "^1.0.5",
     "@radix-ui/react-select": "^2.0.0",
     "@reduxjs/toolkit": "^2.2.1",
+    "async-mutex": "^0.5.0",
     "axios": "^1.6.7",
     "clsx": "^2.1.0",
     "framer-motion": "^11.0.24",
