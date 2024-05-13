@@ -4,7 +4,7 @@ export const BASE_URL = 'https://inctagram.work'
 export const URL =
   process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : 'https://picthentic.online'
 
-export const API = {
+export const apiEndpoints = {
   auth: {
     checkRecoveryCode: '/api/v1/auth/check-recovery-code',
     github: '/api/v1/auth/github/login',

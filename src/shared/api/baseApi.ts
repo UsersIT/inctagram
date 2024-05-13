@@ -9,7 +9,7 @@ import {
 } from '@reduxjs/toolkit/query/react'
 import { Mutex } from 'async-mutex'
 
-import { API, BASE_URL } from '../constants/api'
+import { BASE_URL, apiEndpoints } from '../constants/api'
 import { tokenStorage } from '../storage'
 
 const mutex = new Mutex()
@@ -42,7 +42,7 @@ const customFetchBase: BaseQueryFn<FetchArgs | string, unknown, FetchBaseQueryEr
 
       try {
         const refreshResult = await baseQuery(
-          { method: 'POST', url: API.auth.updateTokens },
+          { method: 'POST', url: apiEndpoints.auth.updateTokens },
           api,
           extraOptions
         )
