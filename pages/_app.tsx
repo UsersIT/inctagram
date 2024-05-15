@@ -10,13 +10,13 @@ import '../src/app/styles/index.scss'
 
 const inter = Inter({ subsets: ['latin', 'cyrillic'] })
 
-export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
+export type NextPageWithLayout<P = {}, IP = P> = {
   getLayout?: (page: ReactElement) => ReactNode
-}
+} & NextPage<P, IP>
 
-type AppPropsWithLayout = AppProps & {
+type AppPropsWithLayout = {
   Component: NextPageWithLayout
-}
+} & AppProps
 
 export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   // Use the layout defined at the page level, if available
