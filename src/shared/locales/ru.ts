@@ -1,6 +1,9 @@
 export const ru = {
   buttons: {
     backToSignUp: 'Вернуться к регистрации',
+    closeSearchFieldIcon: 'Удалить введённый поисковый запрос',
+    eyeIcon: 'Скрыть введённый пароль',
+    eyeOffIcon: 'Показать введённый пароль',
     languageSelection: 'Выбор языка',
   },
   pages: {
