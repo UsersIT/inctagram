@@ -7,6 +7,17 @@ export const en: LocaleType = {
     eyeIcon: 'Hide the entered password',
     eyeOffIcon: 'Show the entered password',
     languageSelection: 'Language selection',
+    login: 'Log in',
+    logout: 'Log Out',
+    resendLink: 'Resend verification link',
+    signIn: 'Sign In',
+    signUp: 'Sign Up',
+  },
+  label: {
+    email: 'Email',
+    password: 'Password',
+    passwordConfirmation: 'Password confirmation',
+    username: 'Username',
   },
   pages: {
     policies: {
@@ -41,6 +52,40 @@ export const en: LocaleType = {
         title: 'Terms of Service',
         welcomeText: `<1>Welcome to Picthentic!</1><2>Please read these terms of service ("Terms", "Terms of Service") carefully before using the Picthentic website and mobile application (the "Service") operated by Picthentic ("us", "we", or "our").</2><3>Your access to and use of the Service is conditioned on your acceptance of and compliance with these Terms. These Terms apply to all visitors, users, and others who access or use the Service.</3><4>By accessing or using the Service you agree to be bound by these Terms. If you disagree with any part of the terms then you may not access the Service.</4>`,
       },
+    },
+    registration: {
+      form: {
+        agreementText: 'I agree to the <1>Terms of Service</1> and <2>Privacy Policy</2>',
+      },
+      modal: {
+        text: 'We have sent a link to confirm your email to',
+        title: 'Email sent',
+      },
+      signInSuggestion: 'Do you have an account?',
+      title: 'Sign Up',
+    },
+    registrationConfirmation: {
+      errorMessage: "Email isn't valid or already confirmed",
+      successText: 'Your email has been confirmed',
+      successTitle: 'Congratulations!',
+      warningText:
+        'Looks like the verification link has expired. Not to worry, we can send the link again',
+      warningTitle: 'Email verification link expired',
+    },
+  },
+  validation: {
+    emailExists: 'Пользователь с таким email уже зарегистрирован',
+    emailFormat: 'Email должен соответствовать формату example@example.com',
+    maxLength: (len: number) => `Максимальное количество символов ${len}`,
+    minLength: (len: number) => `Минимальное количество символов ${len}`,
+    passwordConfirmation: 'Пароли должны совпадать',
+    passwordVerification: 'Пароль должен содержать ',
+    usernameExists: 'Пользователь с таким именем пользователя уже зарегистрирован',
+  },
+  widgets: {
+    linkExpiredLayout: {
+      text: 'Похоже, срок действия ссылки для проверки истек. Не волнуйтесь, мы можем отправить ссылку снова',
+      title: 'Срок действия ссылки для проверки email истек',
     },
   },
 }

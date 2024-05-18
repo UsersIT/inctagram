@@ -5,6 +5,17 @@ export const ru = {
     eyeIcon: 'Скрыть введённый пароль',
     eyeOffIcon: 'Показать введённый пароль',
     languageSelection: 'Выбор языка',
+    login: 'Войти',
+    logout: 'Выйти',
+    resendLink: 'Отправить повторно',
+    signIn: 'Войти',
+    signUp: 'Зарегистрироваться',
+  },
+  label: {
+    email: 'Электронная почта',
+    password: 'Пароль',
+    passwordConfirmation: 'Подтверждение пароля',
+    username: 'Имя пользователя',
   },
   pages: {
     policies: {
@@ -39,6 +50,41 @@ export const ru = {
         title: 'Условия использования',
         welcomeText: `<1>Добро пожаловать в Picthentic!</1><2>Пожалуйста, внимательно прочтите эти условия использования ("Условия", "Пользовательское соглашение") перед использованием веб-сайта и мобильного приложения Picthentic («Сервис»), управляемого компанией Picthentic ("мы", "нас" или "наш").</2><3>Доступ к и использование Сервиса подразумевает ваше согласие с данными Условиями. Эти Условия применяются ко всем посетителям, пользователям и другим лицам, которые получают доступ к Сервису или используют его.</3><4>Используя или получая доступ к Сервису, вы соглашаетесь соблюдать эти Условия. Если вы не согласны с какой-либо частью условий, вы не можете получать доступ к Сервису.</4>`,
       },
+    },
+    registration: {
+      form: {
+        agreementText:
+          'Я соглашаюсь с <1>Условиями использования</1> и <2>Политикой конфиденциальности</2>',
+      },
+      modal: {
+        text: 'Мы отправили письмо со ссылкой для подтверждения Вашей электронной почты на',
+        title: 'Письмо отправлено',
+      },
+      signInSuggestion: 'Уже есть аккаунт?',
+      title: 'Создание аккаунта',
+    },
+    registrationConfirmation: {
+      errorMessage: 'Электронная почта недействительна или уже подтверждена',
+      successText: 'Ваш email подтвержден',
+      successTitle: 'Поздравляем!',
+      warningText:
+        'Похоже, срок действия ссылки для проверки истек. Не волнуйтесь, мы можем отправить ссылку снова',
+      warningTitle: 'Срок действия ссылки для проверки email истек',
+    },
+  },
+  validation: {
+    emailExists: 'User with this email is already registered',
+    emailFormat: 'The email must match the format example@example.com',
+    maxLength: (len: number) => `Maximum ${len} characters`,
+    minLength: (len: number) => `Minimum ${len} characters`,
+    passwordConfirmation: 'The passwords must match',
+    passwordVerification: 'The password must contain ',
+    usernameExists: 'User with this username is already registered',
+  },
+  widgets: {
+    linkExpiredLayout: {
+      text: 'Looks like the verification link has expired. Not to worry, we can send the link again',
+      title: 'Email verification link expired',
     },
   },
 }
