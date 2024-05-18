@@ -1,5 +1,5 @@
 export * from './Checkbox'
-export * from './Textfield/Textfield'
+export * from './TextField'
 export * from './Typography'
 export * from './button'
 export * from './card'
