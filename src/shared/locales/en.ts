@@ -74,18 +74,18 @@ export const en: LocaleType = {
     },
   },
   validation: {
-    emailExists: 'Пользователь с таким email уже зарегистрирован',
-    emailFormat: 'Email должен соответствовать формату example@example.com',
-    maxLength: (len: number) => `Максимальное количество символов ${len}`,
-    minLength: (len: number) => `Минимальное количество символов ${len}`,
-    passwordConfirmation: 'Пароли должны совпадать',
-    passwordVerification: 'Пароль должен содержать ',
-    usernameExists: 'Пользователь с таким именем пользователя уже зарегистрирован',
+    emailExists: 'User with this email is already registered',
+    emailFormat: 'The email must match the format example@example.com',
+    maxLength: (len: number) => `Maximum ${len} characters`,
+    minLength: (len: number) => `Minimum ${len} characters`,
+    passwordConfirmation: 'The passwords must match',
+    passwordVerification: 'The password must contain ',
+    usernameExists: 'User with this username is already registered',
   },
   widgets: {
     linkExpiredLayout: {
-      text: 'Похоже, срок действия ссылки для проверки истек. Не волнуйтесь, мы можем отправить ссылку снова',
-      title: 'Срок действия ссылки для проверки email истек',
+      text: 'Looks like the verification link has expired. Not to worry, we can send the link again',
+      title: 'Email verification link expired',
     },
   },
 }
