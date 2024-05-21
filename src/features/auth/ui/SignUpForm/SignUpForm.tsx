@@ -116,7 +116,6 @@ export const SignUpForm: FC<ComponentProps<'form'>> = ({ className }) => {
             type={'password'}
           />
           <ControlledTextField
-            className={clsx(!errors.passwordConfirmation && s.field)}
             control={control}
             label={t.label.passwordConfirmation}
             name={'passwordConfirmation'}

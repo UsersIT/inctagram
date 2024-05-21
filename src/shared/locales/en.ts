@@ -22,7 +22,7 @@ export const en: LocaleType = {
   pages: {
     policies: {
       policy: {
-        childrenText: 'Our Service does not address anyone under the age of 18 ("Children").',
+        childrenText: 'Our Service does not address anyone under the age of 13 ("Children").',
         childrenTitle: "Children's Privacy",
         cookieText: 'We do not use cookies to track your activity on our Service.',
         cookieTitle: 'Cookies',
@@ -80,6 +80,7 @@ export const en: LocaleType = {
     minLength: (len: number) => `Minimum ${len} characters`,
     passwordConfirmation: 'The passwords must match',
     passwordVerification: 'The password must contain ',
+    userNameVerification: 'Username should contain 0-9, a-z, A-Z, _, -',
     usernameExists: 'User with this username is already registered',
   },
   widgets: {

@@ -20,7 +20,7 @@ export const ru = {
   pages: {
     policies: {
       policy: {
-        childrenText: 'Наш Сервис не предназначен для лиц младше 18 лет ("Дети").',
+        childrenText: 'Наш Сервис не предназначен для лиц младше 13 лет ("Дети").',
         childrenTitle: 'Конфиденциальность детей',
         cookieText:
           'Мы не используем файлы cookie для отслеживания вашей активности на нашем Сервисе.',
@@ -80,6 +80,7 @@ export const ru = {
     minLength: (len: number) => `Минимальное количество символов ${len}`,
     passwordConfirmation: 'Пароли должны совпадать',
     passwordVerification: 'Пароль должен содержать ',
+    userNameVerification: 'Имя пользователя может содержать 0-9, a-z, A-Z, _, -',
     usernameExists: 'Пользователь с таким именем пользователя уже зарегистрирован',
   },
   widgets: {

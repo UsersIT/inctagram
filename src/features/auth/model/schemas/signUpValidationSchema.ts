@@ -1,14 +1,9 @@
+import { PASSWORD_PATTERN, USERNAME_PATTERN } from '@/src/shared/constants/regexs'
 import { LocaleType } from '@/src/shared/locales/ru'
 import { z } from 'zod'
 
-/**
- * The poassword must contain at least one uppercase letter, one lowercase letter, one number and one special character
- */
 const PASSWORD_VERIVICATION =
   'a-z, A-Z,  ! " # $ % & \' ( ) * + , - . / : ; < = > ? @ [ \\ ] ^ _` { | } ~'
-
-const PASSWORD_PATTERN =
-  /^(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z])(?=.*[!"#$%&'()*+,-./:;<=>?@[\]^_{|}~])[A-Za-z0-9!"#$%&'()*+,-./:;<=>?@[\]^_{|}~]+$/
 
 export const signUpValidationSchema = (t: LocaleType) =>
   z
@@ -28,7 +23,10 @@ export const signUpValidationSchema = (t: LocaleType) =>
         .string()
         .trim()
         .min(6, { message: t.validation.minLength(6) })
-        .max(30, { message: t.validation.maxLength(30) }),
+        .max(30, { message: t.validation.maxLength(30) })
+        .regex(USERNAME_PATTERN, {
+          message: t.validation.userNameVerification,
+        }),
     })
     .superRefine((data, ctx) => {
       if (data.password !== data.passwordConfirmation) {
