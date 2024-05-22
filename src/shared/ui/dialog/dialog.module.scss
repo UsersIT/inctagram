@@ -8,6 +8,27 @@
 .actions {
   display: flex;
   gap: 24px;
-  justify-content: flex-end;
   width: 100%;
+}
+
+.flex-start {
+  justify-content: flex-start;
+}
+
+.flex-end {
+  justify-content: flex-end;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+@media screen and (width <= 576px) {
+  .actions {
+    flex-direction: column;
+  }
+
+  .actionButton {
+    padding: 0.75rem;
+  }
 }
