@@ -1,0 +1,32 @@
+.modalContentContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 30px 24px 36px;
+}
+
+.modalButton {
+  align-self: flex-end;
+  padding: 0.375rem 2.25rem;
+}
+
+@media screen and (width <= 768px) {
+  .modal {
+    max-width: 378px;
+  }
+}
+
+@media screen and (width <= 576px) {
+  .modalContentContainer {
+    padding-inline: 12px;
+  }
+
+  .modalText {
+    text-align: center;
+  }
+
+  .modalButton {
+    width: 100%;
+    padding: 0.75rem;
+  }
+}

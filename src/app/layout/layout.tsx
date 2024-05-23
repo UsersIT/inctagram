@@ -2,7 +2,7 @@ import React from 'react'
 
 import Link from 'next/link'
 
-import styles from './layout.module.scss'
+import s from './layout.module.scss'
 
 type Props = {
   children: React.ReactNode
@@ -10,38 +10,23 @@ type Props = {
 
 const Layout = ({ children }: Props) => {
   return (
-    <div className={styles.flex}>
-      <nav>
-        <ul className={styles.navbar}>
-          <li>
-            <Link href={'/'}>Home</Link>
-          </li>
-          <li>
-            <Link href={'/profile'}>My profile</Link>
-          </li>
-          <li>
-            <Link href={'/messenger'}>Messenger</Link>
-          </li>
-          <li>
-            <Link href={'/search'}>Search</Link>
-          </li>
-          <li>
-            <Link href={'/statistics'}>Statistics</Link>
-          </li>
-          <li>
-            <Link href={'/favorites'}>Favorites</Link>
-          </li>
-          <li>
-            <Link href={'/signin'}>Sign In</Link>
-          </li>
-          <li>
-            <Link href={'/signup'}>Sign Up</Link>
-          </li>
-          <li>
-            <Link href={'/logout'}>Log Out</Link>
-          </li>
-        </ul>
-      </nav>
+    <div className={s.flex}>
+      <header className={s.header}>
+        <nav>
+          <ul className={s.navbar}>
+            <li>
+              <Link href={'/'}>Home</Link>
+            </li>
+            <li>
+              <Link href={'/profile'}>My profile</Link>
+            </li>
+            <li>
+              <Link href={'/auth/registration'}>Sign Up</Link>
+            </li>
+          </ul>
+        </nav>
+      </header>
+
       {children}
     </div>
   )

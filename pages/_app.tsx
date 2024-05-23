@@ -23,16 +23,14 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   // Use the layout defined at the page level, if available
   const getLayout = Component.getLayout ?? (page => page)
 
-  return getLayout(
+  return (
     <>
       <style global jsx>{`
         html {
           font-family: ${inter.style.fontFamily};
         }
       `}</style>
-      <StoreProvider>
-        <Component {...pageProps} />
-      </StoreProvider>
+      <StoreProvider>{getLayout(<Component {...pageProps} />)}</StoreProvider>
       <ToastProvider />
     </>
   )
