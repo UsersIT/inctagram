@@ -76,6 +76,9 @@ export const en: LocaleType = {
       warningTitle: 'Email verification link expired',
     },
   },
+  profile: {
+    logOutConfirmation: 'Are you really want to log out of your account',
+  },
   validation: {
     emailExists: 'User with this email is already registered',
     emailFormat: 'The email must match the format example@example.com',
@@ -91,8 +94,5 @@ export const en: LocaleType = {
       text: 'Looks like the verification link has expired. Not to worry, we can send the link again',
       title: 'Email verification link expired',
     },
-  },
-  profile: {
-    logOutConfirmation: 'Are you really want to log out of your account',
   },
 }
