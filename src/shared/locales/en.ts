@@ -7,15 +7,25 @@ export const en: LocaleType = {
     eyeIcon: 'Hide the entered password',
     eyeOffIcon: 'Show the entered password',
     languageSelection: 'Language selection',
-    logOut: 'Log Out',
+    login: 'Log in',
+    logout: 'Log Out',
+    resendLink: 'Resend verification link',
+    signIn: 'Sign In',
+    signUp: 'Sign Up',
   },
   errors: {
     somethingWentWrong: 'Something went wrong',
   },
+  label: {
+    email: 'Email',
+    password: 'Password',
+    passwordConfirmation: 'Password confirmation',
+    username: 'Username',
+  },
   pages: {
     policies: {
       policy: {
-        childrenText: 'Our Service does not address anyone under the age of 18 ("Children").',
+        childrenText: 'Our Service does not address anyone under the age of 13 ("Children").',
         childrenTitle: "Children's Privacy",
         cookieText: 'We do not use cookies to track your activity on our Service.',
         cookieTitle: 'Cookies',
@@ -45,6 +55,41 @@ export const en: LocaleType = {
         title: 'Terms of Service',
         welcomeText: `<1>Welcome to Picthentic!</1><2>Please read these terms of service ("Terms", "Terms of Service") carefully before using the Picthentic website and mobile application (the "Service") operated by Picthentic ("us", "we", or "our").</2><3>Your access to and use of the Service is conditioned on your acceptance of and compliance with these Terms. These Terms apply to all visitors, users, and others who access or use the Service.</3><4>By accessing or using the Service you agree to be bound by these Terms. If you disagree with any part of the terms then you may not access the Service.</4>`,
       },
+    },
+    registration: {
+      form: {
+        agreementText: 'I agree to the <1>Terms of Service</1> and <2>Privacy Policy</2>',
+      },
+      modal: {
+        text: 'We have sent a link to confirm your email to',
+        title: 'Email sent',
+      },
+      signInSuggestion: 'Do you have an account?',
+      title: 'Sign Up',
+    },
+    registrationConfirmation: {
+      errorMessage: "Email isn't valid or already confirmed",
+      successText: 'Your email has been confirmed',
+      successTitle: 'Congratulations!',
+      warningText:
+        'Looks like the verification link has expired. Not to worry, we can send the link again',
+      warningTitle: 'Email verification link expired',
+    },
+  },
+  validation: {
+    emailExists: 'User with this email is already registered',
+    emailFormat: 'The email must match the format example@example.com',
+    maxLength: (len: number) => `Maximum ${len} characters`,
+    minLength: (len: number) => `Minimum ${len} characters`,
+    passwordConfirmation: 'The passwords must match',
+    passwordVerification: 'The password must contain ',
+    userNameVerification: 'Username should contain 0-9, a-z, A-Z, _, -',
+    usernameExists: 'User with this username is already registered',
+  },
+  widgets: {
+    linkExpiredLayout: {
+      text: 'Looks like the verification link has expired. Not to worry, we can send the link again',
+      title: 'Email verification link expired',
     },
   },
   profile: {

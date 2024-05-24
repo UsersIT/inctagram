@@ -1,10 +1,12 @@
-import type { NextPageWithLayout } from '../_app'
+import type { NextPageWithLayout } from '../../_app'
 
 import type { ReactElement } from 'react'
 
 import Layout from '@/src/app/layout/layout'
+import { RegistrationConfirmationPage } from '@/src/pages/registration-confirmation'
+
 const Page: NextPageWithLayout = () => {
-  return <h1>Statistics</h1>
+  return <RegistrationConfirmationPage />
 }
 
 Page.getLayout = function getLayout(page: ReactElement) {

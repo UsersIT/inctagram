@@ -8,6 +8,21 @@ import { Dialog } from './dialog'
 
 const meta = {
   argTypes: {
+    buttonsContainerClassName: {
+      control: { type: 'text' },
+      defaultValue: { summary: '' },
+      description: 'Optional string that sets the className of the buttons container.',
+    },
+    buttonsJustify: {
+      control: { type: 'radio' },
+      defaultValue: { summary: 'flex-end' },
+      description: 'Optional value defining the position of the buttons.',
+    },
+    buttonsOrder: {
+      control: { type: 'radio' },
+      defaultValue: { summary: 'confirm-to-cancel' },
+      description: 'Optional value defining the order of the buttons.',
+    },
     cancelButtonTitle: {
       control: { type: 'text' },
       defaultValue: { summary: 'No' },
@@ -20,7 +35,6 @@ const meta = {
     },
     confirmButtonTitle: {
       control: { type: 'text' },
-
       defaultValue: { summary: 'Yes' },
       description: 'Optional string that sets the text of the confirm button.',
     },
@@ -62,6 +76,7 @@ const meta = {
     },
     title: {
       control: { type: 'text' },
+      defaultValue: { summary: '' },
       description: 'Optional string that sets the title of the modal.',
     },
   },
@@ -83,6 +98,8 @@ type Story = StoryObj<typeof meta>
 
 export const Two_Action_Dialog: Story = {
   args: {
+    buttonsJustify: 'flex-end',
+    buttonsOrder: 'confirm-to-cancel',
     cancelButtonTitle: 'No',
     children: 'Are you really want to log out of your account “Epam@epam.com”?',
     confirmButtonTitle: 'Yes',
@@ -102,7 +119,7 @@ export const Two_Action_Dialog: Story = {
       <>
         <Button onClick={() => setOpen(true)}>Open double-action Dialog</Button>
         <Dialog {...args} onClose={handleDialogOpen} open={open}>
-          <Typography variant={'regular-text-16'}>{args.children as string}</Typography>
+          <Typography variant={'regular-text-16'}>{args.children}</Typography>
         </Dialog>
       </>
     )
@@ -111,6 +128,8 @@ export const Two_Action_Dialog: Story = {
 
 export const One_Action_Dialog: Story = {
   args: {
+    buttonsJustify: 'flex-end',
+    buttonsOrder: 'confirm-to-cancel',
     children: 'Transaction failed. Please, write to support',
     confirmButtonFullWidth: true,
     confirmButtonTitle: 'Back to payment',
@@ -130,7 +149,7 @@ export const One_Action_Dialog: Story = {
       <>
         <Button onClick={() => setOpen(true)}>Open single-action Dialog</Button>
         <Dialog {...args} onClose={handleDialogOpen} open={open}>
-          <Typography variant={'regular-text-16'}>{args.children as string}</Typography>
+          <Typography variant={'regular-text-16'}>{args.children}</Typography>
         </Dialog>
       </>
     )
@@ -139,6 +158,8 @@ export const One_Action_Dialog: Story = {
 
 export const One_Action_Non_Full_Width_Button_Dialog: Story = {
   args: {
+    buttonsJustify: 'flex-end',
+    buttonsOrder: 'confirm-to-cancel',
     children: 'We have sent a link to confirm your email to epam@epam.com',
     confirmButtonTitle: 'OK',
     onConfirm: action('Confirm pressed'),
@@ -159,7 +180,39 @@ export const One_Action_Non_Full_Width_Button_Dialog: Story = {
           Open single-action non-full-width button Dialog
         </Button>
         <Dialog {...args} onClose={handleDialogOpen} open={open}>
-          <Typography variant={'regular-text-16'}>{args.children as string}</Typography>
+          <Typography variant={'regular-text-16'}>{args.children}</Typography>
+        </Dialog>
+      </>
+    )
+  },
+}
+
+export const Two_Action_Space_Between_Buttons_Dialog: Story = {
+  args: {
+    buttonsJustify: 'space-between',
+    buttonsOrder: 'cancel-to-confirm',
+    cancelButtonTitle: 'Discard',
+    children:
+      'Do you really want to close the creation of a publication?\n' +
+      'If you close everything will be deleted',
+    confirmButtonTitle: 'Save draft',
+    onCancel: action('Cancel pressed'),
+    onConfirm: action('Confirm pressed'),
+    open: false,
+    size: 'sm',
+    title: 'Close',
+  },
+  render: args => {
+    const [open, setOpen] = useState(false)
+    const handleDialogOpen = () => {
+      setOpen(!open)
+    }
+
+    return (
+      <>
+        <Button onClick={() => setOpen(true)}>Open two-action space-between buttons Dialog</Button>
+        <Dialog {...args} onClose={handleDialogOpen} open={open}>
+          <Typography variant={'regular-text-16'}>{args.children}</Typography>
         </Dialog>
       </>
     )

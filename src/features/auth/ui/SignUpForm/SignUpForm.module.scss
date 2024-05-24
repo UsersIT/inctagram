@@ -1,0 +1,34 @@
+.form {
+  min-width: 100%;
+}
+
+.fieldsContainer {
+  display: flex;
+  flex-direction: column;
+  min-width: 100%;
+}
+
+.field {
+  margin-bottom: 24px;
+}
+
+.agreementContainer {
+  display: flex;
+  align-items: center;
+  margin: 12px auto;
+}
+
+.agreement {
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-s);
+}
+
+@media screen and (width <= 576px) {
+  .agreementContainer {
+    margin-bottom: 24px;
+  }
+
+  .signUpBtn {
+    padding: 0.75rem;
+  }
+}

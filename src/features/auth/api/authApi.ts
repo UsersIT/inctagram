@@ -1,11 +1,13 @@
 import { MeResponse } from '@/src/features/auth/model/types/auth'
 import { baseApi } from '@/src/shared/api/baseApi'
-import { apiEndpoints } from '@/src/shared/constants/api'
+import { URL, apiEndpoints } from '@/src/shared/constants/api'
 import { tokenStorage } from '@/src/shared/storage'
 
+import { RegisterInput, RegistrationEmailResendingInput } from '../model/types/auth'
+
 const authApi = baseApi.injectEndpoints({
-  endpoints: build => ({
-    logout: build.mutation<void, void>({
+  endpoints: builder => ({
+    logout: builder.mutation<void, void>({
       onQueryStarted: async (_, { queryFulfilled }) => {
         try {
           await queryFulfilled
@@ -19,13 +21,31 @@ const authApi = baseApi.injectEndpoints({
         url: apiEndpoints.auth.logout,
       }),
     }),
-    me: build.query<MeResponse, void>({
+    me: builder.query<MeResponse, void>({
       query: () => ({
         method: 'GET',
         url: apiEndpoints.auth.me,
       }),
     }),
+    registerUser: builder.mutation<void, RegisterInput>({
+      query(data) {
+        return {
+          body: { ...data, baseUrl: URL },
+          method: 'POST',
+          url: apiEndpoints.auth.registration,
+        }
+      },
+    }),
+    registrationEmailResending: builder.mutation<void, RegistrationEmailResendingInput>({
+      query(data) {
+        return {
+          body: { ...data, baseUrl: URL },
+          method: 'POST',
+          url: apiEndpoints.auth.registrationEmailResending,
+        }
+      },
+    }),
   }),
 })
 
-export const { useLogoutMutation, useMeQuery } = authApi
+export const { useRegisterUserMutation, useRegistrationEmailResendingMutation, useLogoutMutation, useMeQuery } = authApi
