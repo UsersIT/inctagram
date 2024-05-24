@@ -11,7 +11,7 @@ import { TypographyVariants } from './typographyVariants'
 type TextAlign = 'center' | 'inherit' | 'left' | 'right'
 
 type ElementProps = {
-  children: string
+  children: ReactNode
   className?: string
   textAlign?: TextAlign
   variant?: (typeof TypographyVariants)[keyof typeof TypographyVariants]
