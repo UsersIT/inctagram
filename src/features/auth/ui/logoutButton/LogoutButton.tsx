@@ -65,7 +65,7 @@ export const LogoutButton = ({ className }: Props) => {
         variant={'text'}
       >
         <LogOut />
-        {t.buttons.logOut}
+        {t.buttons.logout}
       </Button>
       <Dialog
         onCancel={handleDialogOpen}
