@@ -75,14 +75,31 @@ export const en: LocaleType = {
         'Looks like the verification link has expired. Not to worry, we can send the link again',
       warningTitle: 'Email verification link expired',
     },
+    signIn: {
+      forgotPassword: 'Forgot Password?',
+      metaDescription: 'Log in to your account to access personalized features and content.',
+      metaTitle: 'Sign In',
+      signUpSuggestion: 'Don’t have an account?',
+      title: 'Sign In',
+    },
+  },
+  placeholders: {
+    email: 'email@picthentic.online',
+    password: '**********',
+  },
+  profile: {
+    logOutConfirmation: 'Are you really want to log out of your account',
   },
   validation: {
     emailExists: 'User with this email is already registered',
     emailFormat: 'The email must match the format example@example.com',
+    emailVerification: 'Invalid email address',
+    invalidCredentials: 'The email or password are incorrect. Try again please',
     maxLength: (len: number) => `Maximum ${len} characters`,
     minLength: (len: number) => `Minimum ${len} characters`,
     passwordConfirmation: 'The passwords must match',
     passwordVerification: 'The password must contain ',
+    required: 'Required field',
     userNameVerification: 'Username should contain 0-9, a-z, A-Z, _, -',
     usernameExists: 'User with this username is already registered',
   },
@@ -91,8 +108,5 @@ export const en: LocaleType = {
       text: 'Looks like the verification link has expired. Not to worry, we can send the link again',
       title: 'Email verification link expired',
     },
-  },
-  profile: {
-    logOutConfirmation: 'Are you really want to log out of your account',
   },
 }

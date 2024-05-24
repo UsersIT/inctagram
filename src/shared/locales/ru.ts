@@ -74,15 +74,32 @@ export const ru = {
         'Похоже, срок действия ссылки для проверки истек. Не волнуйтесь, мы можем отправить ссылку снова',
       warningTitle: 'Срок действия ссылки для проверки email истек',
     },
+    signIn: {
+      forgotPassword: 'Забыли пароль?',
+      metaDescription:
+        'Войдите в свою учетную запись, чтобы получить доступ к персонализированным функциям и контенту.',
+      metaTitle: 'Войти',
+      signUpSuggestion: 'У вас нет аккаунта?',
+      title: 'Войти',
+    },
   },
-
+  placeholders: {
+    email: 'email@picthentic.online',
+    password: '**********',
+  },
+  profile: {
+    logOutConfirmation: 'Вы действительно хотите выйти из своей учетной записи',
+  },
   validation: {
     emailExists: 'Пользователь с таким email уже зарегистрирован',
     emailFormat: 'Email должен соответствовать формату example@example.com',
+    emailVerification: 'Недействительный адрес электронной почты',
+    invalidCredentials: 'Введенные email или пароль неверны. Пожалуйста, попробуйте еще раз',
     maxLength: (len: number) => `Максимальное количество символов ${len}`,
     minLength: (len: number) => `Минимальное количество символов ${len}`,
     passwordConfirmation: 'Пароли должны совпадать',
     passwordVerification: 'Пароль должен содержать ',
+    required: 'Обязательное поле',
     userNameVerification: 'Имя пользователя может содержать 0-9, a-z, A-Z, _, -',
     usernameExists: 'Пользователь с таким именем пользователя уже зарегистрирован',
   },
@@ -91,9 +108,6 @@ export const ru = {
       text: 'Похоже, срок действия ссылки для проверки истек. Не волнуйтесь, мы можем отправить ссылку снова',
       title: 'Срок действия ссылки для проверки email истек',
     },
-  },
-  profile: {
-    logOutConfirmation: 'Вы действительно хотите выйти из своей учетной записи',
   },
 }
 export type LocaleType = typeof ru
