@@ -13,6 +13,9 @@ export const en: LocaleType = {
     signIn: 'Sign In',
     signUp: 'Sign Up',
   },
+  errors: {
+    somethingWentWrong: 'Something went wrong',
+  },
   label: {
     email: 'Email',
     password: 'Password',
@@ -88,5 +91,8 @@ export const en: LocaleType = {
       text: 'Looks like the verification link has expired. Not to worry, we can send the link again',
       title: 'Email verification link expired',
     },
+  },
+  profile: {
+    logOutConfirmation: 'Are you really want to log out of your account',
   },
 }

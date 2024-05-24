@@ -11,6 +11,9 @@ export const ru = {
     signIn: 'Войти',
     signUp: 'Зарегистрироваться',
   },
+  errors: {
+    somethingWentWrong: 'Что-то пошло не так',
+  },
   label: {
     email: 'Электронная почта',
     password: 'Пароль',
@@ -88,6 +91,9 @@ export const ru = {
       text: 'Похоже, срок действия ссылки для проверки истек. Не волнуйтесь, мы можем отправить ссылку снова',
       title: 'Срок действия ссылки для проверки email истек',
     },
+  },
+  profile: {
+    logOutConfirmation: 'Вы действительно хотите выйти из своей учетной записи',
   },
 }
 export type LocaleType = typeof ru
