@@ -3,10 +3,6 @@ import { SubmitHandler, useForm } from 'react-hook-form'
 import { toast } from 'react-toastify'
 
 import { useLazyMeQuery, useLoginMutation } from '@/src/features/auth/api/authApi'
-import {
-  SignInFormValues,
-  loginValidationSchema,
-} from '@/src/features/auth/model/schemas/loginValidationSchema'
 import { useTranslation } from '@/src/shared/hooks'
 import { ControlledTextField } from '@/src/shared/ui/Controlled/ControlledTextField'
 import { Typography } from '@/src/shared/ui/Typography'
@@ -17,6 +13,8 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 
 import s from './LoginForm.module.scss'
+
+import { LoginFormValues, loginValidationSchema } from '../../model/schemas/loginValidationSchema'
 
 export const LoginForm: FC<ComponentProps<'form'>> = ({ className }) => {
   const { push } = useRouter()
@@ -30,7 +28,7 @@ export const LoginForm: FC<ComponentProps<'form'>> = ({ className }) => {
     formState: { isValid },
     handleSubmit,
     setError,
-  } = useForm<SignInFormValues>({
+  } = useForm<LoginFormValues>({
     defaultValues: {
       email: '',
       password: '',
@@ -38,7 +36,7 @@ export const LoginForm: FC<ComponentProps<'form'>> = ({ className }) => {
     mode: 'onTouched',
     resolver: zodResolver(loginValidationSchema(t)),
   })
-  const onSubmit: SubmitHandler<SignInFormValues> = data => {
+  const onSubmit: SubmitHandler<LoginFormValues> = data => {
     login(data)
       .unwrap()
       .then(() => {

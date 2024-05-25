@@ -1,4 +1,4 @@
-import { LoginForm } from '@/src/features/auth/ui/loginForm'
+import { LoginForm } from '@/src/features/auth'
 import { GitHub, Google } from '@/src/shared/assets/icons'
 import { useTranslation } from '@/src/shared/hooks'
 import { Button, Card, Typography } from '@/src/shared/ui'

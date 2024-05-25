@@ -7,4 +7,4 @@ export const loginValidationSchema = (t: LocaleType) =>
     password: z.string().min(1, { message: t.validation.required }).trim(),
   })
 
-export type SignInFormValues = z.infer<ReturnType<typeof loginValidationSchema>>
+export type LoginFormValues = z.infer<ReturnType<typeof loginValidationSchema>>
