@@ -2,7 +2,6 @@ import { ComponentProps, FC } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { toast } from 'react-toastify'
 
-import { useLazyMeQuery, useLoginMutation } from '@/src/features/auth/api/authApi'
 import { useTranslation } from '@/src/shared/hooks'
 import { ControlledTextField } from '@/src/shared/ui/Controlled/ControlledTextField'
 import { Typography } from '@/src/shared/ui/Typography'
@@ -14,9 +13,10 @@ import { useRouter } from 'next/router'
 
 import s from './LoginForm.module.scss'
 
+import { useLazyMeQuery, useLoginMutation } from '../../api/authApi'
 import { LoginFormValues, loginValidationSchema } from '../../model/schemas/loginValidationSchema'
 
-export const LoginForm: FC<ComponentProps<'form'>> = ({ className }) => {
+export const LoginForm: FC<ComponentProps<'form'>> = () => {
   const { push } = useRouter()
   const { t } = useTranslation()
 
