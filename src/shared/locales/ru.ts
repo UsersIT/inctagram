@@ -76,6 +76,9 @@ export const ru = {
     },
   },
 
+  profile: {
+    logOutConfirmation: 'Вы действительно хотите выйти из своей учетной записи',
+  },
   validation: {
     emailExists: 'Пользователь с таким email уже зарегистрирован',
     emailFormat: 'Email должен соответствовать формату example@example.com',
@@ -91,9 +94,6 @@ export const ru = {
       text: 'Похоже, срок действия ссылки для проверки истек. Не волнуйтесь, мы можем отправить ссылку снова',
       title: 'Срок действия ссылки для проверки email истек',
     },
-  },
-  profile: {
-    logOutConfirmation: 'Вы действительно хотите выйти из своей учетной записи',
   },
 }
 export type LocaleType = typeof ru
