@@ -1,7 +1,6 @@
-import { useState } from 'react'
+import { ButtonHTMLAttributes, useState } from 'react'
 import { toast } from 'react-toastify'
 
-import { useLogoutMutation, useMeQuery } from '@/src/features/auth/api/authApi'
 import { LogOut } from '@/src/shared/assets/icons'
 import { useTranslation } from '@/src/shared/hooks'
 import { Button, Dialog, Typography } from '@/src/shared/ui'
@@ -10,11 +9,11 @@ import { useRouter } from 'next/router'
 
 import s from './LogoutButton.module.scss'
 
-type Props = {
-  className?: string
-}
+import { useLogoutMutation, useMeQuery } from '../../api/authApi'
 
-export const LogoutButton = ({ className }: Props) => {
+type Props = ButtonHTMLAttributes<HTMLButtonElement>
+
+export const LogoutButton = ({ className, ...rest }: Props) => {
   const { push } = useRouter()
   const { t } = useTranslation()
   const [openDialog, setOpenDialog] = useState(false)
@@ -63,9 +62,10 @@ export const LogoutButton = ({ className }: Props) => {
         className={clsx(s.logoutButton, className)}
         onClick={handleDialogOpen}
         variant={'text'}
+        {...rest}
       >
-        <LogOut />
-        {t.buttons.logout}
+        <LogOut height={24} viewBox={'0 0 24 24'} width={24} />
+        <Typography variant={'medium-text-14'}>{t.buttons.logout}</Typography>
       </Button>
       <Dialog
         onCancel={handleDialogOpen}
