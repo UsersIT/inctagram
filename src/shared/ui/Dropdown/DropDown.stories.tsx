@@ -56,7 +56,7 @@ const meta = {
     layout: 'centered',
   },
   tags: ['autodocs'],
-  title: 'shared/DropDownMenu',
+  title: 'Components/DropDownMenu',
 } satisfies Meta<typeof DropdownMenu>
 
 export default meta
