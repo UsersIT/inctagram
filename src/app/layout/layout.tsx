@@ -1,5 +1,6 @@
 import React from 'react'
 
+import { LogoutButton } from '@/src/features/auth'
 import Link from 'next/link'
 
 import s from './layout.module.scss'
@@ -22,6 +23,12 @@ const Layout = ({ children }: Props) => {
             </li>
             <li>
               <Link href={'/auth/registration'}>Sign Up</Link>
+            </li>
+            <li>
+              <Link href={'/auth/login'}>Sign In</Link>
+            </li>
+            <li>
+              <LogoutButton />
             </li>
           </ul>
         </nav>

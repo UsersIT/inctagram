@@ -1,0 +1,62 @@
+.page {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding-top: 36px;
+}
+
+.card {
+  width: min(378px, 100%);
+}
+
+.oAuthButtonsContainer {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin: 7px 0 18px;
+}
+
+.socialLink {
+  display: block;
+  width: 36px;
+  height: 36px;
+  color: #fff;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+
+  margin-top: 18px;
+}
+
+@media screen and (width <= 576px) {
+  .page {
+    padding: 17px 15px;
+  }
+
+  .card {
+    padding: unset;
+    background-color: unset;
+    border: none;
+  }
+
+  .suggestion {
+    font-size: var(--font-size-s);
+  }
+
+  .signUpLink {
+    padding: 0.75rem;
+  }
+
+  .title {
+    font-size: var(--font-size-l);
+    line-height: var(--line-height-m);
+  }
+
+  .oAuthButtonsContainer {
+    margin: 13px 0 6px;
+  }
+}

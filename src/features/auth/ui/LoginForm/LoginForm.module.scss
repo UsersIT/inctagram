@@ -1,0 +1,30 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  min-width: 100%;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 36px;
+}
+
+.forgotPasswordLink {
+  align-self: flex-end;
+  color: var(--color-text-secondary);
+  text-decoration: none;
+}
+
+@media screen and (width <= 576px) {
+  .signInLink {
+    padding: 0.75rem;
+  }
+}

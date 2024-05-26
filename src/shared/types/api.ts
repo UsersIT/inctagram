@@ -12,3 +12,19 @@ export type ApiErrorResult = {
 export type UpdateTokensResult = {
   accessToken: string
 }
+
+export type LoginRequest = {
+  email: string
+  password: string
+}
+
+export type LoginResponse = {
+  accessToken: string
+}
+
+export type MeResponse = {
+  email: string
+  isBlocked: boolean
+  userId: number
+  userName: string
+}
