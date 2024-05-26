@@ -90,9 +90,6 @@ export const en: LocaleType = {
   profile: {
     logOutConfirmation: 'Are you really want to log out of your account',
   },
-  profile: {
-    logOutConfirmation: 'Are you really want to log out of your account',
-  },
   validation: {
     emailExists: 'User with this email is already registered',
     emailFormat: 'The email must match the format example@example.com',
