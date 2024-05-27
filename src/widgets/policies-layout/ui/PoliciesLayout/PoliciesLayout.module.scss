@@ -26,11 +26,6 @@
   position: relative;
   padding: 0;
   color: var(--color-text-primary);
-  transition: color 0.3s;
-
-  &:hover {
-    color: var(--color-text-secondary);
-  }
 }
 
 .btnText {
