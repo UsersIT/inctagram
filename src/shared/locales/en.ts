@@ -4,6 +4,7 @@ export const en: LocaleType = {
   buttons: {
     backToSignIn: 'Back to Sign In',
     backToSignUp: 'Back to Sign Up',
+    back: 'Go Back',
     closeSearchFieldIcon: 'Delete the entered search query',
     eyeIcon: 'Hide the entered password',
     eyeOffIcon: 'Show the entered password',
