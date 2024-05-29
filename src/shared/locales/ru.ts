@@ -1,5 +1,6 @@
 export const ru = {
   buttons: {
+    backToSignIn: 'Вернуться ко входу',
     backToSignUp: 'Вернуться к регистрации',
     closeSearchFieldIcon: 'Удалить введённый поисковый запрос',
     eyeIcon: 'Скрыть введённый пароль',
@@ -8,6 +9,7 @@ export const ru = {
     login: 'Войти',
     logout: 'Выйти',
     resendLink: 'Отправить повторно',
+    sendLink: 'Отправить ссылку',
     signIn: 'Войти',
     signUp: 'Зарегистрироваться',
   },
@@ -21,6 +23,17 @@ export const ru = {
     username: 'Имя пользователя',
   },
   pages: {
+    createNewPassword: {
+      instruction: 'Пароль должен содержать от 6ти до 20ти символов',
+      title: 'Создайте новый пароль',
+    },
+    forgotPassword: {
+      iMNotRobot: 'Я не робот',
+      instruction: 'Введите свой email адрес, и мы вышлем вам дальнейшею инструкцию',
+      invalidEmail: 'Некорректный адрес почты',
+      nonEmpty: 'Введите электронную почту',
+      title: 'Забыли пароль',
+    },
     policies: {
       policy: {
         childrenText: 'Наш Сервис не предназначен для лиц младше 13 лет ("Дети").',
@@ -100,6 +113,7 @@ export const ru = {
     passwordConfirmation: 'Пароли должны совпадать',
     passwordVerification: 'Пароль должен содержать ',
     required: 'Обязательное поле',
+    userExist: 'Пользователя с этим email не существует',
     userNameVerification: 'Имя пользователя может содержать 0-9, a-z, A-Z, _, -',
     usernameExists: 'Пользователь с таким именем пользователя уже зарегистрирован',
   },

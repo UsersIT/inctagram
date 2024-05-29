@@ -2,6 +2,7 @@ import { LocaleType } from '@/src/shared/locales/ru'
 
 export const en: LocaleType = {
   buttons: {
+    backToSignIn: 'Back to Sign In',
     backToSignUp: 'Back to Sign Up',
     closeSearchFieldIcon: 'Delete the entered search query',
     eyeIcon: 'Hide the entered password',
@@ -10,6 +11,7 @@ export const en: LocaleType = {
     login: 'Log in',
     logout: 'Log Out',
     resendLink: 'Resend verification link',
+    sendLink: 'Send Link',
     signIn: 'Sign In',
     signUp: 'Sign Up',
   },
@@ -23,6 +25,17 @@ export const en: LocaleType = {
     username: 'Username',
   },
   pages: {
+    createNewPassword: {
+      instruction: 'Your password must be between 6 and 20 characters',
+      title: 'Create New Password',
+    },
+    forgotPassword: {
+      iMNotRobot: "I'm not a robot",
+      instruction: 'Enter your email address and we will sen you further instructions',
+      invalidEmail: 'Invalid email address',
+      nonEmpty: 'Enter email',
+      title: 'Forgot Password',
+    },
     policies: {
       policy: {
         childrenText: 'Our Service does not address anyone under the age of 13 ("Children").',
@@ -100,6 +113,7 @@ export const en: LocaleType = {
     passwordConfirmation: 'The passwords must match',
     passwordVerification: 'The password must contain ',
     required: 'Required field',
+    userExist: "User with this email doesn't exist",
     userNameVerification: 'Username should contain 0-9, a-z, A-Z, _, -',
     usernameExists: 'User with this username is already registered',
   },
