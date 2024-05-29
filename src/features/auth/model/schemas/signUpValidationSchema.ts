@@ -1,15 +1,15 @@
-import { PASSWORD_PATTERN, USERNAME_PATTERN } from '@/src/shared/constants/regexs'
+import { EMAIL_PATTERN, PASSWORD_PATTERN, USERNAME_PATTERN } from '@/src/shared/constants/regexs'
 import { LocaleType } from '@/src/shared/locales/ru'
 import { z } from 'zod'
 
 const PASSWORD_VERIVICATION =
-  'a-z, A-Z,  ! " # $ % & \' ( ) * + , - . / : ; < = > ? @ [ \\ ] ^ _` { | } ~'
+  '0-9, a-z, A-Z,  ! " # $ % & \' ( ) * + , - . / : ; < = > ? @ [ \\ ] ^ _` { | } ~'
 
 export const signUpValidationSchema = (t: LocaleType) =>
   z
     .object({
       agreement: z.boolean(),
-      email: z.string().trim().email({ message: t.validation.emailFormat }),
+      email: z.string().trim().regex(EMAIL_PATTERN, { message: t.validation.emailFormat }),
       password: z
         .string()
         .trim()
