@@ -1,0 +1,86 @@
+.root {
+  --scrollbar-size: 14px;
+
+  /* depends on var(--scrollbar-size ) and var(--thumb-size)
+  calculated according to var(--scrollbar-size) / 2 - var(--thumb-size) */
+  --scrollbar-padding: 3px;
+  --thumb-size: 4px;
+  --scrollbar-border-radius: 2px;
+
+  overflow: hidden;
+}
+
+.viewport {
+  width: 100%;
+  height: 100%;
+}
+
+.scrollbar {
+  touch-action: none;
+  user-select: none;
+  display: flex;
+
+  &::before {
+    content: "";
+    position: absolute;
+    background-color: var(--color-dark-300);
+    border-radius: var(--scrollbar-border-radius, 2px);
+  }
+
+  &[data-orientation="vertical"] {
+    width: var(--scrollbar-size, 14px);
+    padding: var(--scrollbar-padding, 3px) 0;
+
+    &::before {
+      right: calc(50% - calc(var(--thumb-size, 4px) / 2));
+      width: var(--thumb-size, 4px);
+      height: calc(100% - calc(var(--scrollbar-padding, 3px) * 2));
+    }
+  }
+
+  &[data-orientation="horizontal"] {
+    flex-direction: column;
+    height: var(--scrollbar-size, 14px);
+    padding: 0 var(--scrollbar-padding, 3px);
+
+    &::before {
+      bottom: calc(50% - calc(var(--thumb-size, 4px) / 2));
+      width: calc(100% - calc(var(--scrollbar-padding, 3px) * 2));
+      height: var(--thumb-size, 4px);
+    }
+  }
+}
+
+.thumb {
+  cursor: pointer;
+  position: relative;
+  flex-grow: 1;
+  padding: 0 5px;
+
+  &::before {
+    content: "";
+
+    position: absolute;
+
+    width: var(--thumb-size, 4px);
+    height: 100%;
+
+    background-color: var(--color-dark-100);
+    border-radius: var(--scrollbar-border-radius, 2px);
+
+    transition: all 0.3s ease-in;
+
+    [data-orientation="horizontal"] & {
+      width: 100%;
+      height: var(--thumb-size);
+    }
+  }
+
+  [data-orientation="horizontal"] & {
+    padding: 5px 0;
+  }
+
+  &:hover::before {
+    background-color: var(--color-light-900);
+  }
+}
