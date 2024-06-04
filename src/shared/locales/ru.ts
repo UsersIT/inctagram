@@ -93,7 +93,6 @@ export const ru = {
   validation: {
     emailExists: 'Пользователь с таким email уже зарегистрирован',
     emailFormat: 'Email должен соответствовать формату example@example.com',
-    emailVerification: 'Недействительный адрес электронной почты',
     invalidCredentials: 'Введенные email или пароль неверны. Пожалуйста, попробуйте еще раз',
     maxLength: (len: number) => `Максимальное количество символов ${len}`,
     minLength: (len: number) => `Минимальное количество символов ${len}`,
