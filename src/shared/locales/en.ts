@@ -2,9 +2,9 @@ import { LocaleType } from '@/src/shared/locales/ru'
 
 export const en: LocaleType = {
   buttons: {
+    back: 'Go Back',
     backToSignIn: 'Back to Sign In',
     backToSignUp: 'Back to Sign Up',
-    back: 'Go Back',
     closeSearchFieldIcon: 'Delete the entered search query',
     eyeIcon: 'Hide the entered password',
     eyeOffIcon: 'Show the entered password',

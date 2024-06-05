@@ -1,8 +1,8 @@
 export const ru = {
   buttons: {
+    back: 'Вернуться назад',
     backToSignIn: 'Вернуться ко входу',
     backToSignUp: 'Вернуться к регистрации',
-    back: 'Вернуться назад',
     closeSearchFieldIcon: 'Удалить введённый поисковый запрос',
     eyeIcon: 'Скрыть введённый пароль',
     eyeOffIcon: 'Показать введённый пароль',

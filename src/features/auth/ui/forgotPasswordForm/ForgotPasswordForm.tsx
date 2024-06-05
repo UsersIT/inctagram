@@ -17,12 +17,12 @@ import {
 } from '../../model/schemas/forgotPasswordSchema'
 import { InfoModal } from '../InfoModal/InfoModal'
 
-type Props = {
+type Props = ComponentProps<'form'> & {
   className: string | undefined
-  reCaptcha?: string
+  reCaptcha?: string | undefined
 }
 
-export const ForgotPasswordForm: FC<ComponentProps<'form'>> = ({ className, reCaptcha }: Props) => {
+export const ForgotPasswordForm: FC<Props> = ({ className, reCaptcha }: Props) => {
   const [showModal, setShowModal] = useState(false)
   const { t } = useTranslation()
 
