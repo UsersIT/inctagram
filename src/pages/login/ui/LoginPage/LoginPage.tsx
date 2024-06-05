@@ -1,5 +1,6 @@
 import { LoginForm } from '@/src/features/auth'
-import { GitHub, Google } from '@/src/shared/assets/icons'
+import { GitHubAuthButton } from '@/src/features/auth/ui/gitHubAuthButton/GitHubAuthButton'
+import { GoogleAuthButton } from '@/src/features/auth/ui/googleAuthButton/GoogleAuthButton'
 import { useTranslation } from '@/src/shared/hooks'
 import { Button, Card, Typography } from '@/src/shared/ui'
 import { TypographyVariants } from '@/src/shared/ui/Typography/typographyVariants'
@@ -22,16 +23,8 @@ export const LoginPage = () => {
           {t.pages.signIn.title}
         </Typography>
         <section className={s.oAuthButtonsContainer}>
-          {/** GoogleButton should be fixed*/}
-          <Button variant={'text'}>
-            <Google height={36} viewBox={'0 0 24 24'} width={36} />
-          </Button>
-          {/*************** */}
-          {/** GitHubButton should be fixed*/}
-          <Button style={{ color: 'var(--color-text-primary)' }} variant={'text'}>
-            <GitHub height={36} viewBox={'0 0 24 24'} width={36} />
-          </Button>
-          {/*************** */}
+          <GoogleAuthButton />
+          <GitHubAuthButton />
         </section>
         <LoginForm />
         <section className={s.actions}>
