@@ -5,6 +5,7 @@ import type { ReactElement, ReactNode } from 'react'
 
 import { StoreProvider } from '@/src/app/providers/store'
 import { ToastProvider } from '@/src/app/providers/toasts'
+import { GoogleOAuthProvider } from '@react-oauth/google'
 import { Inter } from 'next/font/google'
 
 import '../src/app/styles/index.scss'
@@ -30,7 +31,9 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
           font-family: ${inter.style.fontFamily};
         }
       `}</style>
-      <StoreProvider>{getLayout(<Component {...pageProps} />)}</StoreProvider>
+      <GoogleOAuthProvider clientId={process.env.NEXT_PUBLIC_GOOGLE_SECRET as string}>
+        <StoreProvider>{getLayout(<Component {...pageProps} />)}</StoreProvider>
+      </GoogleOAuthProvider>
       <ToastProvider />
     </>
   )
