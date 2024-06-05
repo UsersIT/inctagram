@@ -19,7 +19,7 @@ import { InfoModal } from '../InfoModal/InfoModal'
 
 type Props = ComponentProps<'form'> & {
   className: string | undefined
-  reCaptcha?: string | undefined
+  reCaptcha: string
 }
 
 export const ForgotPasswordForm: FC<Props> = ({ className, reCaptcha }: Props) => {
