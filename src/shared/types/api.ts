@@ -25,7 +25,7 @@ export type PasswordRecoveryRequest = {
 }
 
 export type NewPasswordRequest = {
-  password: string
+  newPassword: string
   recoveryCode: string
 }
 
