@@ -14,8 +14,8 @@ import { RegisterInput, RegistrationEmailResendingInput } from '../model/types/a
 const authApi = baseApi.injectEndpoints({
   endpoints: builder => ({
     createNewPassword: builder.mutation<void, NewPasswordRequest>({
-      query: ({ newPassword, recoveryCode }) => ({
-        body: { newPassword, recoveryCode },
+      query: body => ({
+        body,
         method: 'POST',
         url: apiEndpoints.auth.newPassword,
       }),

@@ -19,9 +19,9 @@ export type LoginRequest = {
 }
 
 export type PasswordRecoveryRequest = {
-  baseUrl: string
+  // baseUrl: string
   email: string
-  recaptcha: string
+  recaptcha: null | string
 }
 
 export type NewPasswordRequest = {

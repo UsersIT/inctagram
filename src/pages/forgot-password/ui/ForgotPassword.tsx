@@ -11,7 +11,7 @@ import s from './ForgotPassword.module.scss'
 export const ForgotPassword = () => {
   const { t } = useTranslation()
 
-  const [reCaptcha, setReCaptcha] = useState(null)
+  const [reCaptcha, setReCaptcha] = useState<null | string>(null)
 
   return (
     <main className={s.page}>

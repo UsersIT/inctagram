@@ -4,7 +4,7 @@ import { z } from 'zod'
 export function newPasswordSchema(t: LocaleType) {
   return z
     .object({
-      password: z
+      newPassword: z
         .string()
         .trim()
         .nonempty(t.validation.passwordConfirmation)
@@ -15,22 +15,23 @@ export function newPasswordSchema(t: LocaleType) {
         .min(6, t.pages.createNewPassword.instruction)
         .max(20, t.pages.createNewPassword.instruction),
       passwordConfirm: z.string().nonempty(t.validation.passwordConfirmation),
+      recoveryCode: z.string(),
     })
-    .refine(({ password, passwordConfirm }) => password == passwordConfirm, {
+    .refine(({ newPassword, passwordConfirm }) => newPassword == passwordConfirm, {
       message: t.validation.passwordConfirmation,
       path: ['passwordConfirm'],
     })
     .refine(
-      ({ password, passwordConfirm }) => {
+      ({ newPassword, passwordConfirm }) => {
         if (passwordConfirm) {
-          return password == passwordConfirm
+          return newPassword == passwordConfirm
         }
 
         return true
       },
       {
         message: t.validation.passwordConfirmation,
-        path: ['password'],
+        path: ['newPassword'],
       }
     )
 }

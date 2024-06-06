@@ -20,7 +20,7 @@ export const CreateNewPassword: FC = () => {
   const { t } = useTranslation()
   const { control, formState, handleSubmit } = useForm<newPassword>({
     defaultValues: {
-      password: '',
+      newPassword: '',
       passwordConfirm: '',
       recoveryCode: '',
     },
@@ -36,8 +36,8 @@ export const CreateNewPassword: FC = () => {
 
   const onSubmit: SubmitHandler<NewPasswordRequest> = async data => {
     if (formState.isValid) {
-      const newPasswordInput: { newPassword: string; recoveryCode: string } = {
-        newPassword: data.password,
+      const newPasswordInput: NewPasswordRequest = {
+        newPassword: data.newPassword,
         recoveryCode: recoveryCode,
       }
 
@@ -62,7 +62,7 @@ export const CreateNewPassword: FC = () => {
           <ControlledTextField
             control={control}
             label={t.label.password}
-            name={'password'}
+            name={'newPassword'}
             placeholder={t.placeholders.password}
             type={'password'}
           ></ControlledTextField>

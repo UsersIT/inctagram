@@ -1,6 +1,6 @@
 export * from './Checkbox'
 export * from './Controlled'
-export * from './TextField'
+export * from './Textfield'
 export * from './Typography'
 export * from './button'
 export * from './card'

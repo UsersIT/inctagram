@@ -18,15 +18,14 @@ import {
 import { InfoModal } from '../InfoModal/InfoModal'
 
 type Props = ComponentProps<'form'> & {
-  className: string | undefined
-  reCaptcha: string
+  reCaptcha: null | string
 }
 
 export const ForgotPasswordForm: FC<Props> = ({ className, reCaptcha }: Props) => {
   const [showModal, setShowModal] = useState(false)
   const { t } = useTranslation()
 
-  const [recovery, { isLoading, isSuccess }] = usePasswordRecoveryMutation()
+  const [recovery, { isLoading }] = usePasswordRecoveryMutation()
 
   const {
     control,
@@ -46,7 +45,7 @@ export const ForgotPasswordForm: FC<Props> = ({ className, reCaptcha }: Props) =
 
   const onSubmit: SubmitHandler<PasswordRecovery> = async data => {
     if (isValid) {
-      const recoveryInput: { email: string; recaptcha: string } = {
+      const recoveryInput: { email: string; recaptcha: null | string } = {
         email: data.email,
         recaptcha: reCaptcha,
       }
