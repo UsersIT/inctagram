@@ -93,7 +93,6 @@ export const en: LocaleType = {
   validation: {
     emailExists: 'User with this email is already registered',
     emailFormat: 'The email must match the format example@example.com',
-    emailVerification: 'Invalid email address',
     invalidCredentials: 'The email or password are incorrect. Try again please',
     maxLength: (len: number) => `Maximum ${len} characters`,
     minLength: (len: number) => `Minimum ${len} characters`,
