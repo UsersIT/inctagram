@@ -14,7 +14,8 @@ export const en: LocaleType = {
     signUp: 'Sign Up',
   },
   errors: {
-    somethingWentWrong: 'Something went wrong',
+    somethingWentWrong:
+      'Something went wrong. Please check your internet connection and try again.',
   },
   label: {
     email: 'Email',

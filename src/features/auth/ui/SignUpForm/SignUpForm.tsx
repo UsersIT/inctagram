@@ -4,7 +4,6 @@ import { toast } from 'react-toastify'
 
 import { Trans } from '@/src/shared/components/Trans'
 import { useTranslation } from '@/src/shared/hooks'
-import { ApiErrorResult } from '@/src/shared/types/api'
 import { Button, ControlledCheckbox, ControlledTextField, Typography } from '@/src/shared/ui'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { clsx } from 'clsx'
@@ -58,7 +57,7 @@ export const SignUpForm: FC<ComponentProps<'form'>> = ({ className }) => {
         .then(() => {
           setShowModal(true)
         })
-        .catch((err: { data: ApiErrorResult }) => {
+        .catch(err => {
           const errorField = err?.data?.messages[0]?.field
           const credentialsErrorField = errorField as keyof Pick<
             SignUpFormValues,
@@ -69,13 +68,13 @@ export const SignUpForm: FC<ComponentProps<'form'>> = ({ className }) => {
             userName: t.validation.usernameExists,
           }
 
-          if (errorField === credentialsErrorField) {
+          if (err?.data && errorField === credentialsErrorField) {
             setError(credentialsErrorField, {
               message: messages[credentialsErrorField] as string,
               type: 'custom',
             })
           } else {
-            toast.error(err?.data?.messages[0]?.message)
+            toast.error(t.errors.somethingWentWrong)
           }
         })
     } else {
@@ -153,9 +152,7 @@ export const SignUpForm: FC<ComponentProps<'form'>> = ({ className }) => {
           {t.buttons.signUp}
         </Button>
       </form>
-      {showModal && (
-        <InfoModal email={getValues('email')} onClose={closeModalHandler} open={showModal} />
-      )}
+      <InfoModal email={getValues('email')} onClose={closeModalHandler} open={showModal} />
     </>
   )
 }
