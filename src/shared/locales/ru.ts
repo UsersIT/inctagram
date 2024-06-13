@@ -4,6 +4,7 @@ export const ru = {
     closeSearchFieldIcon: 'Удалить введённый поисковый запрос',
     eyeIcon: 'Скрыть введённый пароль',
     eyeOffIcon: 'Показать введённый пароль',
+    imageUploader: 'Загрузить с компьютера',
     languageSelection: 'Выбор языка',
     login: 'Войти',
     logout: 'Выйти',
@@ -12,6 +13,10 @@ export const ru = {
     signUp: 'Зарегистрироваться',
   },
   errors: {
+    errorText: 'Ошибка!',
+    imageSize: (imageSizeInMB: number) =>
+      `Размер фотографии должен быть меньше ${imageSizeInMB} MB!`,
+    imageType: 'Формат загруженной фотографии должен быть PNG, JPG или JPEG',
     somethingWentWrong: 'Что-то пошло не так',
   },
   label: {

@@ -6,6 +6,7 @@ export const en: LocaleType = {
     closeSearchFieldIcon: 'Delete the entered search query',
     eyeIcon: 'Hide the entered password',
     eyeOffIcon: 'Show the entered password',
+    imageUploader: 'Select from Computer',
     languageSelection: 'Language selection',
     login: 'Log in',
     logout: 'Log Out',
@@ -14,6 +15,9 @@ export const en: LocaleType = {
     signUp: 'Sign Up',
   },
   errors: {
+    errorText: 'Error!',
+    imageSize: (imageSizeInMB: number) => `Image size must be less than ${imageSizeInMB} MB!`,
+    imageType: 'The format of the uploaded photo must be PNG, JPG, and JPEG',
     somethingWentWrong: 'Something went wrong',
   },
   label: {

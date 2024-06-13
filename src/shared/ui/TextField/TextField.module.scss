@@ -10,7 +10,7 @@
 
   &.required {
     &::after {
-      content: "*";
+      content: '*';
       color: var(--color-danger-500);
     }
   }
@@ -113,7 +113,7 @@
     border-color: var(--color-danger-500);
   }
 
-  &[type="search"]::-webkit-search-cancel-button {
+  &[type='search']::-webkit-search-cancel-button {
     display: none;
   }
 }
