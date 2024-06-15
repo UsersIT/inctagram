@@ -1,0 +1,44 @@
+.trigger {
+  cursor: pointer;
+
+  flex: 1;
+
+  height: 36px;
+  padding: 6px 24px;
+
+  font-weight: var(--font-weight-semi-bold);
+  color: var(--color-dark-100);
+
+  background-color: transparent;
+  border: none;
+  border-bottom: solid 2px var(--color-dark-100);
+
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+
+  &:hover {
+    background-color: var(--color-accent-900-opacity-15);
+  }
+
+  &:active {
+    background-color: var(--color-accent-100-opacity-15);
+  }
+
+  &[data-state='active'] {
+    color: var(--color-accent-500);
+    border-bottom: solid 2px var(--color-accent-500);
+  }
+
+  &[data-disabled] {
+    cursor: not-allowed;
+    color: var(--color-dark-300);
+    background-color: transparent;
+    border-bottom: solid 2px var(--color-dark-300);
+  }
+
+  &[data-state='active'][data-disabled] {
+    color: var(--color-accent-900);
+    border-bottom: solid 2px var(--color-accent-900);
+  }
+}
