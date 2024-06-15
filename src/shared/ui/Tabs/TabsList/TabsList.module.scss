@@ -1,4 +1,6 @@
 .list {
+  scrollbar-width: thin;
+  overflow-x: auto;
   display: flex;
-  justify-content: space-between;
+  white-space: nowrap;
 }
