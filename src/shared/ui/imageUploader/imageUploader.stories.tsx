@@ -1,7 +1,11 @@
+import type { Meta, StoryObj } from '@storybook/react'
+
 import { useState } from 'react'
 
-import { ImageUploader } from '@/src/shared/ui/imageUploader/imageUploader'
-import { Meta, StoryObj } from '@storybook/react'
+import { useTranslation } from '@/src/shared/hooks'
+import { imageSchema } from '@/src/shared/schemas/ImageSchema'
+import { ImageUploadInput } from '@/src/shared/ui/imageUploadInput'
+import { ImageUploader, ImageUploaderProps } from '@/src/shared/ui/imageUploader/imageUploader'
 
 const meta: Meta<typeof ImageUploader> = {
   argTypes: {
@@ -26,18 +30,12 @@ export default meta
 type Story = StoryObj<typeof ImageUploader>
 
 export const Default: Story = {
-  render: args => {
+  args: {},
+  render: (args: ImageUploaderProps) => {
     const [file, setFile] = useState<File | null>(null)
+    const { t } = useTranslation()
+    const schema = imageSchema(t, 10)
 
-    return <ImageUploader {...args} setFile={setFile} />
-  },
-}
-
-export const WithError: Story = {
-  render: args => {
-    const [file, setFile] = useState<File | null>(null)
-    const [error, setError] = useState('Error! Photo size must be less than 10 MB!')
-
-    return <ImageUploader {...args} setFile={setFile} />
+    return <ImageUploader {...args} schema={schema} setFile={setFile} />
   },
 }

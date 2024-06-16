@@ -15,9 +15,9 @@ export const en: LocaleType = {
     signUp: 'Sign Up',
   },
   errors: {
-    errorText: 'Error!',
+    errorWord: 'Error!',
     imageSize: (imageSizeInMB: number) => `Image size must be less than ${imageSizeInMB} MB!`,
-    imageType: 'The format of the uploaded photo must be PNG, JPG, and JPEG',
+    imageType: 'The format of the uploaded photo must be PNG and JPEG',
     somethingWentWrong: 'Something went wrong',
   },
   label: {

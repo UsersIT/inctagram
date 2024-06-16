@@ -9,12 +9,12 @@ import { ZodEffects } from 'zod'
 
 import s from './imageUploader.module.scss'
 
-type ImageUploaderProps = {
+export type ImageUploaderProps = {
   schema?: ZodEffects<any>
   setFile: (file: File | null) => void
 } & PropsWithChildren
 
-export const ImageUploader = ({ children, schema, setFile }: ImageUploaderProps) => {
+export const ImageUploader = ({ schema, setFile }: ImageUploaderProps) => {
   const [error, setError] = useState('')
   const { t } = useTranslation()
 
@@ -31,6 +31,9 @@ export const ImageUploader = ({ children, schema, setFile }: ImageUploaderProps)
       {error ? (
         <div className={classes.errorWrapper}>
           <Typography as={'span'} className={classes.errorMassage} variant={'bold-text-14'}>
+            {t.errors.errorWord}
+          </Typography>
+          <Typography as={'span'} className={classes.errorMassage} variant={'regular-text-16'}>
             {error}
           </Typography>
         </div>
@@ -38,7 +41,6 @@ export const ImageUploader = ({ children, schema, setFile }: ImageUploaderProps)
       <div className={classes.iconWrapper}>
         <ImageIcon />
       </div>
-
       <ImageUploadInput
         error={setError}
         schema={schema}
@@ -49,7 +51,6 @@ export const ImageUploader = ({ children, schema, setFile }: ImageUploaderProps)
           </Button>
         }
       />
-      {children}
     </div>
   )
 }

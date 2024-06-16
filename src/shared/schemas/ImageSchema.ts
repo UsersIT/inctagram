@@ -6,12 +6,9 @@ export const imageSchema = (t: LocaleType, imageSizeInMB = 10) => {
 
   return z
     .instanceof(File)
-    .refine(
-      file => file.size <= imageSize,
-      `<strong>${t.errors.errorText} </strong>${t.errors.imageSize(imageSizeInMB)}`
-    )
+    .refine(file => file.size <= imageSize, `${t.errors.imageSize(imageSizeInMB)}`)
     .refine(
       file => ['image/jpeg', 'image/jpg', 'image/png'].includes(file.type),
-      `<strong>${t.errors.errorText} </strong>${t.errors.imageType}`
+      ` ${t.errors.imageType}`
     )
 }

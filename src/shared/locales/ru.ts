@@ -13,10 +13,10 @@ export const ru = {
     signUp: 'Зарегистрироваться',
   },
   errors: {
-    errorText: 'Ошибка!',
+    errorWord: 'Ошибка!',
     imageSize: (imageSizeInMB: number) =>
       `Размер фотографии должен быть меньше ${imageSizeInMB} MB!`,
-    imageType: 'Формат загруженной фотографии должен быть PNG, JPG или JPEG',
+    imageType: 'Формат загруженной фотографии должен быть PNG или JPEG',
     somethingWentWrong: 'Что-то пошло не так',
   },
   label: {

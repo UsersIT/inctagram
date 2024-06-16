@@ -23,7 +23,11 @@ export const ImageUploadInput = forwardRef<ElementRef<'input'>, ImageUploaderPro
         if (validationResult.success) {
           setFile(file)
         } else {
-          error?.(validationResult.error.message)
+          if (!validationResult.success) {
+            const errorMessage = validationResult.error.issues[0].message
+
+            error?.(errorMessage)
+          }
         }
       }
     }
