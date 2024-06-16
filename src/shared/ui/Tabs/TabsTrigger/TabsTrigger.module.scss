@@ -25,6 +25,12 @@
     background-color: var(--color-accent-100-opacity-15);
   }
 
+  &:focus-visible {
+    z-index: 0;
+    border-radius: 2px;
+    outline: solid 2px var(--color-accent-700);
+  }
+
   &[data-state='active'] {
     color: var(--color-accent-500);
     border-bottom: solid 2px var(--color-accent-500);
