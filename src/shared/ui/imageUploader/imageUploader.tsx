@@ -10,7 +10,7 @@ import { ZodEffects } from 'zod'
 import s from './imageUploader.module.scss'
 
 export type ImageUploaderProps = {
-  schema?: ZodEffects<any>
+  schema: ZodEffects<any>
   setFile: (file: File | null) => void
 } & PropsWithChildren
 
