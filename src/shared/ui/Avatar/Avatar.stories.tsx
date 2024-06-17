@@ -6,7 +6,7 @@ const meta: Meta<typeof Avatar> = {
   argTypes: {
     circle: {
       control: { type: 'boolean' },
-      description: 'Sets the shape of the avatar',
+      description: 'Sets the shape of the Avatar',
       options: ['true', 'false'],
       table: {
         defaultValue: { summary: '"false"' },
@@ -14,7 +14,7 @@ const meta: Meta<typeof Avatar> = {
     },
     height: {
       control: { type: 'number' },
-      description: 'Sets the height of the avatar',
+      description: 'Sets the height of the Avatar',
       table: {
         defaultValue: { summary: '192' },
       },
@@ -28,11 +28,11 @@ const meta: Meta<typeof Avatar> = {
     },
     url: {
       control: { type: 'text' },
-      description: 'Sets the URL of the avatar image',
+      description: 'Sets the URL of the Avatar image',
     },
     width: {
       control: { type: 'number' },
-      description: 'Sets the width of the avatar',
+      description: 'Sets the width of the Avatar',
       table: {
         defaultValue: { summary: '192' },
       },
@@ -48,7 +48,7 @@ const meta: Meta<typeof Avatar> = {
   parameters: {
     docs: {
       description: {
-        component: 'Accepts all props of the native avatar element.',
+        component: 'Accepts all props of the native Avatar element.',
       },
     },
   },

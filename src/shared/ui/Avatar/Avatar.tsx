@@ -41,7 +41,7 @@ export const Avatar = ({
 
   return url && !error ? (
     <Image
-      alt={'avatar'}
+      alt={'Avatar'}
       className={className}
       height={height}
       onError={() => setError(true)}
