@@ -1,6 +1,6 @@
 import { CSSProperties, useState } from 'react'
 
-import { ImageIcon } from '@/src/shared/assets/icons/components/ImageIcon'
+import { ImageIcon } from '@/src/shared/assets/icons'
 import clsx from 'clsx'
 import Image from 'next/image'
 

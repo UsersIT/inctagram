@@ -77,3 +77,10 @@ export const DefaultWithHeightAndWidth: Story = {
     width: '200px',
   },
 }
+
+export const DefaultLimit: Story = {
+  args: {
+    label: 'Text',
+    maxLength: 5,
+  },
+}

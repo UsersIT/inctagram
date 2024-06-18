@@ -12,7 +12,34 @@ export const ru = {
     signIn: 'Войти',
     signUp: 'Зарегистрироваться',
   },
+  calendar: {
+    months: {
+      april: 'Апрель',
+      august: 'Август',
+      december: 'Декабрь',
+      february: 'Февраль',
+      january: 'Январь',
+      july: 'Июль',
+      june: 'Июнь',
+      march: 'Март',
+      may: 'Май',
+      november: 'Ноябрь',
+      october: 'Октябрь',
+      september: 'Сентябрь',
+    },
+    weekDays: {
+      fr: 'Пт',
+      mo: 'Пн',
+      sa: 'Сб',
+      su: 'Вс',
+      th: 'Вт',
+      tu: 'Чт',
+      we: 'Ср',
+    },
+  },
   errors: {
+    calendar: 'Пользователь младше 13 лет не может создать профиль.',
+    characterLimit: 'Достигнуто максимальное количество символов',
     errorWord: 'Ошибка!',
     imageSize: (imageSizeInMB: number) =>
       `Размер фотографии должен быть меньше ${imageSizeInMB} MB!`,
@@ -98,7 +125,6 @@ export const ru = {
   validation: {
     emailExists: 'Пользователь с таким email уже зарегистрирован',
     emailFormat: 'Email должен соответствовать формату example@example.com',
-    emailVerification: 'Недействительный адрес электронной почты',
     invalidCredentials: 'Введенные email или пароль неверны. Пожалуйста, попробуйте еще раз',
     maxLength: (len: number) => `Максимальное количество символов ${len}`,
     minLength: (len: number) => `Минимальное количество символов ${len}`,

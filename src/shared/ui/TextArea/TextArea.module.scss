@@ -21,6 +21,8 @@
   border-radius: 2px;
   outline: 1px solid var(--color-dark-100);
 
+  transition: outline 0.3s ease;
+
   &::placeholder {
     font-size: var(--font-size-m);
     line-height: var(--line-height-m);
@@ -38,12 +40,12 @@
 
   &:active:not(:disabled) {
     color: var(--color-light-100);
-    outline: 1px solid var(--color-light-100);
   }
 
   &.error {
     color: var(--color-light-100);
     outline: 1px solid var(--color-danger-500);
+    transition: outline 0.3s ease;
   }
 
   &:hover:not(:disabled, :focus-visible, .error) {
@@ -51,16 +53,11 @@
   }
 }
 
-.textarea:focus::placeholder,
-.textarea:active::placeholder,
-.textarea.error::placeholder {
-  color: var(--color-light-100);
-}
-
 .error {
   font-size: var(--font-size-s);
   line-height: var(--line-height-m);
   color: var(--color-danger-500);
+  transition: color 0.3s ease;
 }
 
 .disabled {

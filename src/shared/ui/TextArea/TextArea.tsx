@@ -1,5 +1,6 @@
-import { ComponentPropsWithoutRef, Ref, forwardRef } from 'react'
+import { ChangeEvent, ComponentPropsWithoutRef, Ref, forwardRef, useState } from 'react'
 
+import { useTranslation } from '@/src/shared/hooks'
 import { Typography } from '@/src/shared/ui'
 import clsx from 'clsx'
 
@@ -9,23 +10,38 @@ export type TextAreaProps = {
   error?: string
   height?: string
   label?: string
+  maxLength?: number
   width?: string
 } & ComponentPropsWithoutRef<'textarea'>
 
 export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
   (
-    { className, disabled, error, label, id = label, onChange, ...rest },
+    { className, disabled, error, label, id = label, maxLength, onChange, ...rest },
     ref: Ref<HTMLTextAreaElement>
   ) => {
+    const [value, setValue] = useState('')
+    const { t } = useTranslation()
+
     const classes = {
       container: clsx(s.container, className),
       label: clsx(s.label, { [s.disabled]: disabled }),
-      textarea: clsx({ [s.error]: error }, s.textarea, className),
+      textarea: clsx(
+        { [s.error]: error || (maxLength && value.length > maxLength) },
+        s.textarea,
+        className
+      ),
     }
 
     const textareaStyle = {
       height: rest.height || '84px',
       width: rest.width || '100%',
+    }
+
+    const handleChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
+      setValue(e.target.value)
+      if (onChange) {
+        onChange(e)
+      }
     }
 
     return (
@@ -39,12 +55,22 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
           className={classes.textarea}
           disabled={disabled}
           id={id}
-          onChange={onChange}
+          maxLength={maxLength}
+          onChange={handleChange}
           ref={ref}
           style={textareaStyle}
           {...rest}
         ></textarea>
-        {error && <span className={s.error}>{error}</span>}
+        {(error && (
+          <Typography as={'span'} className={s.error} variant={'regular-text-14'}>
+            {error}
+          </Typography>
+        )) ||
+          (maxLength && value.length >= maxLength && (
+            <Typography as={'span'} className={s.error} variant={'regular-text-14'}>
+              {t.errors.characterLimit}
+            </Typography>
+          ))}
       </div>
     )
   }
