@@ -1,7 +1,7 @@
 $z-index-modal-overlay: 100;
 $z-index-modal-content: 101;
 $color-modal-element-hover: var(--color-dark-100);
-$transition-duration-basic: .3s;
+$transition-duration-basic: 0.3s;
 $color-bg-element: var(--color-dark-300);
 
 .overlay {
@@ -28,7 +28,6 @@ $color-bg-element: var(--color-dark-300);
 
   &.sm {
     width: 378px;
-
   }
 
   &.md {
@@ -69,7 +68,7 @@ $color-bg-element: var(--color-dark-300);
 .contentBox {
   position: relative;
   padding: 0;
- }
+}
 
 .scrollbar {
   overflow: auto;
@@ -96,7 +95,7 @@ $color-bg-element: var(--color-dark-300);
   &:hover,
   &:focus-visible {
     background-color: $color-modal-element-hover;
-     outline: none;
+    outline: none;
   }
 }
 
