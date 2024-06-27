@@ -54,6 +54,16 @@ export const ru = {
     passwordConfirmation: 'Подтверждение пароля',
     username: 'Имя пользователя',
   },
+  navigation: {
+    create: 'Создать',
+    favorites: 'Избранное',
+    home: 'Главная',
+    messenger: 'Мессенджер',
+    myProfile: 'Мой профиль',
+    search: 'Поиск',
+    settings: 'Настройки',
+    statistics: 'Статистика',
+  },
   pages: {
     policies: {
       policy: {

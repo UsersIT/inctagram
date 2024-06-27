@@ -55,6 +55,16 @@ export const en: LocaleType = {
     passwordConfirmation: 'Password confirmation',
     username: 'Username',
   },
+  navigation: {
+    create: 'Create',
+    favorites: 'Favorites',
+    home: 'Home',
+    messenger: 'Messenger',
+    myProfile: 'My Profile',
+    search: 'Search',
+    settings: 'Profile Settings',
+    statistics: 'Statistics',
+  },
   pages: {
     policies: {
       policy: {
