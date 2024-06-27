@@ -10,6 +10,7 @@ export const en: LocaleType = {
     languageSelection: 'Language selection',
     login: 'Log in',
     logout: 'Log Out',
+    openMenu: 'Open menu',
     resendLink: 'Resend verification link',
     signIn: 'Sign In',
     signUp: 'Sign Up',

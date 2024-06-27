@@ -8,6 +8,7 @@ export const ru = {
     languageSelection: 'Выбор языка',
     login: 'Войти',
     logout: 'Выйти',
+    openMenu: 'Открыть меню',
     resendLink: 'Отправить повторно',
     signIn: 'Войти',
     signUp: 'Зарегистрироваться',
