@@ -1,4 +1,5 @@
-export { LoginForm } from './ui/LoginForm'
+export { useMeQuery } from './api/authApi'
+export { LoginForm } from './ui/LoginForm/LoginForm'
+export { LogoutButton } from './ui/LogoutButton/LogoutButton'
 export { ResendVerificationLinkButton } from './ui/ResendVerificationLinkButton/ResendVerificationLinkButton'
 export { SignUpForm } from './ui/SignUpForm/SignUpForm'
-export { LogoutButton } from './ui/logoutButton'

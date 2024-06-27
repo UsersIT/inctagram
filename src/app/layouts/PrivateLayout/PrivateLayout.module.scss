@@ -1,0 +1,33 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  max-height: 100vh;
+}
+
+.wrapper {
+  overflow: auto;
+  display: flex;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.pageContent {
+  margin-left: var(--sidebar-open-width);
+}
+
+.scrollArea {
+  width: 100%;
+}
+
+@media screen and (width <= 1024px) {
+  .pageContent {
+    margin-left: var(--sidebar-collapsed-width);
+  }
+}
+
+@media screen and (width <= 576px) {
+  .pageContent {
+    margin-left: unset;
+  }
+}
