@@ -2,6 +2,7 @@ export const ru = {
   buttons: {
     back: 'Вернуться назад',
     closeSearchFieldIcon: 'Удалить введённый поисковый запрос',
+    expandMenu: 'Развернуть меню',
     eyeIcon: 'Скрыть введённый пароль',
     eyeOffIcon: 'Показать введённый пароль',
     imageUploader: 'Загрузить с компьютера',

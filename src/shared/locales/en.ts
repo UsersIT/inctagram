@@ -4,6 +4,7 @@ export const en: LocaleType = {
   buttons: {
     back: 'Go Back',
     closeSearchFieldIcon: 'Delete the entered search query',
+    expandMenu: 'Expand menu',
     eyeIcon: 'Hide the entered password',
     eyeOffIcon: 'Show the entered password',
     imageUploader: 'Select from Computer',
