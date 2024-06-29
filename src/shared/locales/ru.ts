@@ -40,6 +40,7 @@ export const ru = {
   errors: {
     calendar: 'Пользователь младше 13 лет не может создать профиль.',
     characterLimit: 'Достигнуто максимальное количество символов',
+    errorAge: 'Пользователь младше 13 лет не может создать профиль.',
     errorWord: 'Ошибка!',
     imageSize: (imageSizeInMB: number) =>
       `Размер фотографии должен быть меньше ${imageSizeInMB} MB!`,

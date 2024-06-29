@@ -42,6 +42,7 @@ export const en: LocaleType = {
   errors: {
     calendar: 'A user under 13 cannot create a profile',
     characterLimit: 'Maximum number of characters reached',
+    errorAge: 'A user under 13 cannot create profile',
     errorWord: 'Error!',
     imageSize: (imageSizeInMB: number) => `Image size must be less than ${imageSizeInMB} MB!`,
     imageType: 'The format of the uploaded photo must be PNG and JPEG',

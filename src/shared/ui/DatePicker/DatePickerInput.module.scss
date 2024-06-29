@@ -1,3 +1,9 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
 .wrapper {
   position: relative;
 }
@@ -7,12 +13,18 @@
   height: 36px;
   padding: 6px 12px;
 
+  font-size: var(--font-size-m);
+  font-weight: var(--font-weight-regular);
   color: var(--color-light-100);
 
   background-color: transparent !important;
   border: 1px solid var(--color-dark-100);
   border-radius: 2px;
   outline: none;
+
+  transition:
+    color 0.2s ease-in,
+    border-color 0.2s ease-in;
 
   &:focus {
     border: 1px solid var(--color-accent-500);
@@ -28,9 +40,9 @@
 .inputError {
   width: 100%;
   height: 36px;
-  padding: 4px 12px;
+  padding: 6px 12px;
 
-  color: var(--color-danger-500);
+  color: var(--color-text-error);
 
   background-color: transparent !important;
   border: 1px solid var(--color-danger-500);
@@ -38,27 +50,48 @@
   outline: none;
 }
 
-.calendarIcon {
+.disabled {
   pointer-events: none;
+  color: var(--color-text-disabled);
+}
+
+.label {
+  font-size: var(--font-size-s);
+  color: var(--color-text-secondary);
+
+  &.required {
+    &::after {
+      content: '*';
+      color: var(--color-danger-500);
+    }
+  }
+}
+
+.calendarIcon {
   cursor: pointer;
 
   position: absolute;
-  top: 4px;
-  right: 16px;
+  top: 5px;
+  right: 12px;
+
+  width: 24px;
+  height: 24px;
 }
 
 .container {
   width: 100%;
 
   :global(.rmdp-header) {
-    margin: 0;
+    width: 252px;
+    margin: 0 0 12px;
     padding: 0;
-    font-size: 14px !important;
-    font-weight: bold;
+
+    font-size: var(--font-size-m) !important;
+    font-weight: var(--font-weight-bold);
   }
 
   :global(.rmdp-header-values) {
-    margin-left: 0 !important;
+    margin-left: 10px !important;
     color: var(--color-light-100) !important;
 
     span {
@@ -69,27 +102,38 @@
 
   :global(.rmdp-wrapper) {
     width: 300px;
-    padding: 12px 20px;
+    padding: 20px 16px !important;
     background-color: var(--color-dark-500) !important;
     border-radius: 2px !important;
   }
 
   :global(.rmdp-day) {
+    width: 36px;
+    height: 36px;
+    font-weight: var(--font-weight-regular);
     color: var(--color-light-100);
   }
 
   :global(.rmdp-week:nth-of-type(1)) {
     width: 252px;
-    padding: 8px 0;
+    margin: 0 0 12px !important;
+    padding: 0;
   }
 
   :global(.rmdp-week-day) {
+    width: 36px;
+    height: 40px;
+
     font-size: var(--font-size-m);
-    color: var(--color-dark-100);
+    font-weight: var(--font-weight-regular);
+    line-height: 24px;
+    color: var(--color-light-900);
+    text-align: center;
   }
 
   :global(.rmdp-year-picker),
   :global(.rmdp-month-picker) {
+    color: var(--color-light-900);
     background-color: var(--color-dark-500) !important;
   }
 
@@ -97,30 +141,31 @@
     padding: 0;
   }
 
-  :global(.sd:hover) {
-    color: var(--color-light-100) !important;
-    background-color: var(--color-accent-900) !important;
+  :global(.sd) {
+    width: 36px;
+    height: 36px;
+    font-size: var(--font-size-m) !important;
+    font-weight: var(--font-weight-regular);
   }
 
-  :global(.sd) {
-    font-size: var(--line-height-s) !important;
+  :global(.sd:hover) {
+    color: var(--color-accent-900) !important;
+    background-color: inherit !important;
   }
 
   :global(.rmdp-today .sd) {
-    font-weight: bold !important;
     color: var(--color-accent-500) !important;
     background-color: var(--color-dark-500) !important;
     border: none !important;
   }
 
   :global(.rmdp-selected .sd) {
-    inset: 0;
+    width: 36px;
+    height: 36px;
 
-    font-weight: bold !important;
     color: var(--color-light-100) !important;
 
     background-color: var(--color-accent-900) !important;
-    border: 4px solid rgb(0 0 0 / 30%) !important;
     box-shadow: none !important;
   }
 
@@ -133,11 +178,11 @@
     display: flex;
     align-items: center;
 
-    width: 32px !important;
-    height: 32px !important;
+    width: 36px !important;
+    height: 36px !important;
     margin: 0;
 
-    background-color: var(--color-dark-300);
+    background-color: var(--color-dark-100);
     border-radius: 50%;
   }
 
@@ -157,7 +202,7 @@
   }
 
   :global(.rmdp-deactive > .weekends) {
-    color: var(--color-dark-100) !important;
+    color: var(--color-light-900) !important;
   }
 
   :global(.rmdp-arrow) {
@@ -171,6 +216,10 @@
   }
 
   :global(.rmdp-deactive) {
-    color: var(--color-dark-100) !important;
+    color: var(--color-light-900) !important;
   }
+}
+
+.errorMessage {
+  color: var(--color-text-error);
 }
