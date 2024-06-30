@@ -62,7 +62,7 @@
   &.required {
     &::after {
       content: '*';
-      color: var(--color-danger-500);
+      color: var(--color-text-error);
     }
   }
 }
@@ -76,6 +76,14 @@
 
   width: 24px;
   height: 24px;
+
+  &.disabled {
+    fill: var(--color-text-disabled);
+  }
+
+  &.inputError {
+    fill: var(--color-text-error);
+  }
 }
 
 .container {

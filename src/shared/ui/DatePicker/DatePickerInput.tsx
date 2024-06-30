@@ -90,7 +90,7 @@ export const DatePickerInput = forwardRef<HTMLInputElement, DatePickerProps>(
 
     const classNames = {
       calendarIcon: clsx(s.calendarIcon, disabled && s.disabled),
-      input: clsx(s.input, showError && s.error),
+      input: clsx(s.input, showError && s.inputError),
       label: clsx(s.label, isRequired && s.required, disabled && s.disabled),
       root: clsx(s.root, className),
       wrapper: clsx(s.wrapper, disabled && s.disabled),
@@ -111,7 +111,6 @@ export const DatePickerInput = forwardRef<HTMLInputElement, DatePickerProps>(
           <DatePicker
             arrow={false}
             containerClassName={s.container}
-            disabled={disabled}
             format={'DD.MM.YYYY'}
             headerOrder={['MONTH_YEAR', 'LEFT_BUTTON', 'RIGHT_BUTTON']}
             id={id}
@@ -130,6 +129,7 @@ export const DatePickerInput = forwardRef<HTMLInputElement, DatePickerProps>(
             onClose={toggleCalendar}
             onOpen={toggleCalendar}
             placeholder={'00.00.0000'}
+            readOnly={disabled}
             ref={ref as MutableRefObject<any> | undefined}
             showOtherDays
             value={date}
