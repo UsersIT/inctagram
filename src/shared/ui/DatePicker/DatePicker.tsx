@@ -90,7 +90,7 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
 
     const classNames = {
       calendarIcon: clsx(s.calendarIcon, disabled && s.disabled),
-      input: clsx(s.input, showError && s.inputError),
+      input: clsx(s.input, showError && s.error),
       label: clsx(s.label, isRequired && s.required, disabled && s.disabled),
       root: clsx(s.root, className),
       wrapper: clsx(s.wrapper, disabled && s.disabled),
@@ -114,7 +114,7 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
             format={'DD.MM.YYYY'}
             headerOrder={['MONTH_YEAR', 'LEFT_BUTTON', 'RIGHT_BUTTON']}
             id={id}
-            inputClass={classNames.input}
+            inputClass={classNames.input + (showError ? ' ' + s.inputError : '')}
             mapDays={({ date }) => {
               const isWeekend = [0, 6].includes(date.weekDay.index)
 
@@ -138,17 +138,19 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
           />
 
           {isOpen ? (
-            <Calendar className={classNames.calendarIcon} />
+            <Calendar className={classNames.calendarIcon + (showError ? ' ' + s.errorSvg : '')} />
           ) : (
-            <CalendarOutline className={classNames.calendarIcon} />
+            <CalendarOutline
+              className={classNames.calendarIcon + (showError ? ' ' + s.errorSvg : '')}
+            />
           )}
-          <div>
-            {error && (
-              <Typography as={'span'} className={s.errorMessage} variant={'regular-text-14'}>
-                {error}
-              </Typography>
-            )}
-          </div>
+        </div>
+        <div>
+          {showError && (
+            <Typography as={'span'} className={s.errorMessage} variant={'regular-text-14'}>
+              {error}
+            </Typography>
+          )}
         </div>
       </div>
     )
