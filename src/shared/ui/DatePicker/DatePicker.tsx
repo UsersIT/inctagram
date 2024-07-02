@@ -12,7 +12,7 @@ import { useTranslation } from '@/src/shared/hooks'
 import { Typography } from '@/src/shared/ui'
 import clsx from 'clsx'
 
-import s from './DatePickerInput.module.scss'
+import s from './DatePicker.module.scss'
 
 export type DatePickerProps = {
   className?: string

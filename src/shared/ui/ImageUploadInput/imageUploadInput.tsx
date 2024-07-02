@@ -6,14 +6,14 @@ import s from './ImageUploadInput.module.scss'
 
 import { Typography } from '../Typography'
 
-export type ImageUploaderProps = {
+export type ImageUploadInputProps = {
   error?: (error: string) => void
   schema: ZodEffects<any>
   setFile: (file: File | null) => void
   trigger: ReactNode
 } & ComponentPropsWithoutRef<'input'>
 
-export const ImageUploadInput = forwardRef<ElementRef<'input'>, ImageUploaderProps>(
+export const ImageUploadInput = forwardRef<ElementRef<'input'>, ImageUploadInputProps>(
   ({ className, error, name, schema, setFile, trigger, ...rest }, ref) => {
     const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
       if (e.target.files) {
