@@ -43,7 +43,8 @@ export const ru = {
     imageSize: (imageSizeInMB: number) =>
       `Размер фотографии должен быть меньше ${imageSizeInMB} MB!`,
     imageType: 'Формат загруженной фотографии должен быть PNG или JPEG',
-    somethingWentWrong: 'Что-то пошло не так',
+    somethingWentWrong:
+      'Что-то пошло не так. Пожалуйста, проверьте Ваше интернет-соединение и попробуйте снова.',
   },
   label: {
     email: 'Электронная почта',

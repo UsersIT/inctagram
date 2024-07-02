@@ -44,7 +44,8 @@ export const en: LocaleType = {
     errorWord: 'Error!',
     imageSize: (imageSizeInMB: number) => `Image size must be less than ${imageSizeInMB} MB!`,
     imageType: 'The format of the uploaded photo must be PNG and JPEG',
-    somethingWentWrong: 'Something went wrong',
+    somethingWentWrong:
+      'Something went wrong. Please check your internet connection and try again.',
   },
   label: {
     email: 'Email',
