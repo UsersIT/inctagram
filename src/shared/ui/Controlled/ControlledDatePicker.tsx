@@ -1,6 +1,6 @@
 import { Control, FieldPath, FieldValues, useController } from 'react-hook-form'
 
-import { DatePickerInput, DatePickerProps } from '@/src/shared/ui/DatePicker/DatePickerInput'
+import { DatePicker, DatePickerProps } from '@/src/shared/ui/DatePicker/DatePicker'
 
 export type ControlledTextFieldProps<TFieldValues extends FieldValues> = {
   control: Control<TFieldValues>
@@ -18,5 +18,5 @@ export const ControlledDatePicker = <TFieldValues extends FieldValues>(
     name: props.name,
   })
 
-  return <DatePickerInput {...props} {...field} error={error?.message} id={props.name} />
+  return <DatePicker {...props} {...field} error={error?.message} id={props.name} />
 }

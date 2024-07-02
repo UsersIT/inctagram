@@ -5,7 +5,7 @@ import React, {
   useEffect,
   useState,
 } from 'react'
-import DatePicker, { Value } from 'react-multi-date-picker'
+import MultiDatePicker, { Value } from 'react-multi-date-picker'
 
 import { Calendar, CalendarOutline } from '@/src/shared/assets/icons'
 import { useTranslation } from '@/src/shared/hooks'
@@ -17,15 +17,16 @@ import s from './DatePickerInput.module.scss'
 export type DatePickerProps = {
   className?: string
   data?: Date | number | string
-  defaultValue: Date | null
+  defaultValue?: Value
   disabled?: boolean
   error?: string
   isRequired?: boolean
   label?: string
   onChange: (newValue: Value) => void
+  width?: string
 } & ComponentPropsWithoutRef<'input'>
 
-export const DatePickerInput = forwardRef<HTMLInputElement, DatePickerProps>(
+export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
   (
     {
       className,
@@ -37,18 +38,16 @@ export const DatePickerInput = forwardRef<HTMLInputElement, DatePickerProps>(
       isRequired,
       label,
       onChange,
+      width = '100%',
     }: DatePickerProps,
     ref
   ) => {
     const { t } = useTranslation()
-
-    const [date, setDate] = useState<Value>(defaultValue)
+    const [date, setDate] = useState<Value>(defaultValue || null)
     const [isOpen, setIsOpen] = useState(false)
 
     useEffect(() => {
-      if (defaultValue) {
-        setDate(defaultValue)
-      }
+      setDate(defaultValue || null)
     }, [data, defaultValue])
 
     const weekDays = [
@@ -86,6 +85,7 @@ export const DatePickerInput = forwardRef<HTMLInputElement, DatePickerProps>(
     const toggleCalendar = () => {
       setIsOpen(!isOpen)
     }
+
     const showError = !!error && error.length > 0
 
     const classNames = {
@@ -107,8 +107,8 @@ export const DatePickerInput = forwardRef<HTMLInputElement, DatePickerProps>(
           </label>
         )}
 
-        <div className={classNames.wrapper}>
-          <DatePicker
+        <div className={classNames.wrapper} style={{ width }}>
+          <MultiDatePicker
             arrow={false}
             containerClassName={s.container}
             format={'DD.MM.YYYY'}
@@ -142,7 +142,6 @@ export const DatePickerInput = forwardRef<HTMLInputElement, DatePickerProps>(
           ) : (
             <CalendarOutline className={classNames.calendarIcon} />
           )}
-
           <div>
             {error && (
               <Typography as={'span'} className={s.errorMessage} variant={'regular-text-14'}>
@@ -156,4 +155,4 @@ export const DatePickerInput = forwardRef<HTMLInputElement, DatePickerProps>(
   }
 )
 
-DatePickerInput.displayName = 'DatePickerInput'
+DatePicker.displayName = 'DatePicker'

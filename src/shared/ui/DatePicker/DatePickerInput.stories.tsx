@@ -1,18 +1,18 @@
 import React from 'react'
 
-import { DatePickerInput, DatePickerProps } from '@/src/shared/ui/DatePicker/DatePickerInput'
+import { DatePicker, DatePickerProps } from '@/src/shared/ui/DatePicker/DatePicker'
 import { Meta, Story } from '@storybook/react'
 
 export default {
-  component: DatePickerInput,
+  component: DatePicker,
   title: 'Components/DatePickerInput',
 } as Meta
 
-const Template: Story<DatePickerProps> = args => <DatePickerInput {...args} />
+const Template: Story<DatePickerProps> = args => <DatePicker {...args} />
 
 export const Default = Template.bind({})
 Default.args = {
-  data: '',
+  data: new Date('2011-01-01').toDateString(),
   label: 'Label',
   onChange: newValue => {},
 }

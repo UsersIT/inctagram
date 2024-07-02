@@ -40,9 +40,7 @@ export const en: LocaleType = {
     },
   },
   errors: {
-    calendar: 'A user under 13 cannot create a profile',
     characterLimit: 'Maximum number of characters reached',
-    errorAge: 'A user under 13 cannot create profile',
     errorWord: 'Error!',
     imageSize: (imageSizeInMB: number) => `Image size must be less than ${imageSizeInMB} MB!`,
     imageType: 'The format of the uploaded photo must be PNG and JPEG',
@@ -133,6 +131,7 @@ export const en: LocaleType = {
     required: 'Required field',
     userNameVerification: 'Username should contain 0-9, a-z, A-Z, _, -',
     usernameExists: 'User with this username is already registered',
+    validAge: 'A user under 13 cannot create profile',
   },
   widgets: {
     linkExpiredLayout: {

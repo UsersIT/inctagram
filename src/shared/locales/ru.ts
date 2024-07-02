@@ -38,9 +38,7 @@ export const ru = {
     },
   },
   errors: {
-    calendar: 'Пользователь младше 13 лет не может создать профиль.',
     characterLimit: 'Достигнуто максимальное количество символов',
-    errorAge: 'Пользователь младше 13 лет не может создать профиль.',
     errorWord: 'Ошибка!',
     imageSize: (imageSizeInMB: number) =>
       `Размер фотографии должен быть меньше ${imageSizeInMB} MB!`,
@@ -134,6 +132,7 @@ export const ru = {
     required: 'Обязательное поле',
     userNameVerification: 'Имя пользователя может содержать 0-9, a-z, A-Z, _, -',
     usernameExists: 'Пользователь с таким именем пользователя уже зарегистрирован',
+    validAge: 'Пользователь младше 13 лет не может создать профиль.',
   },
   widgets: {
     linkExpiredLayout: {
