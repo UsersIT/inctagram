@@ -1,10 +1,11 @@
 import { ChangeEvent, ComponentPropsWithoutRef, Ref, forwardRef, useState } from 'react'
 
 import { useTranslation } from '@/src/shared/hooks'
-import { Typography } from '@/src/shared/ui'
 import clsx from 'clsx'
 
 import s from './TextArea.module.scss'
+
+import { Typography } from '..'
 
 export type TextAreaProps = {
   error?: string

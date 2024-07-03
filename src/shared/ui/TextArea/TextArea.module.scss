@@ -46,6 +46,7 @@
   &:focus {
     border-color: var(--color-accent-500);
     outline: 1px solid var(--color-accent-500);
+    transition: outline 0.3s ease;
   }
 
   &:active:not(:disabled) {
@@ -58,7 +59,8 @@
     transition: outline 0.3s ease;
   }
 
-  &:hover:not(:disabled, :focus-visible, .error) {
+  &:hover:enabled:not(:disabled, :focus-visible, .error) {
+    border: 1px solid var(--color-light-900);
     outline: 1px solid var(--color-dark-100);
   }
 }
