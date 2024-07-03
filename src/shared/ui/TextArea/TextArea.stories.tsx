@@ -38,6 +38,7 @@ type Story = StoryObj<typeof TextArea>
 
 export const Default: Story = {
   args: {
+    isRequired: true,
     label: 'TextArea',
   },
   parameters: {
