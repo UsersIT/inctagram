@@ -11,6 +11,7 @@ export const en: LocaleType = {
     login: 'Log in',
     logout: 'Log Out',
     resendLink: 'Resend verification link',
+    save: 'Save',
     signIn: 'Sign In',
     signUp: 'Sign Up',
   },
@@ -119,9 +120,13 @@ export const en: LocaleType = {
     password: '**********',
   },
   profile: {
+    addProfilePhoto: 'Add a Profile Photo',
+    deletePhoto: 'Delete photo',
+    deleteProfilePhoto: 'Are you sure you want to delete the photo?',
     logOutConfirmation: 'Are you really want to log out of your account',
   },
   validation: {
+    ageRestriction: 'A user under 13 cannot create profile',
     emailExists: 'User with this email is already registered',
     emailFormat: 'The email must match the format example@example.com',
     invalidCredentials: 'The email or password are incorrect. Try again please',
@@ -132,7 +137,6 @@ export const en: LocaleType = {
     required: 'Required field',
     userNameVerification: 'Username should contain 0-9, a-z, A-Z, _, -',
     usernameExists: 'User with this username is already registered',
-    validAge: 'A user under 13 cannot create profile',
   },
   widgets: {
     linkExpiredLayout: {
