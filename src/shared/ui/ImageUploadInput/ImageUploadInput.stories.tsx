@@ -2,8 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 
 import { useState } from 'react'
 
-import { Button } from '@/src/shared/ui'
-import { ImageUploadInput } from '@/src/shared/ui/ImageUploadInput/index'
+import { Button, ImageUploadInput } from '@/src/shared/ui'
 
 const meta: Meta<typeof ImageUploadInput> = {
   argTypes: {

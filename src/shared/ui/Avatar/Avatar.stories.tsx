@@ -1,6 +1,5 @@
+import { Avatar } from '@/src/shared/ui'
 import { Meta, StoryObj } from '@storybook/react'
-
-import { Avatar } from '.'
 
 const meta: Meta<typeof Avatar> = {
   argTypes: {
