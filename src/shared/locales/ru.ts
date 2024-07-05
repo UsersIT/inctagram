@@ -9,6 +9,7 @@ export const ru = {
     login: 'Войти',
     logout: 'Выйти',
     resendLink: 'Отправить повторно',
+    save: 'Сохранить',
     signIn: 'Войти',
     signUp: 'Зарегистрироваться',
   },
@@ -120,9 +121,13 @@ export const ru = {
     password: '**********',
   },
   profile: {
+    addProfilePhoto: 'Добавить фотографию профиля',
+    deletePhoto: 'Удалить фото',
+    deleteProfilePhoto: 'Вы уверены, что хотите удалить фотографию профиля?',
     logOutConfirmation: 'Вы действительно хотите выйти из своей учетной записи',
   },
   validation: {
+    ageRestriction: 'Пользователь младше 13 лет не может создать профиль.',
     emailExists: 'Пользователь с таким email уже зарегистрирован',
     emailFormat: 'Email должен соответствовать формату example@example.com',
     invalidCredentials: 'Введенные email или пароль неверны. Пожалуйста, попробуйте еще раз',
@@ -133,7 +138,6 @@ export const ru = {
     required: 'Обязательное поле',
     userNameVerification: 'Имя пользователя может содержать 0-9, a-z, A-Z, _, -',
     usernameExists: 'Пользователь с таким именем пользователя уже зарегистрирован',
-    validAge: 'Пользователь младше 13 лет не может создать профиль.',
   },
   widgets: {
     linkExpiredLayout: {
