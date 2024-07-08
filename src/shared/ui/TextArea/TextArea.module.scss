@@ -6,8 +6,14 @@
 
 .label {
   font-size: var(--font-size-s);
-  line-height: var(--line-height-m);
-  color: var(--color-light-900);
+  color: var(--color-text-secondary);
+
+  &.required {
+    &::after {
+      content: '*';
+      color: var(--color-text-error);
+    }
+  }
 }
 
 .textarea {
@@ -16,12 +22,16 @@
   width: 100%;
   padding: 6px 12px;
 
+  color: var(--color-text-primary);
+
   background-color: var(--color-dark-500);
   border: none;
   border-radius: 2px;
   outline: 1px solid var(--color-dark-100);
 
-  transition: outline 0.3s ease;
+  transition:
+    color 0.2s ease-in,
+    border-color 0.2s ease-in;
 
   &::placeholder {
     font-size: var(--font-size-m);
@@ -33,9 +43,10 @@
     color: var(--dark-100);
   }
 
-  &:focus-visible {
-    color: var(--color-light-100);
-    outline: 2px solid var(--color-accent-700);
+  &:focus {
+    border-color: var(--color-accent-500);
+    outline: 1px solid var(--color-accent-500);
+    transition: outline 0.3s ease;
   }
 
   &:active:not(:disabled) {
@@ -48,7 +59,8 @@
     transition: outline 0.3s ease;
   }
 
-  &:hover:not(:disabled, :focus-visible, .error) {
+  &:hover:enabled:not(:disabled, :focus-visible, .error) {
+    border: 1px solid var(--color-light-900);
     outline: 1px solid var(--color-dark-100);
   }
 }

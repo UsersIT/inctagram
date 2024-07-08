@@ -1,14 +1,16 @@
 import { ChangeEvent, ComponentPropsWithoutRef, Ref, forwardRef, useState } from 'react'
 
 import { useTranslation } from '@/src/shared/hooks'
-import { Typography } from '@/src/shared/ui'
 import clsx from 'clsx'
 
 import s from './TextArea.module.scss'
 
+import { Typography } from '..'
+
 export type TextAreaProps = {
   error?: string
   height?: string
+  isRequired?: boolean
   label?: string
   maxLength?: number
   width?: string
@@ -16,7 +18,7 @@ export type TextAreaProps = {
 
 export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
   (
-    { className, disabled, error, label, id = label, maxLength, onChange, ...rest },
+    { className, disabled, error, isRequired, label, id = label, maxLength, onChange, ...rest },
     ref: Ref<HTMLTextAreaElement>
   ) => {
     const [value, setValue] = useState('')
@@ -24,7 +26,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
 
     const classes = {
       container: clsx(s.container, className),
-      label: clsx(s.label, { [s.disabled]: disabled }),
+      label: clsx(s.label, isRequired && s.required, disabled && s.disabled),
       textarea: clsx(
         { [s.error]: error || (maxLength && value.length > maxLength) },
         s.textarea,
