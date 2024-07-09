@@ -50,13 +50,18 @@
     -webkit-text-fill-color: var(--color-text-primary);
   }
 
+  &[data-headlessui-state="hover"] {
+    border-color: var(--color-light-900);
+  }
+
   &[data-headlessui-state="open focus"] {
     padding-right: 36px;
     border: 1px solid var(--color-light-100);
     border-radius: 2px 2px 0 0;
   }
 
-  &[data-headlessui-state="focus"] {
+  &[data-headlessui-state="focus"],
+  &[data-headlessui-state="hover focus"] {
     border-color: var(--color-accent-500);
     outline: 1px solid var(--color-accent-500);
   }
@@ -68,10 +73,6 @@
   &:disabled,
   &:disabled::placeholder {
     color: var(--color-text-disabled);
-  }
-
-  &:hover:not(&:disabled) {
-    border-color: var(--color-light-900);
   }
 
   &.error:not(&:focus-visible) {
