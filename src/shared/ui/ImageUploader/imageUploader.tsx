@@ -10,7 +10,7 @@ import s from './imageUploader.module.scss'
 
 export type ImageUploaderProps = {
   schema: ZodEffects<any>
-  setFile: (file: File | null) => void
+  setFile: (file: File) => void
 } & PropsWithChildren
 
 export const ImageUploader = ({ schema, setFile }: ImageUploaderProps) => {
