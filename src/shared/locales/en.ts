@@ -49,6 +49,7 @@ export const en: LocaleType = {
       'Something went wrong. Please check your internet connection and try again.',
   },
   label: {
+    city: 'Enter your city',
     email: 'Email',
     password: 'Password',
     passwordConfirmation: 'Password confirmation',
@@ -116,6 +117,7 @@ export const en: LocaleType = {
     },
   },
   placeholders: {
+    city: 'City',
     email: 'email@picthentic.online',
     password: '**********',
   },
@@ -127,6 +129,7 @@ export const en: LocaleType = {
   },
   validation: {
     ageRestriction: 'A user under 13 cannot create profile',
+    cityQuery: 'Query can only contain alphabets, spaces, and hyphens',
     emailExists: 'User with this email is already registered',
     emailFormat: 'The email must match the format example@example.com',
     invalidCredentials: 'The email or password are incorrect. Try again please',
