@@ -2,7 +2,7 @@ import { ComponentProps, FC, ReactNode } from 'react'
 
 import clsx from 'clsx'
 
-import s from './card.module.scss'
+import s from './Card.module.scss'
 
 type CardProps = {
   children: ReactNode

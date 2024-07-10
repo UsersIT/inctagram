@@ -22,7 +22,7 @@
 
   transition: all 0.3s;
 
-  &[data-state='open'] {
+  &[data-state="open"] {
     color: var(--color-text-primary);
     background-color: var(--color-dark-500);
     border-color: var(--color-light-100);
@@ -77,7 +77,7 @@
 
   transition: transform 0.3s ease-in;
 
-  [data-state='open'] > & {
+  [data-state="open"] > & {
     transform: rotate(180deg);
   }
 
@@ -145,11 +145,11 @@
     border-color: var(--color-dark-300);
   }
 
-  &[data-state='closed'] {
+  &[data-state="closed"] {
     animation: slide-up 0.3s ease-in;
   }
 
-  &[data-state='open'] {
+  &[data-state="open"] {
     animation: slide-down 0.3s ease-in;
   }
 }
@@ -165,14 +165,14 @@
   color: var(--color-text-secondary);
 }
 
-@media screen and (width <= 576px) {
+@media screen and (width <= 768px) {
   .trigger {
     &.language {
       gap: unset;
       padding: 6px;
       border-color: transparent;
 
-      &[data-state='open'] {
+      &[data-state="open"] {
         border-color: var(--color-light-100);
       }
     }

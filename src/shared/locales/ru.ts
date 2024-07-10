@@ -2,12 +2,14 @@ export const ru = {
   buttons: {
     back: 'Вернуться назад',
     closeSearchFieldIcon: 'Удалить введённый поисковый запрос',
+    expandMenu: 'Развернуть меню',
     eyeIcon: 'Скрыть введённый пароль',
     eyeOffIcon: 'Показать введённый пароль',
     imageUploader: 'Загрузить с компьютера',
     languageSelection: 'Выбор языка',
     login: 'Войти',
     logout: 'Выйти',
+    openMenu: 'Открыть меню',
     resendLink: 'Отправить повторно',
     save: 'Сохранить',
     signIn: 'Войти',
@@ -52,6 +54,16 @@ export const ru = {
     password: 'Пароль',
     passwordConfirmation: 'Подтверждение пароля',
     username: 'Имя пользователя',
+  },
+  navigation: {
+    create: 'Создать',
+    favorites: 'Избранное',
+    home: 'Главная',
+    messenger: 'Мессенджер',
+    myProfile: 'Мой профиль',
+    search: 'Поиск',
+    settings: 'Настройки',
+    statistics: 'Статистика',
   },
   pages: {
     policies: {
