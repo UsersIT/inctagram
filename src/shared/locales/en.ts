@@ -4,12 +4,14 @@ export const en: LocaleType = {
   buttons: {
     back: 'Go Back',
     closeSearchFieldIcon: 'Delete the entered search query',
+    expandMenu: 'Expand menu',
     eyeIcon: 'Hide the entered password',
     eyeOffIcon: 'Show the entered password',
     imageUploader: 'Select from Computer',
     languageSelection: 'Language selection',
     login: 'Log in',
     logout: 'Log Out',
+    openMenu: 'Open menu',
     resendLink: 'Resend verification link',
     save: 'Save',
     signIn: 'Sign In',
@@ -54,6 +56,16 @@ export const en: LocaleType = {
     password: 'Password',
     passwordConfirmation: 'Password confirmation',
     username: 'Username',
+  },
+  navigation: {
+    create: 'Create',
+    favorites: 'Favorites',
+    home: 'Home',
+    messenger: 'Messenger',
+    myProfile: 'My Profile',
+    search: 'Search',
+    settings: 'Profile Settings',
+    statistics: 'Statistics',
   },
   pages: {
     policies: {

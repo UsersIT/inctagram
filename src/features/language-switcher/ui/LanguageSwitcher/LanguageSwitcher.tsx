@@ -25,6 +25,7 @@ export const LanguageSwitcher: FC<ComponentProps<'div'>> = ({ className }) => {
       title={t.buttons.languageSelection}
     >
       <Select
+        className={s.select}
         onValueChange={onChangeLanguage}
         options={languages}
         value={locale}

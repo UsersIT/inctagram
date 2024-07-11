@@ -1,0 +1,21 @@
+.item {
+  display: flex;
+  width: 100%;
+}
+
+.link {
+  padding: 0;
+  color: var(--color-text-primary);
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+@media screen and (width > 576px) {
+  .trigger {
+    display: none;
+  }
+}
