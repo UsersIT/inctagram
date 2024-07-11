@@ -51,6 +51,7 @@ export const en: LocaleType = {
       'Something went wrong. Please check your internet connection and try again.',
   },
   label: {
+    city: 'Enter your city',
     email: 'Email',
     password: 'Password',
     passwordConfirmation: 'Password confirmation',
@@ -128,6 +129,7 @@ export const en: LocaleType = {
     },
   },
   placeholders: {
+    city: 'City',
     email: 'email@picthentic.online',
     password: '**********',
   },
@@ -139,13 +141,15 @@ export const en: LocaleType = {
   },
   validation: {
     ageRestriction: 'A user under 13 cannot create profile',
+    cityQuery: 'Query can only contain alphabets, spaces, and hyphens',
     emailExists: 'User with this email is already registered',
     emailFormat: 'The email must match the format example@example.com',
     invalidCredentials: 'The email or password are incorrect. Try again please',
     maxLength: (len: number) => `Maximum ${len} characters`,
     minLength: (len: number) => `Minimum ${len} characters`,
     passwordConfirmation: 'The passwords must match',
-    passwordVerification: 'The password must contain ',
+    passwordVerification:
+      'The password must contain at least one uppercase letter, one lowercase letter, one number and one special character ',
     required: 'Required field',
     userNameVerification: 'Username should contain 0-9, a-z, A-Z, _, -',
     usernameExists: 'User with this username is already registered',

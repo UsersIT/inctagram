@@ -18,4 +18,6 @@ export * from './TextArea/TextArea'
 export * from './ImageUploader/imageUploader'
 export * from './ImageUploadInput/imageUploadInput'
 export * from './Tabs'
+export * from './Combobox/Combobox'
 export * from './Popover/Popover'
+

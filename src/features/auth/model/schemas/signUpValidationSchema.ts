@@ -2,14 +2,17 @@ import { EMAIL_PATTERN, PASSWORD_PATTERN, USERNAME_PATTERN } from '@/src/shared/
 import { LocaleType } from '@/src/shared/locales/ru'
 import { z } from 'zod'
 
-const PASSWORD_VERIVICATION =
-  '0-9, a-z, A-Z,  ! " # $ % & \' ( ) * + , - . / : ; < = > ? @ [ \\ ] ^ _` { | } ~'
+const PASSWORD_VERIVICATION = '! " # $ % & \' ( ) * + , - . / : ; < = > ? @ [ \\ ] ^ _` { | } ~'
 
 export const signUpValidationSchema = (t: LocaleType) =>
   z
     .object({
       agreement: z.boolean(),
-      email: z.string().trim().regex(EMAIL_PATTERN, { message: t.validation.emailFormat }),
+      email: z
+        .string()
+        .trim()
+        .regex(EMAIL_PATTERN, { message: t.validation.emailFormat })
+        .max(320, { message: t.validation.maxLength(320) }),
       password: z
         .string()
         .trim()
@@ -22,11 +25,11 @@ export const signUpValidationSchema = (t: LocaleType) =>
       userName: z
         .string()
         .trim()
-        .min(6, { message: t.validation.minLength(6) })
-        .max(30, { message: t.validation.maxLength(30) })
         .regex(USERNAME_PATTERN, {
           message: t.validation.userNameVerification,
-        }),
+        })
+        .min(6, { message: t.validation.minLength(6) })
+        .max(30, { message: t.validation.maxLength(30) }),
     })
     .superRefine((data, ctx) => {
       if (data.password !== data.passwordConfirmation) {
