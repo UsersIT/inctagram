@@ -122,7 +122,7 @@ export const en: LocaleType = {
   profile: {
     addProfilePhoto: 'Add a Profile Photo',
     deletePhoto: 'Delete photo',
-    deleteProfilePhoto: 'Are you sure you want to delete the photo?',
+    deleteProfilePhoto: 'Do you really want to delete your profile photo?',
     logOutConfirmation: 'Are you really want to log out of your account',
   },
   validation: {
@@ -134,6 +134,7 @@ export const en: LocaleType = {
     minLength: (len: number) => `Minimum ${len} characters`,
     passwordConfirmation: 'The passwords must match',
     passwordVerification: 'The password must contain ',
+    photoFormat: 'The photo must be less than 10Mb and have JPEG or PNG format',
     required: 'Required field',
     userNameVerification: 'Username should contain 0-9, a-z, A-Z, _, -',
     usernameExists: 'User with this username is already registered',

@@ -123,7 +123,7 @@ export const ru = {
   profile: {
     addProfilePhoto: 'Добавить фотографию профиля',
     deletePhoto: 'Удалить фото',
-    deleteProfilePhoto: 'Вы уверены, что хотите удалить фотографию профиля?',
+    deleteProfilePhoto: 'Вы действительно хотите удалить свою фотографию профиля?',
     logOutConfirmation: 'Вы действительно хотите выйти из своей учетной записи',
   },
   validation: {
@@ -135,6 +135,7 @@ export const ru = {
     minLength: (len: number) => `Минимальное количество символов ${len}`,
     passwordConfirmation: 'Пароли должны совпадать',
     passwordVerification: 'Пароль должен содержать ',
+    photoFormat: 'Фото должно быть менее 10 Мб и иметь формат JPEG или PNG',
     required: 'Обязательное поле',
     userNameVerification: 'Имя пользователя может содержать 0-9, a-z, A-Z, _, -',
     usernameExists: 'Пользователь с таким именем пользователя уже зарегистрирован',

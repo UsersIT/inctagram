@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Cropper, { Point } from 'react-easy-crop'
 
+import { CroppedArea } from '@/src/features/profile/model/types/profilePhoto'
 import { useTranslation } from '@/src/shared/hooks'
 import { Button } from '@/src/shared/ui'
 
@@ -9,13 +10,6 @@ import s from './CropperPhoto.module.scss'
 type Props = {
   avatarUrl: string
   onSetCroppedArea: (size: CroppedArea) => void
-}
-
-export type CroppedArea = {
-  height: number
-  width: number
-  x: number
-  y: number
 }
 
 export const CropperPhoto: React.FC<Props> = ({ avatarUrl, onSetCroppedArea }) => {
@@ -28,7 +22,7 @@ export const CropperPhoto: React.FC<Props> = ({ avatarUrl, onSetCroppedArea }) =
     setCroppedArea(croppedArea)
   }
 
-  const handleSetCroppedArea = () => {
+  const handleSeveCroppedArea = () => {
     if (croppedArea) {
       onSetCroppedArea(croppedArea)
     }
@@ -43,6 +37,7 @@ export const CropperPhoto: React.FC<Props> = ({ avatarUrl, onSetCroppedArea }) =
       <div className={s.cropper}>
         <Cropper
           aspect={1}
+          classes={{ cropAreaClassName: s.area }}
           crop={crop}
           cropShape={'round'}
           image={avatarUrl}
@@ -54,6 +49,9 @@ export const CropperPhoto: React.FC<Props> = ({ avatarUrl, onSetCroppedArea }) =
           zoom={zoom}
         />
       </div>
+      <Button className={s.button} onClick={handleSeveCroppedArea}>
+        {t.buttons.save}
+      </Button>
     </div>
   )
 }

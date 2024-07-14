@@ -5,10 +5,26 @@ export const imageSchema = (t: LocaleType, imageSizeInMB = 10) => {
   const imageSize = imageSizeInMB * Math.pow(1024, 2)
 
   return z
-    .instanceof(File)
-    .refine(file => file.size <= imageSize, `${t.errors.imageSize(imageSizeInMB)}`)
+    .custom((value: unknown) => {
+      const file = value as Blob
+
+      if (!(file instanceof Blob)) {
+        throw new Error(`${t.errors.imageSize(imageSizeInMB)}`)
+      }
+
+      return true
+    })
     .refine(
-      file => ['image/jpeg', 'image/jpg', 'image/png'].includes(file.type),
-      ` ${t.errors.imageType}`
+      (file: unknown) => {
+        const blob = file as Blob
+
+        return blob.size <= imageSize
+      },
+      `${t.errors.imageSize(imageSizeInMB)}`
     )
+    .refine((file: unknown) => {
+      const blob = file as Blob
+
+      return ['image/jpeg', 'image/jpg', 'image/png'].includes(blob.type)
+    }, `${t.errors.imageType}`)
 }
