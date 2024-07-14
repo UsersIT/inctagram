@@ -19,7 +19,7 @@ export const ImageUploader = ({ schema, setFile }: ImageUploaderProps) => {
 
   const classes = {
     button: s.button,
-    container: s.container,
+    container: clsx(s.container, { [s.error]: error }),
     errorMassage: clsx(s.massage, { [s.error]: error }),
     errorWrapper: clsx(s.errorContainer, { [s.error]: error }),
     iconWrapper: s.svgWrapper,

@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { toast } from 'react-toastify'
 
 import { getCroppedImageBlob } from '@/src/features/profile/model/helpers/getCroppedImageBlob'
 import { getFileExtension } from '@/src/features/profile/model/helpers/getFileExtension'
@@ -22,7 +21,7 @@ type ProfilePhotoProps = {
 
 export const ProfilePhoto: React.FC<ProfilePhotoProps> = ({
   className,
-  photoUrlFromServer,
+  photoUrlFromServer = ' ',
   setDeletePhoto,
   setUpdatePhoto,
 }) => {
@@ -43,7 +42,7 @@ export const ProfilePhoto: React.FC<ProfilePhotoProps> = ({
   }
 
   const handleDeletePhotoDialog = () => {
-    setOpenDeleteDialog(!openDeleteDialog)
+    setOpenDeleteDialog(false)
     setDeletePhoto()
   }
 
@@ -82,10 +81,12 @@ export const ProfilePhoto: React.FC<ProfilePhotoProps> = ({
               <CloseOutline className={s.closeIcon} />
             </Button>
             <Dialog
-              buttonsJustify={'flex-end'}
-              onCancel={setDeletePhoto}
+              className={s.dialog}
+              onCancel={handleDeletePhotoDialog}
+              onClose={() => setOpenDeleteDialog(false)}
               onConfirm={handleDeletePhotoDialog}
               open={openDeleteDialog}
+              showCancelButton
               title={t.profile.deletePhoto}
             >
               <Typography variant={'regular-text-16'}>{t.profile.deleteProfilePhoto}</Typography>
@@ -94,7 +95,7 @@ export const ProfilePhoto: React.FC<ProfilePhotoProps> = ({
         )}
       </div>
       <div>
-        <Button className={s.addButton} onClick={() => setOpenAddModal(true)}>
+        <Button className={s.addButton} onClick={() => setOpenAddModal(true)} variant={'outlined'}>
           {t.profile.addProfilePhoto}
         </Button>
         <Modal
