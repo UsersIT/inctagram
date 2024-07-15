@@ -62,6 +62,8 @@ export const ProfilePhoto: React.FC<ProfilePhotoProps> = ({
       formData.append('croppedImage', blob, fileName)
       setUpdatePhoto(formData)
       setOpenAddModal(false)
+
+      setPhotoUrl(URL.createObjectURL(blob))
     } catch (error) {
       console.error(error)
     }
