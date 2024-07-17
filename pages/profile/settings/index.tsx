@@ -1,12 +1,11 @@
-import type { NextPageWithLayout } from '@/src/shared/types/next'
-
 import type { ReactElement } from 'react'
 
 import PrivateLayout from '@/src/app/layouts/PrivateLayout/PrivateLayout'
-import { ProfilePage } from '@/src/pages/profile/ui/ProfilePage/ProfilePage'
+import { SettingsPage } from '@/src/pages/profile/ui/SettingsPage/SettingsPage'
+import { NextPageWithLayout } from '@/src/shared/types/next'
 
 const Page: NextPageWithLayout = () => {
-  return <ProfilePage />
+  return <SettingsPage />
 }
 
 Page.getLayout = function getLayout(page: ReactElement) {
