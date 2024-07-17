@@ -28,3 +28,15 @@ export type MeResponse = {
   userId: number
   userName: string
 }
+
+export type Avatar = {
+  fileSize: number
+  height: number
+  url: string
+  width: number
+}
+
+export type AddAvatarResponse = {
+  'avatar-medium': Avatar | null
+  'avatar-thumbnail': Avatar | null
+}

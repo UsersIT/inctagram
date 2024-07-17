@@ -45,6 +45,7 @@ export const en: LocaleType = {
     errorWord: 'Error!',
     imageSize: (imageSizeInMB: number) => `Image size must be less than ${imageSizeInMB} MB!`,
     imageType: 'The format of the uploaded photo must be PNG and JPEG',
+    photoUpdateError: 'Error updating profile photo. Please try again',
     somethingWentWrong:
       'Something went wrong. Please check your internet connection and try again.',
   },
@@ -124,6 +125,7 @@ export const en: LocaleType = {
     deletePhoto: 'Delete photo',
     deleteProfilePhoto: 'Do you really want to delete your profile photo?',
     logOutConfirmation: 'Are you really want to log out of your account',
+    updatePhoto: 'Profile photo has been updated successfully!',
   },
   validation: {
     ageRestriction: 'A user under 13 cannot create profile',

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { getCroppedImageBlob } from '@/src/features/profile/model/helpers/getCroppedImageBlob'
 import { getFileExtension } from '@/src/features/profile/model/helpers/getFileExtension'
@@ -14,6 +14,9 @@ import s from './ProfilePhoto.module.scss'
 
 type ProfilePhotoProps = {
   className?: string
+  disabledDelete?: boolean
+  disabledUpdate?: boolean
+  isSuccessUpdate?: boolean
   photoUrlFromServer?: string
   setDeletePhoto: () => void
   setUpdatePhoto: (photo: FormData) => void
@@ -21,7 +24,9 @@ type ProfilePhotoProps = {
 
 export const ProfilePhoto: React.FC<ProfilePhotoProps> = ({
   className,
-  photoUrlFromServer = ' ',
+  disabledDelete,
+  disabledUpdate,
+  photoUrlFromServer,
   setDeletePhoto,
   setUpdatePhoto,
 }) => {
@@ -43,7 +48,7 @@ export const ProfilePhoto: React.FC<ProfilePhotoProps> = ({
 
   const handleDeletePhotoDialog = () => {
     setOpenDeleteDialog(false)
-    setDeletePhoto()
+    setDeletePhoto() // Вызов функции для удаления аватара
   }
 
   const handleEditorPhoto = async (cropArea: CroppedArea) => {
@@ -60,23 +65,29 @@ export const ProfilePhoto: React.FC<ProfilePhotoProps> = ({
       const formData = new FormData()
 
       formData.append('croppedImage', blob, fileName)
-      setUpdatePhoto(formData)
-      setOpenAddModal(false)
-
+      setUpdatePhoto(formData) // Вызов функции для обновления аватара
       setPhotoUrl(URL.createObjectURL(blob))
+      setOpenAddModal(false)
     } catch (error) {
       console.error(error)
     }
   }
 
+  useEffect(() => {
+    if (photoUrlFromServer) {
+      setPhotoUrl(photoUrlFromServer)
+    }
+  }, [photoUrlFromServer])
+
   return (
     <div className={clsx(s.container, className)}>
       <div className={s.wrapper}>
-        <Avatar circle className={s.avatar} url={photoUrl} />
+        <Avatar circle className={s.avatar} url={photoUrlFromServer} />
         {photoUrlFromServer && (
           <div>
             <Button
               className={s.deleteButton}
+              disabled={disabledDelete}
               onClick={() => setOpenDeleteDialog(true)}
               variant={'text'}
             >
@@ -97,7 +108,12 @@ export const ProfilePhoto: React.FC<ProfilePhotoProps> = ({
         )}
       </div>
       <div>
-        <Button className={s.addButton} onClick={() => setOpenAddModal(true)} variant={'outlined'}>
+        <Button
+          className={s.addButton}
+          disabled={disabledUpdate}
+          onClick={() => setOpenAddModal(true)}
+          variant={'outlined'}
+        >
           {t.profile.addProfilePhoto}
         </Button>
         <Modal
