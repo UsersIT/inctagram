@@ -10,14 +10,14 @@ export const generalInfoValidationSchema = (t: LocaleType) =>
       .min(0)
       .max(200, { message: t.validation.maxLength(200) }),
     city: z.string().optional(),
-    dateOfBirth: z.string().datetime({ message: t.validation.invalidDate }).optional(),
+    dateOfBirth: z.string().datetime({ message: 'неверная дата' }).optional(),
     firstName: z
       .string()
       .trim()
       .min(1, { message: t.validation.required })
       .max(50, { message: t.validation.maxLength(50) })
       .regex(FIRSTNAME_AND_LASTNAME_PATTERN, {
-        message: t.validation.onlyLetters,
+        message: 'только буквы',
       }),
     lastName: z
       .string()
@@ -25,7 +25,7 @@ export const generalInfoValidationSchema = (t: LocaleType) =>
       .min(1, { message: t.validation.required })
       .max(50, { message: t.validation.maxLength(50) })
       .regex(FIRSTNAME_AND_LASTNAME_PATTERN, {
-        message: t.validation.onlyLetters,
+        message: 'только буквы',
       }),
     userName: z
       .string()
