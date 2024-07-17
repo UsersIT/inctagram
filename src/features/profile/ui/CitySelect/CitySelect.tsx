@@ -9,17 +9,17 @@ import { capitalizeFirstLetter } from '@/src/shared/utility'
 import { useRouter } from 'next/router'
 
 import { citiesQuerySchema } from '../../model/schemas/citiesSchema'
-import { ProfileFormValues } from '../../model/schemas/profileValidationSchema'
+import { generalInfoFormValues } from '../../model/schemas/generalInfoValidationSchema'
 import { type City, getCities } from '../../model/services/getCities'
 
 type Props = {
   className?: string
-  clearErrors: (name: FieldPath<ProfileFormValues>) => void
-  control: Control<ProfileFormValues>
+  clearErrors: (name: FieldPath<generalInfoFormValues>) => void
+  control: Control<generalInfoFormValues>
   displayValue: string
-  name: FieldPath<ProfileFormValues>
+  name: FieldPath<generalInfoFormValues>
   onClear?: () => void
-  setError: (name: FieldPath<ProfileFormValues>, error: FieldError) => void
+  setError: (name: FieldPath<generalInfoFormValues>, error: FieldError) => void
 }
 
 export const CitySelect: FC<Props> = props => {

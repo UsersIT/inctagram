@@ -30,4 +30,8 @@ export const apiEndpoints = {
       usersCount: '/api/v1/public-user',
     },
   },
+  user: {
+    avatar: '/api/v1/users/profile/avatar',
+    profile: '/api/v1/users/profile',
+  },
 } as const
