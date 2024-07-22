@@ -141,7 +141,8 @@ export const en: LocaleType = {
   },
   validation: {
     ageRestriction: 'A user under 13 cannot create profile',
-    cityQuery: 'Query can only contain alphabets, spaces, and hyphens',
+    cityNotFound: 'City not found.',
+    cityQuery: 'Please enter a valid city name.',
     emailExists: 'User with this email is already registered',
     emailFormat: 'The email must match the format example@example.com',
     invalidCredentials: 'The email or password are incorrect. Try again please',
