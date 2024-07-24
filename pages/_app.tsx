@@ -1,20 +1,14 @@
-import type { NextPage } from 'next'
 import type { AppProps } from 'next/app'
-
-import type { ReactElement, ReactNode } from 'react'
 
 import { StoreProvider } from '@/src/app/providers/store'
 import { ToastProvider } from '@/src/app/providers/toasts'
+import { NextPageWithLayout } from '@/src/shared/types/next'
 import { GoogleOAuthProvider } from '@react-oauth/google'
 import { Inter } from 'next/font/google'
 
 import '../src/app/styles/index.scss'
 
 const inter = Inter({ subsets: ['latin', 'cyrillic'] })
-
-export type NextPageWithLayout<P = {}, IP = P> = {
-  getLayout?: (page: ReactElement) => ReactNode
-} & NextPage<P, IP>
 
 type AppPropsWithLayout = {
   Component: NextPageWithLayout

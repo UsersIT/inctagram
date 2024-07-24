@@ -12,7 +12,7 @@ export const LoginPage = () => {
   const { t } = useTranslation()
 
   return (
-    <main className={s.page}>
+    <div className={s.page}>
       <Card className={s.card}>
         <Typography
           as={'h1'}
@@ -42,6 +42,6 @@ export const LoginPage = () => {
           </Button>
         </section>
       </Card>
-    </main>
+    </div>
   )
 }

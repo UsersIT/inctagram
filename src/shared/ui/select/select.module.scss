@@ -165,7 +165,7 @@
   color: var(--color-text-secondary);
 }
 
-@media screen and (width <= 576px) {
+@media screen and (width <= 768px) {
   .trigger {
     &.language {
       gap: unset;

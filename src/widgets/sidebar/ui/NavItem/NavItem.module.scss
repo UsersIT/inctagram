@@ -1,0 +1,39 @@
+.root {
+  display: flex;
+  width: 100%;
+}
+
+.link {
+  position: relative;
+  padding: unset;
+  color: var(--color-text-primary);
+
+  &[data-active="true"] {
+    color: var(--color-accent-500);
+  }
+}
+
+.label {
+  white-space: nowrap;
+}
+
+@media screen and (width <= 1024px) {
+  .root[data-collapsed="true"] {
+    justify-content: center;
+    padding-left: unset;
+
+    .link {
+      padding: 0 10px;
+    }
+
+    .label {
+      position: absolute;
+
+      overflow: hidden;
+      display: inline-block;
+
+      width: 0;
+      height: 0;
+    }
+  }
+}

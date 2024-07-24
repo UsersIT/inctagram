@@ -11,7 +11,7 @@ export const RegistrationPage = () => {
   const { t } = useTranslation()
 
   return (
-    <main className={s.page}>
+    <div className={s.page}>
       <Card className={s.card}>
         <Typography as={'h1'} className={s.title} variant={'h1'}>
           {t.pages.registration.title}
@@ -33,6 +33,6 @@ export const RegistrationPage = () => {
           {t.buttons.signIn}
         </Button>
       </Card>
-    </main>
+    </div>
   )
 }
