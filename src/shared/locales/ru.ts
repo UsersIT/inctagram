@@ -142,7 +142,8 @@ export const ru = {
   },
   validation: {
     ageRestriction: 'Пользователь младше 13 лет не может создать профиль.',
-    cityQuery: 'Запрос может содержать только буквы, пробелы и дефисы.',
+    cityNotFound: 'Город не найден.',
+    cityQuery: 'Пожалуйста, введите валидное название города.',
     emailExists: 'Пользователь с таким email уже зарегистрирован',
     emailFormat: 'Email должен соответствовать формату example@example.com',
     invalidCredentials: 'Введенные email или пароль неверны. Пожалуйста, попробуйте еще раз',
