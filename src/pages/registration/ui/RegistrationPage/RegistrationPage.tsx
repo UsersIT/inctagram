@@ -1,6 +1,5 @@
-import { SignUpForm } from '@/src/features/auth'
-import { GitHubAuthButton } from '@/src/features/auth/ui/gitHubAuthButton/GitHubAuthButton'
-import { GoogleAuthButton } from '@/src/features/auth/ui/googleAuthButton/GoogleAuthButton'
+import { GitHubAuthButton, GoogleAuthButton, SignUpForm } from '@/src/features/auth'
+import { routes } from '@/src/shared/constants/routes'
 import { useTranslation } from '@/src/shared/hooks'
 import { Button, Card, Typography } from '@/src/shared/ui'
 import Link from 'next/link'
@@ -29,7 +28,7 @@ export const RegistrationPage = () => {
         >
           {t.pages.registration.signInSuggestion}
         </Typography>
-        <Button as={Link} className={s.signInLink} fullWidth href={'/auth/login'} variant={'text'}>
+        <Button as={Link} className={s.signInLink} fullWidth href={routes.LOGIN} variant={'text'}>
           {t.buttons.signIn}
         </Button>
       </Card>

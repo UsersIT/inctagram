@@ -1,6 +1,7 @@
-import { gitHubAuth } from '@/src/features/auth/gitHubAuth/gitHubAuth'
 import { GitHub } from '@/src/shared/assets/icons'
 import { Button } from '@/src/shared/ui'
+
+import { gitHubAuth } from '../../model/services/gitHubAuth'
 
 export const GitHubAuthButton = () => {
   return (

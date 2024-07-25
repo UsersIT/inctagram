@@ -1,9 +1,7 @@
-import { LoginForm } from '@/src/features/auth'
-import { GitHubAuthButton } from '@/src/features/auth/ui/gitHubAuthButton/GitHubAuthButton'
-import { GoogleAuthButton } from '@/src/features/auth/ui/googleAuthButton/GoogleAuthButton'
+import { GitHubAuthButton, GoogleAuthButton, LoginForm } from '@/src/features/auth'
+import { routes } from '@/src/shared/constants/routes'
 import { useTranslation } from '@/src/shared/hooks'
 import { Button, Card, Typography } from '@/src/shared/ui'
-import { TypographyVariants } from '@/src/shared/ui/Typography/typographyVariants'
 import Link from 'next/link'
 
 import s from './LoginPage.module.scss'
@@ -14,12 +12,7 @@ export const LoginPage = () => {
   return (
     <div className={s.page}>
       <Card className={s.card}>
-        <Typography
-          as={'h1'}
-          className={s.title}
-          textAlign={'center'}
-          variant={TypographyVariants.H1}
-        >
+        <Typography as={'h1'} className={s.title} textAlign={'center'} variant={'h1'}>
           {t.pages.signIn.title}
         </Typography>
         <section className={s.oAuthButtonsContainer}>
@@ -35,7 +28,7 @@ export const LoginPage = () => {
             as={Link}
             className={s.signUpLink}
             fullWidth
-            href={'/auth/registration'}
+            href={routes.REGISTRATION}
             variant={'text'}
           >
             {t.buttons.signUp}

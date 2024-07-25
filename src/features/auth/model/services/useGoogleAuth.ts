@@ -1,3 +1,4 @@
+import { routes } from '@/src/shared/constants/routes'
 import { tokenStorage } from '@/src/shared/storage'
 import { useGoogleLogin } from '@react-oauth/google'
 import { useRouter } from 'next/router'
@@ -28,7 +29,7 @@ export function useGoogleAuth() {
         })
         .then(data => {
           tokenStorage.setToken(data.accessToken)
-          router.push('/')
+          router.push(routes.PROFILE)
         })
         .catch(error => {
           console.error('Error:', error)

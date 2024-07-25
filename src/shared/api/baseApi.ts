@@ -9,13 +9,13 @@ import {
 } from '@reduxjs/toolkit/query/react'
 import { Mutex } from 'async-mutex'
 
-import { BASE_URL, apiEndpoints } from '../constants/api'
+import { BASE_API_URL, apiEndpoints } from '../constants/api'
 import { tokenStorage } from '../storage'
 
 const mutex = new Mutex()
 
 const baseQuery = fetchBaseQuery({
-  baseUrl: BASE_URL,
+  baseUrl: BASE_API_URL,
   credentials: 'include',
   prepareHeaders: headers => {
     const token = tokenStorage.getToken()

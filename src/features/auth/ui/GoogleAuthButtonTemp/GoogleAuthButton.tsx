@@ -1,6 +1,7 @@
-import { useGoogleAuth } from '@/src/features/auth/googleAuth/useGoogleAuth'
 import { Google } from '@/src/shared/assets/icons'
 import { Button } from '@/src/shared/ui'
+
+import { useGoogleAuth } from '../../model/services/useGoogleAuth'
 
 export const GoogleAuthButton = () => {
   const googleAuth = useGoogleAuth()
