@@ -117,8 +117,7 @@ export const Combobox = <T extends number | string>({
       <div className={s.box}>
         <label>
           <span className={classNames.label}>{label}</span>
-
-          <ComboboxButton as={'div'}>
+          <div>
             <ComboboxInput
               className={classNames.input}
               displayValue={getDisplayingValue}
@@ -128,15 +127,15 @@ export const Combobox = <T extends number | string>({
               spellCheck={'false'}
             />
 
-            <div className={s.button}>
+            <ComboboxButton className={s.button}>
               <ArrowDown className={s.icon} />
-            </div>
+            </ComboboxButton>
             {isLoading && (
               <div className={s.spinner}>
                 <Spinner />
               </div>
             )}
-          </ComboboxButton>
+          </div>
         </label>
         {isClearButtonVisible && (
           <button
