@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 
+import { routes } from '@/src/shared/constants/routes'
 import { tokenStorage } from '@/src/shared/storage'
 import { useRouter } from 'next/router'
 function useQuery() {
@@ -23,7 +24,7 @@ const Github = () => {
     }
 
     tokenStorage.setToken(query.accessToken as string)
-    router.push('/')
+    router.push(routes.PROFILE)
   }, [query])
 
   return <></>
