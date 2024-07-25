@@ -126,6 +126,7 @@ export const ru = {
     deletePhoto: 'Удалить фото',
     deleteProfilePhoto: 'Вы действительно хотите удалить свою фотографию профиля?',
     logOutConfirmation: 'Вы действительно хотите выйти из своей учетной записи',
+    success: 'Успешно!',
     updatePhoto: 'Фотография профиля успешно обновлена!',
   },
   validation: {

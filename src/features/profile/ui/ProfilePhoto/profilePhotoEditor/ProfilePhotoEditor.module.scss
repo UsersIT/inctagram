@@ -65,3 +65,16 @@
     height: 24px;
   }
 }
+
+.spinner {
+  width: 192px;
+  height: 192px;
+}
+
+.avatar {
+  transition: opacity 0.9s ease;
+}
+
+.hidden {
+  opacity: 0;
+}

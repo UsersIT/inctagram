@@ -125,6 +125,7 @@ export const en: LocaleType = {
     deletePhoto: 'Delete photo',
     deleteProfilePhoto: 'Do you really want to delete your profile photo?',
     logOutConfirmation: 'Are you really want to log out of your account',
+    success: 'Success!',
     updatePhoto: 'Profile photo has been updated successfully!',
   },
   validation: {

@@ -1,9 +1,27 @@
-import { Params } from '../types/profilePhoto'
+import { toast } from 'react-toastify'
 
-export const getCroppedImageBlob = ({ crop = null, imageSrc, t }: Params): Promise<Blob> => {
+import { CroppedArea } from '@/src/features/profile/model/types/profilePhoto'
+import { LocaleType } from '@/src/shared/locales/ru'
+
+type Params = {
+  crop?: CroppedArea | null
+  fileName?: string
+  imageSrc: string
+  mode?: 'blob' | 'formData' | 'url'
+  t: LocaleType
+}
+
+export const getCroppedImageBlob = ({
+  crop = null,
+  fileName = 'file',
+  imageSrc,
+  mode = 'formData',
+  t,
+}: Params): Promise<Blob | FormData | string> => {
   return new Promise((resolve, reject) => {
     const image = new Image()
 
+    image.crossOrigin = 'Anonymous'
     image.src = imageSrc
 
     image.onload = () => {
@@ -14,42 +32,46 @@ export const getCroppedImageBlob = ({ crop = null, imageSrc, t }: Params): Promi
         canvas.width = image.naturalWidth
         canvas.height = image.naturalHeight
       } else {
-        const scaleX = image.naturalWidth / image.width
-        const scaleY = image.naturalHeight / image.height
-
         canvas.width = crop.width
         canvas.height = crop.height
-
-        if (ctx) {
-          ctx.drawImage(
-            image,
-            crop.x * scaleX,
-            crop.y * scaleY,
-            crop.width * scaleX,
-            crop.height * scaleY,
-            0,
-            0,
-            crop.width,
-            crop.height
-          )
-        }
       }
 
-      ctx?.drawImage(image, 0, 0)
+      if (ctx) {
+        ctx.drawImage(
+          image,
+          crop ? crop.x : 0,
+          crop ? crop.y : 0,
+          crop ? crop.width : image.naturalWidth,
+          crop ? crop.height : image.naturalHeight,
+          0,
+          0,
+          canvas.width,
+          canvas.height
+        )
+      }
 
       canvas.toBlob(blob => {
         if (!blob) {
-          reject(new Error(t.validation.photoFormat))
+          reject(toast.error(t.validation.photoFormat))
 
           return
         }
 
-        resolve(blob)
+        if (mode === 'formData') {
+          const formData = new FormData()
+
+          formData.append(fileName, blob)
+          resolve(formData)
+        } else if (mode === 'url') {
+          resolve(URL.createObjectURL(blob))
+        } else {
+          resolve(blob)
+        }
       }, 'image/jpeg')
     }
 
     image.onerror = () => {
-      reject(new Error(t.validation.photoFormat))
+      reject(toast.error(t.validation.photoFormat))
     }
   })
 }

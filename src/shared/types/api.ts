@@ -30,6 +30,7 @@ export type MeResponse = {
 }
 
 export type Avatar = {
+  createdAt: string
   fileSize: number
   height: number
   url: string
@@ -37,6 +38,16 @@ export type Avatar = {
 }
 
 export type AddAvatarResponse = {
-  'avatar-medium': Avatar | null
-  'avatar-thumbnail': Avatar | null
+  avatar: Avatar | null
+}
+
+export type GetProfileResponse = {
+  aboutMe: string
+  avatars: Avatar[]
+  city: string
+  createdAt: string
+  dateOfBirth: string
+  firstName: string
+  id: number
+  lastName: string
 }

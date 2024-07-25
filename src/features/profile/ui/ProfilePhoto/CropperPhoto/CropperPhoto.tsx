@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Cropper, { Point } from 'react-easy-crop'
+import { toast } from 'react-toastify'
 
 import { CroppedArea } from '@/src/features/profile/model/types/profilePhoto'
 import { useTranslation } from '@/src/shared/hooks'
@@ -9,22 +10,28 @@ import s from './CropperPhoto.module.scss'
 
 type Props = {
   avatarUrl: string
+  disabled: boolean
   onSetCroppedArea: (size: CroppedArea) => void
 }
 
-export const CropperPhoto: React.FC<Props> = ({ avatarUrl, onSetCroppedArea }) => {
+export const CropperPhoto: React.FC<Props> = ({ avatarUrl, disabled, onSetCroppedArea }) => {
   const [crop, setCrop] = useState<Point>({ x: 0, y: 0 })
   const [croppedArea, setCroppedArea] = useState<CroppedArea | null>(null)
   const [zoom, setZoom] = useState(1)
   const { t } = useTranslation()
 
-  const handleCropComplete = (point: Point, croppedArea: CroppedArea) => {
+  const handleCropComplete = (_: Point, croppedArea: CroppedArea) => {
     setCroppedArea(croppedArea)
   }
 
-  const handleSeveCroppedArea = () => {
+  const handleSaveCroppedArea = async () => {
     if (croppedArea) {
-      onSetCroppedArea(croppedArea)
+      try {
+        await onSetCroppedArea(croppedArea)
+      } catch (error) {
+        console.error('Error saving cropped area:', error)
+        toast.error(t.errors.errorWord)
+      }
     }
   }
 
@@ -49,7 +56,7 @@ export const CropperPhoto: React.FC<Props> = ({ avatarUrl, onSetCroppedArea }) =
           zoom={zoom}
         />
       </div>
-      <Button className={s.button} onClick={handleSeveCroppedArea}>
+      <Button className={s.button} disabled={disabled} onClick={handleSaveCroppedArea}>
         {t.buttons.save}
       </Button>
     </div>

@@ -19,20 +19,19 @@ export const apiEndpoints = {
     registrationEmailResending: '/api/v1/auth/registration-email-resending',
     updateTokens: '/api/v1/auth/update-tokens',
   },
-  profile: {
-    deleteAvatar: `users/profile/avatar`,
-    uploadAvatar: `users/profile/avatar/upload`,
-  },
   public: {
     posts: {
       allByUserIdWithPagination: '/api/v1/public-posts/user/', // + `${userId}/${endCursorpostId}`
       allWithPagination: '/api/v1/public-posts/all/', // + `${endCursorpostId}`
       postById: '/api/v1/public-posts/', // + `${postId}`
     },
-
-    user: {
-      userProfileById: '/api/v1/public-user/profile/', // + `${profileId}`
-      usersCount: '/api/v1/public-user',
-    },
+  },
+  user: {
+    avatar: '/api/v1/users/profile/avatar',
+    deleteAvatar: `/api/v1/users/profile/avatar`,
+    profile: '/api/v1/users/profile',
+    uploadAvatar: `/api/v1/users/profile/avatar`,
+    userProfileById: '/api/v1/public-user/profile/', // + `${profileId}`
+    usersCount: '/api/v1/public-user',
   },
 } as const
