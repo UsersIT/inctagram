@@ -1,14 +1,7 @@
-import type { NextPageWithLayout } from './_app'
+import { withRootLayout } from '@/src/app/layouts/RootLayout/RootLayout'
 
-import type { ReactElement } from 'react'
-
-import Layout from '@/src/app/layout/layout'
-const Page: NextPageWithLayout = () => {
+const Page = () => {
   return <h1>Home</h1>
 }
 
-Page.getLayout = function getLayout(page: ReactElement) {
-  return <Layout>{page}</Layout>
-}
-
-export default Page
+export default withRootLayout(Page)

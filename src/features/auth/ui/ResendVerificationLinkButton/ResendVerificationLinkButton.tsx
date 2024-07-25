@@ -2,7 +2,6 @@ import { FC, useState } from 'react'
 import { toast } from 'react-toastify'
 
 import { useTranslation } from '@/src/shared/hooks'
-import { ApiErrorResult } from '@/src/shared/types/api'
 import { Button } from '@/src/shared/ui'
 import clsx from 'clsx'
 
@@ -31,11 +30,11 @@ export const ResendVerificationLinkButton: FC<Props> = ({ className, email }) =>
       .then(() => {
         setShowModal(true)
       })
-      .catch((err: { data: ApiErrorResult }) => {
-        if (err.data.statusCode === 400) {
+      .catch(err => {
+        if (err?.data?.statusCode === 400) {
           toast.error(t.pages.registrationConfirmation.errorMessage)
         } else {
-          toast.error(err.data.error)
+          toast.error(t.errors.somethingWentWrong)
         }
       })
   }
@@ -50,7 +49,7 @@ export const ResendVerificationLinkButton: FC<Props> = ({ className, email }) =>
         {t.buttons.resendLink}
       </Button>
 
-      {showModal && <InfoModal email={email} onClose={closeModalHandler} open={showModal} />}
+      <InfoModal email={email} onClose={closeModalHandler} open={showModal} />
     </>
   )
 }

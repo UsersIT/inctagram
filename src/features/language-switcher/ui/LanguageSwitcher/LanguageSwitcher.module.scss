@@ -2,7 +2,11 @@
   width: 163px;
 }
 
-@media screen and (width <= 576px) {
+.select {
+  z-index: 999;
+}
+
+@media screen and (width <= 768px) {
   .wrapper {
     width: unset;
   }

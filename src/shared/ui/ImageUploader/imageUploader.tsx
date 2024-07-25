@@ -1,0 +1,55 @@
+import React, { PropsWithChildren, useState } from 'react'
+
+import { ImageIcon } from '@/src/shared/assets/icons/components/ImageIcon'
+import { useTranslation } from '@/src/shared/hooks'
+import { Button, ImageUploadInput, Typography } from '@/src/shared/ui'
+import { clsx } from 'clsx'
+import { ZodEffects } from 'zod'
+
+import s from './imageUploader.module.scss'
+
+export type ImageUploaderProps = {
+  schema: ZodEffects<any>
+  setFile: (file: File | null) => void
+} & PropsWithChildren
+
+export const ImageUploader = ({ schema, setFile }: ImageUploaderProps) => {
+  const [error, setError] = useState('')
+  const { t } = useTranslation()
+
+  const classes = {
+    button: s.button,
+    container: s.container,
+    errorMassage: clsx(s.massage, { [s.error]: error }),
+    errorWrapper: clsx(s.errorContainer, { [s.error]: error }),
+    iconWrapper: s.svgWrapper,
+  }
+
+  return (
+    <div className={classes.container}>
+      {error ? (
+        <div className={classes.errorWrapper}>
+          <Typography as={'span'} className={classes.errorMassage} variant={'bold-text-14'}>
+            {t.errors.errorWord}
+          </Typography>
+          <Typography as={'span'} className={classes.errorMassage} variant={'regular-text-16'}>
+            {error}
+          </Typography>
+        </div>
+      ) : null}
+      <div className={classes.iconWrapper}>
+        <ImageIcon />
+      </div>
+      <ImageUploadInput
+        error={setError}
+        schema={schema}
+        setFile={setFile}
+        trigger={
+          <Button as={'h3'} className={classes.button} fullWidth>
+            {t.buttons.imageUploader}
+          </Button>
+        }
+      />
+    </div>
+  )
+}

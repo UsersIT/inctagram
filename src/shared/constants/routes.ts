@@ -1,0 +1,15 @@
+export const routes = {
+  CREATE: '/create',
+  FAVORITES: '/favorites',
+  FORGOT_PASSWORD: '/auth/forgot-password',
+  HOME: '/',
+  LOGIN: '/auth/login',
+  MESSENGER: '/messenger',
+  PRIVACY_POLICY: '/policies/privacy-policy',
+  PROFILE: '/profile',
+  PROFILE_SETTINGS: '/profile/settings',
+  REGISTRATION: '/auth/registration',
+  SEARCH: '/search',
+  STATISTICS: '/statistics',
+  TERMS_OF_SERVICE: '/policies/terms-of-service',
+}

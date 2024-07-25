@@ -29,7 +29,7 @@ export const RegistrationConfirmationPage = () => {
   }, [query.code, registrationConfirmation])
 
   return (
-    <main className={s.page}>
+    <div className={s.page}>
       {isLoading && (
         <div className={s.loaderContainer}>
           <Spinner />
@@ -63,6 +63,6 @@ export const RegistrationConfirmationPage = () => {
           <ResendVerificationLinkButton className={s.resendLinkBtn} email={query.email as string} />
         </LinkExpiredLayout>
       )}
-    </main>
+    </div>
   )
 }
