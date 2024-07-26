@@ -4,12 +4,14 @@ export const en: LocaleType = {
   buttons: {
     back: 'Go Back',
     closeSearchFieldIcon: 'Delete the entered search query',
+    expandMenu: 'Expand menu',
     eyeIcon: 'Hide the entered password',
     eyeOffIcon: 'Show the entered password',
     imageUploader: 'Select from Computer',
     languageSelection: 'Language selection',
     login: 'Log in',
     logout: 'Log Out',
+    openMenu: 'Open menu',
     resendLink: 'Resend verification link',
     save: 'Save',
     signIn: 'Sign In',
@@ -50,10 +52,21 @@ export const en: LocaleType = {
       'Something went wrong. Please check your internet connection and try again.',
   },
   label: {
+    city: 'Enter your city',
     email: 'Email',
     password: 'Password',
     passwordConfirmation: 'Password confirmation',
     username: 'Username',
+  },
+  navigation: {
+    create: 'Create',
+    favorites: 'Favorites',
+    home: 'Home',
+    messenger: 'Messenger',
+    myProfile: 'My Profile',
+    search: 'Search',
+    settings: 'Profile Settings',
+    statistics: 'Statistics',
   },
   pages: {
     policies: {
@@ -117,6 +130,7 @@ export const en: LocaleType = {
     },
   },
   placeholders: {
+    city: 'City',
     email: 'email@picthentic.online',
     password: '**********',
   },
@@ -130,6 +144,8 @@ export const en: LocaleType = {
   },
   validation: {
     ageRestriction: 'A user under 13 cannot create profile',
+    cityNotFound: 'City not found.',
+    cityQuery: 'Please enter a valid city name.',
     emailExists: 'User with this email is already registered',
     emailFormat: 'The email must match the format example@example.com',
     invalidCredentials: 'The email or password are incorrect. Try again please',
@@ -138,6 +154,8 @@ export const en: LocaleType = {
     passwordConfirmation: 'The passwords must match',
     passwordVerification: 'The password must contain ',
     photoFormat: 'The photo must be less than 10Mb and have JPEG or PNG format',
+    passwordVerification:
+      'The password must contain at least one uppercase letter, one lowercase letter, one number and one special character ',
     required: 'Required field',
     userNameVerification: 'Username should contain 0-9, a-z, A-Z, _, -',
     usernameExists: 'User with this username is already registered',

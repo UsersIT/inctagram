@@ -17,7 +17,7 @@ export const PoliciesLayout: FC<Props> = ({ children, title }) => {
   const router = useRouter()
 
   return (
-    <main className={s.page}>
+    <div className={s.page}>
       <Button
         className={s.policiesBtn}
         onClick={() => router.back()}
@@ -35,6 +35,6 @@ export const PoliciesLayout: FC<Props> = ({ children, title }) => {
         </Typography>
         {children}
       </article>
-    </main>
+    </div>
   )
 }

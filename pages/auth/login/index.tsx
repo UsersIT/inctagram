@@ -1,7 +1,8 @@
-import React, { ReactElement } from 'react'
+import type { NextPageWithLayout } from '@/src/shared/types/next'
 
-import { NextPageWithLayout } from '@/pages/_app'
-import Layout from '@/src/app/layout/layout'
+import type { ReactElement } from 'react'
+
+import OpenLayout from '@/src/app/layouts/OpenLayout/OpenLayout'
 import { LoginPage } from '@/src/pages/login'
 
 import '@/src/app/styles/_typography.scss'
@@ -11,7 +12,7 @@ const Page: NextPageWithLayout = () => {
 }
 
 Page.getLayout = function getLayout(page: ReactElement) {
-  return <Layout>{page}</Layout>
+  return <OpenLayout>{page}</OpenLayout>
 }
 
 export default Page

@@ -65,7 +65,9 @@ export const LogoutButton = ({ className, ...rest }: Props) => {
         {...rest}
       >
         <LogOut height={24} viewBox={'0 0 24 24'} width={24} />
-        <Typography variant={'medium-text-14'}>{t.buttons.logout}</Typography>
+        <Typography as={'span'} variant={'medium-text-14'}>
+          {t.buttons.logout}
+        </Typography>
       </Button>
       <Dialog
         onCancel={handleDialogOpen}

@@ -2,12 +2,14 @@ export const ru = {
   buttons: {
     back: 'Вернуться назад',
     closeSearchFieldIcon: 'Удалить введённый поисковый запрос',
+    expandMenu: 'Развернуть меню',
     eyeIcon: 'Скрыть введённый пароль',
     eyeOffIcon: 'Показать введённый пароль',
     imageUploader: 'Загрузить с компьютера',
     languageSelection: 'Выбор языка',
     login: 'Войти',
     logout: 'Выйти',
+    openMenu: 'Открыть меню',
     resendLink: 'Отправить повторно',
     save: 'Сохранить',
     signIn: 'Войти',
@@ -49,10 +51,21 @@ export const ru = {
       'Что-то пошло не так. Пожалуйста, проверьте Ваше интернет-соединение и попробуйте снова.',
   },
   label: {
+    city: 'Введите Ваш город',
     email: 'Электронная почта',
     password: 'Пароль',
     passwordConfirmation: 'Подтверждение пароля',
     username: 'Имя пользователя',
+  },
+  navigation: {
+    create: 'Создать',
+    favorites: 'Избранное',
+    home: 'Главная',
+    messenger: 'Мессенджер',
+    myProfile: 'Мой профиль',
+    search: 'Поиск',
+    settings: 'Настройки',
+    statistics: 'Статистика',
   },
   pages: {
     policies: {
@@ -118,6 +131,7 @@ export const ru = {
     },
   },
   placeholders: {
+    city: 'Город',
     email: 'email@picthentic.online',
     password: '**********',
   },
@@ -131,6 +145,8 @@ export const ru = {
   },
   validation: {
     ageRestriction: 'Пользователь младше 13 лет не может создать профиль.',
+    cityNotFound: 'Город не найден.',
+    cityQuery: 'Пожалуйста, введите валидное название города.',
     emailExists: 'Пользователь с таким email уже зарегистрирован',
     emailFormat: 'Email должен соответствовать формату example@example.com',
     invalidCredentials: 'Введенные email или пароль неверны. Пожалуйста, попробуйте еще раз',
@@ -139,6 +155,8 @@ export const ru = {
     passwordConfirmation: 'Пароли должны совпадать',
     passwordVerification: 'Пароль должен содержать ',
     photoFormat: 'Фото должно быть менее 10 Мб и иметь формат JPEG или PNG',
+    passwordVerification:
+      'Пароль должен содержать хотя бы одну заглавную букву, одну строчную букву, одну цифру и один специальный символ ',
     required: 'Обязательное поле',
     userNameVerification: 'Имя пользователя может содержать 0-9, a-z, A-Z, _, -',
     usernameExists: 'Пользователь с таким именем пользователя уже зарегистрирован',
