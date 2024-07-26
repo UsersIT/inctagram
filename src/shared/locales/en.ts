@@ -78,6 +78,8 @@ export const en: LocaleType = {
       title: 'Create New Password',
     },
     forgotPassword: {
+      condition: "If you don't receive an email send link again.",
+      confirmation: 'The link has been sent by email.',
       iMNotRobot: "I'm not a robot",
       instruction: 'Enter your email address and we will sen you further instructions',
       invalidEmail: 'Invalid email address',

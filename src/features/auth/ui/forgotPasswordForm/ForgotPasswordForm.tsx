@@ -19,9 +19,16 @@ import { InfoModal } from '../InfoModal/InfoModal'
 
 type Props = ComponentProps<'form'> & {
   reCaptcha: null | string
+  reSend: boolean
+  setReSend: (reSend: boolean) => void
 }
 
-export const ForgotPasswordForm: FC<Props> = ({ className, reCaptcha }: Props) => {
+export const ForgotPasswordForm: FC<Props> = ({
+  className,
+  reCaptcha,
+  reSend,
+  setReSend,
+}: Props) => {
   const [showModal, setShowModal] = useState(false)
   const { t } = useTranslation()
 
@@ -54,6 +61,7 @@ export const ForgotPasswordForm: FC<Props> = ({ className, reCaptcha }: Props) =
         .unwrap()
         .then(() => {
           setShowModal(true)
+          setReSend(true)
         })
         .catch((err: { data: ApiErrorResult }) => {
           const errorField = err?.data?.messages[0]?.field
@@ -88,6 +96,7 @@ export const ForgotPasswordForm: FC<Props> = ({ className, reCaptcha }: Props) =
           <ControlledTextField
             className={clsx(!errors.email && s.field)}
             control={control}
+            disabled={reSend}
             label={t.label.email}
             name={'email'}
             placeholder={'example@example.com'}
@@ -97,16 +106,27 @@ export const ForgotPasswordForm: FC<Props> = ({ className, reCaptcha }: Props) =
             {t.pages.forgotPassword.instruction}
           </Typography>
         </div>
-
-        <Button
-          className={s.signUpBtn}
-          disabled={!reCaptcha || !isValid}
-          fullWidth
-          isLoading={isLoading}
-          type={'submit'}
-        >
-          {t.buttons.sendLink}
-        </Button>
+        {reSend && (
+          <div className={s.notifyContainer}>
+            <Typography className={s.notifyText} variant={'regular-text-14'}>
+              {t.pages.forgotPassword.confirmation}
+            </Typography>
+            <Typography className={s.notifyText} variant={'regular-text-14'}>
+              {t.pages.forgotPassword.condition}
+            </Typography>
+          </div>
+        )}
+        {!reSend && (
+          <Button
+            className={s.signUpBtn}
+            disabled={!reCaptcha || !isValid}
+            fullWidth
+            isLoading={isLoading}
+            type={'submit'}
+          >
+            {t.buttons.sendLink}
+          </Button>
+        )}
         <div className={s.agreementContainer}>
           <span className={s.agreement}></span>
         </div>
