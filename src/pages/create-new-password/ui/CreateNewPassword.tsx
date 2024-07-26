@@ -84,7 +84,7 @@ export const CreateNewPassword: FC = () => {
               isLoading={isLoading}
               type={'submit'}
             >
-              {t.buttons.sendLink}
+              {t.buttons.createNewPassword}
             </Button>
           </div>
         </form>
