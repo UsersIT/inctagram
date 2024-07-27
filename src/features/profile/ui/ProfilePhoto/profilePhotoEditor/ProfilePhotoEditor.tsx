@@ -40,6 +40,14 @@ export const ProfilePhotoEditor: React.FC<ProfilePhotoProps> = ({
     }
   }, [photoUrlFromServer])
 
+  useEffect(() => {
+    return () => {
+      if (photoUrl) {
+        URL.revokeObjectURL(photoUrl)
+      }
+    }
+  }, [photoUrl])
+
   const handleAddPhotoModal = () => {
     setOpenAddModal(!openAddModal)
     setPhotoUrl(null)
@@ -80,18 +88,16 @@ export const ProfilePhotoEditor: React.FC<ProfilePhotoProps> = ({
     }
   }
 
-  useEffect(() => {
-    return () => {
-      if (photoUrl) {
-        URL.revokeObjectURL(photoUrl)
-      }
-    }
-  }, [photoUrl])
+  const handleCloseAddModal = () => {
+    setPhotoUrl(null)
+    setIsEditing(false)
+    setOpenAddModal(false)
+  }
 
   return (
     <div className={clsx(s.container, className)}>
       <div className={s.wrapper}>
-        <Avatar circle className={s.avatar} url={photoUrl || ''} />
+        <Avatar circle className={s.avatar} url={photoUrlFromServer} />
 
         {photoUrlFromServer && !disabledUpdate && (
           <div>
@@ -132,7 +138,7 @@ export const ProfilePhotoEditor: React.FC<ProfilePhotoProps> = ({
         <Modal
           className={s.modal}
           onChange={handleAddPhotoModal}
-          onClose={() => setOpenAddModal(false)}
+          onClose={handleCloseAddModal}
           open={openAddModal}
           showCloseButton
           style={{ height: '564px', maxWidth: '492px' }}
