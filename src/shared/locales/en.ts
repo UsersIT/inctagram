@@ -44,6 +44,7 @@ export const en: LocaleType = {
   },
   errors: {
     characterLimit: 'Maximum number of characters reached',
+    croppingImageWrong: 'Error cropping image',
     errorWord: 'Error!',
     imageSize: (imageSizeInMB: number) => `Image size must be less than ${imageSizeInMB} MB!`,
     imageType: 'The format of the uploaded photo must be PNG and JPEG',

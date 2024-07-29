@@ -5,8 +5,9 @@ import {
   useDeleteAvatarMutation,
   useUploadAvatarMutation,
 } from '@/src/features/profile/api/profileApi'
-import { ProfilePhotoEditor } from '@/src/features/profile/ui/ProfilePhoto/profilePhotoEditor/ProfilePhotoEditor'
 import { useTranslation } from '@/src/shared/hooks'
+
+import { ProfilePhotoEditor } from './ProfilePhotoEditor/ProfilePhotoEditor'
 
 type Props = {
   photoUrlFromServer: string | undefined
@@ -29,7 +30,6 @@ export const ProfilePhoto: React.FC<Props> = ({ photoUrlFromServer, refetch }) =
         toast.success(t.profile.success)
       }
     } catch (error) {
-      console.error(t.errors.errorWord, error)
       toast.error(t.errors.errorWord)
     }
   }
@@ -42,7 +42,6 @@ export const ProfilePhoto: React.FC<Props> = ({ photoUrlFromServer, refetch }) =
         toast.success(t.profile.updatePhoto)
       }
     } catch (error) {
-      console.error(t.errors.photoUpdateError, error)
       toast.error(t.errors.photoUpdateError)
     }
   }

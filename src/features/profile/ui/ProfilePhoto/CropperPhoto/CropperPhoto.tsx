@@ -29,7 +29,6 @@ export const CropperPhoto: React.FC<Props> = ({ avatarUrl, disabled, onSetCroppe
       try {
         await onSetCroppedArea(croppedArea)
       } catch (error) {
-        console.error('Error saving cropped area:', error)
         toast.error(t.errors.errorWord)
       }
     }

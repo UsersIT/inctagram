@@ -34,7 +34,7 @@ export const getCroppedImageBlob = ({
 
         canvas.toBlob(blob => {
           if (!blob) {
-            reject(toast.error(t.validation.photoFormat))
+            reject(toast.error(t.errors.croppingImageWrong))
 
             return
           }
@@ -44,7 +44,7 @@ export const getCroppedImageBlob = ({
     }
 
     image.onerror = () => {
-      reject(toast.error(t.validation.photoFormat))
+      reject(toast.error(t.errors.croppingImageWrong))
     }
   })
 }

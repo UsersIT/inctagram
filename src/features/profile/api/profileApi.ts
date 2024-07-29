@@ -47,7 +47,6 @@ export const profileApi = baseApi.injectEndpoints({
             })
           )
         } catch (err) {
-          console.error('Ошибка загрузки:', err)
           result && result.undo()
         } finally {
           avatarURL && URL.revokeObjectURL(avatarURL)

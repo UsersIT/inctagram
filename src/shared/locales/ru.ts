@@ -42,6 +42,7 @@ export const ru = {
   },
   errors: {
     characterLimit: 'Достигнуто максимальное количество символов',
+    croppingImageWrong: 'Ошибка при обрезки фотографии',
     errorWord: 'Ошибка!',
     imageSize: (imageSizeInMB: number) =>
       `Размер фотографии должен быть меньше ${imageSizeInMB} MB!`,

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 
 import { getCroppedImageBlob } from '@/src/features/profile/model/helpers/getCroppedImageBlob'
 import { CroppedArea } from '@/src/features/profile/model/types/profilePhoto'
-import { CropperPhoto } from '@/src/features/profile/ui/ProfilePhoto/CropperPhoto/CropperPhoto'
 import { CloseOutline } from '@/src/shared/assets/icons'
 import { useTranslation } from '@/src/shared/hooks'
 import { imageSchema } from '@/src/shared/schemas/ImageSchema'
@@ -10,6 +9,8 @@ import { Avatar, Button, Dialog, ImageUploader, Modal, Typography } from '@/src/
 import clsx from 'clsx'
 
 import s from './ProfilePhotoEditor.module.scss'
+
+import { CropperPhoto } from '../CropperPhoto/CropperPhoto'
 
 type ProfilePhotoProps = {
   className?: string
@@ -70,21 +71,15 @@ export const ProfilePhotoEditor: React.FC<ProfilePhotoProps> = ({
 
   const handleEditorPhoto = async (cropArea: CroppedArea) => {
     if (cropArea) {
-      try {
-        const res = await getCroppedImageBlob({ crop: cropArea, imageSrc: photoUrl || '', t })
+      const res = await getCroppedImageBlob({ crop: cropArea, imageSrc: photoUrl || '', t })
 
-        setUpdatePhoto(res as FormData)
-
-        if (photoUrlFromServer) {
-          setPhotoUrl(photoUrlFromServer)
-        } else {
-          setPhotoUrl(URL.createObjectURL(res as Blob))
-        }
-
-        setOpenAddModal(false)
-      } catch (error) {
-        console.error('Error cropping image:', error)
+      setUpdatePhoto(res as FormData)
+      if (photoUrlFromServer) {
+        setPhotoUrl(photoUrlFromServer)
+      } else {
+        setPhotoUrl(URL.createObjectURL(res as Blob))
       }
+      setOpenAddModal(false)
     }
   }
 
