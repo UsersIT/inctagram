@@ -1,4 +1,6 @@
 export { useMeQuery } from './api/authApi'
+export { GitHubAuthButton } from './ui/GitHubAuthButton/GitHubAuthButton'
+export { GoogleAuthButton } from './ui/GoogleAuthButton/GoogleAuthButton'
 export { LoginForm } from './ui/LoginForm/LoginForm'
 export { LogoutButton } from './ui/LogoutButton/LogoutButton'
 export { ResendVerificationLinkButton } from './ui/ResendVerificationLinkButton/ResendVerificationLinkButton'
