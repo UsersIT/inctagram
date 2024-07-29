@@ -1,7 +1,6 @@
 import { FC, useEffect } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 
-import { ResendVerificationLinkButton } from '@/src/features/auth'
 import {
   useCreateNewPasswordMutation,
   useRecoveryCodeCheckMutation,
@@ -16,7 +15,6 @@ import { Button, Card, Typography } from '@/src/shared/ui'
 import { ControlledTextField } from '@/src/shared/ui/Controlled/ControlledTextField'
 import { LinkExpiredLayout } from '@/src/widgets/link-expired-layout'
 import { zodResolver } from '@hookform/resolvers/zod'
-import clsx from 'clsx'
 import { useSearchParams } from 'next/navigation'
 import { useRouter } from 'next/router'
 
@@ -40,7 +38,6 @@ export const CreateNewPassword: FC = () => {
   const [createNewPassword, { isLoading }] = useCreateNewPasswordMutation()
   const router = useRouter()
 
-  console.log(router.locale)
   const { query } = router
   const searchParams = useSearchParams()
   const recoveryCode = searchParams?.get('code') as string

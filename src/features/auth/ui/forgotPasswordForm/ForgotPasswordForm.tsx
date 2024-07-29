@@ -52,7 +52,11 @@ export const ForgotPasswordForm: FC<Props> = ({
 
   const onSubmit: SubmitHandler<PasswordRecovery> = async data => {
     if (isValid) {
-      const recoveryInput: { email: string; recaptcha: null | string } = {
+      const recoveryInput: { baseUrl: string; email: string; recaptcha: null | string } = {
+        baseUrl:
+          process.env.NODE_ENV === 'development'
+            ? `http://localhost:3000/`
+            : `https://picthentic.online/`,
         email: data.email,
         recaptcha: reCaptcha,
       }
