@@ -1,7 +1,7 @@
-import { toast } from 'react-toastify'
+import type { CroppedArea } from '../types/profilePhoto'
+import type { LocaleType } from '@/src/shared/locales/ru'
 
-import { CroppedArea } from '@/src/features/profile/model/types/profilePhoto'
-import { LocaleType } from '@/src/shared/locales/ru'
+import { toast } from 'react-toastify'
 
 type Params = {
   crop?: CroppedArea | null

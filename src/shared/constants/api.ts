@@ -26,12 +26,12 @@ export const apiEndpoints = {
       postById: '/v1/public-posts/', // + `${postId}`
     },
     user: {
-      avatar: '/api/v1/users/profile/avatar',
-      deleteAvatar: `/api/v1/users/profile/avatar`,
-      profile: '/api/v1/users/profile',
-      uploadAvatar: `/api/v1/users/profile/avatar`,
-      userProfileById: '/api/v1/public-user/profile/', // + `${profileId}`
-      usersCount: '/api/v1/public-user',
+      avatar: '/v1/users/profile/avatar',
+      deleteAvatar: `/v1/users/profile/avatar`,
+      profile: '/v1/users/profile',
+      uploadAvatar: `/v1/users/profile/avatar`,
+      userProfileById: '/v1/public-user/profile/', // + `${profileId}`
+      usersCount: '/v1/public-user',
     },
   },
 } as const

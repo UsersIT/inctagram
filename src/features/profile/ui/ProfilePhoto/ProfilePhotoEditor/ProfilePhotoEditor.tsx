@@ -1,3 +1,5 @@
+import type { CroppedArea } from '../../../model/types/profilePhoto'
+
 import React, { useEffect, useState } from 'react'
 
 import { CloseOutline } from '@/src/shared/assets/icons'
@@ -9,7 +11,6 @@ import clsx from 'clsx'
 import s from './ProfilePhotoEditor.module.scss'
 
 import { getCroppedImageBlob } from '../../../model/helpers/getCroppedImageBlob'
-import { CroppedArea } from '../../../model/types/profilePhoto'
 import { CropperPhoto } from '../CropperPhoto/CropperPhoto'
 
 type ProfilePhotoProps = {

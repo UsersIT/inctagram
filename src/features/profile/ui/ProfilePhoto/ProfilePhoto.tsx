@@ -1,12 +1,9 @@
 import React from 'react'
 import { toast } from 'react-toastify'
 
-import {
-  useDeleteAvatarMutation,
-  useUploadAvatarMutation,
-} from '@/src/features/profile/api/profileApi'
 import { useTranslation } from '@/src/shared/hooks'
 
+import { useDeleteAvatarMutation, useUploadAvatarMutation } from '../../api/profileApi'
 import { ProfilePhotoEditor } from './ProfilePhotoEditor/ProfilePhotoEditor'
 
 type Props = {

@@ -1,7 +1,7 @@
+import type { AddAvatarResponse, GetProfileResponse } from '../model/types/api'
+
 import { baseApi } from '@/src/shared/api/baseApi'
 import { apiEndpoints } from '@/src/shared/constants/api'
-
-import { AddAvatarResponse, GetProfileResponse } from '../model/types/api'
 
 export const profileApi = baseApi.injectEndpoints({
   endpoints: builder => ({

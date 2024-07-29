@@ -1,8 +1,9 @@
+import type { CroppedArea } from '@/src/features/profile/model/types/profilePhoto'
+
 import React, { useState } from 'react'
 import Cropper, { Point } from 'react-easy-crop'
 import { toast } from 'react-toastify'
 
-import { CroppedArea } from '@/src/features/profile/model/types/profilePhoto'
 import { useTranslation } from '@/src/shared/hooks'
 import { Button } from '@/src/shared/ui'
 
