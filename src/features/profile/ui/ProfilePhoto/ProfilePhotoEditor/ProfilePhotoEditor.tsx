@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react'
 
-import { getCroppedImageBlob } from '@/src/features/profile/model/helpers/getCroppedImageBlob'
-import { CroppedArea } from '@/src/features/profile/model/types/profilePhoto'
 import { CloseOutline } from '@/src/shared/assets/icons'
 import { useTranslation } from '@/src/shared/hooks'
 import { imageSchema } from '@/src/shared/schemas/ImageSchema'
@@ -10,6 +8,8 @@ import clsx from 'clsx'
 
 import s from './ProfilePhotoEditor.module.scss'
 
+import { getCroppedImageBlob } from '../../../model/helpers/getCroppedImageBlob'
+import { CroppedArea } from '../../../model/types/profilePhoto'
 import { CropperPhoto } from '../CropperPhoto/CropperPhoto'
 
 type ProfilePhotoProps = {

@@ -1,6 +1,7 @@
 import { baseApi } from '@/src/shared/api/baseApi'
 import { apiEndpoints } from '@/src/shared/constants/api'
-import { AddAvatarResponse, GetProfileResponse } from '@/src/shared/types/api'
+
+import { AddAvatarResponse, GetProfileResponse } from '../model/types/api'
 
 export const profileApi = baseApi.injectEndpoints({
   endpoints: builder => ({
@@ -22,13 +23,13 @@ export const profileApi = baseApi.injectEndpoints({
       },
       query: () => ({
         method: 'DELETE',
-        url: apiEndpoints.user.deleteAvatar,
+        url: apiEndpoints.public.user.deleteAvatar,
       }),
     }),
     getProfile: builder.query<GetProfileResponse, void>({
       query: () => ({
         method: 'GET',
-        url: apiEndpoints.user.profile,
+        url: apiEndpoints.public.user.profile,
       }),
     }),
     uploadAvatar: builder.mutation<AddAvatarResponse, FormData>({
@@ -55,7 +56,7 @@ export const profileApi = baseApi.injectEndpoints({
       query: FormData => ({
         body: FormData,
         method: 'POST',
-        url: apiEndpoints.user.uploadAvatar,
+        url: apiEndpoints.public.user.uploadAvatar,
       }),
     }),
   }),
