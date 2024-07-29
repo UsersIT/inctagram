@@ -2,6 +2,7 @@ import { ComponentProps, FC } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { toast } from 'react-toastify'
 
+import { routes } from '@/src/shared/constants/routes'
 import { useTranslation } from '@/src/shared/hooks'
 import { ControlledTextField } from '@/src/shared/ui/Controlled/ControlledTextField'
 import { Typography } from '@/src/shared/ui/Typography'
@@ -41,7 +42,7 @@ export const LoginForm: FC<ComponentProps<'form'>> = () => {
       .unwrap()
       .then(() => {
         triggerMeRequest()
-        void push('/')
+        void push(routes.PROFILE)
       })
       .catch(res => {
         if (res.status === 400) {

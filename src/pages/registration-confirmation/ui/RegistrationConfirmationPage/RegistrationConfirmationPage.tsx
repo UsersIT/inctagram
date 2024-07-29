@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 
 import { ResendVerificationLinkButton } from '@/src/features/auth'
 import { SignUpBro } from '@/src/shared/assets/icons'
+import { routes } from '@/src/shared/constants/routes'
 import { useTranslation } from '@/src/shared/hooks'
 import { Button, Spinner, Typography } from '@/src/shared/ui'
 import { LinkExpiredLayout } from '@/src/widgets/link-expired-layout'
@@ -49,7 +50,7 @@ export const RegistrationConfirmationPage = () => {
             {t.pages.registrationConfirmation.successText}
           </Typography>
 
-          <Button as={Link} className={s.signInLink} href={'/auth/login'}>
+          <Button as={Link} className={s.signInLink} href={routes.LOGIN}>
             {t.buttons.signIn}
           </Button>
 
