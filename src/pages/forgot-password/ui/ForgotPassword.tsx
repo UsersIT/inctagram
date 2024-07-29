@@ -12,7 +12,6 @@ export const ForgotPassword = () => {
   const { t } = useTranslation()
 
   const [reCaptcha, setReCaptcha] = useState<null | string>(null)
-
   const [reSend, setReSend] = useState(false)
 
   const sendLinkAgainHandler = () => {

@@ -14,6 +14,7 @@ export const ru = {
     logout: 'Выйти',
     openMenu: 'Открыть меню',
     resendLink: 'Отправить повторно',
+    resendLinkRecovery: 'Отправить ссылку повторно',
     save: 'Сохранить',
     sendLink: 'Отправить ссылку',
     sendLinkAgain: 'Отправить ссылку повторно',
@@ -84,6 +85,9 @@ export const ru = {
       invalidEmail: 'Некорректный адрес почты',
       nonEmpty: 'Введите электронную почту',
       title: 'Забыли пароль',
+      warningText:
+        'Похоже, срок действия ссылки для проверки истек. Не волнуйтесь, мы можем отправить ссылку снова',
+      warningTitle: 'Срок действия ссылки для проверки email истек',
     },
     policies: {
       policy: {

@@ -9,7 +9,11 @@ import {
   PasswordRecoveryRequest,
 } from '@/src/shared/types/api'
 
-import { RegisterInput, RegistrationEmailResendingInput } from '../model/types/auth'
+import {
+  RegisterInput,
+  RegistrationEmailResendingInput,
+  recoveryCodeCheckRequest,
+} from '../model/types/auth'
 
 const authApi = baseApi.injectEndpoints({
   endpoints: builder => ({
@@ -59,6 +63,13 @@ const authApi = baseApi.injectEndpoints({
         url: apiEndpoints.auth.passwordRecovery,
       }),
     }),
+    recoveryCodeCheck: builder.mutation<void, recoveryCodeCheckRequest>({
+      query: data => ({
+        body: data,
+        method: 'POST',
+        url: apiEndpoints.auth.checkRecoveryCode,
+      }),
+    }),
     registerUser: builder.mutation<void, RegisterInput>({
       query(data) {
         return {
@@ -87,6 +98,7 @@ export const {
   useLogoutMutation,
   useMeQuery,
   usePasswordRecoveryMutation,
+  useRecoveryCodeCheckMutation,
   useRegisterUserMutation,
   useRegistrationEmailResendingMutation,
 } = authApi

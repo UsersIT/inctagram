@@ -16,6 +16,7 @@ export const en: LocaleType = {
     logout: 'Log Out',
     openMenu: 'Open menu',
     resendLink: 'Resend verification link',
+    resendLinkRecovery: 'Resend link',
     save: 'Save',
     sendLink: 'Send Link',
     sendLinkAgain: 'Send Link Again',
@@ -85,6 +86,9 @@ export const en: LocaleType = {
       invalidEmail: 'Invalid email address',
       nonEmpty: 'Enter email',
       title: 'Forgot Password',
+      warningText:
+        'Looks like the verification link has expired. Not to worry, we can send the link again',
+      warningTitle: 'Email verification link expired',
     },
     policies: {
       policy: {
