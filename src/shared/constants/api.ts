@@ -26,6 +26,10 @@ export const apiEndpoints = {
       postById: '/v1/public-posts/', // + `${postId}`
     },
     user: {
+      avatar: '/v1/users/profile/avatar',
+      deleteAvatar: `/v1/users/profile/avatar`,
+      profile: '/v1/users/profile',
+      uploadAvatar: `/v1/users/profile/avatar`,
       userProfileById: '/v1/public-user/profile/', // + `${profileId}`
       usersCount: '/v1/public-user',
     },

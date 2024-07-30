@@ -44,9 +44,11 @@ export const en: LocaleType = {
   },
   errors: {
     characterLimit: 'Maximum number of characters reached',
+    croppingImageWrong: 'Error cropping image',
     errorWord: 'Error!',
     imageSize: (imageSizeInMB: number) => `Image size must be less than ${imageSizeInMB} MB!`,
     imageType: 'The format of the uploaded photo must be PNG and JPEG',
+    photoUpdateError: 'Error updating profile photo. Please try again',
     somethingWentWrong:
       'Something went wrong. Please check your internet connection and try again.',
   },
@@ -136,8 +138,10 @@ export const en: LocaleType = {
   profile: {
     addProfilePhoto: 'Add a Profile Photo',
     deletePhoto: 'Delete photo',
-    deleteProfilePhoto: 'Are you sure you want to delete the photo?',
+    deleteProfilePhoto: 'Do you really want to delete your profile photo?',
     logOutConfirmation: 'Are you really want to log out of your account',
+    success: 'Success!',
+    updatePhoto: 'Profile photo has been updated successfully!',
   },
   validation: {
     ageRestriction: 'A user under 13 cannot create profile',
@@ -151,6 +155,7 @@ export const en: LocaleType = {
     passwordConfirmation: 'The passwords must match',
     passwordVerification:
       'The password must contain at least one uppercase letter, one lowercase letter, one number and one special character ',
+    photoFormat: 'The photo must be less than 10Mb and have JPEG or PNG format',
     required: 'Required field',
     userNameVerification: 'Username should contain 0-9, a-z, A-Z, _, -',
     usernameExists: 'User with this username is already registered',
