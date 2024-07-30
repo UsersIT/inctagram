@@ -1,4 +1,6 @@
 export { useMeQuery } from './api/authApi'
+export { CreateNewPasswordForm } from './ui/CreateNewPasswordForm/CreateNewPasswordForm'
+export { ForgotPasswordForm } from './ui/ForgotPasswordForm/ForgotPasswordForm'
 export { LoginForm } from './ui/LoginForm/LoginForm'
 export { LogoutButton } from './ui/LogoutButton/LogoutButton'
 export { ResendVerificationLinkButton } from './ui/ResendVerificationLinkButton/ResendVerificationLinkButton'

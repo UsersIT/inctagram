@@ -13,3 +13,8 @@ export type RegistrationEmailResendingInput = {
 export type recoveryCodeCheckRequest = {
   recoveryCode: string
 }
+
+export type NewPasswordRequest = {
+  newPassword: string
+  recoveryCode: string
+}

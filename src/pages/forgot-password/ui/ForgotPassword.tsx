@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import ReCAPTCHA from 'react-google-recaptcha'
 
-import { ForgotPasswordForm } from '@/src/features/auth/ui/forgotPasswordForm/ForgotPasswordForm'
+import { ForgotPasswordForm } from '@/src/features/auth'
 import { useTranslation } from '@/src/shared/hooks'
 import { Button, Card, Typography } from '@/src/shared/ui'
 import Link from 'next/link'
@@ -10,7 +10,6 @@ import s from './ForgotPassword.module.scss'
 
 export const ForgotPassword = () => {
   const { t } = useTranslation()
-
   const [reCaptcha, setReCaptcha] = useState<null | string>(null)
   const [reSend, setReSend] = useState(false)
 
