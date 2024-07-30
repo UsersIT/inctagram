@@ -1,5 +1,5 @@
-import { SignUpForm } from '@/src/features/auth'
-import { GitHub, Google } from '@/src/shared/assets/icons'
+import { GitHubAuthButton, GoogleAuthButton, SignUpForm } from '@/src/features/auth'
+import { routes } from '@/src/shared/constants/routes'
 import { useTranslation } from '@/src/shared/hooks'
 import { Button, Card, Typography } from '@/src/shared/ui'
 import Link from 'next/link'
@@ -16,16 +16,8 @@ export const RegistrationPage = () => {
           {t.pages.registration.title}
         </Typography>
         <div className={s.oAuthButtonsContainer}>
-          {/** GoogleButton should be fixed*/}
-          <Button variant={'text'}>
-            <Google height={36} viewBox={'0 0 24 24'} width={36} />
-          </Button>
-          {/*************** */}
-          {/** GitHubButton should be fixed*/}
-          <Button style={{ color: 'var(--color-text-primary)' }} variant={'text'}>
-            <GitHub height={36} viewBox={'0 0 24 24'} width={36} />
-          </Button>
-          {/*************** */}
+          <GoogleAuthButton />
+          <GitHubAuthButton />
         </div>
         <SignUpForm />
         <Typography
@@ -36,7 +28,7 @@ export const RegistrationPage = () => {
         >
           {t.pages.registration.signInSuggestion}
         </Typography>
-        <Button as={Link} className={s.signInLink} fullWidth href={'/auth/login'} variant={'text'}>
+        <Button as={Link} className={s.signInLink} fullWidth href={routes.LOGIN} variant={'text'}>
           {t.buttons.signIn}
         </Button>
       </Card>

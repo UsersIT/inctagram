@@ -10,7 +10,7 @@ import s from './imageUploader.module.scss'
 
 export type ImageUploaderProps = {
   schema: ZodEffects<any>
-  setFile: (file: File | null) => void
+  setFile: (file: File) => void
 } & PropsWithChildren
 
 export const ImageUploader = ({ schema, setFile }: ImageUploaderProps) => {
@@ -19,7 +19,7 @@ export const ImageUploader = ({ schema, setFile }: ImageUploaderProps) => {
 
   const classes = {
     button: s.button,
-    container: s.container,
+    container: clsx(s.container, { [s.error]: error }),
     errorMassage: clsx(s.massage, { [s.error]: error }),
     errorWrapper: clsx(s.errorContainer, { [s.error]: error }),
     iconWrapper: s.svgWrapper,

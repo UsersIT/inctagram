@@ -1,5 +1,5 @@
 import { baseApi } from '@/src/shared/api/baseApi'
-import { URL, apiEndpoints } from '@/src/shared/constants/api'
+import { BASE_URL, apiEndpoints } from '@/src/shared/constants/api'
 import { tokenStorage } from '@/src/shared/storage'
 import {
   LoginRequest,
@@ -73,7 +73,7 @@ const authApi = baseApi.injectEndpoints({
     registerUser: builder.mutation<void, RegisterInput>({
       query(data) {
         return {
-          body: { ...data, baseUrl: URL },
+          body: { ...data, baseUrl: BASE_URL },
           method: 'POST',
           url: apiEndpoints.auth.registration,
         }
@@ -82,7 +82,7 @@ const authApi = baseApi.injectEndpoints({
     registrationEmailResending: builder.mutation<void, RegistrationEmailResendingInput>({
       query(data) {
         return {
-          body: { ...data, baseUrl: URL },
+          body: { ...data, baseUrl: BASE_URL },
           method: 'POST',
           url: apiEndpoints.auth.registrationEmailResending,
         }

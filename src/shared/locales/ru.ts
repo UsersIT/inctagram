@@ -48,10 +48,12 @@ export const ru = {
   },
   errors: {
     characterLimit: 'Достигнуто максимальное количество символов',
+    croppingImageWrong: 'Ошибка при обрезки фотографии',
     errorWord: 'Ошибка!',
     imageSize: (imageSizeInMB: number) =>
       `Размер фотографии должен быть меньше ${imageSizeInMB} MB!`,
     imageType: 'Формат загруженной фотографии должен быть PNG или JPEG',
+    photoUpdateError: 'Ошибка при обновлении фотографии профиля. Пожалуйста, попробуйте снова',
     somethingWentWrong:
       'Что-то пошло не так. Пожалуйста, проверьте Ваше интернет-соединение и попробуйте снова.',
   },
@@ -159,8 +161,10 @@ export const ru = {
   profile: {
     addProfilePhoto: 'Добавить фотографию профиля',
     deletePhoto: 'Удалить фото',
-    deleteProfilePhoto: 'Вы уверены, что хотите удалить фотографию профиля?',
+    deleteProfilePhoto: 'Вы действительно хотите удалить фотографию профиля?',
     logOutConfirmation: 'Вы действительно хотите выйти из своей учетной записи',
+    success: 'Успешно!',
+    updatePhoto: 'Фотография профиля успешно обновлена!',
   },
   validation: {
     ageRestriction: 'Пользователь младше 13 лет не может создать профиль.',
@@ -175,6 +179,7 @@ export const ru = {
     passwordConfirmation: 'Пароли должны совпадать',
     passwordVerification:
       'Пароль должен содержать хотя бы одну заглавную букву, одну строчную букву, одну цифру и один специальный символ ',
+    photoFormat: 'Фото должно быть менее 10 Мб и иметь формат JPEG или PNG',
     required: 'Обязательное поле',
     userExist: 'Пользователя с этим email не существует',
     userNameVerification: 'Имя пользователя может содержать 0-9, a-z, A-Z, _, -',
