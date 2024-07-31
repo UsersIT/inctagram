@@ -1,7 +1,6 @@
 import { FC, useEffect } from 'react'
 
-import { CreateNewPasswordForm } from '@/src/features/auth'
-import { useRecoveryCodeCheckMutation } from '@/src/features/auth/api/authApi'
+import { CreateNewPasswordForm, useRecoveryCodeCheckMutation } from '@/src/features/auth'
 import { useTranslation } from '@/src/shared/hooks'
 import { Button, Card, Typography } from '@/src/shared/ui'
 import { LinkExpiredLayout } from '@/src/widgets/link-expired-layout'

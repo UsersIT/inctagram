@@ -1,6 +1,6 @@
 import { Control, FieldPath, FieldValues, useController } from 'react-hook-form'
 
-import { TextField, TextFieldProps } from '@/src/shared/ui/TextField'
+import { TextField, TextFieldProps } from '../TextField'
 
 export type ControlledTextFieldProps<TFieldValues extends FieldValues> = {
   control: Control<TFieldValues>
