@@ -1,12 +1,29 @@
 import { baseApi } from '@/src/shared/api/baseApi'
 import { BASE_URL, apiEndpoints } from '@/src/shared/constants/api'
 import { tokenStorage } from '@/src/shared/storage'
-import { LoginRequest, LoginResponse, MeResponse } from '@/src/shared/types/api'
+import {
+  LoginRequest,
+  LoginResponse,
+  MeResponse,
+  NewPasswordRequest,
+  PasswordRecoveryRequest,
+} from '@/src/shared/types/api'
 
-import { RegisterInput, RegistrationEmailResendingInput } from '../model/types/auth'
+import {
+  RegisterInput,
+  RegistrationEmailResendingInput,
+  recoveryCodeCheckRequest,
+} from '../model/types/auth'
 
 const authApi = baseApi.injectEndpoints({
   endpoints: builder => ({
+    createNewPassword: builder.mutation<void, NewPasswordRequest>({
+      query: body => ({
+        body,
+        method: 'POST',
+        url: apiEndpoints.auth.newPassword,
+      }),
+    }),
     login: builder.mutation<LoginResponse, LoginRequest>({
       onQueryStarted: async (_, { queryFulfilled }) => {
         const res = await queryFulfilled
@@ -39,6 +56,20 @@ const authApi = baseApi.injectEndpoints({
         url: apiEndpoints.auth.me,
       }),
     }),
+    passwordRecovery: builder.mutation<void, PasswordRecoveryRequest>({
+      query: data => ({
+        body: data,
+        method: 'POST',
+        url: apiEndpoints.auth.passwordRecovery,
+      }),
+    }),
+    recoveryCodeCheck: builder.mutation<void, recoveryCodeCheckRequest>({
+      query: data => ({
+        body: data,
+        method: 'POST',
+        url: apiEndpoints.auth.checkRecoveryCode,
+      }),
+    }),
     registerUser: builder.mutation<void, RegisterInput>({
       query(data) {
         return {
@@ -61,10 +92,13 @@ const authApi = baseApi.injectEndpoints({
 })
 
 export const {
+  useCreateNewPasswordMutation,
   useLazyMeQuery,
   useLoginMutation,
   useLogoutMutation,
   useMeQuery,
+  usePasswordRecoveryMutation,
+  useRecoveryCodeCheckMutation,
   useRegisterUserMutation,
   useRegistrationEmailResendingMutation,
 } = authApi

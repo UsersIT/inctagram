@@ -1,4 +1,7 @@
 export { useMeQuery } from './api/authApi'
+export { useRecoveryCodeCheckMutation } from './api/authApi'
+export { CreateNewPasswordForm } from './ui/CreateNewPasswordForm/CreateNewPasswordForm'
+export { ForgotPasswordForm } from './ui/ForgotPasswordForm/ForgotPasswordForm'
 export { GitHubAuthButton } from './ui/GitHubAuthButton/GitHubAuthButton'
 export { GoogleAuthButton } from './ui/GoogleAuthButton/GoogleAuthButton'
 export { LoginForm } from './ui/LoginForm/LoginForm'

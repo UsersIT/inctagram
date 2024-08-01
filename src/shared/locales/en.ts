@@ -3,7 +3,10 @@ import { LocaleType } from '@/src/shared/locales/ru'
 export const en: LocaleType = {
   buttons: {
     back: 'Go Back',
+    backToSignIn: 'Back to Sign In',
+    backToSignUp: 'Back to Sign Up',
     closeSearchFieldIcon: 'Delete the entered search query',
+    createNewPassword: 'Create new password',
     expandMenu: 'Expand menu',
     eyeIcon: 'Hide the entered password',
     eyeOffIcon: 'Show the entered password',
@@ -13,7 +16,10 @@ export const en: LocaleType = {
     logout: 'Log Out',
     openMenu: 'Open menu',
     resendLink: 'Resend verification link',
+    resendLinkRecovery: 'Resend link',
     save: 'Save',
+    sendLink: 'Send Link',
+    sendLinkAgain: 'Send Link Again',
     signIn: 'Sign In',
     signUp: 'Sign Up',
   },
@@ -70,6 +76,22 @@ export const en: LocaleType = {
     statistics: 'Statistics',
   },
   pages: {
+    createNewPassword: {
+      instruction: 'Your password must be between 6 and 20 characters',
+      title: 'Create New Password',
+    },
+    forgotPassword: {
+      condition: "If you don't receive an email send link again.",
+      confirmation: 'The link has been sent by email.',
+      iMNotRobot: "I'm not a robot",
+      instruction: 'Enter your email address and we will sen you further instructions',
+      invalidEmail: 'Invalid email address',
+      nonEmpty: 'Enter email',
+      title: 'Forgot Password',
+      warningText:
+        'Looks like the verification link has expired. Not to worry, we can send the link again',
+      warningTitle: 'Email verification link expired',
+    },
     policies: {
       policy: {
         childrenText: 'Our Service does not address anyone under the age of 13 ("Children").',
@@ -149,6 +171,7 @@ export const en: LocaleType = {
     cityQuery: 'Please enter a valid city name.',
     emailExists: 'User with this email is already registered',
     emailFormat: 'The email must match the format example@example.com',
+    emailVerification: 'Not valid email address',
     invalidCredentials: 'The email or password are incorrect. Try again please',
     maxLength: (len: number) => `Maximum ${len} characters`,
     minLength: (len: number) => `Minimum ${len} characters`,
@@ -157,6 +180,7 @@ export const en: LocaleType = {
       'The password must contain at least one uppercase letter, one lowercase letter, one number and one special character ',
     photoFormat: 'The photo must be less than 10Mb and have JPEG or PNG format',
     required: 'Required field',
+    userExist: "User with this email doesn't exist",
     userNameVerification: 'Username should contain 0-9, a-z, A-Z, _, -',
     usernameExists: 'User with this username is already registered',
   },

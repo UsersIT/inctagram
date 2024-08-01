@@ -9,3 +9,12 @@ export type RegistrationEmailResendingInput = {
   baseUrl?: string
   email: string
 }
+
+export type recoveryCodeCheckRequest = {
+  recoveryCode: string
+}
+
+export type NewPasswordRequest = {
+  newPassword: string
+  recoveryCode: string
+}

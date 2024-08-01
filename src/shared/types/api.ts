@@ -18,6 +18,17 @@ export type LoginRequest = {
   password: string
 }
 
+export type PasswordRecoveryRequest = {
+  // baseUrl: string
+  email: string
+  recaptcha: null | string
+}
+
+export type NewPasswordRequest = {
+  newPassword: string
+  recoveryCode: string
+}
+
 export type LoginResponse = {
   accessToken: string
 }
