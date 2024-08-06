@@ -18,6 +18,7 @@ import {
 import { InfoModal } from '../InfoModal/InfoModal'
 
 type Props = ComponentProps<'form'> & {
+  handleRefresh: () => void
   reCaptcha: null | string
   reSend: boolean
   setReSend: (reSend: boolean) => void
@@ -25,6 +26,7 @@ type Props = ComponentProps<'form'> & {
 
 export const ForgotPasswordForm: FC<Props> = ({
   className,
+  handleRefresh,
   reCaptcha,
   reSend,
   setReSend,
@@ -66,8 +68,10 @@ export const ForgotPasswordForm: FC<Props> = ({
         .then(() => {
           setShowModal(true)
           setReSend(true)
+          handleRefresh()
         })
         .catch((err: { data: ApiErrorResult }) => {
+          handleRefresh()
           const errorField = err?.data?.messages[0]?.field
           const credentialsErrorField = errorField as keyof Pick<PasswordRecovery, 'email'>
           const messages: Partial<PasswordRecovery> = {
