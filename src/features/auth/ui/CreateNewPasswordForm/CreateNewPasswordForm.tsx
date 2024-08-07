@@ -1,4 +1,5 @@
 import { SubmitHandler, useForm } from 'react-hook-form'
+import { toast } from 'react-toastify'
 
 import { useTranslation } from '@/src/shared/hooks'
 import { Button, ControlledTextField, Typography } from '@/src/shared/ui'
@@ -42,7 +43,12 @@ export const CreateNewPasswordForm = () => {
         .then(() => {
           router.push('/auth/login')
         })
-        .catch(error => console.log(error))
+        .catch(res => {
+          if (res.status === 400) {
+            toast.error(res?.data?.messages[0]?.message)
+          }
+          toast.error(t.errors.somethingWentWrong)
+        })
     } else {
       return
     }

@@ -3,7 +3,6 @@ import { SubmitHandler, useForm } from 'react-hook-form'
 import { toast } from 'react-toastify'
 
 import { useTranslation } from '@/src/shared/hooks'
-import { ApiErrorResult } from '@/src/shared/types/api'
 import { Button, ControlledTextField, Typography } from '@/src/shared/ui'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { clsx } from 'clsx'
@@ -18,6 +17,7 @@ import {
 import { InfoModal } from '../InfoModal/InfoModal'
 
 type Props = ComponentProps<'form'> & {
+  handleRefresh: () => void
   reCaptcha: null | string
   reSend: boolean
   setReSend: (reSend: boolean) => void
@@ -25,6 +25,7 @@ type Props = ComponentProps<'form'> & {
 
 export const ForgotPasswordForm: FC<Props> = ({
   className,
+  handleRefresh,
   reCaptcha,
   reSend,
   setReSend,
@@ -66,22 +67,16 @@ export const ForgotPasswordForm: FC<Props> = ({
         .then(() => {
           setShowModal(true)
           setReSend(true)
+          handleRefresh()
         })
-        .catch((err: { data: ApiErrorResult }) => {
-          const errorField = err?.data?.messages[0]?.field
-          const credentialsErrorField = errorField as keyof Pick<PasswordRecovery, 'email'>
-          const messages: Partial<PasswordRecovery> = {
-            email: t.validation.userExist,
-          }
+        .catch(res => {
+          handleRefresh()
+          if (res.status === 400) {
+            setError('email', { message: t.validation.userExist, type: 'custom' })
 
-          if (errorField === credentialsErrorField) {
-            setError(credentialsErrorField, {
-              message: messages[credentialsErrorField] as string,
-              type: 'custom',
-            })
-          } else {
-            toast.error(err?.data?.messages[0]?.message)
+            return
           }
+          toast.error(t.errors.somethingWentWrong)
         })
     } else {
       return
