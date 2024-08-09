@@ -1,18 +1,16 @@
 import { baseApi } from '@/src/shared/api/baseApi'
 import { BASE_URL, apiEndpoints } from '@/src/shared/constants/api'
 import { tokenStorage } from '@/src/shared/storage'
+
 import {
   LoginRequest,
   LoginResponse,
   MeResponse,
   NewPasswordRequest,
   PasswordRecoveryRequest,
-} from '@/src/shared/types/api'
-
-import {
+  RecoveryCodeCheckRequest,
   RegisterInput,
   RegistrationEmailResendingInput,
-  recoveryCodeCheckRequest,
 } from '../model/types/auth'
 
 const authApi = baseApi.injectEndpoints({
@@ -63,7 +61,7 @@ const authApi = baseApi.injectEndpoints({
         url: apiEndpoints.auth.passwordRecovery,
       }),
     }),
-    recoveryCodeCheck: builder.mutation<void, recoveryCodeCheckRequest>({
+    recoveryCodeCheck: builder.mutation<void, RecoveryCodeCheckRequest>({
       query: data => ({
         body: data,
         method: 'POST',

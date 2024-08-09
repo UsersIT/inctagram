@@ -1,6 +1,7 @@
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { toast } from 'react-toastify'
 
+import { routes } from '@/src/shared/constants/routes'
 import { useTranslation } from '@/src/shared/hooks'
 import { Button, ControlledTextField, Typography } from '@/src/shared/ui'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -41,7 +42,7 @@ export const CreateNewPasswordForm = () => {
       createNewPassword(newPasswordInput)
         .unwrap()
         .then(() => {
-          router.push('/auth/login')
+          router.push(routes.LOGIN)
         })
         .catch(res => {
           if (res.status === 400) {
