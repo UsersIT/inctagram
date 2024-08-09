@@ -4,8 +4,8 @@ import { useState } from 'react'
 
 import Link from 'next/link'
 
-import { Button } from '..'
 import { BellFilled } from '../../assets/icons'
+import { Button } from '../Button/Button'
 import { Popover } from './Popover'
 
 const meta = {
