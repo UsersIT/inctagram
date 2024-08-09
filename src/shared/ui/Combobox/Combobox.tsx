@@ -9,15 +9,15 @@ import {
 } from '@headlessui/react'
 import { clsx } from 'clsx'
 
-import textFieldStyle from '../TextField/TextField.module.scss'
-import selectStyle from '../select/select.module.scss'
+import selectStyle from '../SelectTemp/Select.module.scss'
+import textFieldStyle from '../TextFieldTemp/TextField.module.scss'
 import s from './Combobox.module.scss'
 
 import { Typography } from '..'
 import { ArrowDown, Close } from '../../assets/icons'
 import { useTranslation } from '../../hooks'
-import { ScrollArea, ScrollBar } from '../scrollArea'
-import { Spinner } from '../spinner'
+import { ScrollArea, ScrollBar } from '../ScrollAreaTemp/ScrollArea'
+import { Spinner } from '../SpinnerTemp/Spinner'
 
 export type OptionType<T> = {
   id?: number | string

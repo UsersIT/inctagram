@@ -2,7 +2,7 @@ import { useState } from 'react'
 
 import { Meta } from '@storybook/react'
 
-import { CheckBox, CheckboxProps } from './'
+import { CheckBox, CheckboxProps } from './Checkbox'
 
 export default {
   component: CheckBox,

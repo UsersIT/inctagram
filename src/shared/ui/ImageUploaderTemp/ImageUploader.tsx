@@ -6,7 +6,7 @@ import { Button, ImageUploadInput, Typography } from '@/src/shared/ui'
 import { clsx } from 'clsx'
 import { ZodEffects } from 'zod'
 
-import s from './imageUploader.module.scss'
+import s from './ImageUploader.module.scss'
 
 export type ImageUploaderProps = {
   schema: ZodEffects<any>

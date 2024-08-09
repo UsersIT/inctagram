@@ -2,8 +2,8 @@ import type { Meta, StoryObj } from '@storybook/react'
 
 import { useState } from 'react'
 
-import { Option, Select } from '.'
 import { RussiaFlag, UnitedKingdomFlag } from '../../assets/icons'
+import { Option, Select } from './Select'
 
 const meta = {
   argTypes: {

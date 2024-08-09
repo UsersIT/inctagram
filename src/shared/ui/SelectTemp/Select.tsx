@@ -4,10 +4,10 @@ import * as Label from '@radix-ui/react-label'
 import * as SelectPrimitive from '@radix-ui/react-select'
 import clsx from 'clsx'
 
-import s from './select.module.scss'
+import s from './Select.module.scss'
 
 import { ArrowDown } from '../../assets/icons'
-import { ScrollArea, ScrollBar } from '../scrollArea'
+import { ScrollArea, ScrollBar } from '../ScrollAreaTemp/ScrollArea'
 
 export type Option = {
   disabled?: boolean
