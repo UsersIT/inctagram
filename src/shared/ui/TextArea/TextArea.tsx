@@ -5,7 +5,7 @@ import clsx from 'clsx'
 
 import s from './TextArea.module.scss'
 
-import { Typography } from '../TypographyTemp/Typography'
+import { Typography } from '../Typography/Typography'
 
 export type TextAreaProps = {
   error?: string

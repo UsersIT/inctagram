@@ -14,7 +14,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import s from './Modal.module.scss'
 
 import { ArrowIosBack, Close } from '../../assets/icons'
-import { Button } from '../ButtonTemp/Button'
+import { Button } from '../Button/Button'
 
 export type ModalSize = 'lg' | 'md' | 'sm'
 

@@ -5,9 +5,9 @@ import clsx from 'clsx'
 
 import s from './Popover.module.scss'
 
-import { Button } from '..'
 import { Dots } from '../../assets/icons'
 import { useTranslation } from '../../hooks'
+import { Button } from '../Button/Button'
 
 export type PopoverProps = {
   arrow?: boolean

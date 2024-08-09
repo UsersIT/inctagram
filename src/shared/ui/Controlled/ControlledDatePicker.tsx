@@ -1,6 +1,6 @@
 import { Control, FieldPath, FieldValues, useController } from 'react-hook-form'
 
-import { DatePicker, DatePickerProps } from '@/src/shared/ui/DatePicker/DatePicker'
+import { DatePicker, DatePickerProps } from '../DatePicker/DatePicker'
 
 export type ControlledDatePickerProps<TFieldValues extends FieldValues> = {
   control: Control<TFieldValues>

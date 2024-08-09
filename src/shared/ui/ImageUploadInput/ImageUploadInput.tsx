@@ -4,7 +4,7 @@ import { ZodEffects } from 'zod'
 
 import s from './ImageUploadInput.module.scss'
 
-import { Typography } from '../TypographyTemp/Typography'
+import { Typography } from '../Typography/Typography'
 
 export type ImageUploadInputProps = {
   error?: (error: string) => void

@@ -1,12 +1,15 @@
 import React, { PropsWithChildren, useState } from 'react'
 
-import { ImageIcon } from '@/src/shared/assets/icons/components/ImageIcon'
 import { useTranslation } from '@/src/shared/hooks'
-import { Button, ImageUploadInput, Typography } from '@/src/shared/ui'
 import { clsx } from 'clsx'
 import { ZodEffects } from 'zod'
 
 import s from './ImageUploader.module.scss'
+
+import { ImageIcon } from '../../assets/icons'
+import { Button } from '../Button/Button'
+import { ImageUploadInput } from '../ImageUploadInput/ImageUploadInput'
+import { Typography } from '../Typography/Typography'
 
 export type ImageUploaderProps = {
   schema: ZodEffects<any>

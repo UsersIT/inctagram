@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { Button, DropdownItem, DropdownMenu, DropdownSeparator } from '@/src/shared/ui'
+import { DropdownItem, DropdownMenu, DropdownSeparator } from '.'
+import { Button } from '../Button/Button'
 
 const meta = {
   argTypes: {

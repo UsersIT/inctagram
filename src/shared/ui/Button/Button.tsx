@@ -7,7 +7,7 @@ import { clsx } from 'clsx'
 
 import s from './Button.module.scss'
 
-import { Spinner } from '../SpinnerTemp/Spinner'
+import { Spinner } from '../Spinner/Spinner'
 
 type ButtonVariant = 'outlined' | 'primary' | 'secondary' | 'text'
 

@@ -4,7 +4,7 @@ import { useState } from 'react'
 
 import { useTranslation } from '@/src/shared/hooks'
 import { imageSchema } from '@/src/shared/schemas/ImageSchema'
-import { ImageUploader, ImageUploaderProps } from '@/src/shared/ui/ImageUploaderTemp/ImageUploader'
+import { ImageUploader, ImageUploaderProps } from '@/src/shared/ui/ImageUploader/ImageUploader'
 
 const meta: Meta<typeof ImageUploader> = {
   argTypes: {

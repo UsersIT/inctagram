@@ -1,6 +1,5 @@
 import { ComponentPropsWithoutRef } from 'react'
 
-import { DropdownMenu } from '@/src/shared/ui/Dropdown/DropdownMenu/DropdownMenu'
 import * as RadixDropdown from '@radix-ui/react-dropdown-menu'
 import clsx from 'clsx'
 

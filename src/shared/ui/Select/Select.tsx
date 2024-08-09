@@ -7,7 +7,7 @@ import clsx from 'clsx'
 import s from './Select.module.scss'
 
 import { ArrowDown } from '../../assets/icons'
-import { ScrollArea, ScrollBar } from '../ScrollAreaTemp/ScrollArea'
+import { ScrollArea, ScrollBar } from '../ScrollArea/ScrollArea'
 
 export type Option = {
   disabled?: boolean
