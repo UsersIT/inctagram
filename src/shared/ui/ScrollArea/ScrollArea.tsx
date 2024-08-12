@@ -3,7 +3,7 @@ import { ComponentPropsWithoutRef, ElementRef, forwardRef } from 'react'
 import * as ScrollAreaPrimitive from '@radix-ui/react-scroll-area'
 import { clsx } from 'clsx'
 
-import s from './scrollArea.module.scss'
+import s from './ScrollArea.module.scss'
 
 export type ScrollAreaProps = {
   maxHeight?: number | string

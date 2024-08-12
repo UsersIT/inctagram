@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { ScrollArea, ScrollBar } from '.'
+import { ScrollArea, ScrollBar } from './ScrollArea'
 
 const meta = {
   argTypes: {

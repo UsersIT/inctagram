@@ -27,7 +27,7 @@ export const CreateNewPassword: FC = () => {
   }, [query.code, recoveryCodeCheck])
 
   return (
-    <main className={s.page}>
+    <div className={s.page}>
       {isSuccess && (
         <Card className={s.card}>
           <Typography as={'h1'} className={s.title} variant={'h1'}>
@@ -43,6 +43,6 @@ export const CreateNewPassword: FC = () => {
           </Button>
         </LinkExpiredLayout>
       )}
-    </main>
+    </div>
   )
 }

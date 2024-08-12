@@ -25,7 +25,7 @@ export const ForgotPassword = () => {
   }
 
   return (
-    <main className={s.page}>
+    <div className={s.page}>
       <Card className={s.card}>
         <Typography as={'h1'} className={s.title} variant={'h1'}>
           {t.pages.forgotPassword.title}
@@ -56,6 +56,6 @@ export const ForgotPassword = () => {
           )}
         </div>
       </Card>
-    </main>
+    </div>
   )
 }

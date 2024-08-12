@@ -1,9 +1,11 @@
 import { Fragment } from 'react'
 
-import { Button, Modal, ModalProps } from '@/src/shared/ui'
 import { clsx } from 'clsx'
 
-import s from './dialog.module.scss'
+import s from './Dialog.module.scss'
+
+import { Button } from '../Button/Button'
+import { Modal, ModalProps } from '../Modal/Modal'
 
 type Props = {
   buttonsContainerClassName?: string

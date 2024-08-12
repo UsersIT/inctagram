@@ -25,13 +25,13 @@ const profileApi = baseApi.injectEndpoints({
       },
       query: () => ({
         method: 'DELETE',
-        url: apiEndpoints.public.user.deleteAvatar,
+        url: apiEndpoints.profile.avatar,
       }),
     }),
     getProfile: builder.query<GetProfileResponse, void>({
       query: () => ({
         method: 'GET',
-        url: apiEndpoints.public.user.profile,
+        url: apiEndpoints.profile.profile,
       }),
     }),
     updateProfile: builder.mutation<ApiErrorResult, Partial<generalInfoFormValues>>({
@@ -65,7 +65,7 @@ const profileApi = baseApi.injectEndpoints({
       query: FormData => ({
         body: FormData,
         method: 'POST',
-        url: apiEndpoints.public.user.uploadAvatar,
+        url: apiEndpoints.profile.avatar,
       }),
     }),
   }),

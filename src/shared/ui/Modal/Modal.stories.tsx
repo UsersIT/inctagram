@@ -2,8 +2,8 @@ import { useState } from 'react'
 
 import { Meta, StoryObj } from '@storybook/react'
 
-import { Button } from '../button'
-import { Modal } from './modal'
+import { Button } from '../Button/Button'
+import { Modal } from './Modal'
 
 const meta = {
   argTypes: {

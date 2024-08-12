@@ -4,7 +4,7 @@ import React, { ElementType, ReactNode, forwardRef } from 'react'
 import { PolymorphPropsWithRef, PolymorphRef } from '@/src/shared/types/polymorph'
 import cn from 'clsx'
 
-import s from './typography.module.scss'
+import s from './Typography.module.scss'
 
 import { TypographyVariants } from './typographyVariants'
 
