@@ -1,11 +1,11 @@
-import { GeneralInfoForm } from '@/src/features/profile'
 import { Tabs, TabsContent, TabsList, TabsTrigger, Typography } from '@/src/shared/ui'
+import { SettingsGeneralInfo } from '@/src/widgets/settings-general-info'
 
 import s from './SettingsPage.module.scss'
 
 export const SettingsPage = () => {
   return (
-    <main className={s.page}>
+    <div className={s.page}>
       <Tabs className={s.tabs} defaultValue={'general-info'}>
         <TabsList className={s.tabsList}>
           <TabsTrigger value={'general-info'}>General information</TabsTrigger>
@@ -13,8 +13,8 @@ export const SettingsPage = () => {
           <TabsTrigger value={'account-management'}>Account Management</TabsTrigger>
           <TabsTrigger value={'my-payments'}>My payments</TabsTrigger>
         </TabsList>
-        <TabsContent value={'general-info'}>
-          <GeneralInfoForm />
+        <TabsContent className={s.tabsContent} value={'general-info'}>
+          <SettingsGeneralInfo />
         </TabsContent>
         <TabsContent value={'devices'}>
           <Typography variant={'large'}>Devices</Typography>
@@ -26,6 +26,6 @@ export const SettingsPage = () => {
           <Typography variant={'large'}>My payments</Typography>
         </TabsContent>
       </Tabs>
-    </main>
+    </div>
   )
 }

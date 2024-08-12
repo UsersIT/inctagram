@@ -10,14 +10,29 @@ export const generalInfoValidationSchema = (t: LocaleType) =>
       .min(0)
       .max(200, { message: t.validation.maxLength(200) }),
     city: z.string().optional(),
-    dateOfBirth: z.string().datetime({ message: 'неверная дата' }).optional(),
+    dateOfBirth: z
+      .date()
+      .max(new Date(), { message: t.validation.maxDate })
+      .refine(
+        date => {
+          const today = new Date()
+          const minDate = new Date(today.getFullYear() - 13, today.getMonth(), today.getDate())
+
+          return date <= minDate
+        },
+        {
+          message: t.validation.ageRestriction,
+        }
+      )
+      .optional()
+      .nullable(),
     firstName: z
       .string()
       .trim()
       .min(1, { message: t.validation.required })
       .max(50, { message: t.validation.maxLength(50) })
       .regex(FIRSTNAME_AND_LASTNAME_PATTERN, {
-        message: 'только буквы',
+        message: t.validation.onlyLetters,
       }),
     lastName: z
       .string()
@@ -25,7 +40,7 @@ export const generalInfoValidationSchema = (t: LocaleType) =>
       .min(1, { message: t.validation.required })
       .max(50, { message: t.validation.maxLength(50) })
       .regex(FIRSTNAME_AND_LASTNAME_PATTERN, {
-        message: 'только буквы',
+        message: t.validation.onlyLetters,
       }),
     userName: z
       .string()

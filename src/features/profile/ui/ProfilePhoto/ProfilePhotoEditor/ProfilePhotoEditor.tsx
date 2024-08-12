@@ -127,6 +127,7 @@ export const ProfilePhotoEditor: React.FC<ProfilePhotoProps> = ({
             setOpenAddModal(true)
             setIsEditing(false)
           }}
+          type={'button'}
           variant={'outlined'}
         >
           {t.profile.addProfilePhoto}

@@ -1,0 +1,20 @@
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+}
+
+.profilePhoto {
+  margin-top: 24px;
+}
+
+@media screen and (width <= 768px) {
+  .wrapper {
+    flex-direction: column;
+    gap: 36px;
+  }
+
+  .profilePhoto {
+    margin-top: 0;
+  }
+}

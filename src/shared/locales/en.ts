@@ -173,8 +173,10 @@ export const en: LocaleType = {
     emailFormat: 'The email must match the format example@example.com',
     emailVerification: 'Not valid email address',
     invalidCredentials: 'The email or password are incorrect. Try again please',
+    maxDate: 'The date cannot be in the future.',
     maxLength: (len: number) => `Maximum ${len} characters`,
     minLength: (len: number) => `Minimum ${len} characters`,
+    onlyLetters: 'Field should contain only letters.',
     passwordConfirmation: 'The passwords must match',
     passwordVerification:
       'The password must contain at least one uppercase letter, one lowercase letter, one number and one special character ',

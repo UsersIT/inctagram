@@ -174,8 +174,10 @@ export const ru = {
     emailFormat: 'Email должен соответствовать формату example@example.com',
     emailVerification: 'Недействительный адрес электронной почты',
     invalidCredentials: 'Введенные email или пароль неверны. Пожалуйста, попробуйте еще раз',
+    maxDate: 'Дата рождения не может быть в будущем.',
     maxLength: (len: number) => `Максимальное количество символов ${len}`,
     minLength: (len: number) => `Минимальное количество символов ${len}`,
+    onlyLetters: 'Поле должно содержать только буквы.',
     passwordConfirmation: 'Пароли должны совпадать',
     passwordVerification:
       'Пароль должен содержать хотя бы одну заглавную букву, одну строчную букву, одну цифру и один специальный символ ',
