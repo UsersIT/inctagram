@@ -20,4 +20,3 @@ export * from './ImageUploadInput/imageUploadInput'
 export * from './Tabs'
 export * from './Combobox/Combobox'
 export * from './Popover/Popover'
-

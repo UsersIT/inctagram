@@ -1,6 +1,5 @@
+import { TextArea } from '@/src/shared/ui'
 import { Meta, StoryObj } from '@storybook/react'
-
-import { TextArea } from '.'
 
 const meta: Meta<typeof TextArea> = {
   argTypes: {

@@ -2,12 +2,11 @@ import axios from 'axios'
 
 import { CitiesApiResult } from '../schemas/citiesSchema'
 
-// TODO: Перенести переменные в .env
-const GEO_API_KEY = 'a8a8c84cc5c1481aaa2d5b9d19bc2165'
-const GEO_API_URL = 'https://api.geoapify.com/v1/geocode/autocomplete'
-
 const geoApi = axios.create({
-  baseURL: GEO_API_URL,
+  baseURL: process.env.NEXT_PUBLIC_GEO_API_URL,
+  headers: {
+    'x-rapidapi-key': process.env.NEXT_PUBLIC_GEO_API_KEY,
+  },
 })
 
 export type City = {
@@ -18,21 +17,17 @@ export type City = {
 export const getCities = async (query: string, locale: string) => {
   const { data } = await geoApi.request({
     params: {
-      apiKey: GEO_API_KEY,
-      format: 'json',
-      lang: locale,
-      text: query,
-      type: 'city',
+      languageCode: locale,
+      namePrefix: query,
+      types: 'CITY',
     },
   })
 
-  const cities = data.results.reduce((acc: City[], item: CitiesApiResult) => {
-    const cityName = item.hamlet ? item.hamlet : item.city
-
-    if (cityName && !acc.find(city => city.label === cityName)) {
+  const cities = data.data.reduce((acc: City[], item: CitiesApiResult) => {
+    if (item.city && !acc.find(city => city.label === item.city)) {
       acc.push({
-        label: cityName,
-        value: cityName,
+        label: item.city,
+        value: item.city,
       })
     }
 

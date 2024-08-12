@@ -9,7 +9,7 @@ import { Typography } from '../Typography'
 export type ImageUploadInputProps = {
   error?: (error: string) => void
   schema: ZodEffects<any>
-  setFile: (file: File | null) => void
+  setFile: (file: File) => void
   trigger: ReactNode
 } & ComponentPropsWithoutRef<'input'>
 

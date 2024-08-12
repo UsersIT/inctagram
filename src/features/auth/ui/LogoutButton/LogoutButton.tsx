@@ -2,6 +2,7 @@ import { ButtonHTMLAttributes, useState } from 'react'
 import { toast } from 'react-toastify'
 
 import { LogOut } from '@/src/shared/assets/icons'
+import { routes } from '@/src/shared/constants/routes'
 import { useTranslation } from '@/src/shared/hooks'
 import { Button, Dialog, Typography } from '@/src/shared/ui'
 import { clsx } from 'clsx'
@@ -27,12 +28,12 @@ export const LogoutButton = ({ className, ...rest }: Props) => {
       .unwrap()
       .then(() => {
         handleDialogOpen()
-        void push('/')
+        void push(routes.PROFILE)
       })
       .catch(res => {
         if (res.status === 401) {
           handleDialogOpen()
-          void push('/')
+          void push(routes.LOGIN)
         } else {
           toast.error(t.errors.somethingWentWrong)
         }
