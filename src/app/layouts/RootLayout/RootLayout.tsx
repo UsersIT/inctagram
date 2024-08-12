@@ -4,7 +4,6 @@ import { useMeQuery } from '@/src/features/auth'
 import { ScrollArea, ScrollBar, Spinner } from '@/src/shared/ui'
 import { Header } from '@/src/widgets/header'
 import { Bottombar, Sidebar } from '@/src/widgets/sidebar'
-import clsx from 'clsx'
 
 import s from './RootLayout.module.scss'
 
@@ -13,7 +12,7 @@ type Props = {
 }
 
 const RootLayout = ({ children }: Props) => {
-  const { data, isLoading } = useMeQuery()
+  const { data: isAuth, isLoading } = useMeQuery()
 
   if (isLoading) {
     return (
@@ -23,17 +22,30 @@ const RootLayout = ({ children }: Props) => {
     )
   }
 
-  return (
-    <div className={s.root}>
-      <Header isAuth={!!data} />
+  const content = isAuth ? (
+    <>
       <div className={s.wrapper}>
-        {!!data && <Sidebar />}
+        <Sidebar />
         <ScrollArea className={s.scrollArea}>
-          <main className={clsx(!!data && s.pageOffset)}>{children}</main>
+          <main className={s.pageOffset}>{children}</main>
           <ScrollBar orientation={'horizontal'} />
         </ScrollArea>
       </div>
-      {!!data && <Bottombar />}
+      <Bottombar />
+    </>
+  ) : (
+    <div className={s.wrapper}>
+      <ScrollArea className={s.scrollArea}>
+        <main>{children}</main>
+        <ScrollBar orientation={'horizontal'} />
+      </ScrollArea>
+    </div>
+  )
+
+  return (
+    <div className={s.root}>
+      <Header isAuth={!!isAuth} />
+      {content}
     </div>
   )
 }

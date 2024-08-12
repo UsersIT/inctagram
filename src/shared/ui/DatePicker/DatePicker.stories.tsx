@@ -1,7 +1,8 @@
 import React from 'react'
 
-import { DatePicker, DatePickerProps } from '@/src/shared/ui/DatePicker/DatePicker'
 import { Meta, Story } from '@storybook/react'
+
+import { DatePicker, DatePickerProps } from './DatePicker'
 
 export default {
   component: DatePicker,

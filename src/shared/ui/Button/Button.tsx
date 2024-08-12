@@ -5,9 +5,9 @@ import { ElementType, ReactNode, forwardRef } from 'react'
 
 import { clsx } from 'clsx'
 
-import s from './button.module.scss'
+import s from './Button.module.scss'
 
-import { Spinner } from '../spinner'
+import { Spinner } from '../Spinner/Spinner'
 
 type ButtonVariant = 'outlined' | 'primary' | 'secondary' | 'text'
 

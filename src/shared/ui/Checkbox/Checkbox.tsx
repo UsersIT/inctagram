@@ -5,7 +5,7 @@ import * as LabelRadix from '@radix-ui/react-label'
 import { clsx } from 'clsx'
 import { AnimatePresence, motion } from 'framer-motion'
 
-import s from './checkbox.module.scss'
+import s from './Checkbox.module.scss'
 
 import { CheckBoxSelectedIcon } from './checkBoxSelectedIcon'
 

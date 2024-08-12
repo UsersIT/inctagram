@@ -3,8 +3,9 @@ import { useState } from 'react'
 import { action } from '@storybook/addon-actions'
 import { Meta, StoryObj } from '@storybook/react'
 
-import { Button, Typography } from '../'
-import { Dialog } from './dialog'
+import { Button } from '../Button/Button'
+import { Typography } from '../Typography/Typography'
+import { Dialog } from './Dialog'
 
 const meta = {
   argTypes: {

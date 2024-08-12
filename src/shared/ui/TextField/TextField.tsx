@@ -12,9 +12,9 @@ import clsx from 'clsx'
 
 import s from './TextField.module.scss'
 
-import { Typography } from '..'
 import { Close, Eye, EyeOff, SearchIcon } from '../../assets/icons'
 import { useTranslation } from '../../hooks'
+import { Typography } from '../Typography/Typography'
 
 export type TextFieldProps = {
   disabled?: boolean
