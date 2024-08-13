@@ -3,7 +3,6 @@ import type { AddAvatarResponse, GetProfileResponse } from '../model/types/api'
 import { generalInfoFormValues } from '@/src/features/profile/model/schemas/generalInfoValidationSchema'
 import { baseApi } from '@/src/shared/api/baseApi'
 import { apiEndpoints } from '@/src/shared/constants/api'
-import { ApiErrorResult } from '@/src/shared/types/api'
 
 const profileApi = baseApi.injectEndpoints({
   endpoints: builder => ({
@@ -34,11 +33,11 @@ const profileApi = baseApi.injectEndpoints({
         url: apiEndpoints.profile.profile,
       }),
     }),
-    updateProfile: builder.mutation<ApiErrorResult, Partial<generalInfoFormValues>>({
+    updateProfile: builder.mutation<void, Partial<generalInfoFormValues>>({
       query: body => ({
         body,
         method: 'PUT',
-        url: apiEndpoints.public.user.profile,
+        url: apiEndpoints.profile.profile,
       }),
     }),
     uploadAvatar: builder.mutation<AddAvatarResponse, FormData>({
