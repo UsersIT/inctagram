@@ -34,7 +34,6 @@ export const LogoutButton = ({ className, ...rest }: Props) => {
         if (res.status === 401) {
           handleDialogOpen()
           push(routes.LOGIN).then(() => reload())
-          win
         } else {
           toast.error(t.errors.somethingWentWrong)
         }
