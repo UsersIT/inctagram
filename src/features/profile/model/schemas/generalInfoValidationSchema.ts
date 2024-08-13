@@ -9,7 +9,7 @@ export const generalInfoValidationSchema = (t: LocaleType) =>
       .trim()
       .min(0)
       .max(200, { message: t.validation.maxLength(200) }),
-    city: z.string().optional(),
+    city: z.string().nullable().optional(),
     dateOfBirth: z
       .date()
       .max(new Date(), { message: t.validation.maxDate })
