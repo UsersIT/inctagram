@@ -1,10 +1,10 @@
 import type { NextPageWithLayout } from '@/src/shared/types/next'
 
 import { withRootLayout } from '@/src/app/layouts/RootLayout/RootLayout'
-import { ProfilePage } from '@/src/pages/profile/ui/ProfilePage/ProfilePage'
+import { SettingsPage } from '@/src/pages/profile'
 
 const Page: NextPageWithLayout = () => {
-  return <ProfilePage />
+  return <SettingsPage />
 }
 
 export default withRootLayout(Page)

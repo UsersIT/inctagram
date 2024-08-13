@@ -1,0 +1,30 @@
+.page {
+  display: flex;
+  justify-content: center;
+  padding: 36px 64px;
+}
+
+.tabs {
+  width: calc(100vw - 64px * 2 - var(--sidebar-open-width));
+  max-width: 972px;
+}
+
+.tabsList {
+  margin-bottom: 24px;
+}
+
+@media screen and (width <= 1024px) {
+  .tabs {
+    width: calc(100vw - 15px * 2 - var(--sidebar-collapsed-width));
+  }
+
+  .page {
+    padding: 24px 15px;
+  }
+}
+
+@media screen and (width <= 576px) {
+  .tabs {
+    width: calc(100vw - 15px * 2);
+  }
+}

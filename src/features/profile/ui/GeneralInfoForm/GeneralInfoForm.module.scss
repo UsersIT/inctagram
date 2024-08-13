@@ -1,0 +1,27 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-dark-300);
+}
+
+.saveChangesButton {
+  align-self: flex-end;
+}
+
+@media screen and (width <= 576px) {
+  .divider {
+    display: none;
+  }
+
+  .saveChangesButton {
+    width: 100%;
+    height: 48px;
+  }
+}
