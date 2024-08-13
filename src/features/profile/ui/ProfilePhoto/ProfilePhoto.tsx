@@ -7,11 +7,12 @@ import { useDeleteAvatarMutation, useUploadAvatarMutation } from '../../api/prof
 import { ProfilePhotoEditor } from './ProfilePhotoEditor/ProfilePhotoEditor'
 
 type Props = {
+  className?: string
   photoUrlFromServer: string | undefined
   refetch: () => void
 }
 
-export const ProfilePhoto: React.FC<Props> = ({ photoUrlFromServer, refetch }) => {
+export const ProfilePhoto: React.FC<Props> = ({ className, photoUrlFromServer, refetch }) => {
   const { t } = useTranslation()
 
   const [uploadAvatar, { isLoading: isLoadingAva, isSuccess: isSuccessAvatar }] =
@@ -45,6 +46,7 @@ export const ProfilePhoto: React.FC<Props> = ({ photoUrlFromServer, refetch }) =
 
   return (
     <ProfilePhotoEditor
+      className={className}
       disabledDelete={isLoadingDel}
       disabledUpdate={isLoadingAva}
       photoUrlFromServer={photoUrlFromServer}

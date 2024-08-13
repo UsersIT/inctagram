@@ -1,9 +1,10 @@
 import type { AddAvatarResponse, GetProfileResponse } from '../model/types/api'
 
+import { generalInfoFormValues } from '@/src/features/profile/model/schemas/generalInfoValidationSchema'
 import { baseApi } from '@/src/shared/api/baseApi'
 import { apiEndpoints } from '@/src/shared/constants/api'
 
-export const profileApi = baseApi.injectEndpoints({
+const profileApi = baseApi.injectEndpoints({
   endpoints: builder => ({
     deleteAvatar: builder.mutation<void, void>({
       async onQueryStarted(_, { dispatch, queryFulfilled }) {
@@ -29,6 +30,13 @@ export const profileApi = baseApi.injectEndpoints({
     getProfile: builder.query<GetProfileResponse, void>({
       query: () => ({
         method: 'GET',
+        url: apiEndpoints.profile.profile,
+      }),
+    }),
+    updateProfile: builder.mutation<void, Partial<generalInfoFormValues>>({
+      query: body => ({
+        body,
+        method: 'PUT',
         url: apiEndpoints.profile.profile,
       }),
     }),
@@ -62,4 +70,10 @@ export const profileApi = baseApi.injectEndpoints({
   }),
 })
 
-export const { useDeleteAvatarMutation, useGetProfileQuery, useUploadAvatarMutation } = profileApi
+export const {
+  useDeleteAvatarMutation,
+  useGetProfileQuery,
+  useLazyGetProfileQuery,
+  useUpdateProfileMutation,
+  useUploadAvatarMutation,
+} = profileApi

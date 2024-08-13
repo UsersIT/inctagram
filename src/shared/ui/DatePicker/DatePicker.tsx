@@ -79,6 +79,8 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
     const onChangeDate = (date: Value) => {
       const convertedDate = new Date(+JSON.stringify(date))
 
+      console.log(convertedDate)
+
       setDate(convertedDate)
       onChange(convertedDate)
     }

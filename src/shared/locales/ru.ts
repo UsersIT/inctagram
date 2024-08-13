@@ -58,8 +58,12 @@ export const ru = {
       'Что-то пошло не так. Пожалуйста, проверьте Ваше интернет-соединение и попробуйте снова.',
   },
   label: {
+    aboutMe: 'О себе',
     city: 'Введите Ваш город',
+    dateOfBirth: 'Дата рождения',
     email: 'Электронная почта',
+    firstName: 'Имя',
+    lastName: 'Фамилия',
     password: 'Пароль',
     passwordConfirmation: 'Подтверждение пароля',
     username: 'Имя пользователя',
@@ -166,6 +170,12 @@ export const ru = {
     success: 'Успешно!',
     updatePhoto: 'Фотография профиля успешно обновлена!',
   },
+  tabs: {
+    accountManagement: 'Управление аккаунтом',
+    devices: 'Устройства',
+    generalInformation: 'Основная информация',
+    myPayments: 'Мои платежи',
+  },
   validation: {
     ageRestriction: 'Пользователь младше 13 лет не может создать профиль.',
     cityNotFound: 'Город не найден.',
@@ -174,8 +184,10 @@ export const ru = {
     emailFormat: 'Email должен соответствовать формату example@example.com',
     emailVerification: 'Недействительный адрес электронной почты',
     invalidCredentials: 'Введенные email или пароль неверны. Пожалуйста, попробуйте еще раз',
+    maxDate: 'Дата рождения не может быть в будущем.',
     maxLength: (len: number) => `Максимальное количество символов ${len}`,
     minLength: (len: number) => `Минимальное количество символов ${len}`,
+    onlyLetters: 'Поле должно содержать только буквы.',
     passwordConfirmation: 'Пароли должны совпадать',
     passwordVerification:
       'Пароль должен содержать хотя бы одну заглавную букву, одну строчную букву, одну цифру и один специальный символ ',
