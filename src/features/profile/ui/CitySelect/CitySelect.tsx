@@ -16,14 +16,26 @@ type Props = {
   className?: string
   clearErrors: (name: FieldPath<generalInfoFormValues>) => void
   control: Control<generalInfoFormValues>
+  disabled?: boolean
   displayValue: string
+  isLoading?: boolean
   name: FieldPath<generalInfoFormValues>
   onClear?: () => void
   setError: (name: FieldPath<generalInfoFormValues>, error: FieldError) => void
 }
 
 export const CitySelect: FC<Props> = props => {
-  const { className, clearErrors, control, displayValue = '', name, onClear, setError } = props
+  const {
+    className,
+    clearErrors,
+    control,
+    disabled,
+    displayValue,
+    isLoading,
+    name,
+    onClear,
+    setError,
+  } = props
 
   const [cityInputValue, setCityInputValue] = useState('')
   const [isCitiesLoading, setIsCitiesLoading] = useState(false)
@@ -89,10 +101,11 @@ export const CitySelect: FC<Props> = props => {
     <ControlledCombobox
       className={className}
       control={control}
+      disabled={disabled}
       displayValue={displayValue}
       inputValue={cityInputValue}
       isAsync
-      isLoading={isCitiesLoading}
+      isLoading={isCitiesLoading || isLoading}
       label={t.label.city}
       name={name}
       onClear={handleClear}
