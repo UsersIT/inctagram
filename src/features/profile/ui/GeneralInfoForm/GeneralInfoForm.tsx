@@ -30,6 +30,7 @@ export const GeneralInfoForm = ({ className }: ComponentProps<'form'>) => {
     control,
     formState: { isValid },
     handleSubmit,
+    resetField,
     setError,
     setValue,
   } = useForm<generalInfoFormValues>({
@@ -128,6 +129,7 @@ export const GeneralInfoForm = ({ className }: ComponentProps<'form'>) => {
         control={control}
         displayValue={profile?.city ?? ''}
         name={'city'}
+        resetField={resetField}
         setError={setError}
       />
 
