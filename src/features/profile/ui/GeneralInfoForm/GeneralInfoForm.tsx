@@ -2,23 +2,24 @@ import { ComponentProps, useEffect } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { toast } from 'react-toastify'
 
-import {
-  useLazyGetProfileQuery,
-  useUpdateProfileMutation,
-} from '@/src/features/profile/api/profileApi'
-import { CitySelect } from '@/src/features/profile/ui/CitySelect/CitySelect'
 import { useTranslation } from '@/src/shared/hooks'
-import { Button, ControlledTextArea, ControlledTextField } from '@/src/shared/ui'
-import { ControlledDatePicker } from '@/src/shared/ui/Controlled/ControlledDatePicker'
+import {
+  Button,
+  ControlledDatePicker,
+  ControlledTextArea,
+  ControlledTextField,
+} from '@/src/shared/ui'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { clsx } from 'clsx'
 
 import s from './GeneralInfoForm.module.scss'
 
+import { useLazyGetProfileQuery, useUpdateProfileMutation } from '../../api/profileApi'
 import {
   generalInfoFormValues,
   generalInfoValidationSchema,
 } from '../../model/schemas/generalInfoValidationSchema'
+import { CitySelect } from '../CitySelect/CitySelect'
 
 export const GeneralInfoForm = ({ className }: ComponentProps<'form'>) => {
   const { t } = useTranslation()
