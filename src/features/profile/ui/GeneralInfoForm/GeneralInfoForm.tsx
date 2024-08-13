@@ -94,7 +94,7 @@ export const GeneralInfoForm = ({ className }: ComponentProps<'form'>) => {
         control={control}
         disabled={isProfileLoading || isUpdateProfileLoading}
         isRequired
-        label={'Username'}
+        label={t.label.username}
         name={'userName'}
       />
 
@@ -102,7 +102,7 @@ export const GeneralInfoForm = ({ className }: ComponentProps<'form'>) => {
         control={control}
         disabled={isProfileLoading || isUpdateProfileLoading}
         isRequired
-        label={'First Name'}
+        label={t.label.firstName}
         name={'firstName'}
       />
 
@@ -110,7 +110,7 @@ export const GeneralInfoForm = ({ className }: ComponentProps<'form'>) => {
         control={control}
         disabled={isProfileLoading || isUpdateProfileLoading}
         isRequired
-        label={'Last name'}
+        label={t.label.lastName}
         name={'lastName'}
       />
 
@@ -118,7 +118,7 @@ export const GeneralInfoForm = ({ className }: ComponentProps<'form'>) => {
         control={control}
         defaultValue={profile ? profile.dateOfBirth : ''}
         disabled={isProfileLoading || isUpdateProfileLoading}
-        label={'Date of birth'}
+        label={t.label.dateOfBirth}
         name={'dateOfBirth'}
       />
 
@@ -133,7 +133,7 @@ export const GeneralInfoForm = ({ className }: ComponentProps<'form'>) => {
       <ControlledTextArea
         control={control}
         disabled={isProfileLoading || isUpdateProfileLoading}
-        label={'About Me'}
+        label={t.label.aboutMe}
         name={'aboutMe'}
       />
 
@@ -145,7 +145,7 @@ export const GeneralInfoForm = ({ className }: ComponentProps<'form'>) => {
         isLoading={isUpdateProfileLoading}
         type={'submit'}
       >
-        Save Changes
+        {t.buttons.save}
       </Button>
     </form>
   )

@@ -58,8 +58,12 @@ export const ru = {
       'Что-то пошло не так. Пожалуйста, проверьте Ваше интернет-соединение и попробуйте снова.',
   },
   label: {
+    aboutMe: 'О себе',
     city: 'Введите Ваш город',
+    dateOfBirth: 'Дата рождения',
     email: 'Электронная почта',
+    firstName: 'Имя',
+    lastName: 'Фамилия',
     password: 'Пароль',
     passwordConfirmation: 'Подтверждение пароля',
     username: 'Имя пользователя',
@@ -165,6 +169,12 @@ export const ru = {
     logOutConfirmation: 'Вы действительно хотите выйти из своей учетной записи',
     success: 'Успешно!',
     updatePhoto: 'Фотография профиля успешно обновлена!',
+  },
+  tabs: {
+    accountManagement: 'Управление аккаунтом',
+    devices: 'Устройства',
+    generalInformation: 'Основная информация',
+    myPayments: 'Мои платежи',
   },
   validation: {
     ageRestriction: 'Пользователь младше 13 лет не может создать профиль.',

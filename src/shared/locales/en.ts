@@ -59,8 +59,12 @@ export const en: LocaleType = {
       'Something went wrong. Please check your internet connection and try again.',
   },
   label: {
+    aboutMe: 'About Me',
     city: 'Enter your city',
+    dateOfBirth: 'Date of Birth',
     email: 'Email',
+    firstName: 'First Name',
+    lastName: 'Last Name',
     password: 'Password',
     passwordConfirmation: 'Password confirmation',
     username: 'Username',
@@ -164,6 +168,12 @@ export const en: LocaleType = {
     logOutConfirmation: 'Are you really want to log out of your account',
     success: 'Success!',
     updatePhoto: 'Profile photo has been updated successfully!',
+  },
+  tabs: {
+    accountManagement: 'Account Management',
+    devices: 'Devices',
+    generalInformation: 'General Information',
+    myPayments: 'My payments',
   },
   validation: {
     ageRestriction: 'A user under 13 cannot create profile',
