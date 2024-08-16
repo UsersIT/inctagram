@@ -1,6 +1,7 @@
-import { TextArea } from '@/src/shared/ui'
 import { Meta, StoryObj } from '@storybook/react'
 import { boolean } from 'zod'
+
+import { TextArea } from './TextArea'
 
 const meta: Meta<typeof TextArea> = {
   argTypes: {

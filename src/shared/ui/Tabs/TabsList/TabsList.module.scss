@@ -1,6 +1,14 @@
 .list {
-  scrollbar-width: thin;
+  scrollbar-width: none;
+
   overflow-x: auto;
   display: flex;
+
   white-space: nowrap;
+
+  -ms-overflow-style: none;
+}
+
+.list::-webkit-scrollbar {
+  display: none;
 }

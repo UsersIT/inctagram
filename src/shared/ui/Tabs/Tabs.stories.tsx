@@ -1,8 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { Typography } from '@/src/shared/ui'
-
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '.'
+import { Typography } from '../Typography/Typography'
 
 const meta = {
   argTypes: { asChild: { table: { disable: true } } },

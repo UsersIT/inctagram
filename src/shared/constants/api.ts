@@ -19,6 +19,10 @@ export const apiEndpoints = {
     registrationEmailResending: '/v1/auth/registration-email-resending',
     updateTokens: '/v1/auth/update-tokens',
   },
+  profile: {
+    avatar: '/v1/users/profile/avatar',
+    profile: '/v1/users/profile',
+  },
   posts: {
     updatePost: '/v1/posts', // + `/${postId}`
   },
@@ -29,10 +33,6 @@ export const apiEndpoints = {
       postById: '/v1/public-posts/', // + `${postId}`
     },
     user: {
-      avatar: '/v1/users/profile/avatar',
-      deleteAvatar: `/v1/users/profile/avatar`,
-      profile: '/v1/users/profile',
-      uploadAvatar: `/v1/users/profile/avatar`,
       userProfileById: '/v1/public-user/profile/', // + `${profileId}`
       usersCount: '/v1/public-user',
     },

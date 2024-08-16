@@ -2,10 +2,14 @@ import axios from 'axios'
 
 import { CitiesApiResult } from '../schemas/citiesSchema'
 
+// TODO: Перенести переменные в .env
+const GEO_API_KEY = '06c5f74c46mshd3999937b3a538bp11408bjsn90ad9d845241'
+const GEO_API_URL = 'https://wft-geo-db.p.rapidapi.com/v1/geo/cities'
+
 const geoApi = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_GEO_API_URL,
+  baseURL: GEO_API_URL,
   headers: {
-    'x-rapidapi-key': process.env.NEXT_PUBLIC_GEO_API_KEY,
+    'x-rapidapi-key': GEO_API_KEY,
   },
 })
 

@@ -4,10 +4,7 @@ import { toast } from 'react-toastify'
 
 import { routes } from '@/src/shared/constants/routes'
 import { useTranslation } from '@/src/shared/hooks'
-import { ControlledTextField } from '@/src/shared/ui/Controlled/ControlledTextField'
-import { Typography } from '@/src/shared/ui/Typography'
-import { TypographyVariants } from '@/src/shared/ui/Typography/typographyVariants'
-import { Button } from '@/src/shared/ui/button'
+import { Button, ControlledTextField, Typography } from '@/src/shared/ui'
 import { zodResolver } from '@hookform/resolvers/zod'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
@@ -78,7 +75,7 @@ export const LoginForm: FC<ComponentProps<'form'>> = () => {
       <div className={s.actions}>
         <Link className={s.forgotPasswordLink} href={'/auth/forgot-password'}>
           {/*TODO: Change to forgot password path*/}
-          <Typography as={'p'} variant={TypographyVariants.RegularText14}>
+          <Typography as={'p'} variant={'regular-text-14'}>
             {t.pages.signIn.forgotPassword}
           </Typography>
         </Link>

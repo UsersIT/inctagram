@@ -60,8 +60,12 @@ export const en: LocaleType = {
       'Something went wrong. Please check your internet connection and try again.',
   },
   label: {
+    aboutMe: 'About Me',
     city: 'Enter your city',
+    dateOfBirth: 'Date of Birth',
     email: 'Email',
+    firstName: 'First Name',
+    lastName: 'Last Name',
     password: 'Password',
     passwordConfirmation: 'Password confirmation',
     username: 'Username',
@@ -173,6 +177,12 @@ export const en: LocaleType = {
     success: 'Success!',
     updatePhoto: 'Profile photo has been updated successfully!',
   },
+  tabs: {
+    accountManagement: 'Account Management',
+    devices: 'Devices',
+    generalInformation: 'General Information',
+    myPayments: 'My payments',
+  },
   validation: {
     ageRestriction: 'A user under 13 cannot create profile',
     cityNotFound: 'City not found.',
@@ -181,8 +191,10 @@ export const en: LocaleType = {
     emailFormat: 'The email must match the format example@example.com',
     emailVerification: 'Not valid email address',
     invalidCredentials: 'The email or password are incorrect. Try again please',
+    maxDate: 'The date cannot be in the future.',
     maxLength: (len: number) => `Maximum ${len} characters`,
     minLength: (len: number) => `Minimum ${len} characters`,
+    onlyLetters: 'Field should contain only letters.',
     passwordConfirmation: 'The passwords must match',
     passwordVerification:
       'The password must contain at least one uppercase letter, one lowercase letter, one number and one special character ',

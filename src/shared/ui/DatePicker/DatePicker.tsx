@@ -9,10 +9,11 @@ import MultiDatePicker, { Value } from 'react-multi-date-picker'
 
 import { Calendar, CalendarOutline } from '@/src/shared/assets/icons'
 import { useTranslation } from '@/src/shared/hooks'
-import { Typography } from '@/src/shared/ui'
 import clsx from 'clsx'
 
 import s from './DatePicker.module.scss'
+
+import { Typography } from '../Typography/Typography'
 
 export type DatePickerProps = {
   className?: string
@@ -77,6 +78,8 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
 
     const onChangeDate = (date: Value) => {
       const convertedDate = new Date(+JSON.stringify(date))
+
+      console.log(convertedDate)
 
       setDate(convertedDate)
       onChange(convertedDate)
