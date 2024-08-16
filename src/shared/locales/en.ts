@@ -18,6 +18,7 @@ export const en: LocaleType = {
     resendLink: 'Resend verification link',
     resendLinkRecovery: 'Resend link',
     save: 'Save',
+    saveChanges: 'Save Changes',
     sendLink: 'Send Link',
     sendLinkAgain: 'Send Link Again',
     signIn: 'Sign In',
@@ -156,6 +157,13 @@ export const en: LocaleType = {
     city: 'City',
     email: 'email@picthentic.online',
     password: '**********',
+  },
+  post: {
+    closePost: 'Close Post',
+    confirmMessage:
+      'Do you really want to close the edition of the publication? If you close changes won’t be saved',
+    editPost: 'Edit Post',
+    editPublication: 'Edit publication description',
   },
   profile: {
     addProfilePhoto: 'Add a Profile Photo',

@@ -37,6 +37,7 @@ const meta = {
         '   * sm - 378px,\n' +
         '   * md - 492px,\n' +
         '   * lg - 644px.\n' +
+        '   * xlg - 972px.\n' +
         '   * For other values use className',
     },
     title: {

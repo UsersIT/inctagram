@@ -19,6 +19,9 @@ export const apiEndpoints = {
     registrationEmailResending: '/v1/auth/registration-email-resending',
     updateTokens: '/v1/auth/update-tokens',
   },
+  posts: {
+    updatePost: '/v1/posts', // + `/${postId}`
+  },
   public: {
     posts: {
       allByUserIdWithPagination: '/v1/public-posts/user/', // + `${userId}/${endCursorpostId}`

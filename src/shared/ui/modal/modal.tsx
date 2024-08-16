@@ -16,7 +16,7 @@ import s from './modal.module.scss'
 import { ArrowIosBack, Close } from '../../assets/icons'
 import { Button } from '../button'
 
-export type ModalSize = 'lg' | 'md' | 'sm'
+export type ModalSize = 'lg' | 'md' | 'sm' | 'xlg'
 
 export type ModalProps = {
   onClose?: () => void
@@ -77,7 +77,7 @@ export const Modal: FC<ModalProps> = props => {
     content: getContentClassName(size, className),
     contentBox: s.contentBox,
     header: s.header,
-    overlay: s.overlay,
+    overlay: clsx(className, s.overlay),
     title: s.title,
   }
 
@@ -147,5 +147,8 @@ function getSizeClassName(size: ModalSize) {
   }
   if (size === 'lg') {
     return s.lg
+  }
+  if (size === 'xlg') {
+    return s.xlg
   }
 }

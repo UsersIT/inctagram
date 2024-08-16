@@ -1,4 +1,4 @@
-import { ChangeEvent, ComponentPropsWithoutRef, Ref, forwardRef, useState } from 'react'
+import React, { ChangeEvent, ComponentPropsWithoutRef, Ref, forwardRef, useState } from 'react'
 
 import { useTranslation } from '@/src/shared/hooks'
 import clsx from 'clsx'
@@ -8,20 +8,33 @@ import s from './TextArea.module.scss'
 import { Typography } from '..'
 
 export type TextAreaProps = {
+  children: string
   error?: string
   height?: string
   isRequired?: boolean
   label?: string
   maxLength?: number
   width?: string
+  withCounter?: boolean
 } & ComponentPropsWithoutRef<'textarea'>
 
 export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
   (
-    { className, disabled, error, isRequired, label, id = label, maxLength, onChange, ...rest },
+    {
+      className,
+      disabled,
+      error,
+      isRequired,
+      label,
+      id = label,
+      maxLength,
+      onChange,
+      withCounter,
+      ...rest
+    },
     ref: Ref<HTMLTextAreaElement>
   ) => {
-    const [value, setValue] = useState('')
+    const [value, setValue] = useState(rest.children ? rest.children : '')
     const { t } = useTranslation()
 
     const classes = {
@@ -73,6 +86,16 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
               {t.errors.characterLimit}
             </Typography>
           ))}
+        {maxLength && withCounter && value.length < maxLength && (
+          <Typography
+            as={'span'}
+            className={s.label}
+            textAlign={'right'}
+            variant={'regular-text-14'}
+          >
+            {`${value.length}/${maxLength}`}
+          </Typography>
+        )}
       </div>
     )
   }

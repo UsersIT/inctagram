@@ -1,0 +1,25 @@
+.modal {
+  display: flex;
+}
+
+.container {
+  position: relative;
+
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 24px;
+
+  padding: 24px;
+}
+
+.button {
+  position: absolute;
+  right: 24px;
+  bottom: 24px;
+}
+
+.second {
+  z-index: 110;
+}
+

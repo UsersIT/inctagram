@@ -16,6 +16,7 @@ export const ru = {
     resendLink: 'Отправить повторно',
     resendLinkRecovery: 'Отправить ссылку повторно',
     save: 'Сохранить',
+    saveChanges: 'Сохранить изменения',
     sendLink: 'Отправить ссылку',
     sendLinkAgain: 'Отправить ссылку повторно',
     signIn: 'Войти',
@@ -157,6 +158,13 @@ export const ru = {
     city: 'Город',
     email: 'email@picthentic.online',
     password: '**********',
+  },
+  post: {
+    closePost: 'Закрыть пост',
+    confirmMessage:
+      'Вы дейсвительно хотите закрыть редактирование публикации? Если Вы закроете, изменения не сохраняться',
+    editPost: 'Редактировать пост',
+    editPublication: 'Редактировать описание поста',
   },
   profile: {
     addProfilePhoto: 'Добавить фотографию профиля',

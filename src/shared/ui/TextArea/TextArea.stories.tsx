@@ -1,5 +1,6 @@
 import { TextArea } from '@/src/shared/ui'
 import { Meta, StoryObj } from '@storybook/react'
+import { boolean } from 'zod'
 
 const meta: Meta<typeof TextArea> = {
   argTypes: {
@@ -15,9 +16,11 @@ const meta: Meta<typeof TextArea> = {
     height: {},
     label: {},
     width: {},
+    withCounter: boolean,
   },
   args: {
     disabled: false,
+    withCounter: false,
   },
   component: TextArea,
   parameters: {
@@ -82,5 +85,14 @@ export const DefaultLimit: Story = {
   args: {
     label: 'Text',
     maxLength: 5,
+  },
+}
+
+export const DefaultWithCounterAndText: Story = {
+  args: {
+    children: 'Post text',
+    label: 'Text',
+    maxLength: 15,
+    withCounter: true,
   },
 }
