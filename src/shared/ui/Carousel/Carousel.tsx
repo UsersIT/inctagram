@@ -76,12 +76,12 @@ export const Carousel = ({
       ))}
       {imagesUrl.length > 1 && (
         <>
-          <button className={clsx('swiper-button-next', s['custom-button'])}>
+          <div className={clsx('swiper-button-next', s['custom-button'])}>
             <ArrowIosForward className={s.icon} />
-          </button>
-          <button className={clsx('swiper-button-prev', s['custom-button'])}>
+          </div>
+          <div className={clsx('swiper-button-prev', s['custom-button'])}>
             <ArrowIosBackOutline className={s.icon} />
-          </button>
+          </div>
         </>
       )}
     </Swiper>
