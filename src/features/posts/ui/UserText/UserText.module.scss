@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+  margin-top: 5px;
+}
+
+.image {
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+.likeTrueButton {
+  justify-content: center;
+  padding: 6px;
+  color: red;
+}
+
+.likeFalseButton {
+  justify-content: center;
+  padding: 6px;
+  color: white;
+}

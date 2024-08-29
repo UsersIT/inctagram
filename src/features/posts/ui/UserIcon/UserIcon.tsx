@@ -1,18 +1,21 @@
+import React, { ComponentProps } from 'react'
+
 import { Typography } from '@/src/shared/ui'
+import { clsx } from 'clsx'
 import Image from 'next/image'
 
 import s from './UserIcon.module.scss'
 
 type Props = {
-  ProfilePhoto: string
-  UserName: string
-}
+  profilePhoto: string
+  userName: string
+} & ComponentProps<'div'>
 
-export const UserIcon = ({ ProfilePhoto, UserName }: Props) => {
+export const UserIcon = ({ className, profilePhoto, userName }: Props) => {
   return (
-    <div className={s.container}>
-      <Image alt={'Profile photo'} className={s.image} height={36} src={ProfilePhoto} width={36} />
-      <Typography variant={'h3'}>{UserName}</Typography>
+    <div className={clsx(className, s.container)}>
+      <Image alt={'Avatar'} className={s.image} height={36} src={profilePhoto} width={36} />
+      <Typography variant={'h3'}>{userName}</Typography>
     </div>
   )
 }

@@ -44,6 +44,9 @@ const meta = {
       control: { type: 'text' },
       description: 'Optional string that sets the title of the modal.',
     },
+    withoutHeader: {
+      description: 'Optional view without header.',
+    },
   },
   component: Modal,
   parameters: {
@@ -71,6 +74,7 @@ export const DefaultModal: Story = {
     showPreviousButton: false,
     size: 'md',
     title: 'Modal',
+    withoutHeader: false,
   },
   render: args => {
     const [open, setOpen] = useState(false)

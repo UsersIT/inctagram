@@ -13,6 +13,7 @@ export const ru = {
     login: 'Войти',
     logout: 'Выйти',
     openMenu: 'Открыть меню',
+    publish: 'Опубликовать',
     resendLink: 'Отправить повторно',
     resendLinkRecovery: 'Отправить ссылку повторно',
     save: 'Сохранить',
@@ -167,7 +168,9 @@ export const ru = {
     closePost: 'Закрыть пост',
     confirmMessage:
       'Вы дейсвительно хотите закрыть редактирование публикации? Если Вы закроете, изменения не сохраняться',
-    editPost: 'Редактировать пост',
+    deletePost: 'Удалить пост',
+    deletePostConfirm: 'Вы уверенны что хотите удалить этот пост?',
+    editPost: 'Изменить пост',
     editPublication: 'Редактировать описание поста',
   },
   profile: {

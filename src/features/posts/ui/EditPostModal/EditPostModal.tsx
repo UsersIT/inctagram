@@ -18,7 +18,6 @@ type Props = {
   UserName: string
   onClose: () => void
   open: boolean
-  setIsEdit: (isEdit: boolean) => void
 }
 
 export const EditPostModule = ({
@@ -86,7 +85,7 @@ export const EditPostModule = ({
         <div className={s.modal}>
           <Image alt={'PostPhoto'} height={503} src={PostPhoto} width={490} />
           <div className={s.container}>
-            <UserIcon ProfilePhoto={Avatar} UserName={UserName} />
+            <UserIcon profilePhoto={Avatar} userName={UserName} />
             <TextArea label={t.post.editPublication} maxLength={500} ref={TextareRef} withCounter>
               {PostText}
             </TextArea>

@@ -15,6 +15,7 @@ export const en: LocaleType = {
     login: 'Log in',
     logout: 'Log Out',
     openMenu: 'Open menu',
+    publish: 'Publish',
     resendLink: 'Resend verification link',
     resendLinkRecovery: 'Resend link',
     save: 'Save',
@@ -166,6 +167,8 @@ export const en: LocaleType = {
     closePost: 'Close Post',
     confirmMessage:
       'Do you really want to close the edition of the publication? If you close changes won’t be saved',
+    deletePost: 'Delete Post',
+    deletePostConfirm: 'Are you sure you want to delete this post?',
     editPost: 'Edit Post',
     editPublication: 'Edit publication description',
   },

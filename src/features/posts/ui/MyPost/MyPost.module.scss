@@ -1,0 +1,77 @@
+.modal {
+  display: flex;
+}
+
+.container {
+  flex: 1;
+  flex-direction: column;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 11px 24px;
+
+  border-bottom: 1px solid var(--color-dark-100);
+}
+
+.contentComment {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  height: 339px;
+  padding: 11px 24px;
+
+  border-bottom: 1px solid var(--color-dark-100);
+}
+
+.second {
+  z-index: 110;
+}
+
+.closeButton {
+  cursor: pointer;
+
+  position: fixed;
+  z-index: 1500;
+  top: 174px;
+  right: 434px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 24px;
+  height: 24px;
+  padding: 0;
+
+  color: white;
+
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+
+  transition: 0.3s background-color;
+
+  &:hover,
+  &:focus-visible {
+    background-color: var(--color-dark-100);
+    outline: none;
+  }
+}
+
+.buttonPopover {
+  justify-content: flex-start;
+  padding: 6px;
+  color: var(--color-text-primary);
+}
+
+.likeButton {
+  justify-content: center;
+  padding: 6px;
+  color: white;
+}
