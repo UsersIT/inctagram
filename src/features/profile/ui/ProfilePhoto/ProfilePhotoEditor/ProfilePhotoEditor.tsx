@@ -1,6 +1,7 @@
 import type { CroppedArea } from '../../../model/types/profilePhoto'
 
 import React, { useEffect, useState } from 'react'
+import { toast } from 'react-toastify'
 
 import { CloseOutline } from '@/src/shared/assets/icons'
 import { useTranslation } from '@/src/shared/hooks'
@@ -71,16 +72,13 @@ export const ProfilePhotoEditor: React.FC<ProfilePhotoProps> = ({
   }
 
   const handleEditorPhoto = async (cropArea: CroppedArea) => {
-    if (cropArea) {
+    try {
       const res = await getCroppedImageBlob({ crop: cropArea, imageSrc: photoUrl || '', t })
 
-      setUpdatePhoto(res as FormData)
-      if (photoUrlFromServer) {
-        setPhotoUrl(photoUrlFromServer)
-      } else {
-        setPhotoUrl(URL.createObjectURL(res as Blob))
-      }
-      setOpenAddModal(false)
+      await setUpdatePhoto(res as FormData)
+      setOpenAddModal(false) // Закрываем модальное окно при успешной загрузке
+    } catch (error) {
+      toast.error(t.errors.photoUpdateError) // Обрабатываем ошибку обрезки фото
     }
   }
 

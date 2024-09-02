@@ -15,18 +15,14 @@ type Props = {
 export const ProfilePhoto: React.FC<Props> = ({ className, photoUrlFromServer, refetch }) => {
   const { t } = useTranslation()
 
-  const [uploadAvatar, { isLoading: isLoadingAva, isSuccess: isSuccessAvatar }] =
-    useUploadAvatarMutation()
-  const [deleteAvatar, { isLoading: isLoadingDel, isSuccess: isSuccessDelete }] =
-    useDeleteAvatarMutation()
+  const [uploadAvatar, { isLoading: isLoadingAva }] = useUploadAvatarMutation()
+  const [deleteAvatar, { isLoading: isLoadingDel }] = useDeleteAvatarMutation()
 
   const handleDeletePhoto = async () => {
     try {
       await deleteAvatar().unwrap()
-      if (!isSuccessDelete) {
-        refetch()
-        toast.success(t.profile.success)
-      }
+      await refetch()
+      toast.success(t.profile.success)
     } catch (error) {
       toast.error(t.errors.errorWord)
     }
@@ -35,10 +31,8 @@ export const ProfilePhoto: React.FC<Props> = ({ className, photoUrlFromServer, r
   const handleUpdatePhoto = async (data: FormData) => {
     try {
       await uploadAvatar(data).unwrap()
-      if (!isSuccessAvatar) {
-        refetch()
-        toast.success(t.profile.updatePhoto)
-      }
+      await refetch()
+      toast.success(t.profile.updatePhoto)
     } catch (error) {
       toast.error(t.errors.photoUpdateError)
     }
