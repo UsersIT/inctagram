@@ -76,9 +76,9 @@ export const ProfilePhotoEditor: React.FC<ProfilePhotoProps> = ({
       const res = await getCroppedImageBlob({ crop: cropArea, imageSrc: photoUrl || '', t })
 
       await setUpdatePhoto(res as FormData)
-      setOpenAddModal(false) // Закрываем модальное окно при успешной загрузке
+      setOpenAddModal(false)
     } catch (error) {
-      toast.error(t.errors.photoUpdateError) // Обрабатываем ошибку обрезки фото
+      toast.error(t.errors.photoUpdateError)
     }
   }
 
