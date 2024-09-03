@@ -15,7 +15,7 @@ import { useLogoutMutation, useMeQuery } from '../../api/authApi'
 type Props = ButtonHTMLAttributes<HTMLButtonElement>
 
 export const LogoutButton = ({ className, ...rest }: Props) => {
-  const { push } = useRouter()
+  const { push, reload } = useRouter()
   const { t } = useTranslation()
   const [openDialog, setOpenDialog] = useState(false)
 
@@ -28,12 +28,12 @@ export const LogoutButton = ({ className, ...rest }: Props) => {
       .unwrap()
       .then(() => {
         handleDialogOpen()
-        void push(routes.PROFILE)
+        push(routes.LOGIN).then(() => reload())
       })
       .catch(res => {
         if (res.status === 401) {
           handleDialogOpen()
-          void push(routes.LOGIN)
+          push(routes.LOGIN).then(() => reload())
         } else {
           toast.error(t.errors.somethingWentWrong)
         }
