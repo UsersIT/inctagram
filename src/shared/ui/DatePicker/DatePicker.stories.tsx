@@ -1,26 +1,29 @@
-import React from 'react'
-
-import { Meta, Story } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react'
 
 import { DatePicker, DatePickerProps } from './DatePicker'
 
-export default {
+const meta: Meta<DatePickerProps> = {
   component: DatePicker,
+  tags: ['autodocs'],
   title: 'Components/DatePickerInput',
-} as Meta
-
-const Template: Story<DatePickerProps> = args => <DatePicker {...args} />
-
-export const Default = Template.bind({})
-Default.args = {
-  data: new Date('2011-01-01').toDateString(),
-  label: 'Label',
-  onChange: newValue => {},
 }
 
-export const ShowError = Template.bind({})
-ShowError.args = {
-  data: '',
-  error: 'Show error message',
-  onChange: newValue => {},
+export default meta
+
+type Story = StoryObj<DatePickerProps>
+
+export const Default: Story = {
+  args: {
+    data: new Date('2011-01-01').toDateString(),
+    label: 'Label',
+    onChange: newValue => {},
+  },
+}
+
+export const ShowError: Story = {
+  args: {
+    data: '',
+    error: 'Show error message',
+    onChange: newValue => {},
+  },
 }

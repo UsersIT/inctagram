@@ -1,0 +1,59 @@
+.post-single-slider {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  .swiper-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-dark-500);
+  }
+
+  .image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .custom-button {
+    cursor: pointer;
+
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    transform: translateY(-50%);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 48px;
+    height: 48px;
+
+    background-color: rgb(51 51 51 / 40%);
+
+    &::after {
+      display: none;
+    }
+
+    .icon {
+      top: 10px;
+      width: 14px;
+      height: 28px;
+      color: var(--color-light-100);
+    }
+  }
+
+  @media (width <= 768px) {
+    .custom-button {
+      width: 36px;
+      height: 36px;
+
+      .icon {
+        width: 10px;
+        height: 20px;
+      }
+    }
+
+  }}
