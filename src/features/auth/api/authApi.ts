@@ -35,10 +35,11 @@ const authApi = baseApi.injectEndpoints({
       }),
     }),
     logout: builder.mutation<void, void>({
-      onQueryStarted: async (_, { queryFulfilled }) => {
+      onQueryStarted: async (_, { dispatch, queryFulfilled }) => {
         try {
-          await queryFulfilled
           tokenStorage.removeToken()
+          await queryFulfilled
+          dispatch(baseApi.util.resetApiState())
         } catch (e) {
           console.warn(e)
         }
