@@ -53,6 +53,7 @@ export const ru = {
     imageSize: (imageSizeInMB: number) =>
       `Размер фотографии должен быть меньше ${imageSizeInMB} MB!`,
     imageType: 'Формат загруженной фотографии должен быть PNG или JPEG',
+    noInternetConnection: 'Нет интернет соединения',
     photoUpdateError: 'Ошибка при обновлении фотографии профиля. Пожалуйста, попробуйте снова',
     somethingWentWrong:
       'Что-то пошло не так. Пожалуйста, проверьте Ваше интернет-соединение и попробуйте снова.',

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { toast } from 'react-toastify'
 
 import { useTranslation } from '@/src/shared/hooks'
@@ -15,30 +15,34 @@ type Props = {
 export const ProfilePhoto: React.FC<Props> = ({ className, photoUrlFromServer, refetch }) => {
   const { t } = useTranslation()
 
-  const [uploadAvatar, { isLoading: isLoadingAva, isSuccess: isSuccessAvatar }] =
-    useUploadAvatarMutation()
-  const [deleteAvatar, { isLoading: isLoadingDel, isSuccess: isSuccessDelete }] =
-    useDeleteAvatarMutation()
+  const [uploadAvatar, { isLoading: isLoadingAva }] = useUploadAvatarMutation()
+  const [deleteAvatar, { isLoading: isLoadingDel }] = useDeleteAvatarMutation()
+
+  const [isLocalUpload, setIsLocalUpload] = useState(false)
 
   const handleDeletePhoto = async () => {
     try {
       await deleteAvatar().unwrap()
-      if (!isSuccessDelete) {
-        refetch()
-        toast.success(t.profile.success)
-      }
+      await refetch()
+      toast.success(t.profile.success)
     } catch (error) {
       toast.error(t.errors.errorWord)
     }
   }
 
   const handleUpdatePhoto = async (data: FormData) => {
+    if (!navigator.onLine) {
+      toast.error(t.errors.noInternetConnection)
+
+      return
+    }
+
     try {
+      setIsLocalUpload(true)
       await uploadAvatar(data).unwrap()
-      if (!isSuccessAvatar) {
-        refetch()
-        toast.success(t.profile.updatePhoto)
-      }
+      await refetch()
+      toast.success(t.profile.updatePhoto)
+      setIsLocalUpload(false)
     } catch (error) {
       toast.error(t.errors.photoUpdateError)
     }
