@@ -32,7 +32,7 @@ export const ProfilePhoto: React.FC<Props> = ({ className, photoUrlFromServer, r
 
   const handleUpdatePhoto = async (data: FormData) => {
     if (!navigator.onLine) {
-      toast.error(t.errors.noInternetConnection)
+      toast.error(t.errors.somethingWentWrong)
 
       return
     }
@@ -41,10 +41,11 @@ export const ProfilePhoto: React.FC<Props> = ({ className, photoUrlFromServer, r
       setIsLocalUpload(true)
       await uploadAvatar(data).unwrap()
       await refetch()
-      toast.success(t.profile.updatePhoto)
+      toast.success(t.profile.updatedPhoto)
       setIsLocalUpload(false)
     } catch (error) {
       toast.error(t.errors.photoUpdateError)
+      setIsLocalUpload(false) // Добавлено, чтобы сбросить состояние загрузки в случае ошибки
     }
   }
 

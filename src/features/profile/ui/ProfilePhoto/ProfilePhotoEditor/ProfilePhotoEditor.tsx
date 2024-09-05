@@ -57,6 +57,12 @@ export const ProfilePhotoEditor: React.FC<ProfilePhotoProps> = ({
   }
 
   const handleSetPhoto = (photo: File) => {
+    if (!navigator.onLine) {
+      toast.error(t.errors.somethingWentWrong)
+
+      return
+    }
+
     setPhotoUrl(URL.createObjectURL(photo))
     setIsEditing(true)
   }
@@ -104,7 +110,9 @@ export const ProfilePhotoEditor: React.FC<ProfilePhotoProps> = ({
               <CloseOutline className={s.closeIcon} />
             </Button>
             <Dialog
+              cancelButtonTitle={t.buttons.cancelButtonTitle}
               className={s.dialog}
+              confirmButtonTitle={t.buttons.confirmButtonTitle}
               onCancel={handleDeletePhotoDialogClose}
               onClose={handleDeletePhotoDialogClose}
               onConfirm={handleDeletePhoto}
