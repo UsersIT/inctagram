@@ -50,7 +50,7 @@ export const GeneralInfoForm = ({ className }: ComponentProps<'form'>) => {
     updateProfile(data)
       .unwrap()
       .then(() => {
-        toast.success('Profile updated successfully')
+        toast.success(t.profile.updatedProfile)
       })
       .catch(err => {
         const errorField = err?.data?.messages[0]?.field
