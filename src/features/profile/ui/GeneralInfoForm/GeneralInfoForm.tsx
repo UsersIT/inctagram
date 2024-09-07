@@ -57,7 +57,7 @@ export const GeneralInfoForm = ({ className }: ComponentProps<'form'>) => {
     updateProfile(trimmedData)
       .unwrap()
       .then(() => {
-        toast.success('Profile updated successfully')
+        toast.success(t.profile.updatedProfile)
         setValue('aboutMe', trimmedData.aboutMe)
         const textArea = document.querySelector('textarea[name="aboutMe"]') as HTMLTextAreaElement
 
