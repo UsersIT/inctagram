@@ -1,4 +1,4 @@
-import { ComponentProps, useEffect } from 'react'
+import { ComponentProps, useEffect, useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { toast } from 'react-toastify'
 
@@ -23,6 +23,7 @@ import { CitySelect } from '../CitySelect/CitySelect'
 
 export const GeneralInfoForm = ({ className }: ComponentProps<'form'>) => {
   const { t } = useTranslation()
+  const [cityDisplayValue, setCityDisplayValue] = useState('')
   const [getProfile, { data: profile, isLoading: isProfileLoading }] = useLazyGetProfileQuery()
   const [updateProfile, { isLoading: isUpdateProfileLoading }] = useUpdateProfileMutation()
   const {
@@ -83,6 +84,7 @@ export const GeneralInfoForm = ({ className }: ComponentProps<'form'>) => {
         setValue('dateOfBirth', new Date(res.dateOfBirth) ?? null)
         setValue('city', res.city ?? '')
         setValue('aboutMe', res.aboutMe ?? '')
+        setCityDisplayValue(res.city ?? '')
       })
       .catch(res => {
         console.error(res)
@@ -127,8 +129,9 @@ export const GeneralInfoForm = ({ className }: ComponentProps<'form'>) => {
       <CitySelect
         clearErrors={clearErrors}
         control={control}
-        displayValue={profile?.city ?? ''}
+        displayValue={cityDisplayValue}
         name={'city'}
+        onClear={() => setCityDisplayValue('')}
         resetField={resetField}
         setError={setError}
       />
