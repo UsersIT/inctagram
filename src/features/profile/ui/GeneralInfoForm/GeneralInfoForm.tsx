@@ -1,4 +1,4 @@
-import { ComponentProps, useEffect } from 'react'
+import { ComponentProps, useEffect, useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { toast } from 'react-toastify'
 
@@ -25,6 +25,8 @@ export const GeneralInfoForm = ({ className }: ComponentProps<'form'>) => {
   const { t } = useTranslation()
   const [getProfile, { data: profile, isLoading: isProfileLoading }] = useLazyGetProfileQuery()
   const [updateProfile, { isLoading: isUpdateProfileLoading }] = useUpdateProfileMutation()
+  const [aboutMeRows, setAboutMeRows] = useState(1)
+
   const {
     clearErrors,
     control,
@@ -47,10 +49,22 @@ export const GeneralInfoForm = ({ className }: ComponentProps<'form'>) => {
   })
 
   const onSubmit: SubmitHandler<generalInfoFormValues> = data => {
-    updateProfile(data)
+    const trimmedData = {
+      ...data,
+      aboutMe: data.aboutMe.trim().replace(/\n{2,}/g, '\n\n'),
+    }
+
+    updateProfile(trimmedData)
       .unwrap()
       .then(() => {
         toast.success('Profile updated successfully')
+        setValue('aboutMe', trimmedData.aboutMe)
+        const textArea = document.querySelector('textarea[name="aboutMe"]') as HTMLTextAreaElement
+
+        if (textArea) {
+          textArea.value = trimmedData.aboutMe
+          textArea.setSelectionRange(0, 0)
+        }
       })
       .catch(err => {
         const errorField = err?.data?.messages[0]?.field
@@ -82,7 +96,11 @@ export const GeneralInfoForm = ({ className }: ComponentProps<'form'>) => {
         setValue('lastName', res.lastName ?? '')
         setValue('dateOfBirth', new Date(res.dateOfBirth) ?? null)
         setValue('city', res.city ?? '')
-        setValue('aboutMe', res.aboutMe ?? '')
+        setValue('aboutMe', res.aboutMe?.trim().replace(/\n{2,}/g, '\n\n') ?? '')
+
+        const lines = (res.aboutMe ? res.aboutMe.split('\n').length : 1) + 1 ?? ''
+
+        setAboutMeRows(lines)
       })
       .catch(res => {
         console.error(res)
@@ -138,6 +156,7 @@ export const GeneralInfoForm = ({ className }: ComponentProps<'form'>) => {
         disabled={isProfileLoading || isUpdateProfileLoading}
         label={t.label.aboutMe}
         name={'aboutMe'}
+        rows={aboutMeRows}
       />
 
       <div className={s.divider} />

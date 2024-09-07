@@ -13,16 +13,29 @@ export type TextAreaProps = {
   isRequired?: boolean
   label?: string
   maxLength?: number
+  maxRows?: number
   width?: string
 } & ComponentPropsWithoutRef<'textarea'>
 
 export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
   (
-    { className, disabled, error, isRequired, label, id = label, maxLength, onChange, ...rest },
+    {
+      className,
+      disabled,
+      error,
+      isRequired,
+      label,
+      id = label,
+      maxLength,
+      maxRows = 6,
+      onChange,
+      rows = 1,
+      ...rest
+    },
     ref: Ref<HTMLTextAreaElement>
   ) => {
-    const [value, setValue] = useState('')
     const { t } = useTranslation()
+    const [value, setValue] = useState('')
 
     const classes = {
       container: clsx(s.container, className),
@@ -34,16 +47,19 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
       ),
     }
 
-    const textareaStyle = {
-      height: rest.height || '84px',
-      width: rest.width || '100%',
-    }
-
     const handleChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
       setValue(e.target.value)
       if (onChange) {
         onChange(e)
       }
+    }
+
+    const autoResize = (e: ChangeEvent<HTMLTextAreaElement>) => {
+      e.target.style.height = 'auto'
+      const rowHeight = 24
+      const maxHeight = maxRows * rowHeight
+
+      e.target.style.height = `${Math.min(e.target.scrollHeight, maxHeight)}px`
     }
 
     return (
@@ -58,21 +74,24 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
           disabled={disabled}
           id={id}
           maxLength={maxLength}
-          onChange={handleChange}
+          onChange={e => {
+            handleChange(e)
+            autoResize(e)
+          }}
           ref={ref}
-          style={textareaStyle}
+          rows={rows}
+          style={{
+            height: rest.height,
+            maxHeight: `${maxRows * 24}px`,
+            width: rest.width || '100%',
+          }}
           {...rest}
-        ></textarea>
-        {(error && (
+        />
+        {error && (
           <Typography as={'span'} className={s.error} variant={'regular-text-14'}>
-            {error}
+            {t.errors.characterLimit}
           </Typography>
-        )) ||
-          (maxLength && value.length >= maxLength && (
-            <Typography as={'span'} className={s.error} variant={'regular-text-14'}>
-              {t.errors.characterLimit}
-            </Typography>
-          ))}
+        )}
       </div>
     )
   }
