@@ -1,5 +1,6 @@
 import { FIRSTNAME_AND_LASTNAME_PATTERN, USERNAME_PATTERN } from '@/src/shared/constants/regexs'
 import { LocaleType } from '@/src/shared/locales/ru'
+import { getMinAgeDate } from '@/src/shared/utility'
 import { z } from 'zod'
 
 export const generalInfoValidationSchema = (t: LocaleType) =>
@@ -13,17 +14,9 @@ export const generalInfoValidationSchema = (t: LocaleType) =>
     dateOfBirth: z
       .date()
       .max(new Date(), { message: t.validation.maxDate })
-      .refine(
-        date => {
-          const today = new Date()
-          const minDate = new Date(today.getFullYear() - 13, today.getMonth(), today.getDate())
-
-          return date <= minDate
-        },
-        {
-          message: t.validation.ageRestriction,
-        }
-      )
+      .refine(date => date <= getMinAgeDate(13), {
+        message: t.validation.ageRestriction,
+      })
       .optional()
       .nullable(),
     firstName: z
