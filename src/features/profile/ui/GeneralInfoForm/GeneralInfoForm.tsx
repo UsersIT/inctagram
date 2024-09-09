@@ -31,9 +31,10 @@ export const GeneralInfoForm = ({ className }: ComponentProps<'form'>) => {
   const {
     clearErrors,
     control,
-    formState: { isValid },
+    formState: { isDirty, isValid },
     getValues,
     handleSubmit,
+    reset,
     resetField,
     setError,
     setValue,
@@ -57,6 +58,7 @@ export const GeneralInfoForm = ({ className }: ComponentProps<'form'>) => {
       .unwrap()
       .then(() => {
         toast.success(t.profile.updatedProfile)
+        reset(data)
       })
       .catch(err => {
         const errorField = err?.data?.messages[0]?.field
@@ -206,7 +208,7 @@ export const GeneralInfoForm = ({ className }: ComponentProps<'form'>) => {
 
       <Button
         className={s.saveChangesButton}
-        disabled={isProfileLoading || isUpdateProfileLoading || !isValid}
+        disabled={isProfileLoading || isUpdateProfileLoading || !isValid || !isDirty}
         isLoading={isUpdateProfileLoading}
         type={'submit'}
       >
