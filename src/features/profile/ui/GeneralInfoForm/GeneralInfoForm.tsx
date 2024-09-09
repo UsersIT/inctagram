@@ -16,7 +16,7 @@ import s from './GeneralInfoForm.module.scss'
 
 import { useLazyGetProfileQuery, useUpdateProfileMutation } from '../../api/profileApi'
 import {
-  generalInfoFormValues,
+  GeneralInfoFormValues,
   generalInfoValidationSchema,
 } from '../../model/schemas/generalInfoValidationSchema'
 import { CitySelect } from '../CitySelect/CitySelect'
@@ -33,7 +33,7 @@ export const GeneralInfoForm = ({ className }: ComponentProps<'form'>) => {
     resetField,
     setError,
     setValue,
-  } = useForm<generalInfoFormValues>({
+  } = useForm<GeneralInfoFormValues>({
     defaultValues: {
       aboutMe: '',
       city: '',
@@ -46,7 +46,7 @@ export const GeneralInfoForm = ({ className }: ComponentProps<'form'>) => {
     resolver: zodResolver(generalInfoValidationSchema(t)),
   })
 
-  const onSubmit: SubmitHandler<generalInfoFormValues> = data => {
+  const onSubmit: SubmitHandler<GeneralInfoFormValues> = data => {
     updateProfile(data)
       .unwrap()
       .then(() => {
@@ -55,10 +55,10 @@ export const GeneralInfoForm = ({ className }: ComponentProps<'form'>) => {
       .catch(err => {
         const errorField = err?.data?.messages[0]?.field
         const credentialsErrorField = errorField as keyof Pick<
-          generalInfoFormValues,
+          GeneralInfoFormValues,
           'aboutMe' | 'firstName' | 'lastName' | 'userName'
         >
-        const messages: Partial<generalInfoFormValues> = {
+        const messages: Partial<GeneralInfoFormValues> = {
           userName: t.validation.usernameExists,
         }
 

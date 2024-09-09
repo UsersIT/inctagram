@@ -52,4 +52,4 @@ export const generalInfoValidationSchema = (t: LocaleType) =>
       }),
   })
 
-export type generalInfoFormValues = z.infer<ReturnType<typeof generalInfoValidationSchema>>
+export type GeneralInfoFormValues = z.infer<ReturnType<typeof generalInfoValidationSchema>>
