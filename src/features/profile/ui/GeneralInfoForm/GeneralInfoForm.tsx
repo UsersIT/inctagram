@@ -60,6 +60,7 @@ export const GeneralInfoForm = ({ className }: ComponentProps<'form'>) => {
       ...data,
       aboutMe: data.aboutMe.trim().replace(/\n{2,}/g, '\n\n'),
     }
+
     updateProfile(data)
       .unwrap()
       .then(() => {
