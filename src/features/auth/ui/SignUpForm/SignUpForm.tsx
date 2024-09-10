@@ -3,6 +3,7 @@ import { SubmitHandler, useForm } from 'react-hook-form'
 import { toast } from 'react-toastify'
 
 import { Trans } from '@/src/shared/components/Trans'
+import { routes } from '@/src/shared/constants/routes'
 import { useTranslation } from '@/src/shared/hooks'
 import { Button, ControlledCheckbox, ControlledTextField, Typography } from '@/src/shared/ui'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -68,7 +69,7 @@ export const SignUpForm: FC<ComponentProps<'form'>> = ({ className }) => {
             userName: t.validation.usernameExists,
           }
 
-          if (err?.data && errorField === credentialsErrorField) {
+          if (err.data.statusCode === 400) {
             setError(credentialsErrorField, {
               message: messages[credentialsErrorField] as string,
               type: 'custom',
@@ -128,12 +129,12 @@ export const SignUpForm: FC<ComponentProps<'form'>> = ({ className }) => {
             <Trans
               tags={{
                 1: content => (
-                  <Typography as={Link} href={'/policies/terms-of-service'} variant={'small-link'}>
+                  <Typography as={Link} href={routes.TERMS_OF_SERVICE} variant={'small-link'}>
                     {content}
                   </Typography>
                 ),
                 2: content => (
-                  <Typography as={Link} href={'/policies/privacy-policy'} variant={'small-link'}>
+                  <Typography as={Link} href={routes.PRIVACY_POLICY} variant={'small-link'}>
                     {content}
                   </Typography>
                 ),

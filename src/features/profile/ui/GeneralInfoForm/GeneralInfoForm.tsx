@@ -23,6 +23,7 @@ import { CitySelect } from '../CitySelect/CitySelect'
 
 export const GeneralInfoForm = ({ className }: ComponentProps<'form'>) => {
   const { t } = useTranslation()
+  const [cityDisplayValue, setCityDisplayValue] = useState('')
   const [getProfile, { data: profile, isLoading: isProfileLoading }] = useLazyGetProfileQuery()
   const [updateProfile, { isLoading: isUpdateProfileLoading }] = useUpdateProfileMutation()
   const [aboutMeRows, setAboutMeRows] = useState(1)
@@ -101,6 +102,7 @@ export const GeneralInfoForm = ({ className }: ComponentProps<'form'>) => {
         const lines = (res.aboutMe ? res.aboutMe.split('\n').length : 1) + 1 ?? ''
 
         setAboutMeRows(lines)
+        setCityDisplayValue(res.city ?? '')
       })
       .catch(res => {
         console.error(res)
@@ -145,8 +147,9 @@ export const GeneralInfoForm = ({ className }: ComponentProps<'form'>) => {
       <CitySelect
         clearErrors={clearErrors}
         control={control}
-        displayValue={profile?.city ?? ''}
+        displayValue={cityDisplayValue}
         name={'city'}
+        onClear={() => setCityDisplayValue('')}
         resetField={resetField}
         setError={setError}
       />
