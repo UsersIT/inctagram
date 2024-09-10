@@ -1,14 +1,16 @@
-import { ComponentProps, useEffect, useState } from 'react'
+import { ComponentProps, useEffect, useMemo, useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { toast } from 'react-toastify'
 
 import { useTranslation } from '@/src/shared/hooks'
+import { storage } from '@/src/shared/storage/storage'
 import {
   Button,
   ControlledDatePicker,
   ControlledTextArea,
   ControlledTextField,
 } from '@/src/shared/ui'
+import { getMinAgeDate } from '@/src/shared/utility'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { clsx } from 'clsx'
 
@@ -16,27 +18,31 @@ import s from './GeneralInfoForm.module.scss'
 
 import { useLazyGetProfileQuery, useUpdateProfileMutation } from '../../api/profileApi'
 import {
-  generalInfoFormValues,
+  GeneralInfoFormValues,
   generalInfoValidationSchema,
 } from '../../model/schemas/generalInfoValidationSchema'
 import { CitySelect } from '../CitySelect/CitySelect'
 
 export const GeneralInfoForm = ({ className }: ComponentProps<'form'>) => {
   const { t } = useTranslation()
-  const [cityDisplayValue, setCityDisplayValue] = useState('')
   const [getProfile, { data: profile, isLoading: isProfileLoading }] = useLazyGetProfileQuery()
-  const [updateProfile, { isLoading: isUpdateProfileLoading }] = useUpdateProfileMutation()
   const [aboutMeRows, setAboutMeRows] = useState(1)
-
+  const [cityDisplayValue, setCityDisplayValue] = useState('')
+  const [updateProfile, { isLoading: isUpdateProfileLoading }] = useUpdateProfileMutation()
+  const [isYoungerThan13, setIsYoungerThan13] = useState(false)
   const {
     clearErrors,
     control,
-    formState: { isValid },
+    formState: { isDirty, isValid },
+    getValues,
     handleSubmit,
+    reset,
     resetField,
     setError,
     setValue,
-  } = useForm<generalInfoFormValues>({
+    trigger,
+    watch,
+  } = useForm<GeneralInfoFormValues>({
     defaultValues: {
       aboutMe: '',
       city: '',
@@ -49,13 +55,13 @@ export const GeneralInfoForm = ({ className }: ComponentProps<'form'>) => {
     resolver: zodResolver(generalInfoValidationSchema(t)),
   })
 
-  const onSubmit: SubmitHandler<generalInfoFormValues> = data => {
+  const onSubmit: SubmitHandler<GeneralInfoFormValues> = data => {
     const trimmedData = {
       ...data,
       aboutMe: data.aboutMe.trim().replace(/\n{2,}/g, '\n\n'),
     }
 
-    updateProfile(trimmedData)
+    updateProfile(data)
       .unwrap()
       .then(() => {
         toast.success(t.profile.updatedProfile)
@@ -66,14 +72,15 @@ export const GeneralInfoForm = ({ className }: ComponentProps<'form'>) => {
           textArea.value = trimmedData.aboutMe
           textArea.setSelectionRange(0, 0)
         }
+        reset(data)
       })
       .catch(err => {
         const errorField = err?.data?.messages[0]?.field
         const credentialsErrorField = errorField as keyof Pick<
-          generalInfoFormValues,
+          GeneralInfoFormValues,
           'aboutMe' | 'firstName' | 'lastName' | 'userName'
         >
-        const messages: Partial<generalInfoFormValues> = {
+        const messages: Partial<GeneralInfoFormValues> = {
           userName: t.validation.usernameExists,
         }
 
@@ -88,27 +95,87 @@ export const GeneralInfoForm = ({ className }: ComponentProps<'form'>) => {
       })
   }
 
+  const profileSavedData = useMemo(
+    () => JSON.parse(storage.getItem('profileSavedData') || '{}') as GeneralInfoFormValues,
+    []
+  )
+
   useEffect(() => {
+    if (profileSavedData) {
+      setValue('userName', profileSavedData.userName ?? '')
+      setValue('firstName', profileSavedData.firstName ?? '')
+      setValue('lastName', profileSavedData.lastName ?? '')
+      setValue(
+        'dateOfBirth',
+        profileSavedData.dateOfBirth ? new Date(profileSavedData.dateOfBirth) : null
+      )
+      setValue('city', profileSavedData.city ?? '')
+      setValue('aboutMe', profileSavedData.aboutMe ?? '')
+      setValue('aboutMe', profileSavedData.aboutMe?.trim().replace(/\n{2,}/g, '\n\n') ?? '')
+
+      const lines =
+        (profileSavedData.aboutMe ? profileSavedData.aboutMe.split('\n').length : 1) + 1 ?? ''
+
+      setAboutMeRows(lines)
+    }
+
     getProfile()
       .unwrap()
       .then(res => {
-        setValue('userName', res.userName ?? '')
-        setValue('firstName', res.firstName ?? '')
-        setValue('lastName', res.lastName ?? '')
-        setValue('dateOfBirth', new Date(res.dateOfBirth) ?? null)
-        setValue('city', res.city ?? '')
+        setValue('userName', profileSavedData.userName ?? res.userName ?? '')
+        setValue('firstName', profileSavedData.firstName ?? res.firstName ?? '')
+        setValue('lastName', profileSavedData.lastName ?? res.lastName ?? '')
+        setValue(
+          'dateOfBirth',
+          (profileSavedData.dateOfBirth ? new Date(profileSavedData.dateOfBirth) : null) ??
+            new Date(res.dateOfBirth) ??
+            null
+        )
+        setValue('city', profileSavedData.city ?? res.city ?? '')
         setValue('aboutMe', res.aboutMe?.trim().replace(/\n{2,}/g, '\n\n') ?? '')
 
         const lines = (res.aboutMe ? res.aboutMe.split('\n').length : 1) + 1 ?? ''
 
         setAboutMeRows(lines)
         setCityDisplayValue(res.city ?? '')
+
+        void trigger()
       })
       .catch(res => {
         console.error(res)
         toast.error(t.errors.somethingWentWrong)
       })
-  }, [getProfile, setValue, t.errors.somethingWentWrong])
+  }, [getProfile, profileSavedData, setValue, t.errors.somethingWentWrong, trigger])
+
+  const onPrivacyPolicyClick = () => {
+    storage.setItem('profileSavedData', JSON.stringify({ ...getValues() }))
+  }
+
+  useEffect(() => {
+    const subscription = watch((value, { name }) => {
+      if (name === 'dateOfBirth') {
+        const dateOfBirth = value.dateOfBirth
+
+        if (dateOfBirth && dateOfBirth < new Date()) {
+          setIsYoungerThan13(dateOfBirth > getMinAgeDate(13))
+        } else {
+          setIsYoungerThan13(false)
+        }
+      }
+    })
+
+    return () => subscription.unsubscribe()
+  }, [watch])
+
+  const defaultDate = useMemo(() => {
+    if (profileSavedData?.dateOfBirth) {
+      return new Date(profileSavedData.dateOfBirth).toISOString()
+    } else if (profile) {
+      return new Date(profile.dateOfBirth).toISOString()
+    } else {
+      return undefined
+    }
+  }, [])
 
   return (
     <form className={clsx(s.form, className)} onSubmit={handleSubmit(onSubmit)} tabIndex={-1}>
@@ -138,10 +205,12 @@ export const GeneralInfoForm = ({ className }: ComponentProps<'form'>) => {
 
       <ControlledDatePicker
         control={control}
-        defaultValue={profile ? profile.dateOfBirth : ''}
+        defaultValue={defaultDate}
         disabled={isProfileLoading || isUpdateProfileLoading}
+        hasPrivacyPolicyLink={isYoungerThan13}
         label={t.label.dateOfBirth}
         name={'dateOfBirth'}
+        onPrivacyPolicyClick={onPrivacyPolicyClick}
       />
 
       <CitySelect
@@ -166,7 +235,7 @@ export const GeneralInfoForm = ({ className }: ComponentProps<'form'>) => {
 
       <Button
         className={s.saveChangesButton}
-        disabled={isProfileLoading || isUpdateProfileLoading || !isValid}
+        disabled={isProfileLoading || isUpdateProfileLoading || !isValid || !isDirty}
         isLoading={isUpdateProfileLoading}
         type={'submit'}
       >

@@ -8,9 +8,11 @@ import React, {
 import MultiDatePicker, { Value } from 'react-multi-date-picker'
 
 import { Calendar, CalendarOutline } from '@/src/shared/assets/icons'
+import { routes } from '@/src/shared/constants/routes'
 import { useTranslation } from '@/src/shared/hooks'
 import { Typography } from '@/src/shared/ui'
 import clsx from 'clsx'
+import Link from 'next/link'
 
 import s from './DatePicker.module.scss'
 
@@ -20,9 +22,11 @@ export type DatePickerProps = {
   defaultValue?: Value
   disabled?: boolean
   error?: string
+  hasPrivacyPolicyLink?: boolean
   isRequired?: boolean
   label?: string
   onChange: (newValue: Value) => void
+  onPrivacyPolicyClick?: () => void
   width?: string
 } & ComponentPropsWithoutRef<'input'>
 
@@ -34,10 +38,12 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
       defaultValue,
       disabled,
       error,
+      hasPrivacyPolicyLink,
       id,
       isRequired,
       label,
       onChange,
+      onPrivacyPolicyClick,
       width = '100%',
     }: DatePickerProps,
     ref
@@ -148,7 +154,16 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
         <div>
           {showError && (
             <Typography as={'span'} className={s.errorMessage} variant={'regular-text-14'}>
-              {error}
+              {error}{' '}
+              {hasPrivacyPolicyLink && (
+                <Link
+                  className={s.errorMessageLink}
+                  href={routes.PRIVACY_POLICY}
+                  onClick={onPrivacyPolicyClick}
+                >
+                  {t.pages.policies.policy.title}
+                </Link>
+              )}
             </Typography>
           )}
         </div>

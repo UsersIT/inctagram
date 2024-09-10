@@ -8,20 +8,20 @@ import { ControlledCombobox } from '@/src/shared/ui'
 import { useRouter } from 'next/router'
 
 import { citiesQuerySchema } from '../../model/schemas/citiesSchema'
-import { generalInfoFormValues } from '../../model/schemas/generalInfoValidationSchema'
+import { GeneralInfoFormValues } from '../../model/schemas/generalInfoValidationSchema'
 import { type City, getCities } from '../../model/services/getCities'
 
 type Props = {
   className?: string
-  clearErrors: (name: FieldPath<generalInfoFormValues>) => void
-  control: Control<generalInfoFormValues>
+  clearErrors: (name: FieldPath<GeneralInfoFormValues>) => void
+  control: Control<GeneralInfoFormValues>
   disabled?: boolean
   displayValue: string
   isLoading?: boolean
-  name: FieldPath<generalInfoFormValues>
+  name: FieldPath<GeneralInfoFormValues>
   onClear?: () => void
-  resetField: (name: FieldPath<generalInfoFormValues>) => void
-  setError: (name: FieldPath<generalInfoFormValues>, error: FieldError) => void
+  resetField: (name: FieldPath<GeneralInfoFormValues>) => void
+  setError: (name: FieldPath<GeneralInfoFormValues>, error: FieldError) => void
 }
 
 export const CitySelect: FC<Props> = props => {
