@@ -26,6 +26,8 @@ import { CitySelect } from '../CitySelect/CitySelect'
 export const GeneralInfoForm = ({ className }: ComponentProps<'form'>) => {
   const { t } = useTranslation()
   const [getProfile, { data: profile, isLoading: isProfileLoading }] = useLazyGetProfileQuery()
+  const [aboutMeRows, setAboutMeRows] = useState(1)
+  const [cityDisplayValue, setCityDisplayValue] = useState('')
   const [updateProfile, { isLoading: isUpdateProfileLoading }] = useUpdateProfileMutation()
   const [isYoungerThan13, setIsYoungerThan13] = useState(false)
   const {
@@ -54,10 +56,21 @@ export const GeneralInfoForm = ({ className }: ComponentProps<'form'>) => {
   })
 
   const onSubmit: SubmitHandler<GeneralInfoFormValues> = data => {
+    const trimmedData = {
+      ...data,
+      aboutMe: data.aboutMe.trim().replace(/\n{2,}/g, '\n\n'),
+    }
     updateProfile(data)
       .unwrap()
       .then(() => {
         toast.success(t.profile.updatedProfile)
+        setValue('aboutMe', trimmedData.aboutMe)
+        const textArea = document.querySelector('textarea[name="aboutMe"]') as HTMLTextAreaElement
+
+        if (textArea) {
+          textArea.value = trimmedData.aboutMe
+          textArea.setSelectionRange(0, 0)
+        }
         reset(data)
       })
       .catch(err => {
@@ -97,6 +110,12 @@ export const GeneralInfoForm = ({ className }: ComponentProps<'form'>) => {
       )
       setValue('city', profileSavedData.city ?? '')
       setValue('aboutMe', profileSavedData.aboutMe ?? '')
+      setValue('aboutMe', profileSavedData.aboutMe?.trim().replace(/\n{2,}/g, '\n\n') ?? '')
+
+      const lines =
+        (profileSavedData.aboutMe ? profileSavedData.aboutMe.split('\n').length : 1) + 1 ?? ''
+
+      setAboutMeRows(lines)
     }
 
     getProfile()
@@ -112,7 +131,12 @@ export const GeneralInfoForm = ({ className }: ComponentProps<'form'>) => {
             null
         )
         setValue('city', profileSavedData.city ?? res.city ?? '')
-        setValue('aboutMe', profileSavedData.aboutMe ?? res.aboutMe ?? '')
+        setValue('aboutMe', res.aboutMe?.trim().replace(/\n{2,}/g, '\n\n') ?? '')
+
+        const lines = (res.aboutMe ? res.aboutMe.split('\n').length : 1) + 1 ?? ''
+
+        setAboutMeRows(lines)
+        setCityDisplayValue(res.city ?? '')
 
         void trigger()
       })
@@ -191,8 +215,9 @@ export const GeneralInfoForm = ({ className }: ComponentProps<'form'>) => {
       <CitySelect
         clearErrors={clearErrors}
         control={control}
-        displayValue={profile?.city ?? ''}
+        displayValue={cityDisplayValue}
         name={'city'}
+        onClear={() => setCityDisplayValue('')}
         resetField={resetField}
         setError={setError}
       />
@@ -202,6 +227,7 @@ export const GeneralInfoForm = ({ className }: ComponentProps<'form'>) => {
         disabled={isProfileLoading || isUpdateProfileLoading}
         label={t.label.aboutMe}
         name={'aboutMe'}
+        rows={aboutMeRows}
       />
 
       <div className={s.divider} />
