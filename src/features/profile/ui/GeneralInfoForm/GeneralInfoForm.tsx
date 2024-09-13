@@ -1,9 +1,8 @@
-import { ComponentProps, useEffect, useMemo, useState } from 'react'
+import { ComponentProps, useEffect, useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { toast } from 'react-toastify'
 
 import { useTranslation } from '@/src/shared/hooks'
-import { storage } from '@/src/shared/storage/storage'
 import {
   Button,
   ControlledDatePicker,
@@ -13,6 +12,8 @@ import {
 import { getMinAgeDate } from '@/src/shared/utility'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { clsx } from 'clsx'
+import { useSearchParams } from 'next/navigation'
+import { useRouter } from 'next/router'
 
 import s from './GeneralInfoForm.module.scss'
 
@@ -25,6 +26,8 @@ import { CitySelect } from '../CitySelect/CitySelect'
 
 export const GeneralInfoForm = ({ className }: ComponentProps<'form'>) => {
   const { t } = useTranslation()
+  const router = useRouter()
+  const searchParams = useSearchParams()
   const [getProfile, { data: profile, isLoading: isProfileLoading }] = useLazyGetProfileQuery()
   const [aboutMeRows, setAboutMeRows] = useState(1)
   const [cityDisplayValue, setCityDisplayValue] = useState('')
@@ -95,44 +98,22 @@ export const GeneralInfoForm = ({ className }: ComponentProps<'form'>) => {
       })
   }
 
-  const profileSavedData = useMemo(
-    () => JSON.parse(storage.getItem('profileSavedData') || '{}') as GeneralInfoFormValues,
-    []
-  )
-
   useEffect(() => {
-    if (profileSavedData) {
-      setValue('userName', profileSavedData.userName ?? '')
-      setValue('firstName', profileSavedData.firstName ?? '')
-      setValue('lastName', profileSavedData.lastName ?? '')
-      setValue(
-        'dateOfBirth',
-        profileSavedData.dateOfBirth ? new Date(profileSavedData.dateOfBirth) : null
-      )
-      setValue('city', profileSavedData.city ?? '')
-      setValue('aboutMe', profileSavedData.aboutMe ?? '')
-      setValue('aboutMe', profileSavedData.aboutMe?.trim().replace(/\n{2,}/g, '\n\n') ?? '')
-
-      const lines =
-        (profileSavedData.aboutMe ? profileSavedData.aboutMe.split('\n').length : 1) + 1 ?? ''
-
-      setAboutMeRows(lines)
-    }
-
     getProfile()
       .unwrap()
       .then(res => {
-        setValue('userName', profileSavedData.userName ?? res.userName ?? '')
-        setValue('firstName', profileSavedData.firstName ?? res.firstName ?? '')
-        setValue('lastName', profileSavedData.lastName ?? res.lastName ?? '')
+        setValue('userName', searchParams?.get('userName') ?? res.userName ?? '')
+        setValue('firstName', searchParams?.get('firstName') ?? res.firstName ?? '')
+        setValue('lastName', searchParams?.get('lastName') ?? res.lastName ?? '')
         setValue(
           'dateOfBirth',
-          (profileSavedData.dateOfBirth ? new Date(profileSavedData.dateOfBirth) : null) ??
-            new Date(res.dateOfBirth) ??
-            null
+          new Date(searchParams?.get('dateOfBirth') || res.dateOfBirth) ?? null
         )
-        setValue('city', profileSavedData.city ?? res.city ?? '')
-        setValue('aboutMe', res.aboutMe?.trim().replace(/\n{2,}/g, '\n\n') ?? '')
+        setValue('city', searchParams?.get('city') ?? res.city ?? '')
+        setValue(
+          'aboutMe',
+          searchParams?.get('aboutMe') ?? res.aboutMe?.trim().replace(/\n{2,}/g, '\n\n') ?? ''
+        )
 
         const lines = (res.aboutMe ? res.aboutMe.split('\n').length : 1) + 1 ?? ''
 
@@ -145,14 +126,22 @@ export const GeneralInfoForm = ({ className }: ComponentProps<'form'>) => {
         console.error(res)
         toast.error(t.errors.somethingWentWrong)
       })
-  }, [getProfile, profileSavedData, setValue, t.errors.somethingWentWrong, trigger])
+  }, [getProfile, setValue, t.errors.somethingWentWrong, trigger])
 
   const onPrivacyPolicyClick = () => {
-    storage.setItem('profileSavedData', JSON.stringify({ ...getValues() }))
+    const values = getValues()
+    const params = new URLSearchParams({
+      ...values,
+      aboutMe: values.aboutMe.trim().replace(/\n{2,}/g, '\n\n'),
+      city: values.city ?? '',
+      dateOfBirth: values.dateOfBirth?.toISOString() ?? '',
+    })
+
+    void router.replace({ pathname: window.location.pathname, query: params.toString() })
   }
 
   useEffect(() => {
-    const subscription = watch((value, { name }) => {
+    const subscriptionBirth = watch((value, { name }) => {
       if (name === 'dateOfBirth') {
         const dateOfBirth = value.dateOfBirth
 
@@ -164,18 +153,19 @@ export const GeneralInfoForm = ({ className }: ComponentProps<'form'>) => {
       }
     })
 
-    return () => subscription.unsubscribe()
+    const subscriptionAll = watch(() => {
+      if (searchParams?.toString() !== '') {
+        void router.replace({ pathname: window.location.pathname, query: null })
+      }
+    })
+
+    return () => {
+      subscriptionBirth.unsubscribe()
+      subscriptionAll.unsubscribe()
+    }
   }, [watch])
 
-  const defaultDate = useMemo(() => {
-    if (profileSavedData?.dateOfBirth) {
-      return new Date(profileSavedData.dateOfBirth).toISOString()
-    } else if (profile) {
-      return new Date(profile.dateOfBirth).toISOString()
-    } else {
-      return undefined
-    }
-  }, [])
+  const defaultDate = undefined
 
   return (
     <form className={clsx(s.form, className)} onSubmit={handleSubmit(onSubmit)} tabIndex={-1}>
@@ -216,6 +206,7 @@ export const GeneralInfoForm = ({ className }: ComponentProps<'form'>) => {
       <CitySelect
         clearErrors={clearErrors}
         control={control}
+        disabled={isProfileLoading || isUpdateProfileLoading}
         displayValue={cityDisplayValue}
         name={'city'}
         onClear={() => setCityDisplayValue('')}
