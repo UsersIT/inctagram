@@ -32,10 +32,16 @@
     transition: outline 0.3s ease;
   }
 
+  &:disabled {
+    color: var(--color-text-disabled) !important;
+  }
+
   &:hover:enabled {
     color: var(--color-light-100);
     border: 1px solid var(--color-light-900);
   }
+
+
 }
 
 .inputError {
@@ -52,11 +58,6 @@
   &:hover:enabled {
     border: 1px solid var(--color-danger-500);
   }
-}
-
-.disabled {
-  pointer-events: none;
-  color: var(--color-text-disabled);
 }
 
 .label {
@@ -85,6 +86,11 @@
   &.disabled {
     fill: var(--color-text-disabled);
   }
+}
+
+.disabled {
+  pointer-events: none;
+  color: var(--color-text-disabled);
 }
 
 .errorSvg {
