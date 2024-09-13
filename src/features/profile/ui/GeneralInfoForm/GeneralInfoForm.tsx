@@ -64,7 +64,7 @@ export const GeneralInfoForm = ({ className }: ComponentProps<'form'>) => {
       aboutMe: data.aboutMe.trim().replace(/\n{2,}/g, '\n\n'),
     }
 
-    updateProfile(data)
+    updateProfile(trimmedData)
       .unwrap()
       .then(() => {
         toast.success(t.profile.updatedProfile)
@@ -115,7 +115,7 @@ export const GeneralInfoForm = ({ className }: ComponentProps<'form'>) => {
           searchParams?.get('aboutMe') ?? res.aboutMe?.trim().replace(/\n{2,}/g, '\n\n') ?? ''
         )
 
-        const lines = (res.aboutMe ? res.aboutMe.split('\n').length : 1) + 1 ?? ''
+        const lines = res.aboutMe ? res.aboutMe.split('\n').length : 1
 
         setAboutMeRows(lines)
         setCityDisplayValue(res.city ?? '')
@@ -195,12 +195,12 @@ export const GeneralInfoForm = ({ className }: ComponentProps<'form'>) => {
 
       <ControlledDatePicker
         control={control}
-        defaultValue={defaultDate}
         disabled={isProfileLoading || isUpdateProfileLoading}
         hasPrivacyPolicyLink={isYoungerThan13}
         label={t.label.dateOfBirth}
         name={'dateOfBirth'}
         onPrivacyPolicyClick={onPrivacyPolicyClick}
+        value={watch('dateOfBirth') ? (watch('dateOfBirth') as Date).toISOString() : undefined}
       />
 
       <CitySelect
