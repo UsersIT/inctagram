@@ -1,4 +1,4 @@
-import { ChangeEvent, ComponentProps, useEffect, useMemo, useState } from 'react'
+import { ComponentProps, useEffect, useMemo, useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { toast } from 'react-toastify'
 
@@ -36,7 +36,6 @@ export const GeneralInfoForm = ({ className }: ComponentProps<'form'>) => {
     formState: { isDirty, isValid },
     getValues,
     handleSubmit,
-    reset,
     resetField,
     setError,
     setValue,
@@ -61,7 +60,7 @@ export const GeneralInfoForm = ({ className }: ComponentProps<'form'>) => {
       aboutMe: data.aboutMe.trim().replace(/\n{2,}/g, '\n\n'),
     }
 
-    updateProfile(data)
+    updateProfile(trimmedData)
       .unwrap()
       .then(() => {
         toast.success(t.profile.updatedProfile)
@@ -109,11 +108,9 @@ export const GeneralInfoForm = ({ className }: ComponentProps<'form'>) => {
         profileSavedData.dateOfBirth ? new Date(profileSavedData.dateOfBirth) : null
       )
       setValue('city', profileSavedData.city ?? '')
-      setValue('aboutMe', profileSavedData.aboutMe ?? '')
       setValue('aboutMe', profileSavedData.aboutMe?.trim().replace(/\n{2,}/g, '\n\n') ?? '')
 
-      const lines =
-        (profileSavedData.aboutMe ? profileSavedData.aboutMe.split('\n').length : 1) + 1 ?? ''
+      const lines = profileSavedData.aboutMe ? profileSavedData.aboutMe.split('\n').length + 1 : 1
 
       setAboutMeRows(lines)
     }
@@ -124,16 +121,17 @@ export const GeneralInfoForm = ({ className }: ComponentProps<'form'>) => {
         setValue('userName', profileSavedData.userName ?? res.userName ?? '')
         setValue('firstName', profileSavedData.firstName ?? res.firstName ?? '')
         setValue('lastName', profileSavedData.lastName ?? res.lastName ?? '')
-        setValue(
-          'dateOfBirth',
-          (profileSavedData.dateOfBirth ? new Date(profileSavedData.dateOfBirth) : null) ??
-            new Date(res.dateOfBirth) ??
-            null
-        )
+        if (profileSavedData.dateOfBirth) {
+          setValue('dateOfBirth', new Date(profileSavedData.dateOfBirth))
+        } else if (res.dateOfBirth) {
+          setValue('dateOfBirth', new Date(res.dateOfBirth))
+        } else {
+          setValue('dateOfBirth', null)
+        }
         setValue('city', profileSavedData.city ?? res.city ?? '')
         setValue('aboutMe', res.aboutMe?.trim().replace(/\n{2,}/g, '\n\n') ?? '')
 
-        const lines = (res.aboutMe ? res.aboutMe.split('\n').length : 1) ?? ''
+        const lines = res.aboutMe ? res.aboutMe.split('\n').length : 1
 
         setAboutMeRows(lines)
         setCityDisplayValue(res.city ?? '')
@@ -153,7 +151,7 @@ export const GeneralInfoForm = ({ className }: ComponentProps<'form'>) => {
   useEffect(() => {
     const subscription = watch((value, { name }) => {
       if (name === 'dateOfBirth') {
-        const dateOfBirth = value.dateOfBirth
+        const dateOfBirth = value.dateOfBirth as Date
 
         if (dateOfBirth && dateOfBirth < new Date()) {
           setIsYoungerThan13(dateOfBirth > getMinAgeDate(13))
@@ -165,16 +163,6 @@ export const GeneralInfoForm = ({ className }: ComponentProps<'form'>) => {
 
     return () => subscription.unsubscribe()
   }, [watch])
-
-  const defaultDate = useMemo(() => {
-    if (profileSavedData?.dateOfBirth) {
-      return new Date(profileSavedData.dateOfBirth).toISOString()
-    } else if (profile) {
-      return new Date(profile.dateOfBirth).toISOString()
-    } else {
-      return undefined
-    }
-  }, [])
 
   return (
     <form className={clsx(s.form, className)} onSubmit={handleSubmit(onSubmit)} tabIndex={-1}>
@@ -204,12 +192,12 @@ export const GeneralInfoForm = ({ className }: ComponentProps<'form'>) => {
 
       <ControlledDatePicker
         control={control}
-        defaultValue={defaultDate}
         disabled={isProfileLoading || isUpdateProfileLoading}
         hasPrivacyPolicyLink={isYoungerThan13}
         label={t.label.dateOfBirth}
         name={'dateOfBirth'}
         onPrivacyPolicyClick={onPrivacyPolicyClick}
+        value={watch('dateOfBirth') ? (watch('dateOfBirth') as Date).toISOString() : undefined}
       />
 
       <CitySelect

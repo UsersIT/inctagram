@@ -6,7 +6,7 @@ export type ControlledTextAreaProps<TFieldValues extends FieldValues> = {
   control: Control<TFieldValues>
   name: FieldPath<TFieldValues>
   rows?: number
-} & Omit<TextAreaProps, 'id' | 'value'> // Убираем 'onChange' из Omit
+} & Omit<TextAreaProps, 'id' | 'value'>
 
 export const ControlledTextArea = <TFieldValues extends FieldValues>(
   props: ControlledTextAreaProps<TFieldValues>
@@ -26,9 +26,9 @@ export const ControlledTextArea = <TFieldValues extends FieldValues>(
       error={error?.message}
       id={props.name}
       onChange={e => {
-        field.onChange(e) // Вызов стандартного onChange из field
+        field.onChange(e)
         if (props.onChange) {
-          props.onChange(e) // Дополнительно вызываем кастомный onChange, если он есть
+          props.onChange(e)
         }
       }}
       rows={props.rows}
