@@ -129,7 +129,7 @@ export const GeneralInfoForm = ({ className }: ComponentProps<'form'>) => {
       })
   }, [getProfile, setValue, t.errors.somethingWentWrong, trigger])
 
-  const onPrivacyPolicyClick = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+  const onPrivacyPolicyClick = async (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     event.preventDefault()
 
     const values = getValues()
@@ -140,7 +140,7 @@ export const GeneralInfoForm = ({ className }: ComponentProps<'form'>) => {
       dateOfBirth: values.dateOfBirth?.toISOString() ?? '',
     })
 
-    void router.replace({ pathname: window.location.pathname, query: params.toString() })
+    await router.replace({ pathname: window.location.pathname, query: params.toString() })
 
     void router.push({ pathname: routes.PRIVACY_POLICY, query: null })
   }
