@@ -165,6 +165,8 @@ export const GeneralInfoForm = ({ className }: ComponentProps<'form'>) => {
     }
   }, [watch])
 
+  const dateOfBirth = watch('dateOfBirth')
+
   return (
     <form className={clsx(s.form, className)} onSubmit={handleSubmit(onSubmit)} tabIndex={-1}>
       <ControlledTextField
@@ -198,7 +200,11 @@ export const GeneralInfoForm = ({ className }: ComponentProps<'form'>) => {
         label={t.label.dateOfBirth}
         name={'dateOfBirth'}
         onPrivacyPolicyClick={onPrivacyPolicyClick}
-        value={watch('dateOfBirth') ? (watch('dateOfBirth') as Date).toISOString() : undefined}
+        value={
+          dateOfBirth instanceof Date && !isNaN(dateOfBirth.getTime())
+            ? dateOfBirth.toISOString()
+            : undefined
+        }
       />
 
       <CitySelect
