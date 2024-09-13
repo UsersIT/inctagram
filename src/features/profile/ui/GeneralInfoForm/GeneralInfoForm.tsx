@@ -1,4 +1,4 @@
-import { ComponentProps, useEffect, useMemo, useState } from 'react'
+import { ChangeEvent, ComponentProps, useEffect, useMemo, useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { toast } from 'react-toastify'
 
@@ -72,7 +72,6 @@ export const GeneralInfoForm = ({ className }: ComponentProps<'form'>) => {
           textArea.value = trimmedData.aboutMe
           textArea.setSelectionRange(0, 0)
         }
-        reset(data)
       })
       .catch(err => {
         const errorField = err?.data?.messages[0]?.field
@@ -134,7 +133,7 @@ export const GeneralInfoForm = ({ className }: ComponentProps<'form'>) => {
         setValue('city', profileSavedData.city ?? res.city ?? '')
         setValue('aboutMe', res.aboutMe?.trim().replace(/\n{2,}/g, '\n\n') ?? '')
 
-        const lines = (res.aboutMe ? res.aboutMe.split('\n').length : 1) + 1 ?? ''
+        const lines = (res.aboutMe ? res.aboutMe.split('\n').length : 1) ?? ''
 
         setAboutMeRows(lines)
         setCityDisplayValue(res.city ?? '')
