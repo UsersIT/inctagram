@@ -26,7 +26,7 @@ export type DatePickerProps = {
   isRequired?: boolean
   label?: string
   onChange: (newValue: Value) => void
-  onPrivacyPolicyClick?: () => void
+  onPrivacyPolicyClick?: (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void
   width?: string
 } & ComponentPropsWithoutRef<'input'>
 
