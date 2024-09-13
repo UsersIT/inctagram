@@ -96,7 +96,7 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
 
     const classNames = {
       calendarIcon: clsx(s.calendarIcon, disabled && s.disabled),
-      input: clsx(s.input, showError && s.error),
+      input: clsx(s.input, showError && s.error, disabled && s.disabled),
       label: clsx(s.label, isRequired && s.required, disabled && s.disabled),
       root: clsx(s.root, className),
       wrapper: clsx(s.wrapper, disabled && s.disabled),

@@ -88,6 +88,10 @@
   }
 }
 
+.disabled {
+  color: var(--color-text-disabled);
+}
+
 .errorSvg {
   fill: var(--color-text-error);
 }
