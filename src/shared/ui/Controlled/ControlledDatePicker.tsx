@@ -18,5 +18,14 @@ export const ControlledDatePicker = <TFieldValues extends FieldValues>(
     name: props.name,
   })
 
-  return <DatePicker {...props} {...field} error={error?.message} id={props.name} />
+  return (
+    <DatePicker
+      {...props}
+      data={field.value}
+      defaultValue={field.value}
+      error={error?.message}
+      id={props.name}
+      onChange={value => field.onChange(value as Date | null)}
+    />
+  )
 }

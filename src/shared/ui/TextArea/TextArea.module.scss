@@ -19,6 +19,8 @@
 .textarea {
   resize: none;
 
+ overflow: hidden;
+
   width: 100%;
   min-height: 40px;
   padding: 6px 12px;
@@ -41,7 +43,7 @@
   }
 
   &:disabled {
-    color: var(--dark-100);
+    color: var(--color-dark-100);
   }
 
   &:focus {
