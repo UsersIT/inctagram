@@ -165,8 +165,6 @@ export const GeneralInfoForm = ({ className }: ComponentProps<'form'>) => {
     }
   }, [watch])
 
-  const defaultDate = undefined
-
   return (
     <form className={clsx(s.form, className)} onSubmit={handleSubmit(onSubmit)} tabIndex={-1}>
       <ControlledTextField
