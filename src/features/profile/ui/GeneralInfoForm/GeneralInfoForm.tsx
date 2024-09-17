@@ -222,6 +222,7 @@ export const GeneralInfoForm = ({ className }: ComponentProps<'form'>) => {
         control={control}
         disabled={isProfileLoading || isUpdateProfileLoading}
         label={t.label.aboutMe}
+        maxRows={6}
         name={'aboutMe'}
         rows={aboutMeRows}
       />

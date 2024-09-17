@@ -14,6 +14,7 @@ export type TextAreaProps = {
   label?: string
   maxLength?: number
   maxRows?: number
+  scrollable?: boolean
   width?: string
 } & ComponentPropsWithoutRef<'textarea'>
 
@@ -27,9 +28,10 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
       label,
       id = label,
       maxLength,
-      maxRows = 6,
+      maxRows,
       onChange,
-      rows = 1,
+      rows = 2,
+      scrollable = false,
       ...rest
     },
     ref: Ref<HTMLTextAreaElement>
@@ -57,7 +59,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
     const autoResize = (e: ChangeEvent<HTMLTextAreaElement>) => {
       e.target.style.height = 'auto'
       const rowHeight = 24
-      const maxHeight = maxRows * rowHeight
+      const maxHeight = maxRows ? maxRows * rowHeight : 48
 
       e.target.style.height = `${Math.min(e.target.scrollHeight, maxHeight)}px`
     }
@@ -82,7 +84,9 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
           rows={rows}
           style={{
             height: rest.height,
-            maxHeight: `${maxRows * 24}px`,
+            maxHeight: `${maxRows ? maxRows * 24 : 48}px`,
+            overflow: scrollable ? 'auto' : 'hidden',
+            resize: scrollable ? 'vertical' : 'none',
             width: rest.width || '100%',
           }}
           {...rest}
