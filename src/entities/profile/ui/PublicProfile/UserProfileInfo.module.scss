@@ -62,68 +62,66 @@
   -webkit-line-clamp: 3;
 }
 
-@media screen and (width <= 600px) {
+@media screen and (width <= 576px) {
   .container {
     grid-template:
       "avatar"
       "name"
-      "button"
+      "settingsButton"
       "wrapper"
       "aboutMe";
     grid-template-areas:
       "avatar"
       "name"
-      "button"
+      "settingsButton"
       "wrapper"
       "aboutMe";
   }
 
   .wrapper {
-    gap: 20px; /* Уменьшаем расстояние между элементами */
+    gap: 20px;
   }
 
   .aboutMe {
     overflow: visible;
-    display: block; /* Переключаем на блочный элемент */
+    display: block;
 
-    word-break: break-word; /* Разрешаем перенос слов */
-    white-space: normal; /* Отключаем обрезание текста */
+    word-break: break-word;
+    white-space: normal;
 
     -webkit-box-orient: unset;
     -webkit-line-clamp: unset;
   }
 }
 
-
-
-
-
-@include tablet {
-  .ProfileInfo {
+@media screen and (width <= 768px) {
+  .container {
     grid-template-areas:
-      'avatar settings'
-      'avatar subscriber'
+      'avatar name'
+      'avatar wrapper'
       'avatar aboutMe'
-      'name .';
+      'buttonSettings.';
     grid-template-rows: 36px min-content auto;
   }
 
-  .subscriber {
+  .wrapper {
     gap: 15px;
     justify-content: space-between;
   }
 
-  .name {
+  .buttonSettings {
     text-align: center !important;
   }
 }
 
-@include mobile {
-  .ProfileInfo {
+@media screen and (width <= 576px) {
+  .container {
     grid-template-areas:
-      'avatar subscriber'
-      'name .'
-      'aboutMe aboutMe';
+      "avatar"
+      "name"
+      "settingsButton"
+      "wrapper"
+      "aboutMe";
     grid-template-rows: auto;
     row-gap: 10px;
     place-items: center center;
@@ -141,7 +139,7 @@
     line-height: var(--line-height-m);
   }
 
-  .subscriber {
+  .wrapper {
     gap: 10px;
     width: 100%;
 
@@ -155,9 +153,6 @@
     line-height: var(--line-height-m);
   }
 
-  .settings {
-    display: none;
-  }
 }
 
 
