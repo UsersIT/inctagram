@@ -5,4 +5,4 @@ export const PASSWORD_PATTERN =
 
 export const EMAIL_PATTERN = /^[\w-\\.]+@([\w-]+\.)+[\w-]{2,4}$/
 
-export const FIRSTNAME_AND_LASTNAME_PATTERN = /^[a-zA-Zа-яА-Я-\s']+$/
+export const FIRSTNAME_AND_LASTNAME_PATTERN = /^[a-zA-Zа-яёЁА-Я-\s']+$/
