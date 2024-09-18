@@ -1,0 +1,11 @@
+/* stylelint-disable-next-line scss/double-slash-comment-whitespace-inside */
+//!! Скорее всего нужно добавить адаптив
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+
+  width: 100%;
+  max-width: 972px;
+}

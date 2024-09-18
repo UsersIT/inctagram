@@ -1,0 +1,9 @@
+/* stylelint-disable-next-line scss/double-slash-comment-whitespace-inside */
+//!! Скорее всего нужно добавить адаптив
+
+.stats {
+  display: flex;
+  gap: 100px;
+  justify-content: space-between;
+  width: 50%;
+}

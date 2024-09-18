@@ -19,6 +19,13 @@ export const apiEndpoints = {
     registrationEmailResending: '/v1/auth/registration-email-resending',
     updateTokens: '/v1/auth/update-tokens',
   },
+  followingAndFollowers: {
+    userFollowers: (username: string) => `/v1/users/${username}/followers`,
+    userFollowing: (username: string) => `/v1/users/${username}/following`,
+  },
+  posts: {
+    postsByUsername: (username: string) => `/v1/posts/${username}`,
+  },
   profile: {
     avatar: '/v1/users/profile/avatar',
     profile: '/v1/users/profile',
