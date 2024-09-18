@@ -189,7 +189,7 @@ export const en: LocaleType = {
     maxDate: 'The date cannot be in the future.',
     maxLength: (len: number) => `Maximum ${len} characters!`,
     minLength: (len: number) => `Minimum ${len} characters!`,
-    onlyLetters: 'Field should contain only letters and hyphen.',
+    onlyLetters: 'Field should contain only letters, hyphen, apostrophe or space.',
     passwordConfirmation: 'The passwords must match!',
     passwordVerification:
       'The password must contain at least one uppercase letter, one lowercase letter, one number and one special character. ',
