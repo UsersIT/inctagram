@@ -16,7 +16,7 @@ import s from './Modal.module.scss'
 import { ArrowIosBack, Close } from '../../assets/icons'
 import { Button } from '../Button/Button'
 
-export type ModalSize = 'lg' | 'md' | 'sm'
+export type ModalSize = 'lg' | 'md' | 'sm' | 'xlg'
 
 export type ModalProps = {
   onClose?: () => void
@@ -28,6 +28,7 @@ export type ModalProps = {
   showPreviousButton?: boolean
   size?: ModalSize
   title?: string
+  withoutHeader?: boolean
 } & ComponentProps<'div'>
 
 const dropIn = {
@@ -66,6 +67,7 @@ export const Modal: FC<ModalProps> = props => {
     showPreviousButton = false,
     size = 'md',
     title,
+    withoutHeader = false,
   } = props
 
   function handleModalClosed() {
@@ -77,7 +79,7 @@ export const Modal: FC<ModalProps> = props => {
     content: getContentClassName(size, className),
     contentBox: s.contentBox,
     header: s.header,
-    overlay: s.overlay,
+    overlay: clsx(className, s.overlay),
     title: s.title,
   }
 
@@ -96,33 +98,40 @@ export const Modal: FC<ModalProps> = props => {
             </DialogOverlay>
             <DialogContent asChild className={classNames.content} forceMount>
               <motion.div animate={'visible'} exit={'exit'} initial={'hidden'} variants={dropIn}>
-                <header className={classNames.header}>
-                  {showPreviousButton && (
-                    <Button
-                      className={s.previousButton}
-                      onClick={onPreviousButton}
-                      variant={'text'}
-                    >
-                      <ArrowIosBack style={{ color: 'red' }} />
-                    </Button>
-                  )}
+                {!withoutHeader && (
+                  <header className={classNames.header}>
+                    {showPreviousButton && (
+                      <Button
+                        className={s.previousButton}
+                        onClick={onPreviousButton}
+                        variant={'text'}
+                      >
+                        <ArrowIosBack style={{ color: 'red' }} />
+                      </Button>
+                    )}
 
-                  <DialogTitle asChild>
-                    <h2 className={classNames.title}>{title}</h2>
-                  </DialogTitle>
+                    <DialogTitle asChild>
+                      <h2 className={classNames.title}>{title}</h2>
+                    </DialogTitle>
 
-                  {showCloseButton && (
-                    <DialogClose className={classNames.closeButton}>
-                      <Close />
-                    </DialogClose>
-                  )}
-                  {showNextButton && (
-                    <Button className={s.nextButton} onClick={onNextButton} variant={'text'}>
-                      Next
-                    </Button>
-                  )}
-                </header>
+                    {showCloseButton && (
+                      <DialogClose className={classNames.closeButton}>
+                        <Close />
+                      </DialogClose>
+                    )}
+                    {showNextButton && (
+                      <Button className={s.nextButton} onClick={onNextButton} variant={'text'}>
+                        Next
+                      </Button>
+                    )}
+                  </header>
+                )}
                 <div className={classNames.contentBox}>{children}</div>
+                {withoutHeader && (
+                  <Button className={s.closeButtonOut} onClick={handleModalClosed} variant={'text'}>
+                    <Close />
+                  </Button>
+                )}
               </motion.div>
             </DialogContent>
           </DialogPortal>
@@ -147,5 +156,8 @@ function getSizeClassName(size: ModalSize) {
   }
   if (size === 'lg') {
     return s.lg
+  }
+  if (size === 'xlg') {
+    return s.xlg
   }
 }
