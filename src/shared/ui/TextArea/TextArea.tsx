@@ -8,13 +8,14 @@ import s from './TextArea.module.scss'
 import { Typography } from '../Typography/Typography'
 
 export type TextAreaProps = {
+  children?: string
   error?: string
   height?: string
   isRequired?: boolean
   label?: string
   maxLength?: number
-  maxRows?: number
   width?: string
+  withCounter?: boolean
 } & ComponentPropsWithoutRef<'textarea'>
 
 export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
@@ -27,15 +28,15 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
       label,
       id = label,
       maxLength,
-      maxRows = 6,
       onChange,
-      rows = 1,
+      rows = 6,
+      withCounter,
       ...rest
     },
     ref: Ref<HTMLTextAreaElement>
   ) => {
     const { t } = useTranslation()
-    const [value, setValue] = useState('')
+    const [value, setValue] = useState(rest.children ? rest.children : '')
 
     const classes = {
       container: clsx(s.container, className),
@@ -54,14 +55,6 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
       }
     }
 
-    const autoResize = (e: ChangeEvent<HTMLTextAreaElement>) => {
-      e.target.style.height = 'auto'
-      const rowHeight = 24
-      const maxHeight = maxRows * rowHeight
-
-      e.target.style.height = `${Math.min(e.target.scrollHeight, maxHeight)}px`
-    }
-
     return (
       <div className={classes.container}>
         {label && (
@@ -74,22 +67,33 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
           disabled={disabled}
           id={id}
           maxLength={maxLength}
-          onChange={e => {
-            handleChange(e)
-            autoResize(e)
-          }}
+          onChange={handleChange}
           ref={ref}
           rows={rows}
           style={{
             height: rest.height,
-            maxHeight: `${maxRows * 24}px`,
             width: rest.width || '100%',
           }}
           {...rest}
         />
-        {error && (
+        {(error && (
           <Typography as={'span'} className={s.error} variant={'regular-text-14'}>
-            {t.errors.characterLimit}
+            {error}
+          </Typography>
+        )) ||
+          (maxLength && value.length >= maxLength && (
+            <Typography as={'span'} className={s.error} variant={'regular-text-14'}>
+              {t.errors.characterLimit}
+            </Typography>
+          ))}
+        {maxLength && withCounter && value.length < maxLength && (
+          <Typography
+            as={'span'}
+            className={s.label}
+            textAlign={'right'}
+            variant={'regular-text-14'}
+          >
+            {`${value.length}/${maxLength}`}
           </Typography>
         )}
       </div>

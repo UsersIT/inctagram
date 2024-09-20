@@ -85,3 +85,12 @@ export const DefaultLimit: Story = {
     maxLength: 5,
   },
 }
+
+export const DefaultWithCounterAndText: Story = {
+  args: {
+    children: 'Post text',
+    label: 'Text',
+    maxLength: 15,
+    withCounter: true,
+  },
+}
