@@ -16,7 +16,7 @@
 }
 
 .username {
-  grid-area: name;
+  grid-area: username;
   align-self: center;
 }
 
@@ -66,13 +66,13 @@
   .container {
     grid-template:
       "avatar"
-      "name"
+      "username"
       "settingsButton"
       "wrapper"
       "aboutMe";
     grid-template-areas:
       "avatar"
-      "name"
+      "username"
       "settingsButton"
       "wrapper"
       "aboutMe";
@@ -97,7 +97,7 @@
 @media screen and (width <= 768px) {
   .container {
     grid-template-areas:
-      'avatar name'
+      'avatar username'
       'avatar wrapper'
       'avatar aboutMe'
       'buttonSettings.';
@@ -118,7 +118,7 @@
   .container {
     grid-template-areas:
       "avatar"
-      "name"
+      "username"
       "settingsButton"
       "wrapper"
       "aboutMe";
@@ -134,7 +134,7 @@
     height: 72px !important;
   }
 
-  .name {
+  .username {
     font-size: var(--font-size-m);
     line-height: var(--line-height-m);
   }

@@ -12,7 +12,7 @@ type Profile = {
   username?: string
 }
 
-type Props = {
+export type Props = {
   className?: string
   myProfile?: boolean
   ownerId?: number
