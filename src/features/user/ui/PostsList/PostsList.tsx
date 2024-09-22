@@ -1,41 +1,41 @@
-import { useGetPostsQuery } from '@/src/entities/user/api/userApi'
-import { useGetProfileQuery } from '@/src/features/profile'
-import Image from 'next/image'
+import { useGetUserPublicPostsQuery } from '@/src/entities/user/api/userApi'
+import { useGetProfileQuery } from '@/src/features/profile/api/profileApi'
+import { PostImageCard } from '@/src/features/user/ui/PostImageCard/PostImageCard'
+import { Spinner } from '@/src/shared/ui'
 
 import s from './PostsList.module.scss'
 
 export const PostsList = () => {
-  const { data: profile } = useGetProfileQuery()
-
-  const { data: posts } = useGetPostsQuery(
-    { username: profile ? profile.userName : '' },
+  const { data: profile, isLoading: isProfileLoading } = useGetProfileQuery()
+  const { data: posts, isFetching } = useGetUserPublicPostsQuery(
+    {
+      endCursorPostId: 0,
+      pageSize: 8,
+      sortBy: 'createdAt',
+      sortDirection: 'desc',
+      userId: profile ? +profile.id : 0,
+    },
     { skip: !profile }
   )
 
-  //!! Тут нужно доделать отображение картинок, я пока не могу это сделать полностью так, как на бэке баг с картинками
-  //!! Картинки лежат в posts.items.images
+  {
+    isProfileLoading ? <Spinner style={{ height: '130px', width: '130px' }} /> : ''
+  }
 
   return (
     <div className={s.list}>
       {posts?.items.map(post => (
-        <div
+        <PostImageCard
+          alt={post.description || 'No description available'}
+          height={228}
           key={post.id}
-          style={{ aspectRatio: '1/1', backgroundColor: 'grey', overflow: 'hidden' }}
-        >
-          {/*<img alt={post.description} src={post.images?.[0].url} />*/}
-          {
-            <Image
-              alt={post.description}
-              height={300}
-              src={
-                post.images && post.images.length
-                  ? post.images[0].url
-                  : 'https://placehold.co/300x300?text=No+Image'
-              }
-              width={300}
-            />
+          src={
+            post.images && post.images.length
+              ? post.images[0].url
+              : 'https://placehold.co/300x300?text=No+Image'
           }
-        </div>
+          width={234}
+        />
       ))}
     </div>
   )

@@ -1,5 +1,6 @@
 import type { AddAvatarResponse, GetProfileResponse } from '../model/types/api'
 
+import { GeneralInfoFormValues } from '@/src/features/profile/model/schemas/generalInfoValidationSchema'
 import { baseApi } from '@/src/shared/api/baseApi'
 import { apiEndpoints } from '@/src/shared/constants/api'
 

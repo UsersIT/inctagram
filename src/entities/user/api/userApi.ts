@@ -4,8 +4,11 @@ import { apiEndpoints } from '@/src/shared/constants/api'
 import {
   GetFollowersOrFollowingResponse,
   GetFollowersOrFollowingResponseParams,
+  GetPublicPostsResponse,
+  GetPublicUserProfileByIdResponse,
   GetUserPostsParams,
   GetUserPostsResponse,
+  GetUserPublicPostsArgs,
 } from '../model/types/api'
 
 const userApi = baseApi.injectEndpoints({
@@ -34,7 +37,35 @@ const userApi = baseApi.injectEndpoints({
         url: `${apiEndpoints.posts.postsByUsername(username)}?${new URLSearchParams(query as Record<string, string>).toString()}`,
       }),
     }),
+    getPublicUserProfileById: builder.query<
+      GetPublicUserProfileByIdResponse,
+      { profileId: number }
+    >({
+      providesTags: [],
+      query: ({ profileId }) => ({
+        method: 'GET',
+        url: `v1/public-user/profile/${profileId}`,
+      }),
+    }),
+    getUserPublicPosts: builder.query<GetPublicPostsResponse, GetUserPublicPostsArgs>({
+      providesTags: [],
+      query: args => ({
+        method: 'GET',
+        params: {
+          pageSize: args.pageSize,
+          sortBy: args.sortBy,
+          sortDirection: args.sortDirection,
+        },
+        url: `v1/public-posts/user/${args.userId}/${args.endCursorPostId}`,
+      }),
+    }),
   }),
 })
 
-export const { useGetFollowersQuery, useGetFollowingQuery, useGetPostsQuery } = userApi
+export const {
+  useGetFollowersQuery,
+  useGetFollowingQuery,
+  useGetPostsQuery,
+  useGetPublicUserProfileByIdQuery,
+  useGetUserPublicPostsQuery,
+} = userApi

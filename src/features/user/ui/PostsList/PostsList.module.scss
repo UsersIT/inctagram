@@ -1,11 +1,32 @@
-/* stylelint-disable-next-line scss/double-slash-comment-whitespace-inside */
-//!! Скорее всего нужно добавить адаптив
-
 .list {
   display: grid;
+  grid-auto-rows: min-content;
   grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
+  gap: 12px;
 
-  width: 100%;
-  max-width: 972px;
+  margin: 12px 0 0;
+}
+
+@media screen and (width <= 1024px) {
+  .list {
+    grid-template-columns: repeat(3, 1fr);
+    width: 90%;
+  }
+}
+
+@media screen and (width <= 768px) {
+  .list {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+    width: 90%;
+    margin: 6px 0 0;
+  }
+}
+
+
+@media screen and (width <= 576px) {
+  .list {
+    gap: 4px;
+    padding: 0;
+  }
 }

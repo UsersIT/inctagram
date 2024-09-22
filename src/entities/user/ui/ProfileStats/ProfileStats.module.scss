@@ -1,9 +1,25 @@
-/* stylelint-disable-next-line scss/double-slash-comment-whitespace-inside */
-//!! Скорее всего нужно добавить адаптив
-
 .stats {
   display: flex;
   gap: 100px;
   justify-content: space-between;
   width: 50%;
+}
+
+
+@media screen and (width <= 768px) {
+  .stats {
+    gap: 15px;
+    justify-content: space-between;
+    font-size: var(--font-size-m);
+    line-height: var(--line-height-m);
+  }
+}
+
+@media screen and (width <= 576px) {
+  .stats {
+    gap: 5px;
+    width: 100%;
+    margin: 5px;
+    font-size: var(--font-size-xs);
+  }
 }

@@ -1,34 +1,110 @@
-/* stylelint-disable-next-line scss/double-slash-comment-whitespace-inside */
-//!! Скорее всего нужно добавить адаптив
-
 .header {
   display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 38px;
+  grid-auto-rows: min-content;
+  grid-template: auto / auto 1fr;
+  grid-template-areas:
+    'avatar name settings'
+    'avatar stats stats'
+    'avatar aboutMe aboutMe';
+  gap: 24px;
 
   width: 100%;
   max-width: 972px;
   min-height: 200px;
-  margin-bottom: 16px;
+  margin: 12px auto 48px;
+}
+
+.aboutMe {
+  overflow: hidden;
+  display: -webkit-box;
+  grid-area: aboutMe;
+
+  text-overflow: ellipsis;
+  word-break: break-all;
+
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 6;
+}
+
+.settings {
+  grid-area: settings;
+  align-self: center;
 }
 
 .avatar {
-  width: 200px;
-  height: 200px;
+  grid-area: avatar;
+  align-self: flex-start ;
+  object-fit: cover;
 }
 
-.infoHeader {
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-  justify-content: space-between;
+.name {
+  grid-area: name;
+  font-weight: bold;
 }
 
-.info {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  justify-content: space-between;
+.stats {
+  grid-area: stats;
+}
 
-  padding: 0.5rem 0;
+@media screen and (width <= 1024px) {
+  .header {
+    width: 90%;
+    max-width: 948px;
+  }
+
+}
+
+@media screen and (width <= 768px) {
+  .header {
+    grid-template-areas:
+      'avatar settings'
+      'avatar stats'
+      'avatar aboutMe'
+      'name .';
+    grid-template-rows: 36px min-content auto;
+    max-width: 768px;
+    margin-bottom: 30px;
+  }
+
+  .name {
+    text-align: start;
+  }
+
+  .avatar {
+    width: 144px ;
+    height: 144px;
+  }
+
+}
+
+@media screen and (width <= 576px) {
+  .header {
+    grid-template-areas:
+      'avatar stats'
+      'name .'
+      'aboutMe aboutMe';
+    grid-template-rows: auto;
+    place-items: center center;
+  }
+
+  .avatar {
+    width: 72px ;
+    height: 72px;
+  }
+
+  .name {
+    left: 0;
+    font-size: var(--font-size-m);
+    line-height: var(--line-height-m);
+
+  }
+
+  .aboutMe {
+    font-size: var(--font-size-s);
+    line-height: var(--line-height-m);
+  }
+
+  .settings {
+    display: none;
+  }
 }
