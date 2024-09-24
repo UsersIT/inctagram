@@ -1,5 +1,5 @@
-import { ProfileHeader } from '@/src/features/profile/ui/ProfileHeader/ProfileHeader'
-import { PostsList } from '@/src/features/user/ui/PostsList/PostsList'
+import { ProfileHeader } from '@/src/features/profile'
+import { PostsList } from '@/src/features/user'
 
 import s from './ProfilePage.module.scss'
 

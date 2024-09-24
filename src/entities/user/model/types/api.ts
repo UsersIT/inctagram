@@ -1,5 +1,5 @@
 import { Post } from '@/src/entities/user/model/types/instances'
-import { GetProfileResponse } from '@/src/features/profile/model/types/api'
+import { GetProfileResponse } from '@/src/features/profile'
 
 export type ImageType = {
   fileSize: number

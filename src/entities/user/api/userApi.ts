@@ -44,7 +44,7 @@ const userApi = baseApi.injectEndpoints({
       providesTags: [],
       query: ({ profileId }) => ({
         method: 'GET',
-        url: `v1/public-user/profile/${profileId}`,
+        url: `${apiEndpoints.public.user.userProfileById}${profileId}`,
       }),
     }),
     getUserPublicPosts: builder.query<GetPublicPostsResponse, GetUserPublicPostsArgs>({
@@ -56,7 +56,7 @@ const userApi = baseApi.injectEndpoints({
           sortBy: args.sortBy,
           sortDirection: args.sortDirection,
         },
-        url: `v1/public-posts/user/${args.userId}/${args.endCursorPostId}`,
+        url: `${apiEndpoints.public.posts.allByUserIdWithPagination}${args.userId}/${args.endCursorPostId}`,
       }),
     }),
   }),

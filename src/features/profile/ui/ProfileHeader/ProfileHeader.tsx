@@ -1,9 +1,9 @@
 import {
+  ProfileStats,
   useGetFollowersQuery,
   useGetFollowingQuery,
   useGetPostsQuery,
-} from '@/src/entities/user/api/userApi'
-import { ProfileStats } from '@/src/entities/user/ui/ProfileStats/ProfileStats'
+} from '@/src/entities/user'
 import { useMeQuery } from '@/src/features/auth'
 import { useGetProfileQuery } from '@/src/features/profile'
 import { routes } from '@/src/shared/constants/routes'
