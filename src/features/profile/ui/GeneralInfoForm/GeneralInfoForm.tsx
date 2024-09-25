@@ -1,7 +1,8 @@
-import { ComponentProps, useEffect, useState } from 'react'
+import React, { ComponentProps, useEffect, useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { toast } from 'react-toastify'
 
+import { routes } from '@/src/shared/constants/routes'
 import { useTranslation } from '@/src/shared/hooks'
 import {
   Button,
@@ -123,7 +124,9 @@ export const GeneralInfoForm = ({ className }: ComponentProps<'form'>) => {
       })
   }, [getProfile, setValue, t.errors.somethingWentWrong, trigger])
 
-  const onPrivacyPolicyClick = () => {
+  const onPrivacyPolicyClick = async (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    event.preventDefault()
+
     const values = getValues()
     const params = new URLSearchParams({
       ...values,
@@ -132,7 +135,9 @@ export const GeneralInfoForm = ({ className }: ComponentProps<'form'>) => {
       dateOfBirth: values.dateOfBirth?.toISOString() ?? '',
     })
 
-    void router.replace({ pathname: window.location.pathname, query: params.toString() })
+    await router.replace({ pathname: window.location.pathname, query: params.toString() })
+
+    void router.push({ pathname: routes.PRIVACY_POLICY, query: null })
   }
 
   useEffect(() => {

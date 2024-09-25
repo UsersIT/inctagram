@@ -1,0 +1,110 @@
+.header {
+  display: grid;
+  grid-auto-rows: min-content;
+  grid-template: auto / auto 1fr;
+  grid-template-areas:
+    'avatar name btn'
+    'avatar stats stats'
+    'avatar aboutMe aboutMe';
+  gap: 24px;
+
+  width: 100%;
+  max-width: 972px;
+  min-height: 200px;
+  margin: 12px auto 48px;
+}
+
+.aboutMe {
+  overflow: hidden;
+  display: -webkit-box;
+  grid-area: aboutMe;
+
+  text-overflow: ellipsis;
+  word-break: break-all;
+
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 6;
+}
+
+.btn {
+  grid-area: btn;
+  align-self: center;
+}
+
+.avatar {
+  grid-area: avatar;
+  align-self: flex-start ;
+  object-fit: cover;
+}
+
+.name {
+  grid-area: name;
+  font-weight: bold;
+}
+
+.stats {
+  grid-area: stats;
+}
+
+@media screen and (width <= 1024px) {
+  .header {
+    width: 90%;
+    max-width: 948px;
+  }
+
+}
+
+@media screen and (width <= 768px) {
+  .header {
+    grid-template-areas:
+      'avatar btn'
+      'avatar stats'
+      'avatar aboutMe'
+      'name .';
+    grid-template-rows: 36px min-content auto;
+    max-width: 768px;
+    margin-bottom: 30px;
+  }
+
+  .name {
+    text-align: start;
+  }
+
+  .avatar {
+    width: 144px ;
+    height: 144px;
+  }
+
+}
+
+@media screen and (width <= 576px) {
+  .header {
+    grid-template-areas:
+      'avatar stats'
+      'name .'
+      'aboutMe aboutMe';
+    grid-template-rows: auto;
+    place-items: center center;
+  }
+
+  .avatar {
+    width: 72px ;
+    height: 72px;
+  }
+
+  .name {
+    left: 0;
+    font-size: var(--font-size-m);
+    line-height: var(--line-height-m);
+
+  }
+
+  .aboutMe {
+    font-size: var(--font-size-s);
+    line-height: var(--line-height-m);
+  }
+
+  .btn {
+    display: none;
+  }
+}
