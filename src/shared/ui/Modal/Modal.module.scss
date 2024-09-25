@@ -18,7 +18,7 @@ $color-bg-element: var(--color-dark-300);
   left: 50%;
   transform: translate(-50%, -50%);
 
-  overflow: auto;
+  overflow: visible;
 
   max-height: calc(100% - 32px);
 
@@ -38,11 +38,16 @@ $color-bg-element: var(--color-dark-300);
     width: 644px;
   }
 
+  &.xlg {
+    width: 972px;
+  }
+
   @media screen and (width <= 768px) {
     &,
     &.sm,
     &.md,
-    &.lg {
+    &.lg,
+    &.xlg, {
       width: calc(100% - 32px);
     }
   }
@@ -107,4 +112,35 @@ $color-bg-element: var(--color-dark-300);
 
 .previousButton {
   padding: 0;
+}
+
+.closeButtonOut {
+  cursor: pointer;
+
+  position: fixed;
+  top: -40px;
+  right: -40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 36px;
+  height: 36px;
+  padding: 0;
+
+  color: white;
+
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+
+  transition: $transition-duration-basic background-color;
+
+  &:hover,
+  &:focus-visible {
+    color: white;
+    background-color: $color-modal-element-hover;
+    outline: none;
+  }
 }
