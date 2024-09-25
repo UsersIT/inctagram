@@ -1,14 +1,13 @@
-import { Button } from '@/src/shared/ui'
-import Link from 'next/link'
+import { PostsList } from '@/src/features/posts'
+import { ProfileInfo } from '@/src/features/profile'
 
 import s from './ProfilePage.module.scss'
 
 export const ProfilePage = () => {
   return (
     <main className={s.page}>
-      <Button as={Link} href={'/profile/settings'} variant={'secondary'}>
-        Profile Settings
-      </Button>
+      <ProfileInfo />
+      <PostsList />
     </main>
   )
 }

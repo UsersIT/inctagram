@@ -1,4 +1,10 @@
-import type { AddAvatarResponse, GetProfileResponse } from '../model/types/api'
+import type {
+  AddAvatarResponse,
+  GetFollowersOrFollowingResponse,
+  GetFollowersOrFollowingResponseParams,
+  GetProfileResponse,
+  UserProfile,
+} from '../model/types/api'
 
 import { GeneralInfoFormValues } from '@/src/features/profile/model/schemas/generalInfoValidationSchema'
 import { baseApi } from '@/src/shared/api/baseApi'
@@ -27,10 +33,35 @@ const profileApi = baseApi.injectEndpoints({
         url: apiEndpoints.profile.avatar,
       }),
     }),
+    getFollowers: builder.query<
+      GetFollowersOrFollowingResponse,
+      GetFollowersOrFollowingResponseParams
+    >({
+      query: ({ query, username }) => ({
+        method: 'GET',
+        url: `${apiEndpoints.followingAndFollowers.userFollowers(username)}?${new URLSearchParams(query as Record<string, string>).toString()}`,
+      }),
+    }),
+    getFollowing: builder.query<
+      GetFollowersOrFollowingResponse,
+      GetFollowersOrFollowingResponseParams
+    >({
+      query: ({ query, username }) => ({
+        method: 'GET',
+        url: `${apiEndpoints.followingAndFollowers.userFollowing(username)}?${new URLSearchParams(query as Record<string, string>).toString()}`,
+      }),
+    }),
     getProfile: builder.query<GetProfileResponse, void>({
       query: () => ({
         method: 'GET',
         url: apiEndpoints.profile.profile,
+      }),
+    }),
+    getPublicUserProfileById: builder.query<UserProfile, { profileId: number }>({
+      providesTags: [],
+      query: ({ profileId }) => ({
+        method: 'GET',
+        url: `${apiEndpoints.public.user.userProfileById}${profileId}`,
       }),
     }),
     updateProfile: builder.mutation<void, Partial<GeneralInfoFormValues>>({
@@ -41,7 +72,7 @@ const profileApi = baseApi.injectEndpoints({
       }),
     }),
     uploadAvatar: builder.mutation<AddAvatarResponse, FormData>({
-      async onQueryStarted(args, { dispatch, queryFulfilled }) {
+      async onQueryStarted(_, { dispatch, queryFulfilled }) {
         let avatarURL: string | undefined
         let result
 
@@ -51,7 +82,7 @@ const profileApi = baseApi.injectEndpoints({
           result = dispatch(
             profileApi.util.updateQueryData('getProfile', undefined, draft => {
               if (data.avatar) {
-                draft.avatars = [data.avatar] // обновляем аватар в профиле
+                draft.avatars = [data.avatar]
               }
             })
           )
@@ -72,7 +103,10 @@ const profileApi = baseApi.injectEndpoints({
 
 export const {
   useDeleteAvatarMutation,
+  useGetFollowersQuery,
+  useGetFollowingQuery,
   useGetProfileQuery,
+  useGetPublicUserProfileByIdQuery,
   useLazyGetProfileQuery,
   useUpdateProfileMutation,
   useUploadAvatarMutation,
