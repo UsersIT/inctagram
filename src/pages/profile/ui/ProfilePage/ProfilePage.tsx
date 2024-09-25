@@ -1,5 +1,5 @@
 import { PostsList } from '@/src/features/posts'
-import { ProfileInfo } from '@/src/features/profile/ui/ProfileInfo/ProfileInfo'
+import { ProfileInfo } from '@/src/features/profile'
 
 import s from './ProfilePage.module.scss'
 
