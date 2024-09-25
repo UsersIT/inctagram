@@ -1,5 +1,3 @@
 export { useGetProfileQuery } from './api/profileApi'
-export type { GetProfileResponse } from './model/types/api'
 export { GeneralInfoForm } from './ui/GeneralInfoForm/GeneralInfoForm'
-export { ProfileHeader } from './ui/ProfileHeader/ProfileHeader'
 export { ProfilePhoto } from './ui/ProfilePhoto/ProfilePhoto'

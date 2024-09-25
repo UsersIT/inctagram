@@ -1,6 +1,6 @@
-import { useGetUserPublicPostsQuery } from '@/src/entities/user/api/userApi'
+import { PostImageCard } from '@/src/entities/post'
+import { useGetUserPublicPostsQuery } from '@/src/features/posts/api/postApi'
 import { useGetProfileQuery } from '@/src/features/profile/api/profileApi'
-import { PostImageCard } from '@/src/features/user/ui/PostImageCard/PostImageCard'
 import { Spinner } from '@/src/shared/ui'
 
 import s from './PostsList.module.scss'
@@ -24,7 +24,7 @@ export const PostsList = () => {
 
   return (
     <div className={s.list}>
-      {posts?.items.map(post => (
+      {posts?.items.map((post: { description: any; id: any; images: any[] | string }) => (
         <PostImageCard
           alt={post.description || 'No description available'}
           height={228}

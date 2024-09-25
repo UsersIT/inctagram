@@ -3,7 +3,7 @@
   grid-auto-rows: min-content;
   grid-template: auto / auto 1fr;
   grid-template-areas:
-    'avatar name settings'
+    'avatar name btn'
     'avatar stats stats'
     'avatar aboutMe aboutMe';
   gap: 24px;
@@ -26,8 +26,8 @@
   -webkit-line-clamp: 6;
 }
 
-.settings {
-  grid-area: settings;
+.btn {
+  grid-area: btn;
   align-self: center;
 }
 
@@ -57,7 +57,7 @@
 @media screen and (width <= 768px) {
   .header {
     grid-template-areas:
-      'avatar settings'
+      'avatar btn'
       'avatar stats'
       'avatar aboutMe'
       'name .';
@@ -104,7 +104,7 @@
     line-height: var(--line-height-m);
   }
 
-  .settings {
+  .btn {
     display: none;
   }
 }
