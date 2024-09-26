@@ -76,7 +76,7 @@ export const PostPublicationForm: React.FC<Props> = ({ images, onSuccess }) => {
         }
 
         await uploadPost(postDescription).unwrap()
-        toast.success(t.pages.create.postPublicationForm.success)
+        // toast.success(t.pages.create.postPublicationForm.success)
         onSuccess()
       } catch (err) {
         const error = err as { data: ApiErrorResult }

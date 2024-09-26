@@ -17,7 +17,7 @@ const postApi = baseApi.injectEndpoints({
       }),
     }),
     getUserPublicPosts: builder.query<GetPublicPostsResponse, GetUserPublicPostsArgs>({
-      providesTags: [],
+      providesTags: ['UserPosts'],
       query: args => ({
         method: 'GET',
         params: {

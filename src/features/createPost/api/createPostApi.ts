@@ -7,7 +7,7 @@ import { apiEndpoints } from '@/src/shared/constants/api'
 export const createPostApi = baseApi.injectEndpoints({
   endpoints: builder => ({
     uploadPost: builder.mutation<Post, PostDescription>({
-      //invalidatesTags: ['UserPosts'],
+      invalidatesTags: ['UserPosts'],
       query: body => ({
         body,
         method: 'POST',
