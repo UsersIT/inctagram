@@ -1,4 +1,4 @@
-import React, { PropsWithChildren, useState } from 'react'
+import React, { useState } from 'react'
 
 import { useTranslation } from '@/src/shared/hooks'
 import { clsx } from 'clsx'
@@ -14,15 +14,15 @@ import { Typography } from '../Typography/Typography'
 export type ImageUploaderProps = {
   schema: ZodEffects<any>
   setFile: (file: File) => void
-} & PropsWithChildren
+} & React.ComponentProps<'input'>
 
-export const ImageUploader = ({ schema, setFile }: ImageUploaderProps) => {
+export const ImageUploader = ({ className, schema, setFile, ...rest }: ImageUploaderProps) => {
   const [error, setError] = useState('')
   const { t } = useTranslation()
 
   const classes = {
     button: s.button,
-    container: clsx(s.container, { [s.error]: error }),
+    container: clsx(s.container, { [s.error]: error }, className),
     errorMassage: clsx(s.massage, { [s.error]: error }),
     errorWrapper: clsx(s.errorContainer, { [s.error]: error }),
     iconWrapper: s.svgWrapper,
@@ -52,6 +52,7 @@ export const ImageUploader = ({ schema, setFile }: ImageUploaderProps) => {
             {t.buttons.imageUploader}
           </Button>
         }
+        {...rest}
       />
     </div>
   )
