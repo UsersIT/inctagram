@@ -32,6 +32,7 @@
     "axios": "1.6.7",
     "clsx": "2.1.0",
     "framer-motion": "11.0.24",
+    "localforage": "1.10.0",
     "next": "14.1.1",
     "react": "^18",
     "react-dom": "^18",
