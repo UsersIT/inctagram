@@ -2,6 +2,8 @@ import { LocaleType } from '@/src/shared/locales/ru'
 
 export const en: LocaleType = {
   buttons: {
+    apply: 'Apply',
+    aspectRatioSelect: 'Aspect ratio select',
     back: 'Go Back',
     backToSignIn: 'Back to Sign In',
     backToSignUp: 'Back to Sign Up',
@@ -9,9 +11,12 @@ export const en: LocaleType = {
     closeSearchFieldIcon: 'Delete the entered search query',
     confirmButtonTitle: 'Yes',
     createNewPassword: 'Create new password',
+    deletePhoto: 'Delete photo',
     expandMenu: 'Expand menu',
     eyeIcon: 'Hide the entered password',
     eyeOffIcon: 'Show the entered password',
+    hideUploadedPhotosList: 'Hide uploaded photos list',
+    hideZoomSelector: 'Hide zoom selector',
     imageUploader: 'Download from device',
     languageSelection: 'Language selection',
     login: 'Log in',
@@ -23,8 +28,14 @@ export const en: LocaleType = {
     save: 'Save',
     sendLink: 'Send Link',
     sendLinkAgain: 'Send Link Again',
+    showNextPhoto: 'Show next photo',
+    showPhoto: 'Show photo',
+    showPreviousPhoto: 'Show previous photo',
+    showUploadedPhotosList: 'Show uploaded photos list',
+    showZoomSelector: 'Show zoom selector',
     signIn: 'Sign In',
     signUp: 'Sign Up',
+    uploadMore: 'Upload more',
   },
   calendar: {
     months: {
@@ -83,6 +94,30 @@ export const en: LocaleType = {
     statistics: 'Statistics',
   },
   pages: {
+    create: {
+      closeModal: {
+        discard: 'Discard',
+        saveDraft: 'Save Draft',
+        text: 'Do you really want to close the creation of a publication? If you close everything will be deleted.',
+        title: 'Close',
+      },
+      filter: 'Filter',
+      filtersList: 'Filters list',
+      openDraft: 'Open draft',
+      original: 'Original',
+      photosList: 'List of uploaded photos',
+      postPublicationForm: {
+        list: 'List of photos for publication',
+        success:
+          'Post was successfully created. It will be published after the moderation. Thank you!',
+      },
+      steps: {
+        0: 'Add photo',
+        1: 'Cropping',
+        2: 'Filters',
+        3: 'Publication',
+      },
+    },
     createNewPassword: {
       instruction: 'Your password must be between 6 and 20 characters.',
       title: 'Create New Password',
