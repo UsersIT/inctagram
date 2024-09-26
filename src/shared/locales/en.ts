@@ -23,6 +23,7 @@ export const en: LocaleType = {
     logout: 'Log Out',
     openMenu: 'Open menu',
     profileSettings: 'Profile Settings',
+    publish: 'Publish',
     resendLink: 'Resend verification link',
     resendLinkRecovery: 'Resend link',
     save: 'Save',
@@ -74,6 +75,7 @@ export const en: LocaleType = {
   },
   label: {
     aboutMe: 'About Me',
+    addPublicationDescriptions: 'Add publication descriptions',
     city: 'Enter your city',
     dateOfBirth: 'Date of Birth',
     email: 'Email',
@@ -196,6 +198,7 @@ export const en: LocaleType = {
   },
   placeholders: {
     city: 'City',
+    description: 'Description',
     email: 'email@picthentic.online',
     password: '**********',
   },

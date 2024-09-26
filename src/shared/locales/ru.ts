@@ -21,6 +21,7 @@ export const ru = {
     logout: 'Выйти',
     openMenu: 'Открыть меню',
     profileSettings: 'Настройки профиля',
+    publish: 'Опубликовать',
     resendLink: 'Отправить повторно',
     resendLinkRecovery: 'Отправить ссылку повторно',
     save: 'Сохранить',
@@ -73,6 +74,7 @@ export const ru = {
   },
   label: {
     aboutMe: 'О себе',
+    addPublicationDescriptions: 'Добавьте описание публикации',
     city: 'Введите Ваш город',
     dateOfBirth: 'Дата рождения',
     email: 'Электронная почта',
@@ -196,6 +198,7 @@ export const ru = {
   },
   placeholders: {
     city: 'Город',
+    description: 'Описание',
     email: 'email@picthentic.online',
     password: '**********',
   },
