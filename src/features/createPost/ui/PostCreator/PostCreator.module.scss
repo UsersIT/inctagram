@@ -1,0 +1,38 @@
+.contentBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imageUploaderContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  padding-bottom: 48px;
+}
+
+.button {
+  width: 250px;
+}
+
+.cropperContainer {
+  position: relative;
+  width: 490px;
+  height: 503px;
+}
+
+@media screen and (width <= 768px) {
+  .modal {
+    & header {
+      padding-inline: 15px;
+
+      button {
+        font-size: var(--font-size-s);
+      }
+    }
+  }
+}
