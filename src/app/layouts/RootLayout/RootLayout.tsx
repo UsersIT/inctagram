@@ -12,15 +12,7 @@ type Props = {
 }
 
 const RootLayout = ({ children }: Props) => {
-  const { data: isAuth, isLoading } = useMeQuery()
-
-  if (isLoading) {
-    return (
-      <div className={s.loader}>
-        <Spinner />
-      </div>
-    )
-  }
+  const { data: isAuth } = useMeQuery()
 
   const content = isAuth ? (
     <>
