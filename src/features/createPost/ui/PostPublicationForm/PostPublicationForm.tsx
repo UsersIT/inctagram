@@ -76,12 +76,11 @@ export const PostPublicationForm: React.FC<Props> = ({ images, onSuccess }) => {
         }
 
         await uploadPost(postDescription).unwrap()
-        // toast.success(t.pages.create.postPublicationForm.success)
         onSuccess()
       } catch (err) {
         const error = err as { data: ApiErrorResult }
 
-        if (error.data.statusCode === 400) {
+        if (error.data && error.data.statusCode === 400) {
           toast.error(error.data.messages[0]?.message)
         } else {
           toast.error(t.errors.somethingWentWrong)
