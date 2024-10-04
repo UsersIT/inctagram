@@ -1,7 +1,7 @@
 import type { FC, ReactElement, ReactNode } from 'react'
 
 import { useMeQuery } from '@/src/features/auth'
-import { ScrollArea, ScrollBar, Spinner } from '@/src/shared/ui'
+import { ScrollArea, ScrollBar } from '@/src/shared/ui'
 import { Header } from '@/src/widgets/header'
 import { Bottombar, Sidebar } from '@/src/widgets/sidebar'
 
@@ -12,7 +12,7 @@ type Props = {
 }
 
 const RootLayout = ({ children }: Props) => {
-  const { data: isAuth } = useMeQuery()
+  const { data: isAuth, isLoading } = useMeQuery()
 
   const content = isAuth ? (
     <>
@@ -36,7 +36,7 @@ const RootLayout = ({ children }: Props) => {
 
   return (
     <div className={s.root}>
-      <Header isAuth={!!isAuth} />
+      <Header isAuth={!!isAuth} isLoading={isLoading} />
       {content}
     </div>
   )
