@@ -84,7 +84,7 @@
       'name .'
       'aboutMe aboutMe';
     grid-template-rows: auto;
-    place-items: center center;
+    place-items: center center
   }
 
   .avatar {
@@ -93,7 +93,6 @@
   }
 
   .name {
-    left: 0;
     font-size: var(--font-size-m);
     line-height: var(--line-height-m);
 

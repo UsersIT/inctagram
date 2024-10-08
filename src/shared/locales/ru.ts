@@ -172,6 +172,7 @@ export const ru = {
     followers: 'Подписчики',
     following: 'Подписки',
     logOutConfirmation: 'Вы действительно хотите выйти из своей учетной записи?',
+    noPublications: 'Публикаций пока нет!',
     publications: 'Публикации',
     success: 'Успешно!',
     updatedPhoto: 'Фотография профиля успешно обновлена!',
