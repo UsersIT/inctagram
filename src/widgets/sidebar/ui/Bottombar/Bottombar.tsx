@@ -18,6 +18,7 @@ export const Bottombar: FC<ComponentProps<'div'>> = ({ className }) => {
           {bottombarNavItems.map(navItem => (
             <NavItem
               activeIcon={navItem.activeIcon}
+              asPath={navItem.asPath}
               collapsed
               icon={navItem.icon}
               key={navItem.label}

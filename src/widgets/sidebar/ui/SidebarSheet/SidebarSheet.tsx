@@ -27,6 +27,7 @@ export const SidebarSheet = ({ onOpenChange, open }: Props) => {
               {sidebarNavItems.map(navItem => (
                 <NavItem
                   activeIcon={navItem.activeIcon}
+                  asPath={navItem.asPath}
                   className={navItem.className ? sidebarStyles[navItem.className] : ''}
                   collapsed={false}
                   icon={navItem.icon}

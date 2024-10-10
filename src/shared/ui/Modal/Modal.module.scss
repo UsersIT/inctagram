@@ -38,8 +38,17 @@ $color-bg-element: var(--color-dark-300);
     width: 644px;
   }
 
+  &.xlg {
+    width: 972px;
+  }
+
+  @media screen and (width <= 972px) {
+    &.xlg {
+      width: calc(100% - 32px);
+    }
+  }
+
   @media screen and (width <= 768px) {
-    &,
     &.sm,
     &.md,
     &.lg {

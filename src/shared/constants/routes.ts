@@ -1,5 +1,5 @@
 export const routes = {
-  CREATE: '/create',
+  CREATE: '/profile/?modal=create',
   FAVORITES: '/favorites',
   FORGOT_PASSWORD: '/auth/forgot-password',
   HOME: '/',

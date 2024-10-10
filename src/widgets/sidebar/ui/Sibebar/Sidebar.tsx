@@ -58,6 +58,7 @@ export const Sidebar: FC<ComponentProps<'aside'>> = ({ className }) => {
               {sidebarNavItems.map(navItem => (
                 <NavItem
                   activeIcon={navItem.activeIcon}
+                  asPath={navItem.asPath}
                   className={navItem.className ? s[navItem.className] : ''}
                   collapsed
                   icon={navItem.icon}
