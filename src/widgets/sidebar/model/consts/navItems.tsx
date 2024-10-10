@@ -19,6 +19,7 @@ import { NavItem } from '../types/navItem'
 export const navItems: Record<string, NavItem> = {
   create: {
     activeIcon: <PlusSquare />,
+    asPath: routes.PROFILE,
     icon: <PlusSquareOutline />,
     label: 'create',
     path: routes.CREATE,

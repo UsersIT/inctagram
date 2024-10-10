@@ -4,6 +4,7 @@ import { JSX } from 'react'
 
 export type NavItem = {
   activeIcon?: JSX.Element
+  asPath?: string
   className?: string
   icon: JSX.Element
   label: keyof LocaleType['navigation']

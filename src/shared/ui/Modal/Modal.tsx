@@ -16,7 +16,7 @@ import s from './Modal.module.scss'
 import { ArrowIosBack, Close } from '../../assets/icons'
 import { Button } from '../Button/Button'
 
-export type ModalSize = 'lg' | 'md' | 'sm'
+export type ModalSize = 'lg' | 'md' | 'sm' | 'xlg'
 
 export type ModalProps = {
   onClose?: () => void
@@ -74,7 +74,7 @@ export const Modal: FC<ModalProps> = props => {
 
   const classNames = {
     closeButton: s.closeButton,
-    content: getContentClassName(size, className),
+    content: clsx(className, s.content, s[size]),
     contentBox: s.contentBox,
     header: s.header,
     overlay: s.overlay,
@@ -103,7 +103,7 @@ export const Modal: FC<ModalProps> = props => {
                       onClick={onPreviousButton}
                       variant={'text'}
                     >
-                      <ArrowIosBack style={{ color: 'red' }} />
+                      <ArrowIosBack />
                     </Button>
                   )}
 
@@ -130,22 +130,4 @@ export const Modal: FC<ModalProps> = props => {
       </AnimatePresence>
     </Dialog>
   )
-}
-
-function getContentClassName(size: ModalSize, className?: string) {
-  const sizeClassName = getSizeClassName(size)
-
-  return clsx(className, s.content, sizeClassName)
-}
-
-function getSizeClassName(size: ModalSize) {
-  if (size === 'sm') {
-    return s.sm
-  }
-  if (size === 'md') {
-    return s.md
-  }
-  if (size === 'lg') {
-    return s.lg
-  }
 }

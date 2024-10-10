@@ -1,0 +1,111 @@
+.root {
+  position: relative;
+
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carouselButton {
+  all: unset;
+
+  cursor: pointer;
+
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  display: flex;
+
+  background-color: rgb(51 51 51 / 75%);
+  border-radius: 2px;
+
+  &:focus-visible {
+    outline: 2px solid var(--color-accent-500);
+  }
+}
+
+.left {
+  left: 12px;
+}
+
+.right {
+  right: 12px;
+}
+
+.disabled {
+  cursor: initial;
+  opacity: 0.35;
+}
+
+.dotsContainer {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translate(-50%);
+
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+
+  padding: 8px;
+
+  background: rgba(51 51 51 / 50%);
+  border-radius: 2px;
+}
+
+.dot {
+  all: unset;
+
+  cursor: pointer;
+
+  width: 8px;
+  height: 8px;
+
+  background-color: var(--color-light-100);
+  border-radius: 50%;
+
+  transition: transform 0.2s ease;
+
+  &.active,
+  &:active {
+    background-color: var(--color-accent-500);
+  }
+
+  &:hover {
+    transform: scale(1.2);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-accent-500);
+  }
+}
+
+@media screen and (width <= 972px) {
+  .carouselButton > svg {
+    width: 36px;
+    height: 36px;
+  }
+
+  .left {
+    left: 6px;
+  }
+
+  .right {
+    right: 6px;
+  }
+}
+
+@media screen and (width <= 540px) {
+  .dotsContainer {
+    gap: 6px;
+    padding: 6px;
+  }
+
+  .dot {
+    width: 6px;
+    height: 6px;
+  }
+}

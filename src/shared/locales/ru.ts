@@ -1,5 +1,7 @@
 export const ru = {
   buttons: {
+    apply: 'Применить',
+    aspectRatioSelect: 'Выбор соотношения сторон',
     back: 'Вернуться назад',
     backToSignIn: 'Вернуться ко входу',
     backToSignUp: 'Вернуться к регистрации',
@@ -7,22 +9,32 @@ export const ru = {
     closeSearchFieldIcon: 'Удалить введённый поисковый запрос',
     confirmButtonTitle: 'Да',
     createNewPassword: 'Создать новый пароль',
+    deletePhoto: 'Удалить фото',
     expandMenu: 'Развернуть меню',
     eyeIcon: 'Скрыть введённый пароль',
     eyeOffIcon: 'Показать введённый пароль',
+    hideUploadedPhotosList: 'Скрыть список загруженных фотографий',
+    hideZoomSelector: 'Скрыть селектор масштабирования',
     imageUploader: 'Загрузить с устройства',
     languageSelection: 'Выбор языка',
     login: 'Войти',
     logout: 'Выйти',
     openMenu: 'Открыть меню',
     profileSettings: 'Настройки профиля',
+    publish: 'Опубликовать',
     resendLink: 'Отправить повторно',
     resendLinkRecovery: 'Отправить ссылку повторно',
     save: 'Сохранить',
     sendLink: 'Отправить ссылку',
     sendLinkAgain: 'Отправить ссылку повторно',
+    showNextPhoto: 'Показать следующее фото',
+    showPhoto: 'Показать фото',
+    showPreviousPhoto: 'Показать предыдущее фото',
+    showUploadedPhotosList: 'Показать список загруженных фотографий',
+    showZoomSelector: 'Показать селектор масштабирования',
     signIn: 'Войти',
     signUp: 'Зарегистрироваться',
+    uploadMore: 'Загрузить ещё',
   },
   calendar: {
     months: {
@@ -62,6 +74,7 @@ export const ru = {
   },
   label: {
     aboutMe: 'О себе',
+    addPublicationDescriptions: 'Добавьте описание публикации',
     city: 'Введите Ваш город',
     dateOfBirth: 'Дата рождения',
     email: 'Электронная почта',
@@ -82,6 +95,29 @@ export const ru = {
     statistics: 'Статистика',
   },
   pages: {
+    create: {
+      closeModal: {
+        discard: 'Отменить',
+        saveDraft: 'Создать черновик',
+        text: 'Вы действительно хотите закрыть создание публикации? Если Вы закроете, все будет удалено.',
+        title: 'Закрыть',
+      },
+      filter: 'Фильтр',
+      filtersList: 'Список фильтров',
+      openDraft: 'Загрузить черновик',
+      original: 'Оригинал',
+      photosList: 'Список загруженных фотографий',
+      postPublicationForm: {
+        list: 'Список фотографий для публикации',
+        success: 'Пост успешно создан. Он будет опубликован после модерации. Спасибо!',
+      },
+      steps: {
+        0: 'Добавить фото',
+        1: 'Кадрирование',
+        2: 'Фильтры',
+        3: 'Публикация',
+      },
+    },
     createNewPassword: {
       instruction: 'Пароль должен содержать от 6ти до 20ти символов.',
       title: 'Создайте новый пароль',
@@ -162,6 +198,7 @@ export const ru = {
   },
   placeholders: {
     city: 'Город',
+    description: 'Описание',
     email: 'email@picthentic.online',
     password: '**********',
   },

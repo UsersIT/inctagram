@@ -12,9 +12,10 @@ import { HeaderPopover } from '../HeaderPopover/HeaderPopover'
 
 type Props = {
   isAuth: boolean
+  isLoading: boolean
 } & ComponentProps<'header'>
 
-export const Header: FC<Props> = ({ isAuth }) => {
+export const Header: FC<Props> = ({ isAuth, isLoading }) => {
   const { t } = useTranslation()
 
   return (
@@ -22,26 +23,29 @@ export const Header: FC<Props> = ({ isAuth }) => {
       <Typography as={Link} className={s.logo} href={routes.HOME} variant={'large'}>
         Picthentic
       </Typography>
-      <div className={s.actions}>
-        <LanguageSwitcher />
-        <HeaderPopover isAuth={isAuth} />
-        {!isAuth && (
-          <menu>
-            <ul className={s.menu} role={'menu'}>
-              <li role={'menuitem'}>
-                <Button as={Link} href={routes.LOGIN} variant={'text'}>
-                  {t.buttons.login}
-                </Button>
-              </li>
-              <li role={'menuitem'}>
-                <Button as={Link} href={routes.REGISTRATION}>
-                  {t.buttons.signUp}
-                </Button>
-              </li>
-            </ul>
-          </menu>
-        )}
-      </div>
+
+      {!isLoading && (
+        <div className={s.actions}>
+          <LanguageSwitcher />
+          <HeaderPopover isAuth={isAuth} />
+          {!isAuth && (
+            <menu>
+              <ul className={s.menu} role={'menu'}>
+                <li role={'menuitem'}>
+                  <Button as={Link} href={routes.LOGIN} variant={'text'}>
+                    {t.buttons.login}
+                  </Button>
+                </li>
+                <li role={'menuitem'}>
+                  <Button as={Link} href={routes.REGISTRATION}>
+                    {t.buttons.signUp}
+                  </Button>
+                </li>
+              </ul>
+            </menu>
+          )}
+        </div>
+      )}
     </header>
   )
 }

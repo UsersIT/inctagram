@@ -24,6 +24,8 @@ export const apiEndpoints = {
     userFollowing: (username: string) => `/v1/users/${username}/following`,
   },
   posts: {
+    image: '/v1/posts/image',
+    posts: '/v1/posts',
     postsByUsername: (username: string) => `/v1/posts/${username}`,
   },
   profile: {

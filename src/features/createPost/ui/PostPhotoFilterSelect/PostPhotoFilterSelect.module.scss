@@ -1,0 +1,114 @@
+.root {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.carousel {
+  aspect-ratio: 1 / 1;
+  width: 50%;
+  border-right: 1px solid var(--color-dark-100);
+}
+
+.filtersContainer {
+  width: 50%;
+}
+
+.scrollArea {
+  width: 100%;
+  padding-bottom: 10px;
+}
+
+.filters {
+  display: grid;
+  grid-template-columns: repeat(3, 124px);
+  gap: 2px 8px;
+
+  width: fit-content;
+  margin: 0 auto;
+
+  li {
+    width: fit-content;
+    padding: 8px;
+    border-radius: 2px;
+  }
+}
+
+.filter {
+  all: unset;
+
+  cursor: pointer;
+  user-select: none;
+
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: center;
+  justify-content: center;
+
+  background-color: transparent;
+  border-radius: 2px;
+
+  &:focus-visible {
+    outline: 1px solid var(--color-accent-500);
+  }
+}
+
+.filterPreview {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 108px;
+  height: 108px;
+
+  color: var(--color-accent-500);
+
+  background-color: transparent;
+  border: 1px solid var(--color-dark-100);
+  border-radius: 2px;
+
+  &:hover,
+  &:active {
+    box-shadow: 0 4px 8px rgb(0 0 0 / 63%);
+  }
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+
+  vertical-align: top;
+
+  object-fit: contain;
+  background-color: var(--color-dark-500);
+}
+
+@media screen and (width <= 900px) {
+  .root {
+    flex-direction: column;
+    padding-top: 20px;
+  }
+
+  .carousel {
+    border-right: none;
+  }
+
+  .filtersContainer {
+    width: 100%;
+    padding: 24px 15px 15px;
+  }
+
+  .filters {
+    display: flex;
+  }
+}
+
+@media screen and (width <= 540px) {
+  .carousel {
+    width: 252px;
+  }
+}

@@ -7,7 +7,7 @@ import s from './Dialog.module.scss'
 import { Button } from '../Button/Button'
 import { Modal, ModalProps } from '../Modal/Modal'
 
-type Props = {
+export type DialogProps = {
   buttonsContainerClassName?: string
   buttonsJustify?: 'flex-end' | 'flex-start' | 'space-between'
   buttonsOrder?: 'cancel-to-confirm' | 'confirm-to-cancel'
@@ -23,7 +23,7 @@ type Props = {
   'onNextButton' | 'onPreviousButton' | 'showCloseButton' | 'showNextButton' | 'showPreviousButton'
 >
 
-export const Dialog = (props: Props) => {
+export const Dialog = (props: DialogProps) => {
   const {
     buttonsContainerClassName = '',
     buttonsJustify = 'flex-end',
