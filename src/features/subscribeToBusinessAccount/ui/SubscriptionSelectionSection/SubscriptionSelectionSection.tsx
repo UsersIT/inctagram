@@ -3,8 +3,7 @@ import { toast } from 'react-toastify'
 
 import { useSubscribeMutation } from '@/src/features/subscribeToBusinessAccount/api/subscribeApi'
 import { PaymentMethod } from '@/src/features/subscribeToBusinessAccount/model/types/api'
-import { PayPalIcon } from '@/src/pages/profile/ui/SettingsAccountManagmentTab/PayPalIcon'
-import { StripeIcon } from '@/src/pages/profile/ui/SettingsAccountManagmentTab/StripeIcon'
+import { PayPalIcon, StripeIcon } from '@/src/shared/assets/icons'
 import { useTranslation } from '@/src/shared/hooks'
 import { Button, Card, RadioGroupItem, RadioGroupRoot, Typography } from '@/src/shared/ui'
 
