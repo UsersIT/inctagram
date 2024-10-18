@@ -19,6 +19,7 @@ export const ru = {
     languageSelection: 'Выбор языка',
     login: 'Войти',
     logout: 'Выйти',
+    next: 'Далее',
     openMenu: 'Открыть меню',
     profileSettings: 'Настройки профиля',
     publish: 'Опубликовать',
