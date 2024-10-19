@@ -13,6 +13,8 @@ export const ProfilePage = () => {
   const router = useRouter()
   const { modal } = router.query
   const { data: isAuth, isLoading } = useMeQuery()
+  const profileId = Number(router.query.userId?.[0])
+  const postId = Number(router.query.userId?.[1])
 
   useEffect(() => {
     if (!isLoading && !isAuth) {
@@ -23,8 +25,8 @@ export const ProfilePage = () => {
   return (
     <main className={s.page}>
       {modal && modal === 'create' ? <PostCreator /> : null}
-      <ProfileInfo />
-      <PostsList />
+      <ProfileInfo profileId={profileId} />
+      <PostsList postId={postId} userId={profileId} />
     </main>
   )
 }

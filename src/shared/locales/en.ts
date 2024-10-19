@@ -209,6 +209,7 @@ export const en: LocaleType = {
     followers: 'Followers',
     following: 'Following',
     logOutConfirmation: 'Are you really want to log out of your account?',
+    noPublications: 'There are no publications yet!',
     publications: 'Publications',
     success: 'Success!',
     updatedPhoto: 'Profile photo has been updated successfully!',

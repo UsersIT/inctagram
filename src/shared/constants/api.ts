@@ -40,7 +40,8 @@ export const apiEndpoints = {
     },
     user: {
       userProfileById: '/v1/public-user/profile/', // + `${profileId}`
-      usersCount: '/v1/public-user',
+      users: '/v1/users/',
+      usersCount: '/v1/public-user/',
     },
   },
 } as const

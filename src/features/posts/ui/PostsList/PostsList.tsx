@@ -7,7 +7,6 @@ import clsx from 'clsx'
 
 import s from './PostsList.module.scss'
 
-import { useGetProfileQuery } from '../../../profile'
 import { useGetUserPublicPostsQuery } from '../../api/postApi'
 import { handleIntersection } from '../../lib/handleIntersection'
 import { transformPosts } from '../../model/helpers/transformPosts'
@@ -15,9 +14,10 @@ import { Post } from '../../model/types/api'
 
 type Props = {
   className?: string
+  postId: number
+  profileId: number
 }
-export const PostsList = ({ className }: Props) => {
-  const { data: profile } = useGetProfileQuery()
+export const PostsList = ({ className, postId, profileId  }: Props) => {
   const [posts, setPosts] = useState<Post[]>([])
   const [loadingMore, setLoadingMore] = useState(false)
   const [hasMorePosts, setHasMorePosts] = useState(true)
@@ -29,9 +29,9 @@ export const PostsList = ({ className }: Props) => {
       pageSize: 8,
       sortBy: 'createdAt',
       sortDirection: 'desc',
-      userId: profile ? +profile.id : 0,
+      userId: profileId,
     },
-    { skip: !profile || !hasMorePosts }
+    { skip: !profileId || !hasMorePosts }
   )
 
   useEffect(() => {
@@ -87,7 +87,7 @@ export const PostsList = ({ className }: Props) => {
           )}
         </div>
         {hasMorePosts && <div className={s.loadMoreTrigger} ref={loadMoreRef}></div>}
-        <ScrollBar orientation={'vertical'} />
+        <ScrollBar orientation={'horizontal'} />
       </ScrollArea>
     </>
   )

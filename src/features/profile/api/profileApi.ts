@@ -3,7 +3,8 @@ import type {
   GetFollowersOrFollowingResponse,
   GetFollowersOrFollowingResponseParams,
   GetProfileResponse,
-  UserProfile,
+  GetPublicUserProfileByIdResponse,
+  GetUserResponse,
 } from '../model/types/api'
 
 import { GeneralInfoFormValues } from '@/src/features/profile/model/schemas/generalInfoValidationSchema'
@@ -57,11 +58,21 @@ const profileApi = baseApi.injectEndpoints({
         url: apiEndpoints.profile.profile,
       }),
     }),
-    getPublicUserProfileById: builder.query<UserProfile, { profileId: number }>({
+    getPublicUserProfileById: builder.query<
+      GetPublicUserProfileByIdResponse,
+      { profileId: number }
+    >({
       providesTags: [],
       query: ({ profileId }) => ({
         method: 'GET',
         url: `${apiEndpoints.public.user.userProfileById}${profileId}`,
+      }),
+    }),
+    getUser: builder.query<GetUserResponse, { userName: string | undefined }>({
+      providesTags: [],
+      query: ({ userName }) => ({
+        method: 'GET',
+        url: `${apiEndpoints.public.user.users}${userName}`,
       }),
     }),
     updateProfile: builder.mutation<void, Partial<GeneralInfoFormValues>>({
@@ -107,7 +118,10 @@ export const {
   useGetFollowingQuery,
   useGetProfileQuery,
   useGetPublicUserProfileByIdQuery,
+  useGetUserQuery,
   useLazyGetProfileQuery,
   useUpdateProfileMutation,
   useUploadAvatarMutation,
 } = profileApi
+
+export const { getPublicUserProfileById } = profileApi.endpoints
