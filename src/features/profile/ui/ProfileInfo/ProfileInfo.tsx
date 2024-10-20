@@ -1,12 +1,5 @@
 import { ProfileHeader } from '@/src/entities/profile'
 import { useMeQuery } from '@/src/features/auth'
-import { useGetPostsQuery } from '@/src/features/posts/api/postApi'
-import {
-  useGetFollowersQuery,
-  useGetFollowingQuery,
-  useGetPublicUserProfileByIdQuery,
-  useGetUserQuery,
-} from '@/src/features/profile/api/profileApi'
 import { routes } from '@/src/shared/constants/routes'
 import { useTranslation } from '@/src/shared/hooks'
 import { Button } from '@/src/shared/ui'
@@ -15,6 +8,12 @@ import Link from 'next/link'
 
 import s from './ProfileInfo.module.scss'
 
+import {
+  useFollowingUserMutation,
+  useGetPublicUserProfileByIdQuery,
+  useGetUserQuery,
+} from '../../api/profileApi'
+
 type Props = {
   className?: string
   profileId: number
@@ -22,10 +21,11 @@ type Props = {
 
 export const ProfileInfo = ({ className, profileId }: Props) => {
   const { data: profileData } = useGetPublicUserProfileByIdQuery({ profileId })
-  const { data: userData } = useGetUserQuery(
+  const { data: userData, isSuccess } = useGetUserQuery(
     { userName: profileData?.userName },
     { skip: !profileData?.userName }
   )
+  const [followUser, { isLoading: isLoadingFollow }] = useFollowingUserMutation()
   const { data: me } = useMeQuery(undefined)
 
   const { t } = useTranslation()
@@ -34,6 +34,10 @@ export const ProfileInfo = ({ className, profileId }: Props) => {
     return null
   }
   const isMyProfile = me ? me.userId === +profileId : false
+
+  const followingUserHandler = () => {
+    followUser({ selectedUserId: profileId })
+  }
 
   return (
     <header className={clsx(s.content, className)}>
@@ -45,6 +49,15 @@ export const ProfileInfo = ({ className, profileId }: Props) => {
         publicationsCount={userData?.publicationsCount}
         userName={profileData?.userName}
       >
+        {isSuccess && !isMyProfile && (
+          <Button
+            disabled={isLoadingFollow}
+            onClick={followingUserHandler}
+            variant={userData?.isFollowing ? 'outlined' : 'primary'}
+          >
+            {userData?.isFollowing ? `${t.buttons.unfollow}` : `${t.buttons.follow}`}
+          </Button>
+        )}
         {isMyProfile && (
           <Button
             as={Link}

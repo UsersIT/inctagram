@@ -15,6 +15,7 @@ export const en: LocaleType = {
     expandMenu: 'Expand menu',
     eyeIcon: 'Hide the entered password',
     eyeOffIcon: 'Show the entered password',
+    follow: 'Follow',
     hideUploadedPhotosList: 'Hide uploaded photos list',
     hideZoomSelector: 'Hide zoom selector',
     imageUploader: 'Download from device',
@@ -36,6 +37,7 @@ export const en: LocaleType = {
     showZoomSelector: 'Show zoom selector',
     signIn: 'Sign In',
     signUp: 'Sign Up',
+    unfollow: 'Unfollow',
     uploadMore: 'Upload more',
   },
   calendar: {

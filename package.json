@@ -34,6 +34,7 @@
     "framer-motion": "11.0.24",
     "localforage": "^1.10.0",
     "next": "14.1.1",
+    "next-redux-wrapper": "^8.1.0",
     "react": "^18",
     "react-dom": "^18",
     "react-easy-crop": "5.0.7",

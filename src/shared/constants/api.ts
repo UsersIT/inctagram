@@ -20,6 +20,7 @@ export const apiEndpoints = {
     updateTokens: '/v1/auth/update-tokens',
   },
   followingAndFollowers: {
+    following: 'v1/users/following',
     userFollowers: (username: string) => `/v1/users/${username}/followers`,
     userFollowing: (username: string) => `/v1/users/${username}/following`,
   },

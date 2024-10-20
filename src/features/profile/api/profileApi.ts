@@ -34,6 +34,14 @@ const profileApi = baseApi.injectEndpoints({
         url: apiEndpoints.profile.avatar,
       }),
     }),
+    followingUser: builder.mutation<any, { selectedUserId: number }>({
+      invalidatesTags: [],
+      query: body => ({
+        body,
+        method: 'POST',
+        url: `${apiEndpoints.followingAndFollowers.following}`,
+      }),
+    }),
     getFollowers: builder.query<
       GetFollowersOrFollowingResponse,
       GetFollowersOrFollowingResponseParams
@@ -114,6 +122,7 @@ const profileApi = baseApi.injectEndpoints({
 
 export const {
   useDeleteAvatarMutation,
+  useFollowingUserMutation,
   useGetFollowersQuery,
   useGetFollowingQuery,
   useGetProfileQuery,

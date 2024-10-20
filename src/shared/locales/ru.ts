@@ -13,6 +13,7 @@ export const ru = {
     expandMenu: 'Развернуть меню',
     eyeIcon: 'Скрыть введённый пароль',
     eyeOffIcon: 'Показать введённый пароль',
+    follow: 'Подписаться',
     hideUploadedPhotosList: 'Скрыть список загруженных фотографий',
     hideZoomSelector: 'Скрыть селектор масштабирования',
     imageUploader: 'Загрузить с устройства',
@@ -34,6 +35,7 @@ export const ru = {
     showZoomSelector: 'Показать селектор масштабирования',
     signIn: 'Войти',
     signUp: 'Зарегистрироваться',
+    unfollow: 'Отписаться',
     uploadMore: 'Загрузить ещё',
   },
   calendar: {

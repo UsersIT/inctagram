@@ -1,14 +1,17 @@
-import { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
+import { useSelector } from 'react-redux'
 
+import { useAppDispatch, useAppSelector } from '@/src/app/providers/store'
+import { RootState } from '@/src/app/providers/store/store'
 import { PostImageCard } from '@/src/entities/post'
 import { useTranslation } from '@/src/shared/hooks'
+import { useInfiniteScroll } from '@/src/shared/hooks/useInfiniteScroll'
 import { ScrollArea, ScrollBar, Spinner, Typography } from '@/src/shared/ui'
 import clsx from 'clsx'
 
 import s from './PostsList.module.scss'
 
 import { useGetUserPublicPostsQuery } from '../../api/postApi'
-import { handleIntersection } from '../../lib/handleIntersection'
 import { transformPosts } from '../../model/helpers/transformPosts'
 import { Post } from '../../model/types/api'
 
@@ -17,11 +20,11 @@ type Props = {
   postId: number
   profileId: number
 }
-export const PostsList = ({ className, postId, profileId  }: Props) => {
+
+export const PostsList = ({ className, postId, profileId }: Props) => {
   const [posts, setPosts] = useState<Post[]>([])
   const [loadingMore, setLoadingMore] = useState(false)
   const [hasMorePosts, setHasMorePosts] = useState(true)
-  const loadMoreRef = useRef<HTMLDivElement | null>(null)
   const { t } = useTranslation()
   const { data: newPosts, isFetching } = useGetUserPublicPostsQuery(
     {
@@ -46,23 +49,13 @@ export const PostsList = ({ className, postId, profileId  }: Props) => {
     }
   }, [newPosts])
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      entries => handleIntersection(entries, setLoadingMore, hasMorePosts, loadingMore),
-      { threshold: 1.0 }
-    )
-
-    if (loadMoreRef.current) {
-      observer.observe(loadMoreRef.current)
+  const loadMoreHandler = () => {
+    if (!loadingMore && hasMorePosts) {
+      setLoadingMore(true)
     }
+  }
 
-    return () => {
-      if (loadMoreRef.current) {
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-        observer.unobserve(loadMoreRef.current)
-      }
-    }
-  }, [loadingMore, hasMorePosts])
+  const setLoadMoreRef = useInfiniteScroll(loadMoreHandler)
 
   return (
     <>
@@ -86,7 +79,7 @@ export const PostsList = ({ className, postId, profileId  }: Props) => {
             <Typography variant={'bold-text-14'}>{t.profile.noPublications}</Typography>
           )}
         </div>
-        {hasMorePosts && <div className={s.loadMoreTrigger} ref={loadMoreRef}></div>}
+        {hasMorePosts && <div className={s.loadMoreTrigger} ref={setLoadMoreRef}></div>}
         <ScrollBar orientation={'horizontal'} />
       </ScrollArea>
     </>
