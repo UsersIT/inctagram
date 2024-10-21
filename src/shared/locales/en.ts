@@ -21,6 +21,7 @@ export const en: LocaleType = {
     languageSelection: 'Language selection',
     login: 'Log in',
     logout: 'Log Out',
+    next: 'Next',
     openMenu: 'Open menu',
     profileSettings: 'Profile Settings',
     publish: 'Publish',
